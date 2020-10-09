@@ -73,23 +73,32 @@ vector<vector<pair<int,int>>> scale_req(vector<vector<pair<int,int>>> req,double
 individuo ILS(individuo inicial,const vector<vector<pair<int,int>>>& req,int max_seconds,ostream& fout){
     auto start = std::chrono::steady_clock::now();
     auto end = std::chrono::steady_clock::now();
+    int iter=0,nc = 100;
     inicial.eval(req);
-    inicial.N7climb(req);
     //fout<<"0"<<" "<<inicial.cost<<endl;
     individuo best=inicial;
+    double pm=0.8,pj=0.1;
     while(std::chrono::duration_cast<chrono::seconds>(end-start).count()<max_seconds){
         // shake
-        inicial.perturb();
+		//cout << "Va a perturbar" << endl;
+        inicial.perturb(pm,pj);
         // busqueda en vecindad 
-        inicial.N7climb(req);
+		//inicial.all_shift_climb(req);
+        inicial.fitnessclimb(req);
         inicial.N8climb(req);
-        inicial.N7climb(req);
-        //inicial.N8climb(req);
-        fout<<chrono::duration_cast<chrono::milliseconds>(end-start).count()<<" "<<inicial.costo()<<endl;
-        if(inicial<best)
+		//cout << inicial.costo()<< endl;
+		//cout << inicial.get_rc().size() << endl;
+        if(inicial<best){
             best=inicial;
+		    fout<<chrono::duration_cast<chrono::seconds>(end-start).count()<<"\t"<<inicial.costo()<<" \titer: "<<iter<<endl;
+            iter = 0; 
+		    //cout << "\tMejor valor: " << best.costo() << endl;
+        }
+        //break;
         end = std::chrono::steady_clock::now();
+        iter++;
     }
+    cout<<"\titer: "<<iter<<endl;
     return best;
 }
 

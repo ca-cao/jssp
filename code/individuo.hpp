@@ -55,9 +55,13 @@ class individuo{
         void set_cost(unsigned long int c);
         int rc_size();
         bool connected(int u,int v);
-        void perturb();
+        void perturb(double pm=.85,double pj=.5);
         vector<pair<int,int>> make_vec2(const vector<vector<pair<int,int>>>& req);
         void bnb(const vector<vector<pair<int,int>>>& req);
+	    vector < pair<int, int> > create_all_vec();
+		void all_shift_climb(const vector<vector<pair<int,int>>>& req);
+		void fitnessclimb(const vector<vector<pair<int,int>>>& req);
+        auto fitness() const;
    private:
         int nmaq;
         int njobs;

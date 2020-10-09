@@ -41,13 +41,4 @@ for i in range(maq):
 ax.grid(True)
 ax.figure.colorbar(mpl.cm.ScalarMappable(cmap=cmap, norm=norm),ax=ax)
 ax.set_title(sys.argv[1])
-
-"""
-fig.colorbar(
-    mpl.cm.ScalarMappable(cmap=cmap, norm=norm),
-    cax=ax,
-    boundaries=bounds,
-    ticks=bounds,
-)
-"""
 plt.show()

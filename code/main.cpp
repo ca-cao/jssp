@@ -18,15 +18,14 @@ int main(int argc, char** argv){
     int njobs=req.size(),nmaq=req[0].size(),col,row;
     
     ofstream  f1,f2;
-    f1.open(argv[2]);
-
-    f2.open(argv[3]);
+    f1.open("fit.ind");
+    f2.open("fit.rc");
+    cout<<tanh(10.0/1000)<<endl;
     
-    individuo x,best,n8;
+    individuo x;
     x.create_rand(req);
-    x.eval(req);
-    n8 = ILS(x,req,300,f1);
-    n8.show(f2);
-    n8.show_rc(f2);
+    x = ILS(x,req,300);
+    x.show(f1);
+    x.show_rc(f2);
     return 0;
 }

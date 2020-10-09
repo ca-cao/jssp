@@ -1,7 +1,12 @@
 all: main.cpp jsp.o individuo.o
-	@g++ -c jsp.cpp individuo.cpp -g 
-	@g++ -c main.cpp -g
-	@g++ -o main main.o jsp.o individuo.o
+	@g++ -c jsp.cpp individuo.cpp -O2
+	@g++ -c main.cpp -O2
+	@g++ -o main main.o jsp.o individuo.o -O2
+
+profile: main.cpp jsp.o individuo.o
+	@g++ -c jsp.cpp individuo.cpp -pg 
+	@g++ -c main.cpp -pg 
+	@g++ -o main_profile main.o jsp.o individuo.o -pg 
 
 test: test.cpp jsp.o individuo.o
 	@g++ -c jsp.cpp individuo.cpp -g 
