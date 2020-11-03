@@ -20,11 +20,14 @@ int main(int argc, char** argv){
     ofstream  f1,f2;
     f1.open("fit.ind");
     f2.open("fit.rc");
-    cout<<tanh(10.0/1000)<<endl;
     
     individuo x;
     x.create_rand(req);
-    x = ILS(x,req,300);
+    x.eval(req);
+    x.get_rc();
+    //cout<<"fitnessclimb\n";
+    //x.fitnessclimb(req);
+    x = ILS(x,req,atoi(argv[2]));
     x.show(f1);
     x.show_rc(f2);
     return 0;

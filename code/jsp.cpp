@@ -81,24 +81,28 @@ individuo ILS(individuo inicial,const vector<vector<pair<int,int>>>& req,int max
     while(std::chrono::duration_cast<chrono::seconds>(end-start).count()<max_seconds){
         // shake
 		//cout << "Va a perturbar" << endl;
-        inicial.perturb(pm,pj);
+				individuo copiado = inicial;
+        inicial.perturb(req,pm,pj);
         // busqueda en vecindad 
 		//inicial.all_shift_climb(req);
         inicial.fitnessclimb(req);
         inicial.N8climb(req);
 		//cout << inicial.costo()<< endl;
 		//cout << inicial.get_rc().size() << endl;
+	    //cout << "Valor actual: " << inicial.costo() << endl;	
         if(inicial<best){
             best=inicial;
-		    fout<<chrono::duration_cast<chrono::seconds>(end-start).count()<<"\t"<<inicial.costo()<<" \titer: "<<iter<<endl;
-            iter = 0; 
+		    //fout<<chrono::duration_cast<chrono::seconds>(end-start).count()<<"\t"<<inicial.costo()<<" \titer: "<<iter<<endl;
+            //iter = 0; 
 		    //cout << "\tMejor valor: " << best.costo() << endl;
-        }
+        } else {
+					inicial = copiado;
+				}
         //break;
         end = std::chrono::steady_clock::now();
         iter++;
+    	cout<<"\titer: "<<iter<<endl;
     }
-    cout<<"\titer: "<<iter<<endl;
     return best;
 }
 

@@ -108,7 +108,7 @@ auto individuo::fitness() const {
     double mean = totime/nmaq; 
     double sqrmean = inner_product(finishtimes.begin(),finishtimes.end(),finishtimes.begin(),0)/nmaq;
     double dist2= sqrmean - 2*cost*mean + mean*mean; 
-    dist2 = cost - *min_element(finishtimes.begin(),finishtimes.end());
+    dist2 =  -*min_element(finishtimes.begin(),finishtimes.end());
     
     // espacios
     int idletime=0;
@@ -119,7 +119,7 @@ auto individuo::fitness() const {
             idletime += plan[i*njobs+j+1].start-plan[i*njobs+j].end;
     }
     // tupla 
-    return  make_tuple(cost,idletime,totime,dist2,rc_size);
+    return  make_tuple(cost,dist2,idletime,totime,rc_size);
 
 }
 
@@ -227,7 +227,6 @@ void individuo::eval(const vector<vector<pair<int,int>>>& req){
     int op,njob,jid,check,dep,pid;
     
     bool finished = false; 
-    
     while(!finished){
         check = accumulate(nop.begin(),nop.end(),0);
     // intentar hacer el siguiente trabajo en la maquina i
@@ -245,14 +244,14 @@ void individuo::eval(const vector<vector<pair<int,int>>>& req){
             dep = this->plan[pid].jobdep;
             // si no dependia de otro
             if(op==0){
-                this->plan[pid].start = nop[i]==0?0:this->plan[pid-1].end;
-                this->plan[pid].end = this->plan[pid].start+req[njob][op].second;
-                nop[i] += 1;
+              this->plan[pid].start = nop[i]==0?0:this->plan[pid-1].end;
+              this->plan[pid].end = this->plan[pid].start+req[njob][op].second;
+              nop[i] += 1;
             }
             // si ya termino el pasado
             else if(plan[dep].end !=0){
                 // le asigna el mayor tiempo entre su dependencia en el job y la maquina
-                this->plan[i*njobs+nop[i]].start = nop[i]==0?plan[dep].end:max(this->plan[pid-1].end,plan[dep].end);
+			    this->plan[i*njobs+nop[i]].start = nop[i]==0?plan[dep].end:max(this->plan[pid-1].end,plan[dep].end);
                 this->plan[i*njobs+nop[i]].end = this->plan[pid].start + req[njob][op].second;
                 nop[i] += 1;
             }
@@ -291,7 +290,7 @@ void individuo::eval(const vector<vector<pair<int,int>>>& req){
     for(int i=0;i<this->nmaq;i++){
         this->cost = this->cost<this->plan[i*njobs+njobs-1].end?this->plan[i*njobs+njobs-1].end:this->cost;
     }
-    return;
+		//Repair solution
 }
 
 // guardar solo comienzo y final de bloques
@@ -616,7 +615,30 @@ bool individuo::connected(int u,const int v){
 
 // regresa un vector con los cambios que se hiceron
 // los elementos impares van despues de los pares
-void individuo::perturb(double pm,double pj){
+void individuo::perturb(const vector<vector<pair<int,int>>>& req, double pm,double pj){
+    random_device rd;
+    individuo copy=(*this);
+    mt19937 gen(rd());
+    uniform_real_distribution<> dis(0, 1);//uniform distribution between 0 and 1
+    for(int i=0;i<nmaq;i++){
+        for(int j=0;j<njobs;j++){
+            // mover a la derecha izq o no hacer nada
+            if(dis(gen)<min(pm,pj) and j!=njobs-1){
+                copy.swap_op(i*njobs+j,i*njobs+j+1);
+                copy.eval(req);
+                if(copy<(*this))
+                    *this=copy;
+            }
+            else if(dis(gen)<(pm+pj) and j!=0){
+                copy.swap_op(i*njobs+j,i*njobs+j-1);
+                copy.eval(req);
+                if(copy<(*this))
+                    *this=copy;
+            }
+        }
+    }
+
+    /*
     // revolver la mitad de los trabajos de la maquina que esta mas tiempo hacer nada
     vector<int> ftimes,shuf(njobs),change,stimes;
     int pmaq=nmaq*pm,pjobs=njobs*pj;
@@ -649,14 +671,9 @@ void individuo::perturb(double pm,double pj){
             swap_op(m*njobs+shuf[i],m*njobs+shuf[i]+1);
             // agregar los cambios que se hacen
             // inserta  [maquina,job1,job2]
-            aux.push_back(m*njobs);
-            aux.push_back(plan[m*njobs+shuf[i]+1].id);
-            aux.push_back(plan[m*njobs+shuf[i]].id);
-            aux.clear();
         }
 
     }
-    /*
     // escojer un numero al azar de cambios
     default_random_engine generator;
     //uniform_int_distribution<int> dist(nmaq,njobs*nmaq-1);
@@ -695,7 +712,6 @@ void individuo::perturb(double pm,double pj){
         //}
     }
     */
-
 }
 
 
@@ -888,3 +904,4 @@ void individuo::replan_machine(){
     }
 }
 */
+

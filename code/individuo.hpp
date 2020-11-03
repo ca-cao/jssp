@@ -7,6 +7,7 @@
 #include<string>
 using namespace std;
 
+
 struct job{
     int start;
     int end;
@@ -55,7 +56,7 @@ class individuo{
         void set_cost(unsigned long int c);
         int rc_size();
         bool connected(int u,int v);
-        void perturb(double pm=.85,double pj=.5);
+        void perturb(const vector<vector<pair<int,int>>>& req,double pm=.85,double pj=.5);
         vector<pair<int,int>> make_vec2(const vector<vector<pair<int,int>>>& req);
         void bnb(const vector<vector<pair<int,int>>>& req);
 	    vector < pair<int, int> > create_all_vec();
