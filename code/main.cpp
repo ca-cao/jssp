@@ -13,21 +13,15 @@ using namespace std;
 
 int main(int argc, char** argv){
     // leer instancia y obtener parametros
-    vector<vector<pair<int,int>>> req=getData(argv[1]);
-    vector<vector<job*>> rc; 
-    int njobs=req.size(),nmaq=req[0].size(),col,row;
+    jsp problem(argv[1]);
     
     ofstream  f1,f2;
     f1.open("fit.ind");
     f2.open("fit.rc");
     
     individuo x;
-    x.create_rand(req);
-    x.eval(req);
-    x.get_rc();
-    //cout<<"fitnessclimb\n";
-    //x.fitnessclimb(req);
-    x = ILS(x,req,atoi(argv[2]));
+    x.create_rand(problem.req);
+    x = problem.ILS(x,make_n7,atoi(argv[2]));
     x.show(f1);
     x.show_rc(f2);
     return 0;

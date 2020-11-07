@@ -26,7 +26,7 @@ ostream& operator<<(ostream& os, const job& dt){
     return os;
 }
 
-void individuo::load(string fname,const vector<vector<pair<int,int>>>& req){
+void individuo::load(string fname,const instance& req){
     ifstream infile;
     infile.open(fname);
     string line;
@@ -119,7 +119,7 @@ auto individuo::fitness() const {
             idletime += plan[i*njobs+j+1].start-plan[i*njobs+j].end;
     }
     // tupla 
-    return  make_tuple(cost,dist2,idletime,totime,rc_size);
+    return  make_tuple(cost,idletime,totime,dist2,rc_size);
 
 }
 
@@ -129,7 +129,7 @@ bool individuo::operator<(const individuo& other){
     return this->fitness()<other.fitness();
 }
 
-void individuo::create_rand(vector< vector< pair <int,int> > > req){
+void individuo::create_rand(instance req){
     int maq,jid,pid;
     this->njobs = req.size();
     this->nmaq = req[0].size();
@@ -212,7 +212,7 @@ void individuo::show(ostream& os){
     }
 }
 
-void individuo::eval(const vector<vector<pair<int,int>>>& req){
+void individuo::eval(const instance& req){
     // resetear los tiempos
     for(int i=0;i<this->nmaq;i++){
         for(int j=0;j<this->njobs;j++){
@@ -382,7 +382,7 @@ void individuo::set_times(const vector<pair<int,int>>& times){
 }
 
 // genera todos los cambios para la vecindad N7
-vector<pair<int,int>> individuo::make_vec(const vector<vector<pair<int,int>>>& req){
+vector<pair<int,int>> individuo::make_vec(const instance& req){
     vector<pair<int,int>> n7;
     int i,j;
     // generar la vecindad
@@ -473,117 +473,6 @@ vector < pair<int, int> > individuo::create_all_vec(){
 	return all_vec;
 }
 
-void individuo::all_shift_climb(const vector<vector<pair<int,int>>>& req){
-    int u,v;
-    unsigned long int cost0;
-    vector<pair<int,int>> times;
-    int rc_save;
-    this->eval(req);
-    this->get_rc();
-
-		vector < int > bestMacTimes;
-    for(int i=0;i<this->nmaq;i++){
-			bestMacTimes.push_back(this->plan[i*njobs+njobs-1].end);
-		}
-		sort(bestMacTimes.begin(), bestMacTimes.end());
-		reverse(bestMacTimes.begin(), bestMacTimes.end());
-		
-
-		vector < pair < int, int > > all_vec = create_all_vec();
-    vector<job> currentPlan = plan; 
-
-    while(!all_vec.empty()){
-        cost0=this->cost;
-        u = all_vec.back().first; v = all_vec.back().second;
-        all_vec.pop_back();
-
-        // guarda el schedule
-        times = this->save_times();
-
-        // moverlo 
-        move_op(u,v);
-
-        // evaluar
-        this->eval(req);
-					
-				vector < int > currentMacTimes;
-		    for(int i=0;i<this->nmaq;i++){
-					currentMacTimes.push_back(this->plan[i*njobs+njobs-1].end);
-				}
-				sort(currentMacTimes.begin(), currentMacTimes.end());
-				reverse(currentMacTimes.begin(), currentMacTimes.end());
-
-        // ver si es mejor
-				//cout << "El costo es: " << cost << endl;
-        if((currentMacTimes<bestMacTimes) && (cost + 1 != 0)){
-					currentPlan = plan;
-					bestMacTimes = currentMacTimes;
-           this->get_rc();
-           all_vec = create_all_vec();
-					 cout << "Va por " << bestMacTimes[0] << endl;
-        } else{
-            //move_op(v,u);
-						plan = currentPlan;
-            this->cost = cost0;
-            this->set_times(times);
-            this->get_rc();
-        }
-    }
-}
-
-
-void individuo::N7climb(const vector<vector<pair<int,int>>>& req){
-    int u,v;
-    unsigned long int cost0;
-    vector<pair<int,int>> times;
-    int rc_save;
-    this->eval(req);
-    this->get_rc();
-
-    vector<pair<int,int>> n7 = make_vec(req);
-    while(!n7.empty()){
-        cost0=this->cost;
-        u = n7.back().first; v = n7.back().second;
-        n7.pop_back();
-
-        // guarda el schedule
-        times = this->save_times();
-
-        // moverlo 
-        move_op(u,v);
-
-        // evaluar
-        this->eval(req);
-
-        // ver si es mejor
-        if(this->cost<cost0){
-            this->get_rc();
-            n7 = make_vec(req);
-        }
-        else if(this->cost == cost0){
-            rc_save = this->ruta.size();
-            this->get_rc();
-            // cambiar si tiene menos rutas criticas
-            if(this->ruta.size() < rc_save )
-                n7 = make_vec(req);
-            else{
-            // regresar al individuo a su estado
-                move_op(v,u);
-                this->cost = cost0;
-                this->set_times(times);
-                this->get_rc();
-            }
-        }
-        // regresar al individuo a su estado
-        else{
-            move_op(v,u);
-            this->cost = cost0;
-            this->set_times(times);
-            this->get_rc();
-        }
-    }
-}
-
 // regresa si hay un camino de u a v
 // BFS no recursivo
 bool individuo::connected(int u,const int v){
@@ -615,30 +504,7 @@ bool individuo::connected(int u,const int v){
 
 // regresa un vector con los cambios que se hiceron
 // los elementos impares van despues de los pares
-void individuo::perturb(const vector<vector<pair<int,int>>>& req, double pm,double pj){
-    random_device rd;
-    individuo copy=(*this);
-    mt19937 gen(rd());
-    uniform_real_distribution<> dis(0, 1);//uniform distribution between 0 and 1
-    for(int i=0;i<nmaq;i++){
-        for(int j=0;j<njobs;j++){
-            // mover a la derecha izq o no hacer nada
-            if(dis(gen)<min(pm,pj) and j!=njobs-1){
-                copy.swap_op(i*njobs+j,i*njobs+j+1);
-                copy.eval(req);
-                if(copy<(*this))
-                    *this=copy;
-            }
-            else if(dis(gen)<(pm+pj) and j!=0){
-                copy.swap_op(i*njobs+j,i*njobs+j-1);
-                copy.eval(req);
-                if(copy<(*this))
-                    *this=copy;
-            }
-        }
-    }
-
-    /*
+void individuo::perturb(double pm,double pj){
     // revolver la mitad de los trabajos de la maquina que esta mas tiempo hacer nada
     vector<int> ftimes,shuf(njobs),change,stimes;
     int pmaq=nmaq*pm,pjobs=njobs*pj;
@@ -660,6 +526,35 @@ void individuo::perturb(const vector<vector<pair<int,int>>>& req, double pm,doub
         change.push_back(min_element(ftimes.begin(),ftimes.end())-ftimes.begin()); 
         *min_element(ftimes.begin(),ftimes.end())=0;
     }
+   /* 
+    
+    // intento estilo montecarlo que no funciona
+    random_device rd;
+    individuo copy=(*this);
+    mt19937 gen(rd());
+    uniform_real_distribution<> dis(0, 1);//uniform distribution between 0 and 1
+    for(int i=0;i<nmaq;i++){
+        for(int j=0;j<njobs;j++){
+            // mover a la derecha izq o no hacer nada
+            if(dis(gen)<min(pm,pj) and j!=njobs-1){
+                copy.swap_op(i*njobs+j,i*njobs+j+1);
+                copy.eval(req);
+                if(copy<(*this))
+                    *this=copy;
+                else
+                    copy.swap_op(i*njobs+j,i*njobs+j+1);
+            }
+            else if(dis(gen)<(pm+pj) and j!=0){
+                copy.swap_op(i*njobs+j,i*njobs+j-1);
+                copy.eval(req);
+                if(copy<(*this))
+                    *this=copy;
+                else
+                    copy.swap_op(i*njobs+j,i*njobs+j-1);
+            }
+        }
+    }
+
 
     for(int i= 0;i<njobs-1;i++)
         shuf[i]=i;
@@ -716,9 +611,9 @@ void individuo::perturb(const vector<vector<pair<int,int>>>& req, double pm,doub
 
 
 // encontrar los huecos y tratar de meter jobs de la rc ahi
-vector<pair<int,int>> individuo::make_vec2(const vector<vector<pair<int,int>>>& req){
+vector<pair<int,int>> individuo::make_vec2(const instance& req){
     vector<pair<int,int>> vec;
-    vector<vector<pair<int,int>>> gaps;
+    instance gaps;
     gaps.resize(nmaq);
     for(int i=0;i<nmaq;i++){
         for(int j=0;j<njobs-1;j++){
@@ -762,59 +657,8 @@ vector<pair<int,int>> individuo::make_vec2(const vector<vector<pair<int,int>>>& 
 
 }
 
-void individuo::N8climb(const vector<vector<pair<int,int>>>& req){
-    int u,v;
-    unsigned long int cost0;
-    vector<pair<int,int>> times;
-    int rc_save;
-    this->eval(req);
-    this->get_rc();
-    vector<pair<int,int>> n8 = make_vec2(req);
-    while(!n8.empty()){
-        cost0=this->cost;
-        u = n8.back().first; v = n8.back().second;
-        n8.pop_back();
-
-        // guarda el schedule
-        times = this->save_times();
-
-        // moverlo 
-        move_op(u,v);
-
-        // evaluar
-        this->eval(req);
-
-        // ver si es mejor
-        if(this->cost<cost0){
-            this->get_rc();
-            n8 = make_vec2(req);
-        }
-        else if(this->cost == cost0){
-            rc_save = this->ruta.size();
-            this->get_rc();
-            // cambiar si tiene menos rutas criticas
-            if(this->ruta.size() < rc_save )
-                n8 = make_vec2(req);
-            else{
-            // regresar al individuo a su estado
-                move_op(v,u);
-                this->cost = cost0;
-                this->set_times(times);
-                this->get_rc();
-            }
-        }
-        // regresar al individuo a su estado
-        else{
-            move_op(v,u);
-            this->cost = cost0;
-            this->set_times(times);
-            this->get_rc();
-        }
-    }
-}
-
 // branch and bound
-void individuo::bnb(const vector<vector<pair<int,int>>>& req){
+void individuo::bnb(const instance& req){
     // evaluar y conseguir su rc
     eval(req);
     get_rc();
@@ -827,41 +671,6 @@ void individuo::bnb(const vector<vector<pair<int,int>>>& req){
         }
     }
 
-}
-
-// escala con la funcion de fitness
-void individuo::fitnessclimb(const vector<vector<pair<int,int>>>& req){
-    int u,v;
-    unsigned long int cost0;
-    vector<pair<int,int>> times;
-    int rc_save=0;
-    this->eval(req);
-    this->get_rc();
-    individuo inicial;
-    vector<pair<int,int>> n7 = make_vec(req);
-    while(!n7.empty()){
-        //cout<<"\tit:  "<<rc_save << "\tvecsize" <<n7.size() << endl;
-        u = n7.back().first; v = n7.back().second;
-        n7.pop_back();
-        inicial = (*this);
-
-        // moverlo 
-        move_op(u,v);
-
-        // evaluar y obtener su ruta critica
-        eval(req);
-        get_rc();
-
-        // ver si es mejor
-        if((*this)<inicial){
-            n7 = make_vec(req);
-            rc_save++;
-        }
-        // regresar al individuo a su estado
-        else{
-            (*this) = inicial;
-        }
-    }
 }
 
 /*

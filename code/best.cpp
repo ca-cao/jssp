@@ -14,7 +14,7 @@ using namespace std;
 // ./best instancia best.txt 
 int main(int argc, char** argv){
     // leer instancia y obtener parametros
-    vector<vector<pair<int,int>>> req=getData(argv[1]);
+    instance req=getData(argv[1]);
     vector<vector<job*>> rc; 
     int njobs=req.size(),nmaq=req[0].size(),col,row;
     

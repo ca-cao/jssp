@@ -1,4 +1,5 @@
 #include"individuo.hpp"
+#include<functional>
 #include<algorithm>
 #include<fstream>
 #include"jsp.hpp"
@@ -8,7 +9,19 @@
 #include<cmath>
 
 using namespace std;
-vector< vector< pair <int,int> > > getData(string fname){ 
+
+template<class ForwardIt, class Compare>
+ForwardIt maxelement(ForwardIt first, ForwardIt last,Compare comp){
+    if (first == last) return last;
+    ForwardIt largest = first;
+    ++first;
+    for (; first != last; ++first)
+        if (comp(*largest, *first)) 
+            largest = first;
+    return largest;
+}
+
+instance getData(string fname){ 
     ifstream infile;
     infile.open(fname);
     string line;
@@ -18,7 +31,7 @@ vector< vector< pair <int,int> > > getData(string fname){
     lines>>njobs;
     lines>>nmaq;
 
-    vector< vector<pair<int,int>> > req(njobs, vector<pair<int,int>>(nmaq));
+    instance req(njobs, vector<pair<int,int>>(nmaq));
     int countrow=0,countcol=0;
     while(getline(infile,line)){
         countcol=0;
@@ -34,24 +47,17 @@ vector< vector< pair <int,int> > > getData(string fname){
     return req;
 }
 
-template<class ForwardIt, class Compare>
-ForwardIt maxelement(ForwardIt first, ForwardIt last, 
-                              Compare comp)
-{
-        if (first == last) return last;
-         
-            ForwardIt largest = first;
-                ++first;
-                    for (; first != last; ++first) {
-                                if (comp(*largest, *first)) {
-                                                largest = first;
-                                                        }
-                                    }
-                        return largest;
+// constructor
+jsp::jsp(string fname){
+    req = getData(fname);
 }
 
+// destructor
+jsp::~jsp(){};
+
+
 // escala todos los tiempos a un factor gamma del maximo
-vector<vector<pair<int,int>>> scale_req(vector<vector<pair<int,int>>> req,double gamma){
+instance jsp::scale_req(double gamma){
     int maxtime=0,aux;
 
     // encontrar el máximo
@@ -69,40 +75,105 @@ vector<vector<pair<int,int>>> scale_req(vector<vector<pair<int,int>>> req,double
 
 } 
 
+vector<pair<int,int>> make_n7(individuo x){
+    vector<pair<int,int>> n7;
+    int i,j;
+    // generar la vecindad
+    for(auto rc :x.ruta){
+        i = 0;
+        j = 0;
+        while(i != rc.size()){
+            // i es el inicio del bloque
+            while(true){
+                j++;
+                // si ya llego al final de la ruta o no estan en la misma maquina
+                if(j == rc.size() or rc[i]/x.njobs != rc[j]/x.njobs)
+                    break;
+                // si el predecesor de i esta en la ruta critica
+                //if(plan[plan[rc[i]].jobdep].is_in_rc){
+                    n7.push_back(pair<int,int>(rc[i],rc[j]));
+                    n7.push_back(pair<int,int>(rc[j],rc[i]));
+                //}
+            }
+            j--;
+            // j es el final del bloque
+            while(true){
+                i++;
+                // si ya llego al final de la ruta o no estan en la misma maquina
+                if(i == rc.size() or rc[i]/x.njobs != rc[j]/x.njobs)
+                    break;
+                // si el sucesor de j esta en la ruta critica
+                //if(plan[plan[rc[j]].jobsuc].is_in_rc){
+                    n7.push_back(pair<int,int>(rc[i],rc[j]));
+                    n7.push_back(pair<int,int>(rc[j],rc[i]));
+                //}
+            }
+        }
+    }
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    //seed = 1;
+    shuffle(n7.begin(),n7.end(),default_random_engine(seed));
+    return n7;
+}
 
-individuo ILS(individuo inicial,const vector<vector<pair<int,int>>>& req,int max_seconds,ostream& fout){
+individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(individuo) ){
+    int u,v;
+    unsigned long int cost0;
+    vector<pair<int,int>> times;
+    int rc_save=0;
+    x.eval(req);
+    x.get_rc();
+    individuo trial;
+    vector<pair<int,int>> n7 = (*vec)(x);
+    while(!n7.empty()){
+        // crear un individuo de prueba
+        trial = x;
+        u = n7.back().first; v = n7.back().second;
+        n7.pop_back();
+
+        // moverlo 
+        trial.move_op(u,v);
+
+        // evaluar y obtener su ruta critica
+        trial.eval(req);
+        trial.get_rc();
+
+        // ver si es mejor, cambiarlo y hacer la nueva vecindad
+        if(trial<x){
+            x = trial;
+            n7 = (*vec)(x);
+        }
+    }
+    return x;
+}
+
+
+individuo jsp::ILS(individuo inicial,vector<pair<int,int>> (*vec)(individuo),int max_seconds,ostream& fout){
     auto start = std::chrono::steady_clock::now();
     auto end = std::chrono::steady_clock::now();
     int iter=0,nc = 100;
     inicial.eval(req);
+    individuo copy = inicial;
     //fout<<"0"<<" "<<inicial.cost<<endl;
-    individuo best=inicial;
-    double pm=0.8,pj=0.1;
+    double pm=0.5,pj=0.25;
     while(std::chrono::duration_cast<chrono::seconds>(end-start).count()<max_seconds){
         // shake
-		//cout << "Va a perturbar" << endl;
-				individuo copiado = inicial;
-        inicial.perturb(req,pm,pj);
-        // busqueda en vecindad 
-		//inicial.all_shift_climb(req);
-        inicial.fitnessclimb(req);
-        inicial.N8climb(req);
-		//cout << inicial.costo()<< endl;
-		//cout << inicial.get_rc().size() << endl;
-	    //cout << "Valor actual: " << inicial.costo() << endl;	
-        if(inicial<best){
-            best=inicial;
-		    //fout<<chrono::duration_cast<chrono::seconds>(end-start).count()<<"\t"<<inicial.costo()<<" \titer: "<<iter<<endl;
-            //iter = 0; 
-		    //cout << "\tMejor valor: " << best.costo() << endl;
-        } else {
-					inicial = copiado;
-				}
+        copy.perturb(pm,pj);
+        copy = local_search(copy,vec);
+        if(copy<inicial){
+            inicial=copy;
+        } 
+        else {
+		    copy = inicial;
+		}
         //break;
         end = std::chrono::steady_clock::now();
         iter++;
     	cout<<"\titer: "<<iter<<endl;
     }
-    return best;
+    inicial.eval(req);
+    inicial.get_rc();
+    // return best;
+    return inicial;
 }
 

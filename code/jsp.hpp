@@ -9,12 +9,16 @@
 
 using namespace std;
 // regresa la matriz con los pesos de las aristas
-vector<vector<pair<int,int>>> getData(string fname);
+instance getData(string fname);
+vector<pair<int,int>> make_n7(individuo x);
 
-vector<vector<pair<int,int>>> scale_req(vector<vector<pair<int,int>>> req,double gamma);
-
-individuo ILS(individuo inicial,const vector<vector<pair<int,int>>>& req,int max_seconds,ostream& fout=cout);
-
-individuo climb(individuo inicial, const vector<vector<pair<int,int>>>& req, 
-        vector<pair<int,int>> (individuo::*make_vec)(const vector<vector<pair<int,int>>>&));
+class jsp{
+    public:
+        jsp(string fname);
+        ~jsp();
+        instance req;
+        instance scale_req(double gamma);
+        individuo local_search(individuo x,vector<pair<int,int>> (*vec)(individuo));
+        individuo ILS(individuo inicial,vector<pair<int,int>> (*vec)(individuo),int max_seconds,ostream& fout=cout);
+};
 #endif
