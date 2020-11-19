@@ -113,7 +113,7 @@ auto individuo::fitness() const {
     // espacios
     int idletime=0;
     for(int i=0;i<nmaq;i++){
-        idletime += cost-plan[i*njobs+njobs-1].end;
+        idletime = plan[i*njobs].start;
         for(int j=0;j<njobs-1;j++)
             // sumar el tiempo que esta parada
             idletime += plan[i*njobs+j+1].start-plan[i*njobs+j].end;
@@ -508,16 +508,13 @@ void individuo::perturb(double pm,double pj){
     // revolver la mitad de los trabajos de la maquina que esta mas tiempo hacer nada
     vector<int> ftimes,shuf(njobs),change,stimes;
     int pmaq=nmaq*pm,pjobs=njobs*pj;
-    //cout<<endl;
-    //cout << "en perturb\t pmaq=\t"<<pmaq<<"\tpjobs=\t"<<pjobs<<endl;
-    //cout<<endl;
 
     for(int i=0;i<this->nmaq;i++){
         ftimes.push_back(plan[i*njobs+njobs-1].end);
         stimes.push_back(plan[i*njobs].start);
     }
     
-    for(int i =0;i<pmaq;i++){
+    for(int i =0;i<pmaq/2;i++){
         // las maquina que empieza al ultimo
         change.push_back(max_element(stimes.begin(),stimes.end())-stimes.begin());
         *max_element(stimes.begin(),stimes.end())=0;
@@ -525,6 +522,19 @@ void individuo::perturb(double pm,double pj){
         // las maquina que acaban primero
         change.push_back(min_element(ftimes.begin(),ftimes.end())-ftimes.begin()); 
         *min_element(ftimes.begin(),ftimes.end())=0;
+    }
+
+    cout << "perturb\t machines:\t" << change.size()<<"\tjobs:\t"<<pjobs <<endl;
+    for(int i= 0;i<njobs-1;i++)
+        shuf[i]=i;
+    // mezclar
+    vector<int> aux;
+    for(int m : change){
+        random_shuffle(shuf.begin(),shuf.end());
+        for(int i=0;i<pjobs/2;i++){
+            swap_op(m*njobs+shuf[i],m*njobs+shuf[i+1]);
+        }
+
     }
    /* 
     
@@ -555,20 +565,6 @@ void individuo::perturb(double pm,double pj){
         }
     }
 
-
-    for(int i= 0;i<njobs-1;i++)
-        shuf[i]=i;
-    // mezclar
-    vector<int> aux;
-    for(int m : change){
-        random_shuffle(shuf.begin(),shuf.end());
-        for(int i=0;i<pjobs;i++){
-            swap_op(m*njobs+shuf[i],m*njobs+shuf[i]+1);
-            // agregar los cambios que se hacen
-            // inserta  [maquina,job1,job2]
-        }
-
-    }
     // escojer un numero al azar de cambios
     default_random_engine generator;
     //uniform_int_distribution<int> dist(nmaq,njobs*nmaq-1);

@@ -148,28 +148,51 @@ individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(individuo) 
 }
 
 
+// en el fout guarda la red de cambios
 individuo jsp::ILS(individuo inicial,vector<pair<int,int>> (*vec)(individuo),int max_seconds,ostream& fout){
     auto start = std::chrono::steady_clock::now();
     auto end = std::chrono::steady_clock::now();
-    int iter=0,nc = 100;
+    int iter=0,current_best=0;
+
+    // empezar con algun optimo local
     inicial.eval(req);
+    inicial = local_search(inicial,vec);
     individuo copy = inicial;
-    //fout<<"0"<<" "<<inicial.cost<<endl;
-    double pm=0.5,pj=0.25;
+
+    // definir cuantos trabajo se van a cambiar
+    double pm=.5,pj=.5;
+    int weight;
+
     while(std::chrono::duration_cast<chrono::seconds>(end-start).count()<max_seconds){
-        // shake
+        if((iter-current_best)==0){
+            pm =min(.9,pm+.05);
+            pj =min(.9,pj+.05);
+        }
+        else{
+            pm =max(.1,pm-.05);
+            pj =max(.1,pj-.05);
+        }
+
+        // perturbacion
         copy.perturb(pm,pj);
+        // busqueda local
         copy = local_search(copy,vec);
+        iter++;
         if(copy<inicial){
             inicial=copy;
+            current_best = iter;
         } 
         else {
 		    copy = inicial;
 		}
+        // datos para construir la red
+        // nodo vecino peso mejor_nodo 
+        weight = pm*inicial.nmaq + pj*inicial.njobs;
+        fout << iter<<" " <<current_best-(current_best == iter)<<" "<<weight<<" "<<(current_best == iter)<<endl;
+
+
         //break;
         end = std::chrono::steady_clock::now();
-        iter++;
-    	cout<<"\titer: "<<iter<<endl;
     }
     inicial.eval(req);
     inicial.get_rc();

@@ -15,14 +15,16 @@ int main(int argc, char** argv){
     // leer instancia y obtener parametros
     jsp problem(argv[1]);
     
-    ofstream  f1,f2;
-    f1.open("fit.ind");
-    f2.open("fit.rc");
+    ofstream  ind_file,rc_file,lon_file;
+    ind_file.open("fit.ind");
+    rc_file.open("fit.rc");
+    lon_file.open("lonmap.nx");
+
     
     individuo x;
     x.create_rand(problem.req);
-    x = problem.ILS(x,make_n7,atoi(argv[2]));
-    x.show(f1);
-    x.show_rc(f2);
+    x = problem.ILS(x,make_n7,atoi(argv[2]),lon_file);
+    x.show(ind_file);
+    x.show_rc(rc_file);
     return 0;
 }
