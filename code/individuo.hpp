@@ -37,7 +37,9 @@ class individuo{
 	public:
 	    // constructor
 	    individuo();
+	    individuo(int njobs,int nmaq);
         ~individuo();
+        void build_dep();
         void load(string fname,const instance& req);
         void create_rand(instance req);
         void show(ostream& os=cout);
@@ -47,7 +49,6 @@ class individuo{
         bool operator<(const individuo& other );
         void swap_op(int op1,int op2);
         void move_op(int op1,int op2);
-        vector<pair<int,int>> make_vec(const instance& req);
         vector<pair<int,int>> save_times();
         void set_times(const vector<pair<int,int>>& times);
         vector<pair<job*,job*>> gaps(const instance& req);
@@ -56,17 +57,19 @@ class individuo{
         int rc_size();
         bool connected(int u,int v);
         void perturb(double pm=.85,double pj=.5);
-        vector<pair<int,int>> make_vec2(const instance& req);
         void bnb(const instance& req);
 	    vector < pair<int, int> > create_all_vec();
         auto fitness() const;
+
    //private:
         int nmaq;
         int njobs;
 	    unsigned long int cost;
         vector<job> plan; 
         vector<vector<int>> ruta;
-
+        vector<double> obj;
+        int front;
+        double crowddist;
 };
     
 

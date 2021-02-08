@@ -10,7 +10,7 @@
 using namespace std;
 // regresa la matriz con los pesos de las aristas
 instance getData(string fname);
-vector<pair<int,int>> make_n7(individuo x);
+vector<pair<int,int>> make_n7(const individuo& x);
 
 class jsp{
     public:
@@ -18,7 +18,8 @@ class jsp{
         ~jsp();
         instance req;
         instance scale_req(double gamma);
-        individuo local_search(individuo x,vector<pair<int,int>> (*vec)(individuo));
-        individuo ILS(individuo inicial,vector<pair<int,int>> (*vec)(individuo),int max_seconds,ostream& fout=cout);
+        individuo local_search(individuo x,vector<pair<int,int>> (*vec)(const individuo&));
+        individuo ILS(individuo inicial,vector<pair<int,int>> (*vec)(const individuo&),int max_seconds,ostream& fout=cout);
+        vector<individuo> nsga2(int popsize,int max_iter);
 };
 #endif

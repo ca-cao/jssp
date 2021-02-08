@@ -36,9 +36,13 @@ for i in range(maq):
     bb = [(start,end-start) for start, end in zip(plan[maq+i],plan[2*maq+i])]    
     col = [colors[int(x)] for x in op[i]] 
     ax.broken_barh(bb, (i, .6), facecolors = col)
-    for num,(b, j) in enumerate(zip(bb,op[i])):
-        ax.annotate(str(int(j)),(b[0],i+.4*(num%2)))
-ax.grid(True)
+    #for num,(b, j) in enumerate(zip(bb,op[i])):
+    #    ax.annotate(str(int(j)),(b[0],i+.4*(num%2)))
+ax.grid(False)
+ax.set_yticks(np.arange(maq)+.3)
+ax.set_yticklabels(np.arange(maq))
 ax.figure.colorbar(mpl.cm.ScalarMappable(cmap=cmap, norm=norm),ax=ax)
-ax.set_title(sys.argv[1])
+#ax.set_title(sys.argv[1])
+ax.set_xlabel("Tiempo")
+ax.set_ylabel("Máquina")
 plt.show()

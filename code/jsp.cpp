@@ -1,5 +1,6 @@
 #include"individuo.hpp"
 #include<functional>
+#include"nsga2.hpp"
 #include<algorithm>
 #include<fstream>
 #include"jsp.hpp"
@@ -75,7 +76,7 @@ instance jsp::scale_req(double gamma){
 
 } 
 
-vector<pair<int,int>> make_n7(individuo x){
+vector<pair<int,int>> make_n7(const individuo& x){
     vector<pair<int,int>> n7;
     int i,j;
     // generar la vecindad
@@ -116,7 +117,7 @@ vector<pair<int,int>> make_n7(individuo x){
     return n7;
 }
 
-individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(individuo) ){
+individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(const individuo&) ){
     int u,v;
     unsigned long int cost0;
     vector<pair<int,int>> times;
@@ -149,10 +150,11 @@ individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(individuo) 
 
 
 // en el fout guarda la red de cambios
-individuo jsp::ILS(individuo inicial,vector<pair<int,int>> (*vec)(individuo),int max_seconds,ostream& fout){
+individuo jsp::ILS(individuo inicial,vector<pair<int,int>> (*vec)(const individuo& ),int max_seconds,ostream& fout){
     auto start = std::chrono::steady_clock::now();
     auto end = std::chrono::steady_clock::now();
     int iter=0,current_best=0;
+    double maxnano = max_seconds*1e9;
 
     // empezar con algun optimo local
     inicial.eval(req);
@@ -160,10 +162,10 @@ individuo jsp::ILS(individuo inicial,vector<pair<int,int>> (*vec)(individuo),int
     individuo copy = inicial;
 
     // definir cuantos trabajo se van a cambiar
-    double pm=.5,pj=.5;
+    double pm=.9,pj=.9;
     int weight;
 
-    while(std::chrono::duration_cast<chrono::seconds>(end-start).count()<max_seconds){
+    while(chrono::duration_cast<chrono::nanoseconds>(end-start).count()<=maxnano){
         if((iter-current_best)==0){
             pm =min(.9,pm+.05);
             pj =min(.9,pj+.05);
@@ -188,7 +190,7 @@ individuo jsp::ILS(individuo inicial,vector<pair<int,int>> (*vec)(individuo),int
         // datos para construir la red
         // nodo vecino peso mejor_nodo 
         weight = pm*inicial.nmaq + pj*inicial.njobs;
-        fout << iter<<" " <<current_best-(current_best == iter)<<" "<<weight<<" "<<(current_best == iter)<<endl;
+        //fout << iter<<" " <<current_best-(current_best == iter)<<" "<<weight<<" "<<(current_best == iter)<<endl;
 
 
         //break;
@@ -200,3 +202,36 @@ individuo jsp::ILS(individuo inicial,vector<pair<int,int>> (*vec)(individuo),int
     return inicial;
 }
 
+//  NSGA II
+vector<individuo> jsp::nsga2(int popsize,int max_iter){
+    // genera a los hjos y padres juntos en pop
+    vector<individuo> pop ;
+    pop.reserve(popsize*2);
+    vector<individuo> parents=initpop(popsize,req) ,hijos= initpop(popsize,req);
+    for(int i= 0;i<max_iter;i++){
+        // 1.0  combinar padres e hijos
+        pop.insert(pop.end(),parents.begin(),parents.end());
+        pop.insert(pop.end(),hijos.begin(),hijos.end());
+        // 1.1  evaluar 
+        eval(pop,req);
+        // 2 ordenar en frentes
+        ndsort(pop);
+        // 3.0 hallar la distancia de crowding
+        crowdsort(pop);
+        // 3.1 escoger padres
+        parents = select(pop);
+        // 4 generar hijos
+        hijos = cross(parents);
+        mutate(hijos,this);
+        pop.clear();
+    }
+    // hallar a los no dominados
+    int cut=parents.size()/2;
+    int delta = cut/2;
+    while(delta>0){
+        cut = parents[cut].front==0?cut+delta:cut-delta;
+        delta/=2;
+    }
+    parents.resize(cut);
+    return parents;
+}

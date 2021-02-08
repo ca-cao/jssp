@@ -15,6 +15,13 @@
 using namespace std;
 
 individuo::individuo(){}
+individuo::individuo(int njobs,int nmaq){
+    this->njobs = njobs;
+    this->nmaq = nmaq;
+    this->plan.resize(njobs*nmaq);
+    this->cost = -1;
+    this->obj = {0,0};
+}
 
 individuo::~individuo(){}
 
@@ -24,6 +31,40 @@ ostream& operator<<(ostream& os, const job& dt){
     os <<"start:\t"<<dt.start <<"\tend:\t"<<dt.end<<endl;
     os << "\n";
     return os;
+}
+
+// construye las dependencias en los trabajos
+void individuo::build_dep(){
+    vector<job> all(this->njobs*this->nmaq);
+    int pid,jid;
+    for(int i=0;i<nmaq;i++){
+        for(int j=0;j<njobs;j++){
+            pid = i*njobs+j;
+            jid = plan[pid].id;
+            all[jid].id = jid;
+             
+            // si no es el ultimo
+            // avisa a su sucesor
+            if( (jid+1)%nmaq != 0 ) 
+                all[jid +1].jobdep = pid;
+            else
+                all[jid].jobsuc = -1;
+
+            // si no es el primero
+            // avisa a su depedendencia
+            if( jid%nmaq !=0 ) 
+                all[jid-1].jobsuc = pid;
+            else
+                all[jid].jobdep = -1;
+           
+            // asignacion al plan  
+            plan[pid].id = jid;
+            plan[pid].is_in_rc = false;
+        }
+    }
+    for(int i=0;i<plan.size();i++)
+        plan[i] = all[plan[i].id];
+    this->cost = -1;
 }
 
 void individuo::load(string fname,const instance& req){
@@ -187,6 +228,7 @@ void individuo::create_rand(instance req){
         }
     }
     this->cost = -1;
+    this->obj = {1e15,1e15};
 }
 
 void individuo::show(ostream& os){
@@ -290,7 +332,29 @@ void individuo::eval(const instance& req){
     for(int i=0;i<this->nmaq;i++){
         this->cost = this->cost<this->plan[i*njobs+njobs-1].end?this->plan[i*njobs+njobs-1].end:this->cost;
     }
-		//Repair solution
+    // evaluar el tardiness
+    // la fecha limite es el final de la dependencia de su jobsuc
+     /*
+    int tardiness = 0;
+    for(const auto& op : plan){
+        // si su jobsuc es el primero en procesarse
+        if( op.jobsuc%njobs ==0 ){
+            tardiness+=plan[op.jobsuc].start;
+        }
+        // si no es el ultimo  
+        else if(op.jobsuc!=-1){
+           tardiness+= plan[op.jobsuc].start - plan[op.jobsuc-1].end ;
+        }
+    }*/
+    int idletime=0;
+    for(int i=0;i<nmaq;i++){
+        idletime = plan[i*njobs].start;
+        for(int j=0;j<njobs-1;j++)
+            // sumar el tiempo que esta parada
+            idletime += plan[i*njobs+j+1].start-plan[i*njobs+j].end;
+    }
+    this->obj = {cost*1.0,idletime*1.0};
+    return;
 }
 
 // guardar solo comienzo y final de bloques
@@ -380,7 +444,7 @@ void individuo::set_times(const vector<pair<int,int>>& times){
         }
     }
 }
-
+/*
 // genera todos los cambios para la vecindad N7
 vector<pair<int,int>> individuo::make_vec(const instance& req){
     vector<pair<int,int>> n7;
@@ -422,6 +486,7 @@ vector<pair<int,int>> individuo::make_vec(const instance& req){
     shuffle(n7.begin(),n7.end(),default_random_engine(seed));
     return n7;
 }
+*/
 
 
 void individuo::swap_op(int a,int b){
@@ -524,7 +589,7 @@ void individuo::perturb(double pm,double pj){
         *min_element(ftimes.begin(),ftimes.end())=0;
     }
 
-    cout << "perturb\t machines:\t" << change.size()<<"\tjobs:\t"<<pjobs <<endl;
+    //cout << "perturb\t machines:\t" << change.size()<<"\tjobs:\t"<<pjobs <<endl;
     for(int i= 0;i<njobs-1;i++)
         shuf[i]=i;
     // mezclar
@@ -605,7 +670,7 @@ void individuo::perturb(double pm,double pj){
     */
 }
 
-
+/*
 // encontrar los huecos y tratar de meter jobs de la rc ahi
 vector<pair<int,int>> individuo::make_vec2(const instance& req){
     vector<pair<int,int>> vec;
@@ -652,6 +717,7 @@ vector<pair<int,int>> individuo::make_vec2(const instance& req){
     return vec;
 
 }
+*/
 
 // branch and bound
 void individuo::bnb(const instance& req){
