@@ -1,0 +1,7 @@
+Para compilar se hace con make
+el programa recibe 3 argumentos: el archivo con la instancia, las iteraciones
+del nsga2 y el tamaño de la población
+./main instancia max_ iter popsize 
+
+al final imprime en pantalla el valor de los objetivos de los individuos en el
+primer frente de dominancia
