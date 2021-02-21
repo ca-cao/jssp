@@ -16,7 +16,7 @@ using namespace std;
 int main(int argc, char** argv){
     // leer instancia y obtener parametros
     for(int i=80;i<=80;i++){
-        string file("../instancias/dmu");
+        string file("../../instancias/dmu");
         if(i<10)
             file = file + "0" +to_string(i)+".txt";
         else
@@ -24,11 +24,13 @@ int main(int argc, char** argv){
         jsp problem(file);
 
         individuo best;
-        best.load("best80.txt",problem.req);
+        //best.load("best80.txt",problem.req);
         prule rule;
-        rule.init(best);
-        individuo test = problem.ILS(&rule,30,.2);
-        cout << "#"<<test.costo()<<endl;
+        for(int i=1;i<=10;i++){
+            rule.rand_init(problem.req,3);
+            individuo test = problem.ILS(&rule,0,double(i)*.1,1);
+            cout << "#"<<test.costo()<<endl;
+        }
         //individuo test = problem.local_search(&rule);
         
     }

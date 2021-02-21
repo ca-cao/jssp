@@ -10,11 +10,12 @@ public:
     // regresa true si el izq es mejor que el derecho segun algun criterio
     //virtual bool compare(job left, job right,const instance& req,const vector<job>& plan,int pid);
     vector<job>::iterator select(vector<job>& mqueue,const instance& req,const vector<job>& plan,int pid);
-    void rand_init(const instance& req,unsigned seed = 1);
+    // si seed = 0 utiliza el tiempo como semilla
+    void perturb(double pflip,unsigned seed=0);
+    void rand_init(const instance& req,unsigned seed = 0);
     void init(const individuo& x);
     void updatepr(individuo& sol);
     bool make_change();
-    void perturb(double pflip,unsigned seed=1);
     void show();
     // guarda que operadciones compitieron
     vector<vector<int>> changes;

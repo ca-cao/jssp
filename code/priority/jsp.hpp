@@ -20,10 +20,11 @@ public:
     ~jsp();
     instance req;
     instance scale_req(double gamma);
-    individuo local_search(prule* rule);
-    individuo ILS(prule* rule,int max_seconds,double pflip,ostream& fout=cout);
+    // si seed =0 utiliza el tiempo como semilla
+    individuo local_search(prule* rule,unsigned seed =0);
+    individuo ILS(prule* rule,int max_seconds,double pflip,unsigned seed=0,ostream& fout=cout);
+    individuo ASGA(prule* rule,unsigned seed = 0);
     //vector<individuo> nsga2(int popsize,int max_iter);
-    individuo ASGA(prule* rule,unsigned seed = 1);
 };
 
 #endif

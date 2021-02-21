@@ -103,6 +103,8 @@ vector<pair<int,int>> make_n7(const individuo& x){
 // construye un individuo con las prioridades de rule
 // guarda las operaciones que compitieron en rule->changes
 individuo jsp::ASGA(prule* rule,unsigned seed){
+    if(seed ==0)
+        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
     int njobs,nmaq;
     vector<job>plan;
     njobs = req.size();
@@ -110,7 +112,7 @@ individuo jsp::ASGA(prule* rule,unsigned seed){
     plan.resize(njobs*nmaq);
 
     if(rule->pr.size()!=plan.size())
-        rule->rand_init(req);
+        rule->rand_init(req,seed);
     if(!rule->changes.empty())
         rule->changes.clear();
     rule->changes.reserve(njobs*nmaq);
@@ -219,16 +221,17 @@ individuo jsp::ASGA(prule* rule,unsigned seed){
     active.plan = plan;
     active.cost = cost;
     
-    //unsigned seed = chrono::system_clock::now().time_since_epoch().count();
     //seed = 1;
     shuffle(rule->changes.begin(),rule->changes.end(),default_random_engine(seed));
     return active;
 }
 
 
-individuo jsp::local_search(prule* rule){
+individuo jsp::local_search(prule* rule,unsigned seed){
+    if(seed==0)
+        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
     prule* trialrule = new prule();
-    individuo x = ASGA(rule);
+    individuo x = ASGA(rule,seed);
     *trialrule = *rule;
     individuo trial;
     bool sort_ch=true;
@@ -239,7 +242,7 @@ individuo jsp::local_search(prule* rule){
         rule->changes = trialrule->changes;
         
         // crear un individuo optimo local de prueba 
-        trial = ASGA(trialrule);
+        trial = ASGA(trialrule,seed);
         trial.get_rc();
         // ver si es mejor, cambiarlo y hacer la nueva vecindad
         if(trial<x){
@@ -257,14 +260,16 @@ individuo jsp::local_search(prule* rule){
 }
 
 // en el fout guarda la red de cambios
-individuo jsp::ILS(prule* rule,int max_seconds,double pflip,ostream& fout){
+individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostream& fout){
     auto start = std::chrono::steady_clock::now();
     auto end = start;
     int iter=0,current_best=0;
     double maxnano = max_seconds*1e9;
+    if(seed==0)
+        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
 
     // empezar con algun optimo local
-    individuo inicial = local_search(rule);
+    individuo inicial = local_search(rule,seed);
     individuo trial;
     prule* trialrule = new prule();
     *trialrule = *rule;
@@ -274,15 +279,11 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,ostream& fout){
     while(chrono::duration_cast<chrono::nanoseconds>(end-start).count()<=maxnano){
         // perturbacion
         trialrule->perturb(pflip);
-        /*
-        for(int i = 0;i<trialrule->pr.size();i++){
-            if(trialrule->pr[i] !=rule->pr[i])
-                cout<<trialrule->pr[i]<<" "<<rule->pr[i]<<endl;
-        }*/
         
         // busqueda local
-        trial = local_search(trialrule);
-        iter++;
+        trial = local_search(trialrule,seed);
+        
+        // ver si mejoro o no
         if(trial<inicial){
             inicial=trial;
             *rule = *trialrule;

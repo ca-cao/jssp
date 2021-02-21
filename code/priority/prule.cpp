@@ -45,16 +45,14 @@ bool prule::make_change(){
 // la pareja tiene (double aleatorio,greedystart)
 void prule::rand_init(const instance& req,unsigned seed){
     vector<double> priority(req[0].size()*req.size());
-    //unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    if(seed==0)
+        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
     default_random_engine eng(seed);
     uniform_real_distribution<double> dist(0,1);
 
     for(int i=0;i<req.size();i++){
-        for(int j=0;j<req[0].size();j++){
+        for(int j=0;j<req[0].size();j++)
             priority[i*req[0].size()+j] = dist(eng);
-            if(priority[i*req[0].size()+j]<0)
-                cout << "generated:\t"<<priority[i*req[0].size()+j]<<endl;
-        }
     }
     this->pr=priority;
     njobs = req.size();
@@ -62,11 +60,15 @@ void prule::rand_init(const instance& req,unsigned seed){
 }
 
 void prule::perturb(double pflip,unsigned seed){
+    if(seed==0)
+        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
     default_random_engine eng(seed);
     uniform_real_distribution<double> dist(0,1);
-    for(int i=1;i<pr.size();i++){
+    vector<double> prcopy = pr;
+    cout << "pflip = "<<pflip<<endl;
+    for(int i=1;i<pr.size()-1;i++){
         if(dist(eng)<pflip){
-            pr[i] = (pr[i]+pr[i-1])/2;
+            pr[i] = (prcopy[i+1]+prcopy[i-1])/2;
         }
     }
 }
