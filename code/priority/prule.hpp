@@ -20,6 +20,7 @@ public:
     // guarda que operadciones compitieron
     vector<vector<int>> changes;
     vector<double> pr;
+    vector<int> pid;
     int nmaq;
     int njobs;
 };

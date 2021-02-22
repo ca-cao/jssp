@@ -200,7 +200,7 @@ auto individuo::fitness() const {
         }
     }
     // tupla 
-    return  make_tuple(cost,latestart,totime,idletime,dist2,nholes);
+    return  make_tuple(cost,latestart,dist2,totime,idletime,nholes);
 
 }
 

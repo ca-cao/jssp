@@ -24,6 +24,9 @@ public:
     individuo local_search(prule* rule,unsigned seed =0);
     individuo ILS(prule* rule,int max_seconds,double pflip,unsigned seed=0,ostream& fout=cout);
     individuo ASGA(prule* rule,unsigned seed = 0);
+    individuo local_search(individuo x,vector<pair<int,int>> (*vec)(const individuo&));
+    individuo ILS(individuo inicial,vector<pair<int,int>> (*vec)(const individuo&),int max_seconds,ostream& fout=cout);
+    vector<individuo> nsga2(int popsize,int max_iter);
     //vector<individuo> nsga2(int popsize,int max_iter);
 };
 

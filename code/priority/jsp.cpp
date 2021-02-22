@@ -59,63 +59,23 @@ jsp::jsp(string fname){
 // destructor
 jsp::~jsp(){};
 
-vector<pair<int,int>> make_n7(const individuo& x){
-    vector<pair<int,int>> n7;
-    int i,j;
-    // generar la vecindad
-    for(auto rc :x.ruta){
-        i = 0;
-        j = 0;
-        while(i != rc.size()){
-            // i es el inicio del bloque
-            while(true){
-                j++;
-                // si ya llego al final de la ruta o no estan en la misma maquina
-                if(j == rc.size() or rc[i]/x.njobs != rc[j]/x.njobs)
-                    break;
-                // si el predecesor de i esta en la ruta critica
-                //if(plan[plan[rc[i]].jobdep].is_in_rc){
-                    n7.push_back(pair<int,int>(rc[i],rc[j]));
-                    n7.push_back(pair<int,int>(rc[j],rc[i]));
-                //}
-            }
-            j--;
-            // j es el final del bloque
-            while(true){
-                i++;
-                // si ya llego al final de la ruta o no estan en la misma maquina
-                if(i == rc.size() or rc[i]/x.njobs != rc[j]/x.njobs)
-                    break;
-                // si el sucesor de j esta en la ruta critica
-                //if(plan[plan[rc[j]].jobsuc].is_in_rc){
-                    n7.push_back(pair<int,int>(rc[i],rc[j]));
-                    n7.push_back(pair<int,int>(rc[j],rc[i]));
-                //}
-            }
-        }
-    }
-    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-    //seed = 1;
-    shuffle(n7.begin(),n7.end(),default_random_engine(seed));
-    return n7;
-}
 
 // construye un individuo con las prioridades de rule
 // guarda las operaciones que compitieron en rule->changes
 individuo jsp::ASGA(prule* rule,unsigned seed){
     if(seed ==0)
-        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+        seed = chrono::system_clock::now().time_since_epoch().count();
     int njobs,nmaq;
     vector<job>plan;
     njobs = req.size();
     nmaq = req[0].size();
     plan.resize(njobs*nmaq);
-
     if(rule->pr.size()!=plan.size())
         rule->rand_init(req,seed);
     if(!rule->changes.empty())
         rule->changes.clear();
     rule->changes.reserve(njobs*nmaq);
+    rule->pid.resize(njobs*nmaq);
 
     // STEP 1
     vector<list<job>> mqueue(nmaq);
@@ -177,6 +137,7 @@ individuo jsp::ASGA(prule* rule,unsigned seed){
         plan[pid].jobdep = selected->jobdep;
         plan[pid].is_in_rc = false;
         nop[minmaq]+=1;
+        rule->pid[selected->id] = pid;
         if(selected->jobdep!=-1)
             plan[selected->jobdep].jobsuc = pid;
         
@@ -220,6 +181,7 @@ individuo jsp::ASGA(prule* rule,unsigned seed){
     individuo active(njobs,nmaq);
     active.plan = plan;
     active.cost = cost;
+    active.get_rc();
     
     //seed = 1;
     shuffle(rule->changes.begin(),rule->changes.end(),default_random_engine(seed));
@@ -229,30 +191,37 @@ individuo jsp::ASGA(prule* rule,unsigned seed){
 
 individuo jsp::local_search(prule* rule,unsigned seed){
     if(seed==0)
-        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+        seed = chrono::system_clock::now().time_since_epoch().count();
     prule* trialrule = new prule();
     individuo x = ASGA(rule,seed);
     *trialrule = *rule;
     individuo trial;
-    bool sort_ch=true;
-    int count=0;
+    vector<int> count(4,0);
     while(!rule->changes.empty()){
+        int pid1=trialrule->pid[trialrule->changes.back()[0]];
+        int pid2=trialrule->pid[trialrule->changes.back()[1]];
+        int inrc = x.plan[pid1].is_in_rc or x.plan[pid2].is_in_rc;
+        
+        if(inrc ==0){
+            trialrule->changes.pop_back();
+            rule->changes.pop_back();
+            continue;
+        }
         // hacer los cambios en prioridades
         trialrule->make_change();
         rule->changes = trialrule->changes;
         
         // crear un individuo optimo local de prueba 
         trial = ASGA(trialrule,seed);
-        trial.get_rc();
-        // ver si es mejor, cambiarlo y hacer la nueva vecindad
+        // ver si es mejor, cambiarlo y asignar la nueva vecindad
         if(trial<x){
             x = trial;
             *rule = *trialrule;
-            sort_ch=true;
-            count++;
+            count[inrc]++;
         }
         else{
             *trialrule= *rule;
+            count[2+inrc]++;
         }
         
     }
@@ -266,7 +235,7 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostrea
     int iter=0,current_best=0;
     double maxnano = max_seconds*1e9;
     if(seed==0)
-        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+        seed = chrono::system_clock::now().time_since_epoch().count();
 
     // empezar con algun optimo local
     individuo inicial = local_search(rule,seed);
@@ -304,4 +273,132 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostrea
     inicial.get_rc();
     // return best;
     return inicial;
+}
+
+
+/* funciones para ILS con la representacion inicial */
+
+individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(const individuo&) ){
+    int u,v;
+    unsigned long int cost0;
+    vector<pair<int,int>> times;
+    int rc_save=0;
+    x.eval(req);
+    x.get_rc();
+    individuo trial;
+    vector<pair<int,int>> n7 = (*vec)(x);
+    while(!n7.empty()){
+        // crear un individuo de prueba
+        trial = x;
+        u = n7.back().first; v = n7.back().second;
+        n7.pop_back();
+
+        // moverlo 
+        trial.move_op(u,v);
+
+        // evaluar y obtener su ruta critica
+        trial.eval(req);
+        trial.get_rc();
+
+        // ver si es mejor, cambiarlo y hacer la nueva vecindad
+        if(trial<x){
+            x = trial;
+            n7 = (*vec)(x);
+        }
+    }
+    return x;
+}
+
+// en el fout guarda la red de cambios
+individuo jsp::ILS(individuo inicial,vector<pair<int,int>> (*vec)(const individuo& ),int max_seconds,ostream& fout){
+    auto start = std::chrono::steady_clock::now();
+    auto end = std::chrono::steady_clock::now();
+    int iter=0,current_best=0;
+    double maxnano = max_seconds*1e9;
+
+    // empezar con algun optimo local
+    inicial.eval(req);
+    inicial = local_search(inicial,vec);
+    individuo copy = inicial;
+
+    // definir cuantos trabajo se van a cambiar
+    double pm=.9,pj=.9;
+    int weight;
+
+    while(chrono::duration_cast<chrono::nanoseconds>(end-start).count()<=maxnano){
+        if((iter-current_best)==0){
+            pm =min(.9,pm+.05);
+            pj =min(.9,pj+.05);
+        }
+        else{
+            pm =max(.1,pm-.05);
+            pj =max(.1,pj-.05);
+        }
+
+        // perturbacion
+        copy.perturb(pm,pj);
+        // busqueda local
+        copy = local_search(copy,vec);
+        iter++;
+        if(copy<inicial){
+            inicial=copy;
+            current_best = iter;
+        } 
+        else {
+		    copy = inicial;
+		}
+        // datos para construir la red
+        // nodo vecino peso mejor_nodo 
+        weight = pm*inicial.nmaq + pj*inicial.njobs;
+        //fout << iter<<" " <<current_best-(current_best == iter)<<" "<<weight<<" "<<(current_best == iter)<<endl;
+
+
+        //break;
+        end = std::chrono::steady_clock::now();
+    }
+    inicial.eval(req);
+    inicial.get_rc();
+    // return best;
+    return inicial;
+}
+
+vector<pair<int,int>> make_n7(const individuo& x){
+    vector<pair<int,int>> n7;
+    int i,j;
+    // generar la vecindad
+    for(auto rc :x.ruta){
+        i = 0;
+        j = 0;
+        while(i != rc.size()){
+            // i es el inicio del bloque
+            while(true){
+                j++;
+                // si ya llego al final de la ruta o no estan en la misma maquina
+                if(j == rc.size() or rc[i]/x.njobs != rc[j]/x.njobs)
+                    break;
+                // si el predecesor de i esta en la ruta critica
+                //if(plan[plan[rc[i]].jobdep].is_in_rc){
+                    n7.push_back(pair<int,int>(rc[i],rc[j]));
+                    n7.push_back(pair<int,int>(rc[j],rc[i]));
+                //}
+            }
+            j--;
+            // j es el final del bloque
+            while(true){
+                i++;
+                // si ya llego al final de la ruta o no estan en la misma maquina
+                if(i == rc.size() or rc[i]/x.njobs != rc[j]/x.njobs)
+                    break;
+                // si el sucesor de j esta en la ruta critica
+                //if(plan[plan[rc[j]].jobsuc].is_in_rc){
+                    n7.push_back(pair<int,int>(rc[i],rc[j]));
+                    n7.push_back(pair<int,int>(rc[j],rc[i]));
+                //}
+            }
+        }
+    }
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    //seed = 1;
+    shuffle(n7.begin(),n7.end(),default_random_engine(seed));
+    return n7;
 }
