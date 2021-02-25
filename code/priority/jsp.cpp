@@ -119,12 +119,24 @@ individuo jsp::ASGA(prule* rule,unsigned seed){
         int pid = minmaq*njobs+nop[minmaq],start;
         int machend =  nop[minmaq]==0?0:plan[pid-1].end;
         double selpr=-1;
+        // seleccionar por dafult de mayor prioridad
+        for(auto current=mqueue[minmaq].begin();current!=mqueue[minmaq].end();current++){
+            start = max(current->endep(plan),machend);
+            if(rule->pr[current->id]>selpr){
+                selected = current;
+                selected->start = start;
+                selpr = rule->pr[selected->id];
+            }
+        }
+        int pr_start = selected->start;
+        selpr=-1;
         // operaciones que compiten
         for(auto current=mqueue[minmaq].begin();current!=mqueue[minmaq].end();current++){
             start = max(current->endep(plan),machend);
+            // no considerar a las que acaban despues de que empieza la de max prioridad
+            if(start+current->end>pr_start) continue;
             // si empieza antes que el que acaba primero es elegible y si mqueue[minmaq][j] es que selected 
             if(start<minfinish and (rule->pr[current->id]>selpr)){
-                    //selected = mqueue[minmaq].begin()+j;
                     selected = current;
                     selected->start = start;
                     selpr = rule->pr[selected->id];
@@ -190,6 +202,7 @@ individuo jsp::ASGA(prule* rule,unsigned seed){
 
 
 individuo jsp::local_search(prule* rule,unsigned seed){
+    // usar una semilla "aleatoria" o una proporcionada
     if(seed==0)
         seed = chrono::system_clock::now().time_since_epoch().count();
     prule* trialrule = new prule();
@@ -239,6 +252,7 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostrea
 
     // empezar con algun optimo local
     individuo inicial = local_search(rule,seed);
+    cout <<"costo inicial: "<<inicial.costo()<<endl;
     individuo trial;
     prule* trialrule = new prule();
     *trialrule = *rule;
@@ -251,12 +265,16 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostrea
         
         // busqueda local
         trial = local_search(trialrule,seed);
-        
+        cout<<trial.costo()<<endl; 
+        double delta = (inicial.costo()*1.0)/trial.costo();
+        pflip = min(.9,delta*pflip);
+        cout << "pflip: "<<pflip<<endl;
         // ver si mejoro o no
         if(trial<inicial){
             inicial=trial;
             *rule = *trialrule;
             current_best = iter;
+            cout<<"mejora: "<<inicial.costo()<<endl;
         } 
         else{
 		    trial = inicial;
@@ -276,12 +294,45 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostrea
 }
 
 
+individuo jsp::VNS(int max_seconds,double pflip,vector<pair<int,int>> (*vec)(const individuo&)){
+    auto start = std::chrono::steady_clock::now();
+    auto end = start;
+    double maxnano = max_seconds*1e9;
+    prule rule;
+    individuo x,best,xprime;
+    rule.rand_init(req);
+    best = ASGA(&rule);
+    vector<vector<int>> moves = rule.changes;
+    // guardar la vecindad para generar un individuo nuevo
+    while(chrono::duration_cast<chrono::nanoseconds>(end-start).count()<=maxnano){
+        x = local_search(&rule);
+        x = local_search(x,make_n7);
+        double delta = (best.costo()*1.0)/x.costo();
+        pflip = min(.9,delta*pflip);
+        cout << x.costo () << " " << best.costo () <<endl;
+        if(x<best){
+            best=x;
+            rule.init(best);
+            ASGA(&rule);
+            moves = rule.changes;
+        }
+        else{
+            rule.init(best);
+            rule.changes = moves;
+            rule.make_change();
+            moves.pop_back();
+            //rule.perturb(pflip);
+        }
+        end = std::chrono::steady_clock::now();
+    }
+    return best;
+}
+
 /* funciones para ILS con la representacion inicial */
 
 individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(const individuo&) ){
     int u,v;
     unsigned long int cost0;
-    vector<pair<int,int>> times;
     int rc_save=0;
     x.eval(req);
     x.get_rc();

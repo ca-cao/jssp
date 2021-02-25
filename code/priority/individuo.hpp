@@ -66,6 +66,7 @@ class individuo{
         int rc_size();
         bool connected(int u,int v);
         auto fitness() const;
+        void move_vec(vector<pair<int,int>> (*vec)(const individuo&));
         void perturb(double pm,double pj);
 
         friend class jsp;

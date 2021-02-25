@@ -27,6 +27,7 @@ public:
     individuo local_search(individuo x,vector<pair<int,int>> (*vec)(const individuo&));
     individuo ILS(individuo inicial,vector<pair<int,int>> (*vec)(const individuo&),int max_seconds,ostream& fout=cout);
     vector<individuo> nsga2(int popsize,int max_iter);
+    individuo VNS(int max_seconds,double pflip,vector<pair<int,int>> (*vec)(const individuo&));
     //vector<individuo> nsga2(int popsize,int max_iter);
 };
 

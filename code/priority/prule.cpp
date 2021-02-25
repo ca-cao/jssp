@@ -66,9 +66,8 @@ void prule::perturb(double pflip,unsigned seed){
     uniform_real_distribution<double> dist(0,1);
     vector<double> prcopy = pr;
     for(int i=1;i<pr.size()-1;i++){
-        if(dist(eng)<pflip){
+        if(dist(eng)<pflip)
             pr[i] = (prcopy[i+1]+prcopy[i-1])/2;
-        }
     }
 }
 

@@ -582,3 +582,8 @@ void individuo::perturb(double pm,double pj){
 
     }
 }
+
+void individuo::move_vec(vector<pair<int,int>> (*vec)(const individuo&)){
+    pair<int,int> move = vec(*this).back();
+    move_op(move.first,move.second);
+}
