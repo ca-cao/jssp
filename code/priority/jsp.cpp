@@ -14,6 +14,45 @@
 
 using namespace std;
 
+vector<vector<int>> make_active_n7(const individuo& x){
+    vector<vector<int>> n7;
+    int i,j;
+    // generar la vecindad
+    for(auto rc :x.ruta){
+        i = 0;
+        j = 0;
+        while(i != rc.size()){
+            // i es el inicio del bloque
+            while(true){
+                j++;
+                // si ya llego al final de la ruta o no estan en la misma maquina
+                if(j == rc.size() or rc[i]/x.njobs != rc[j]/x.njobs)
+                    break;
+                // si el predecesor de i esta en la ruta critica
+                //if(plan[plan[rc[i]].jobdep].is_in_rc){
+                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id}));
+                //}
+            }
+            j--;
+            // j es el final del bloque
+            while(true){
+                i++;
+                // si ya llego al final de la ruta o no estan en la misma maquina
+                if(i == rc.size() or rc[i]/x.njobs != rc[j]/x.njobs)
+                    break;
+                // si el sucesor de j esta en la ruta critica
+                //if(plan[plan[rc[j]].jobsuc].is_in_rc){
+                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id}));
+                //}
+            }
+        }
+    }
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    //seed = 1;
+    shuffle(n7.begin(),n7.end(),default_random_engine(seed));
+    return n7;
+}
+
 template<class ForwardIt, class Compare>
 ForwardIt maxelement(ForwardIt first, ForwardIt last,Compare comp){
     if (first == last) return last;
@@ -195,6 +234,10 @@ individuo jsp::ASGA(prule* rule,unsigned seed){
     active.cost = cost;
     active.get_rc();
     
+    // agregar la n7
+    //vector<vector<int>> n7 = make_active_n7(active);
+    
+    //rule->changes.insert(rule->changes.end(),n7.begin(),n7.end());
     //seed = 1;
     shuffle(rule->changes.begin(),rule->changes.end(),default_random_engine(seed));
     return active;
@@ -209,7 +252,6 @@ individuo jsp::local_search(prule* rule,unsigned seed){
     individuo x = ASGA(rule,seed);
     *trialrule = *rule;
     individuo trial;
-    vector<int> count(4,0);
     while(!rule->changes.empty()){
         int pid1=trialrule->pid[trialrule->changes.back()[0]];
         int pid2=trialrule->pid[trialrule->changes.back()[1]];
@@ -230,14 +272,13 @@ individuo jsp::local_search(prule* rule,unsigned seed){
         if(trial<x){
             x = trial;
             *rule = *trialrule;
-            count[inrc]++;
         }
         else{
             *trialrule= *rule;
-            count[2+inrc]++;
         }
         
     }
+    delete trialrule;
     return x;
 }
 
@@ -252,7 +293,6 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostrea
 
     // empezar con algun optimo local
     individuo inicial = local_search(rule,seed);
-    cout <<"costo inicial: "<<inicial.costo()<<endl;
     individuo trial;
     prule* trialrule = new prule();
     *trialrule = *rule;
@@ -265,16 +305,13 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostrea
         
         // busqueda local
         trial = local_search(trialrule,seed);
-        cout<<trial.costo()<<endl; 
         double delta = (inicial.costo()*1.0)/trial.costo();
         pflip = min(.9,delta*pflip);
-        cout << "pflip: "<<pflip<<endl;
         // ver si mejoro o no
         if(trial<inicial){
             inicial=trial;
             *rule = *trialrule;
             current_best = iter;
-            cout<<"mejora: "<<inicial.costo()<<endl;
         } 
         else{
 		    trial = inicial;
@@ -294,37 +331,54 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostrea
 }
 
 
-individuo jsp::VNS(int max_seconds,double pflip,vector<pair<int,int>> (*vec)(const individuo&)){
+individuo jsp::VNS(prule rule,int max_seconds,vector<pair<int,int>> (*vec)(const individuo&),int nflip){
+    int count=0,nonimprov = 10;
     auto start = std::chrono::steady_clock::now();
     auto end = start;
     double maxnano = max_seconds*1e9;
-    prule rule;
+    //prule rule;
     individuo x,best,xprime;
-    rule.rand_init(req);
     best = ASGA(&rule);
     vector<vector<int>> moves = rule.changes;
+    prule avg = rule;
     // guardar la vecindad para generar un individuo nuevo
     while(chrono::duration_cast<chrono::nanoseconds>(end-start).count()<=maxnano){
+        // busqueda local con cambios de ASGA
         x = local_search(&rule);
+        // busqueda local con cambios de N7
         x = local_search(x,make_n7);
-        double delta = (best.costo()*1.0)/x.costo();
-        pflip = min(.9,delta*pflip);
-        cout << x.costo () << " " << best.costo () <<endl;
+        cout << x.costo() << " " << best.costo() << endl;
         if(x<best){
             best=x;
             rule.init(best);
             ASGA(&rule);
             moves = rule.changes;
+            avg = rule*0.95 + avg*0.05;
+        }
+        else if((1.0*x.costo())/best.costo() < 1.002 and x.costo()!=best.costo()){
+            cout << "# nonimprov "<< count<<endl;
+            rule.init(x);
+            ASGA(&rule);
+            moves = rule.changes;
+            rule.make_change();
+            moves.pop_back();
+            avg = rule*0.5 + avg*0.5;
+        }
+        else if(moves.empty()){
+            rule.perturb(nflip);
+            avg = rule*0.05 + avg*0.95;
         }
         else{
             rule.init(best);
             rule.changes = moves;
             rule.make_change();
             moves.pop_back();
-            //rule.perturb(pflip);
+            avg = rule*0.05 + avg*0.95;
         }
         end = std::chrono::steady_clock::now();
     }
+    x = ASGA(&avg);
+    cout << "# " << x.cost << endl;
     return best;
 }
 
@@ -453,3 +507,5 @@ vector<pair<int,int>> make_n7(const individuo& x){
     shuffle(n7.begin(),n7.end(),default_random_engine(seed));
     return n7;
 }
+
+

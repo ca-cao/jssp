@@ -12,11 +12,14 @@ public:
     vector<job>::iterator select(vector<job>& mqueue,const instance& req,const vector<job>& plan,int pid);
     // si seed = 0 utiliza el tiempo como semilla
     void perturb(double pflip,unsigned seed=0);
+    void perturb(int nflips,unsigned seed=0);
     void rand_init(const instance& req,unsigned seed = 0);
     void init(const individuo& x);
     void updatepr(individuo& sol);
     bool make_change();
     void show();
+    prule operator *(double scale) const;
+    prule operator +(const prule other) const;
     // guarda que operadciones compitieron
     vector<vector<int>> changes;
     vector<double> pr;

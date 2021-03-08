@@ -199,8 +199,10 @@ auto individuo::fitness() const {
             nholes += (plan[i*njobs+j+1].start!=plan[i*njobs+j].end);
         }
     }
+     
     // tupla 
-    return  make_tuple(cost,latestart,dist2,totime,idletime,nholes);
+    return make_tuple(cost,(latestart+idletime+totime+dist2)/cost,(nholes*1.0)/nmaq*njobs);
+    //return  make_tuple(cost,latestart,dist2,idletime,totime,nholes);
 
 }
 

@@ -67,10 +67,27 @@ void prule::perturb(double pflip,unsigned seed){
     vector<double> prcopy = pr;
     for(int i=1;i<pr.size()-1;i++){
         if(dist(eng)<pflip)
-            pr[i] = (prcopy[i+1]+prcopy[i-1])/2;
+            pr[i] = 1-pr[i];
+            //pr[i] = (prcopy[i+1]+prcopy[i-1])/2;
     }
 }
 
+// para usarse con nflips << pr.size()
+void prule::perturb(int nflips,unsigned seed){
+    if(seed==0)
+        seed = chrono::system_clock::now().time_since_epoch().count();
+    default_random_engine eng(seed);
+    uniform_int_distribution<int> dist(0,pr.size()-1);
+    int count=0;
+    int lastsel = dist(eng);
+    while(count <nflips){
+        int sel = dist(eng);
+        if(sel==lastsel) continue;
+        pr[sel] = abs(1-pr[sel]);
+        count++;
+        lastsel = sel;
+    }
+}
 
 void prule::init(const individuo& x){
     nmaq = x.nmaq;
@@ -84,10 +101,28 @@ void prule::init(const individuo& x){
 }
 
 void prule::show(){
+    int count=0; 
     for(auto& p :pr)
-        cout<<p<<endl;
+        cout<<count++<<" "<<p<<endl;
 }
 
+prule prule::operator *(double scale) const{
+    prule other;
+    other.pr.resize(this->pr.size());
+    for(int i=0;i<this->pr.size();i++){
+        other.pr[i] = scale * this->pr[i];
+    }
+    return other;
+}
+
+prule prule::operator +(const prule other) const{
+    prule ret;
+    ret.pr.resize(this->pr.size());
+    for(int i=0;i<this->pr.size();i++){
+        ret.pr[i] = other.pr[i] + this->pr[i];
+    }
+    return ret;
+}
 /*
 // selecciona una operacion de la cola
 vector<job>::iterator prule::select(vector<job>& mqueue,const instance& req,const vector<job>& plan,int pid){
