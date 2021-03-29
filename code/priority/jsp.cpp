@@ -30,7 +30,7 @@ vector<vector<int>> make_active_n7(const individuo& x){
                     break;
                 // si el predecesor de i esta en la ruta critica
                 //if(plan[plan[rc[i]].jobdep].is_in_rc){
-                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id}));
+                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id,0}));
                 //}
             }
             j--;
@@ -42,14 +42,14 @@ vector<vector<int>> make_active_n7(const individuo& x){
                     break;
                 // si el sucesor de j esta en la ruta critica
                 //if(plan[plan[rc[j]].jobsuc].is_in_rc){
-                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id}));
+                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id,0}));
                 //}
             }
         }
     }
-    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    //unsigned seed = chrono::system_clock::now().time_since_epoch().count();
     //seed = 1;
-    shuffle(n7.begin(),n7.end(),default_random_engine(seed));
+    //shuffle(n7.begin(),n7.end(),default_random_engine(seed));
     return n7;
 }
 
@@ -101,7 +101,7 @@ jsp::~jsp(){};
 
 // construye un individuo con las prioridades de rule
 // guarda las operaciones que compitieron en rule->changes
-individuo jsp::ASGA(prule* rule,unsigned seed){
+individuo jsp::ASGA(prule* rule,unsigned seed) const{
     if(seed ==0)
         seed = chrono::system_clock::now().time_since_epoch().count();
     int njobs,nmaq;
@@ -235,29 +235,29 @@ individuo jsp::ASGA(prule* rule,unsigned seed){
     active.get_rc();
     
     // agregar la n7
-    //vector<vector<int>> n7 = make_active_n7(active);
-    
-    //rule->changes.insert(rule->changes.end(),n7.begin(),n7.end());
+    vector<vector<int>> n7 = make_active_n7(active);
+    rule->changes.insert(rule->changes.end(),n7.begin(),n7.end());
+
     //seed = 1;
     shuffle(rule->changes.begin(),rule->changes.end(),default_random_engine(seed));
     return active;
 }
 
 
-individuo jsp::local_search(prule* rule,unsigned seed){
+individuo jsp::local_search(prule* rule,vector<double> weights,unsigned seed)const{
     // usar una semilla "aleatoria" o una proporcionada
     if(seed==0)
         seed = chrono::system_clock::now().time_since_epoch().count();
     prule* trialrule = new prule();
     individuo x = ASGA(rule,seed);
+    x.weights = weights;
     *trialrule = *rule;
-    individuo trial;
+    individuo trial=x;
     while(!rule->changes.empty()){
         int pid1=trialrule->pid[trialrule->changes.back()[0]];
         int pid2=trialrule->pid[trialrule->changes.back()[1]];
-        int inrc = x.plan[pid1].is_in_rc or x.plan[pid2].is_in_rc;
         
-        if(inrc ==0){
+        if(!(x.plan[pid1].is_in_rc or x.plan[pid2].is_in_rc)){
             trialrule->changes.pop_back();
             rule->changes.pop_back();
             continue;
@@ -268,6 +268,7 @@ individuo jsp::local_search(prule* rule,unsigned seed){
         
         // crear un individuo optimo local de prueba 
         trial = ASGA(trialrule,seed);
+        trial.weights = weights;
         // ver si es mejor, cambiarlo y asignar la nueva vecindad
         if(trial<x){
             x = trial;
@@ -283,6 +284,7 @@ individuo jsp::local_search(prule* rule,unsigned seed){
 }
 
 // en el fout guarda la red de cambios
+/*
 individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostream& fout){
     auto start = std::chrono::steady_clock::now();
     auto end = start;
@@ -328,10 +330,14 @@ individuo jsp::ILS(prule* rule,int max_seconds,double pflip,unsigned seed,ostrea
     inicial.get_rc();
     // return best;
     return inicial;
+}*/
+
+// regresa true con probabilidad theta
+bool bern(double theta){
+    return random()/(1.0*RAND_MAX)<=theta;
 }
 
-
-individuo jsp::VNS(prule rule,int max_seconds,vector<pair<int,int>> (*vec)(const individuo&),int nflip){
+individuo jsp::VNS(prule rule,int max_seconds,const vector<double>& weights,int nflip)const {
     int count=0,nonimprov = 10;
     auto start = std::chrono::steady_clock::now();
     auto end = start;
@@ -339,46 +345,35 @@ individuo jsp::VNS(prule rule,int max_seconds,vector<pair<int,int>> (*vec)(const
     //prule rule;
     individuo x,best,xprime;
     best = ASGA(&rule);
+    best.weights = weights;
     vector<vector<int>> moves = rule.changes;
     prule avg = rule;
     // guardar la vecindad para generar un individuo nuevo
     while(chrono::duration_cast<chrono::nanoseconds>(end-start).count()<=maxnano){
+        //cout <<"T: "<< chrono::duration_cast<chrono::nanoseconds>(end-start).count() / 1e9<<endl;
+        double timeleft = maxnano-chrono::duration_cast<chrono::nanoseconds>(end-start).count();
         // busqueda local con cambios de ASGA
-        x = local_search(&rule);
+        x = local_search(&rule,weights);
         // busqueda local con cambios de N7
-        x = local_search(x,make_n7);
-        cout << x.costo() << " " << best.costo() << endl;
+        //x = local_search(x,make_n7);
+        //cout << x.costo() << " " << best.costo() << endl;
         if(x<best){
             best=x;
             rule.init(best);
             ASGA(&rule);
             moves = rule.changes;
-            avg = rule*0.95 + avg*0.05;
-        }
-        else if((1.0*x.costo())/best.costo() < 1.002 and x.costo()!=best.costo()){
-            cout << "# nonimprov "<< count<<endl;
-            rule.init(x);
-            ASGA(&rule);
-            moves = rule.changes;
-            rule.make_change();
-            moves.pop_back();
-            avg = rule*0.5 + avg*0.5;
         }
         else if(moves.empty()){
             rule.perturb(nflip);
-            avg = rule*0.05 + avg*0.95;
         }
         else{
             rule.init(best);
             rule.changes = moves;
             rule.make_change();
             moves.pop_back();
-            avg = rule*0.05 + avg*0.95;
         }
         end = std::chrono::steady_clock::now();
     }
-    x = ASGA(&avg);
-    cout << "# " << x.cost << endl;
     return best;
 }
 

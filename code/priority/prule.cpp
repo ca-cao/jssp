@@ -11,12 +11,27 @@ using namespace std;
 
 // regresa true si ya probo todas las opciones para una decision
 bool prule::make_change(){
-    //if(changes.back().size()==2){
+    if(changes.back().size()==2){
         double aux=pr[changes.back()[0]];
         pr[changes.back()[0]] = pr[changes.back()[1]];
         pr[changes.back()[1]] = aux; 
         changes.pop_back();
         return true;
+    }
+    // el cambio de n7 tiene 3 elementos los primeros dos representan el cabio
+    else{
+        int u = changes.back()[0];
+        int v = changes.back()[1];
+        if(u<v)// darle a u una prioridad menor que la de v 
+            pr[u] = pr[v]*pr[v];
+        else // darle a v una prioridad mayor a la de u
+            pr[v] = sqrt(pr[u]);
+
+        changes.pop_back();
+        return true;
+    }
+
+
 
     /*
     double minpr=2,maxpr=-1;

@@ -156,60 +156,88 @@ void individuo::load(string fname,const instance& req){
 
 // const porque no modifica nada
 auto individuo::fitness() const {
-    // consta de una tupla con:
-    // (makespan,numero de rutasc,tiempo total de las maquinas,trabajos diferentes en las rc)
+    // caracteristicas o metricas
+    // 1. Cmax (makespan)
+    // 2. totime2 = \sum C_i^2 (suma del tiempo total cuadrado)
+    // 3. flowtime = \sum J_i (flowtime)
+    // 4. Icmax = \sum I(C_i=Cmax) (numero de maquinas que tardan igual al makespan)
+    // 5. nrc=rc.size() (numero de rutas criticas)
+    // 6. dist2=\sigma(C_i) (desviacion estandar de tiempos de finalizacion)
     vector<int> finishtimes;
-    int latestart =0;
+    // 4. maquinas que tardan lo mismo que Cmax
+    int Icmax;
     for(int i=0;i<this->nmaq;i++){
         finishtimes.push_back(plan[i*njobs+njobs-1].end);
-        //latestart=latestart<plan[i*njobs].start?plan[i*njobs].start:latestart;
-        latestart+=plan[i*njobs].start;
+        if(plan[i*njobs+njobs-1].end==cost)
+            Icmax+=1;
     }
 
-    // tiempo total de las maquinas
-    int totime = accumulate(finishtimes.begin(),finishtimes.end(),0);
+    // 2. suma del tiempo cuadrado total de las maquinas
+    int totime2 = inner_product(finishtimes.begin(),finishtimes.end(),finishtimes.begin(),0);
 
-    /*
-    // numero de trabajos diferentes en rc
-    set<int> rcjobs;
-    int rc_size=0;
-    for(auto rc :ruta){
-        rc_size += rc.size();
-        for(int i:rc)
-            rcjobs.insert(i);
+    // 3. flowtime 
+    int flowtime=0;
+    for(int i=0;i<this->nmaq;i++){
+        for(int j=0;j<njobs;j++)
+            if((plan[i*njobs+j].id +1)%nmaq ==0)
+                flowtime +=plan[i*njobs+j].end;
     }
-    // mide cuantos repetidos hay es 0 si no hay repetidos y <0 si hay
-    rc_size = rcjobs.size()-rc_size;
-    */
-
-    // distancia cuadrada promedio a la maquina que mas tarda
-    double mean = totime/nmaq; 
-    double sqrmean = inner_product(finishtimes.begin(),finishtimes.end(),finishtimes.begin(),0)/nmaq;
-    double dist2= sqrmean - 2*cost*mean + mean*mean; 
-    //dist2 =  -*min_element(finishtimes.begin(),finishtimes.end());
+    // 6. desviacion estandar <x^2>-<x>^2
+    double mean2 = accumulate(finishtimes.begin(),finishtimes.end(),0)/(1.0*nmaq); 
+    mean2*=mean2;
+    double sqrmean = totime2 / (1.0*nmaq);
+    double dist2= sqrmean-mean2; 
     
-    // espacios
-    int idletime=0;
-    int nholes = 0;
-    for(int i=0;i<nmaq;i++){
-        idletime = plan[i*njobs].start;
-        for(int j=0;j<njobs-1;j++){
-            // sumar el tiempo que esta parada
-            idletime += plan[i*njobs+j+1].start-plan[i*njobs+j].end;
-            nholes += (plan[i*njobs+j+1].start!=plan[i*njobs+j].end);
-        }
-    }
      
     // tupla 
-    return make_tuple(cost,(latestart+idletime+totime+dist2)/cost,(nholes*1.0)/nmaq*njobs);
-    //return  make_tuple(cost,latestart,dist2,idletime,totime,nholes);
-
+    // 1.
+    //return make_tuple(cost);
+    // 2. 
+    //return make_tuple(cost,totime2);
+    // 3. 
+    //return make_tuple(cost,flowtime);
+    // 4. 
+    //return make_tuple(cost,Icmax);
+    // 5.
+    //return make_tuple(cost,ruta.size());
+    // 6.
+    //return make_tuple(cost,dist2);
+    //return vector<int>({cost,totime2,flowtime,ruta.size()});
+    vector<double> feat({1.0*cost,1.0*totime2,1.0*flowtime,1.0*ruta.size()});
+    return  inner_product(feat.begin(),feat.end(),weights.begin(),0);
+    /*
+    // tiempos ordenados
+    vector<int> finishtimes;
+    for(int i=0;i<this->nmaq;i++)
+        finishtimes.push_back(plan[i*njobs+njobs-1].end);
+    // reverse iterators para que quede de mayor a menor
+    sort(finishtimes.rbegin(),finishtimes.rend());
+    return finishtimes;
+    */
 }
+
+// regresa true si el j-esimo mayor tiempo de i1 es menor que el i2
+// si son iguales regresa false
+/*
+bool lex_vec_cmpr(const individuo& i1, const individuo& i2){
+    vector<int> v1 = i1.fitness();
+    vector<int> v2= i2.fitness();
+    if(v1.size()!=v2.size())
+        cout<<"dim error\n"<<"v1.size=: "<<v1.size()<<"\tv2.size: "<<v2.size();
+    for(int i = 0;i<v1.size();i++){
+        if(v1[i]<v2[i])
+            return true;
+        if(v1[i]>v2[i])
+            return false;
+    }
+    return false;
+}*/
 
 // regresa true si tiene mejor fitness
 bool individuo::operator<(const individuo& other){
     // construir la tupla 
     return this->fitness()<other.fitness();
+    //return lex_vec_cmpr(*this,other);
 }
 
 void individuo::create_rand(instance req){

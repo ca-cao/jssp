@@ -1,7 +1,6 @@
 all: main.cpp jsp.o individuo.o prule.o
 	g++ -c  individuo.cpp jsp.cpp main.cpp prule.cpp -O2
-	g++ -o main main.o jsp.o individuo.o prule.o -O2
-
+	g++ -o main main.o -fopenmp jsp.o individuo.o prule.o -O2 
 profile: main.cpp jsp.o individuo.o prule.o
 	g++ -c  individuo.cpp jsp.cpp main.cpp prule.cpp -O2 -pg
 	g++ -o main main.o jsp.o individuo.o prule.o -O2 -pg

@@ -77,6 +77,7 @@ class individuo{
 	    int cost;
         vector<job> plan; 
         vector<vector<int>> ruta;
+        vector<double> weights;
 };
     
 
