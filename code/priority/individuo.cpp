@@ -203,22 +203,21 @@ auto individuo::fitness() const {
     // 6.
     //return make_tuple(cost,dist2);
     //return vector<int>({cost,totime2,flowtime,ruta.size()});
-    vector<double> feat({1.0*cost,1.0*totime2,1.0*flowtime,1.0*ruta.size()});
-    return  inner_product(feat.begin(),feat.end(),weights.begin(),0);
+    //vector<double> feat({1.0*cost,1.0*totime2,1.0*flowtime,1.0*ruta.size()});
+    //return  inner_product(feat.begin(),feat.end(),weights.begin(),0);
     /*
     // tiempos ordenados
     vector<int> finishtimes;
     for(int i=0;i<this->nmaq;i++)
         finishtimes.push_back(plan[i*njobs+njobs-1].end);
     // reverse iterators para que quede de mayor a menor
+    */
     sort(finishtimes.rbegin(),finishtimes.rend());
     return finishtimes;
-    */
 }
 
 // regresa true si el j-esimo mayor tiempo de i1 es menor que el i2
 // si son iguales regresa false
-/*
 bool lex_vec_cmpr(const individuo& i1, const individuo& i2){
     vector<int> v1 = i1.fitness();
     vector<int> v2= i2.fitness();
@@ -231,13 +230,13 @@ bool lex_vec_cmpr(const individuo& i1, const individuo& i2){
             return false;
     }
     return false;
-}*/
+}
 
 // regresa true si tiene mejor fitness
 bool individuo::operator<(const individuo& other){
     // construir la tupla 
-    return this->fitness()<other.fitness();
-    //return lex_vec_cmpr(*this,other);
+    //return this->fitness()<other.fitness();
+    return lex_vec_cmpr(*this,other);
 }
 
 void individuo::create_rand(instance req){

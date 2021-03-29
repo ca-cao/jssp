@@ -161,7 +161,7 @@ individuo jsp::ASGA(prule* rule,unsigned seed) const{
         // seleccionar por dafult de mayor prioridad
         for(auto current=mqueue[minmaq].begin();current!=mqueue[minmaq].end();current++){
             start = max(current->endep(plan),machend);
-            if(rule->pr[current->id]>selpr){
+            if(rule->pr[current->id]>selpr and start <= minfinish){
                 selected = current;
                 selected->start = start;
                 selpr = rule->pr[selected->id];
@@ -356,7 +356,7 @@ individuo jsp::VNS(prule rule,int max_seconds,const vector<double>& weights,int 
         x = local_search(&rule,weights);
         // busqueda local con cambios de N7
         //x = local_search(x,make_n7);
-        //cout << x.costo() << " " << best.costo() << endl;
+        cout << x.costo() << " " << best.costo() << endl;
         if(x<best){
             best=x;
             rule.init(best);

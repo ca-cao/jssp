@@ -46,7 +46,7 @@ int main(int argc, char** argv){
     reprule.open("rule.ind");
     repin.open("best.ind");
     // leer instancia y obtener parametros
-    for(int i=79;i<=79;i++){
+    for(int i=78;i<=78;i++){
         string file("../../instancias/dmu");
         if(i<10)
             file = file + "0" +to_string(i)+".txt";
@@ -54,13 +54,14 @@ int main(int argc, char** argv){
             file =file +to_string(i)+".txt";
         jsp problem(file);
         prule rule,update,avg;
-        vnsx obj(problem,10);
-        de::DifferentialEvolution de(obj, 4, std::time(nullptr));
-        de.Optimize(2, reprule, true);
+        problem.VNS(rule,300,vector<double>({1,0,0,0}));
     }
     return 0;
 }
 /*
+        vnsx obj(problem,10);
+        de::DifferentialEvolution de(obj, 4, std::time(nullptr));
+        de.Optimize(2, reprule, true);
         best.load("best80.txt",problem.req);
         best.eval(problem.req);
         rule.init(best);
