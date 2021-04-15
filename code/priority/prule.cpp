@@ -26,11 +26,11 @@ bool prule::make_change(){
         int v = changes.back()[1];
         // ---u---v => ---v-u 
         if(changes.back()[2]==1){
-            pr[u] = max(0,pr[v]-epsdbl);
+            pr[u] = max(0.0,pr[v]-epsdbl);
         }
         // v---u-- => u-v--- 
         else{
-            pr[u] = max(1,pr[v]+epsdbl);
+            pr[u] = min(1.0,pr[v]+epsdbl);
         }
         return true;
     }
