@@ -168,10 +168,12 @@ auto individuo::fitness() const {
     int Icmax;
     for(int i=0;i<this->nmaq;i++){
         finishtimes.push_back(plan[i*njobs+njobs-1].end);
+        finishtimes.push_back(plan[i*njobs].start);
         if(plan[i*njobs+njobs-1].end==cost)
             Icmax+=1;
     }
 
+    /*
     // 2. suma del tiempo cuadrado total de las maquinas
     int totime2 = inner_product(finishtimes.begin(),finishtimes.end(),finishtimes.begin(),0);
 
@@ -205,7 +207,6 @@ auto individuo::fitness() const {
     //return vector<int>({cost,totime2,flowtime,ruta.size()});
     //vector<double> feat({1.0*cost,1.0*totime2,1.0*flowtime,1.0*ruta.size()});
     //return  inner_product(feat.begin(),feat.end(),weights.begin(),0);
-    /*
     // tiempos ordenados
     vector<int> finishtimes;
     for(int i=0;i<this->nmaq;i++)

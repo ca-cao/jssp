@@ -1,9 +1,9 @@
 #include"prule.hpp"
 #include"individuo.hpp"
+#include<algorithm>
 #include<vector>
 #include<numeric>
 #include<random>
-#include<algorithm>
 #include<math.h>
 #include<chrono>
 
@@ -19,15 +19,19 @@ bool prule::make_change(){
         return true;
     }
     // el cambio de n7 tiene 3 elementos los primeros dos representan el cabio
+    // el tercero el orden de u v u---v ; v -- u
     else{
+        double epsdbl = numeric_limits<double>::min();
         int u = changes.back()[0];
         int v = changes.back()[1];
-        if(u<v)// darle a u una prioridad menor que la de v 
-            pr[u] = pr[v]*pr[v];
-        else // darle a v una prioridad mayor a la de u
-            pr[v] = sqrt(pr[u]);
-
-        changes.pop_back();
+        // ---u---v => ---v-u 
+        if(changes.back()[2]==1){
+            pr[u] = max(0,pr[v]-epsdbl);
+        }
+        // v---u-- => u-v--- 
+        else{
+            pr[u] = max(1,pr[v]+epsdbl);
+        }
         return true;
     }
 
@@ -55,6 +59,16 @@ bool prule::make_change(){
     }
     return true;
     */
+}
+
+bool prule::operator==(prule other) const{
+    if(this->pr.size()!=other.pr.size())
+        return false;
+    for(int i=0;i<pr.size();i++){
+        if(pr[i]!=other.pr[i])
+            return false;
+    }
+    return true;
 }
 
 // la pareja tiene (double aleatorio,greedystart)
@@ -115,10 +129,19 @@ void prule::init(const individuo& x){
     }
 }
 
-void prule::show(){
+void prule::init(const vector<double>& x,int nmaq,int njobs){
+    nmaq = nmaq;
+    njobs = njobs;
+    pr.resize(nmaq*njobs);
+    for(int i=0;i<nmaq*njobs;i++){
+        pr[i] = x[i];
+    }
+}
+
+void prule::show(ostream& fout){
     int count=0; 
     for(auto& p :pr)
-        cout<<count++<<" "<<p<<endl;
+        fout<<count++<<" "<<p<<endl;
 }
 
 prule prule::operator *(double scale) const{

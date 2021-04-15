@@ -15,11 +15,13 @@ public:
     void perturb(int nflips,unsigned seed=0);
     void rand_init(const instance& req,unsigned seed = 0);
     void init(const individuo& x);
+    void init(const vector<double>& x,int nmaq,int njobs);
     void updatepr(individuo& sol);
     bool make_change();
-    void show();
+    void show(ostream& fout =cout);
     prule operator *(double scale) const;
     prule operator +(const prule other) const;
+    bool operator ==(const prule other) const;
     // guarda que operadciones compitieron
     vector<vector<int>> changes;
     vector<double> pr;

@@ -18,11 +18,14 @@ public:
     vnsx(jsp problem_m,int max_seconds_m):problem(problem_m),max_seconds(max_seconds_m){
     }
     double EvaluteCost(std::vector<double> inputs) const override{
-        return problem.VNS(rule,max_seconds,inputs).costo()*1.0;
+        prule auxrule;
+        auxrule.init(inputs,problem.nmaq,problem.njobs);
+        return problem.ASGA(&auxrule).costo()*1.0;
+        //return problem.VNS(rule,max_seconds,inputs).costo()*1.0;
     }
 
     unsigned int NumberOfParameters() const override{
-        return 4;
+        return problem.njobs*problem.nmaq;
     }
 
     std::vector<Constraints> GetConstraints() const override
@@ -42,9 +45,10 @@ private:
 };
 
 int main(int argc, char** argv){
-    ofstream reprule,repin;
-    reprule.open("rule.ind");
-    repin.open("best.ind");
+    ofstream d1,d1_2,d0;
+    d1.open("delta1.ind");
+    d1_2.open("delta1_2.ind");
+    d0.open("delta0.ind");
     // leer instancia y obtener parametros
     for(int i=78;i<=78;i++){
         string file("../../instancias/dmu");
@@ -54,14 +58,21 @@ int main(int argc, char** argv){
             file =file +to_string(i)+".txt";
         jsp problem(file);
         prule rule,update,avg;
-        problem.VNS(rule,300,vector<double>({1,0,0,0}));
+        problem.VNS(rule,300);
     }
     return 0;
 }
 /*
-        vnsx obj(problem,10);
-        de::DifferentialEvolution de(obj, 4, std::time(nullptr));
-        de.Optimize(2, reprule, true);
+        rule.rand_init(problem.req,123);
+        cout << problem.local_search(&rule,0).costo()<<endl;
+        rule.show(d0);
+        cout << problem.local_search(&rule,.5).costo()<<endl;
+        rule.show(d1_2);
+        cout << problem.local_search(&rule,1).costo()<<endl;
+        rule.show(d1);
+        vnsx obj(problem,1);
+        de::DifferentialEvolution de(obj, 300, std::time(nullptr));
+        de.Optimize(100);
         best.load("best80.txt",problem.req);
         best.eval(problem.req);
         rule.init(best);

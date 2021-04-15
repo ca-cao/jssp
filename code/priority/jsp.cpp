@@ -30,7 +30,9 @@ vector<vector<int>> make_active_n7(const individuo& x){
                     break;
                 // si el predecesor de i esta en la ruta critica
                 //if(plan[plan[rc[i]].jobdep].is_in_rc){
-                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id,0}));
+                // i < j 
+                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id,1}));
+                    n7.push_back(vector<int>({x.plan[rc[j]].id,x.plan[rc[i]].id,0}));
                 //}
             }
             j--;
@@ -42,7 +44,8 @@ vector<vector<int>> make_active_n7(const individuo& x){
                     break;
                 // si el sucesor de j esta en la ruta critica
                 //if(plan[plan[rc[j]].jobsuc].is_in_rc){
-                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id,0}));
+                    n7.push_back(vector<int>({x.plan[rc[i]].id,x.plan[rc[j]].id,1}));
+                    n7.push_back(vector<int>({x.plan[rc[j]].id,x.plan[rc[i]].id,0}));
                 //}
             }
         }
@@ -93,6 +96,8 @@ instance getData(string fname){
 // constructor
 jsp::jsp(string fname){
     req = getData(fname);
+    nmaq = req[0].size();
+    njobs = req.size();
 }
 
 // destructor
@@ -101,7 +106,10 @@ jsp::~jsp(){};
 
 // construye un individuo con las prioridades de rule
 // guarda las operaciones que compitieron en rule->changes
-individuo jsp::ASGA(prule* rule,unsigned seed) const{
+// construye tambien la vecindad N7
+// delta controla si es una planificacion no retardada (delta=0) o activa (0<delta<=1)
+individuo jsp::ASGA(prule* rule,double delta,unsigned seed) const{
+    // inicializacion
     if(seed ==0)
         seed = chrono::system_clock::now().time_since_epoch().count();
     int njobs,nmaq;
@@ -158,10 +166,17 @@ individuo jsp::ASGA(prule* rule,unsigned seed) const{
         int pid = minmaq*njobs+nop[minmaq],start;
         int machend =  nop[minmaq]==0?0:plan[pid-1].end;
         double selpr=-1;
-        // seleccionar por dafult de mayor prioridad
+        // seleccionar por default al que acaba primero
         for(auto current=mqueue[minmaq].begin();current!=mqueue[minmaq].end();current++){
             start = max(current->endep(plan),machend);
-            if(rule->pr[current->id]>selpr and start <= minfinish){
+            if(start+current->end == minfinish){
+                selected = current;
+                selected->start = start;
+            }
+        }
+        for(auto current=mqueue[minmaq].begin();current!=mqueue[minmaq].end();current++){
+            start = max(current->endep(plan),machend);
+            if(rule->pr[current->id]>selpr and 1.0*start <= (machend + (minfinish-machend)*delta)){
                 selected = current;
                 selected->start = start;
                 selpr = rule->pr[selected->id];
@@ -235,29 +250,29 @@ individuo jsp::ASGA(prule* rule,unsigned seed) const{
     active.get_rc();
     
     // agregar la n7
-    vector<vector<int>> n7 = make_active_n7(active);
-    rule->changes.insert(rule->changes.end(),n7.begin(),n7.end());
+    //vector<vector<int>> n7 = make_active_n7(active);
+    //rule->changes.insert(rule->changes.end(),n7.begin(),n7.end());
 
-    //seed = 1;
     shuffle(rule->changes.begin(),rule->changes.end(),default_random_engine(seed));
     return active;
 }
 
 
-individuo jsp::local_search(prule* rule,vector<double> weights,unsigned seed)const{
+individuo jsp::local_search(prule* rule,double delta,unsigned seed)const{
     // usar una semilla "aleatoria" o una proporcionada
     if(seed==0)
         seed = chrono::system_clock::now().time_since_epoch().count();
     prule* trialrule = new prule();
-    individuo x = ASGA(rule,seed);
-    x.weights = weights;
+    individuo x = ASGA(rule,delta,seed);
     *trialrule = *rule;
     individuo trial=x;
     while(!rule->changes.empty()){
         int pid1=trialrule->pid[trialrule->changes.back()[0]];
         int pid2=trialrule->pid[trialrule->changes.back()[1]];
         
-        if(!(x.plan[pid1].is_in_rc or x.plan[pid2].is_in_rc)){
+        // solo toma en cuenta cambios con operaciones en las que no ambas pertenecen
+        // a la ruta critica porque la N7 ya toma en cuenta ese tipo
+        if(!(x.plan[pid1].is_in_rc xor x.plan[pid2].is_in_rc)){
             trialrule->changes.pop_back();
             rule->changes.pop_back();
             continue;
@@ -267,8 +282,7 @@ individuo jsp::local_search(prule* rule,vector<double> weights,unsigned seed)con
         rule->changes = trialrule->changes;
         
         // crear un individuo optimo local de prueba 
-        trial = ASGA(trialrule,seed);
-        trial.weights = weights;
+        trial = ASGA(trialrule,delta,seed);
         // ver si es mejor, cambiarlo y asignar la nueva vecindad
         if(trial<x){
             x = trial;
@@ -337,36 +351,38 @@ bool bern(double theta){
     return random()/(1.0*RAND_MAX)<=theta;
 }
 
-individuo jsp::VNS(prule rule,int max_seconds,const vector<double>& weights,int nflip)const {
+// hace una busqueda local iterada en la que la perturbacion consiste en hacer un cambio de la vecindad
+individuo jsp::VNS(prule& rule,int max_seconds,double delta,int nflip,unsigned seed)const {
     int count=0,nonimprov = 10;
     auto start = std::chrono::steady_clock::now();
     auto end = start;
     double maxnano = max_seconds*1e9;
-    //prule rule;
     individuo x,best,xprime;
-    best = ASGA(&rule);
-    best.weights = weights;
+    best = ASGA(&rule,delta,seed);
+    x = best;
+    prule bestrule=rule;
+    // guarda los movimientos de la vecindad para elegir alguno como perturbacion
     vector<vector<int>> moves = rule.changes;
-    prule avg = rule;
-    // guardar la vecindad para generar un individuo nuevo
     while(chrono::duration_cast<chrono::nanoseconds>(end-start).count()<=maxnano){
-        //cout <<"T: "<< chrono::duration_cast<chrono::nanoseconds>(end-start).count() / 1e9<<endl;
-        double timeleft = maxnano-chrono::duration_cast<chrono::nanoseconds>(end-start).count();
-        // busqueda local con cambios de ASGA
-        x = local_search(&rule,weights);
-        // busqueda local con cambios de N7
-        //x = local_search(x,make_n7);
-        cout << x.costo() << " " << best.costo() << endl;
+        // busqueda local con cambios de ASGA y N7
+        x = local_search(&rule,delta,seed);
+        x = local_search(x,make_n7);
+        cout << x.costo() << " " << best.costo();
+        // reemplazar si es mejor e inicializar la vecindad
         if(x<best){
+            cout <<" accepted\n";
             best=x;
             rule.init(best);
-            ASGA(&rule);
+            bestrule = rule;
+            ASGA(&rule,delta,seed);
             moves = rule.changes;
         }
         else if(moves.empty()){
+            cout <<" not accepted flip\n ";
             rule.perturb(nflip);
         }
         else{
+            cout <<" not accepted\n";
             rule.init(best);
             rule.changes = moves;
             rule.make_change();
@@ -374,12 +390,12 @@ individuo jsp::VNS(prule rule,int max_seconds,const vector<double>& weights,int 
         }
         end = std::chrono::steady_clock::now();
     }
+    rule = bestrule;
     return best;
 }
 
 /* funciones para ILS con la representacion inicial */
-
-individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(const individuo&) ){
+individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(const individuo&) )const {
     int u,v;
     unsigned long int cost0;
     int rc_save=0;
