@@ -1,0 +1,85 @@
+\documentclass[12pt,letterpaper]{book}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks=true, linkcolor=ginda]{hyperref}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pdfpages}
+\usepackage{makeidx}
+\usepackage{import}
+\usepackage{listings}
+\usepackage{float} 
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage{minitoc}
+\usepackage{enumitem}
+\usepackage{setspace}
+%\usepackage{apacite}
+%\usepackage{natbib}
+\usepackage[titletoc]{appendix}
+\usepackage{algorithm,algpseudocode}
+\usepackage{algorithmicx}
+\usepackage[Lenny]{fncychap}
+\usepackage{subfigure}
+\input{Otros/Comandos}
+
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Juan Germán Caltzontzin Rabell}
+\title{Paisaje de búsqueda en el problema de planificación de producción tipo taller}
+
+\begin{document}
+
+\include{Portada}
+\pagebreak \frontmatter
+\include{Otros/Resumen} \newpage
+\include{Otros/Abstract}
+\dominitoc \tableofcontents \let\cleardoublepage\clearpage
+
+\spacing{1.2}
+\mainmatter
+
+\chapter{Introducción}\label{cap:introduccion}  \minitoc
+\input{Introduccion/AntecedentesYMotivacion}
+\input{Introduccion/Objetivos}
+\input{Introduccion/Propuesta}
+\input{Introduccion/Contribuciones}
+\input{Introduccion/Panorama}
+\newpage
+
+\chapter{Marco teórico}\label{cap:marcot} \minitoc
+% apartado optimizacion (metaheuristicas ...) 
+% apartado definiciones (problema) 
+% apartado union (vecindades ...)
+\input{marcoteorico/Optimizacion}
+\input{marcoteorico/Definiciones}
+\input{marcoteorico/union}
+\newpage
+
+\chapter{Propuestas}\label{cap:prop}
+\input{propuestas/vecindades}
+\input{propuestas/fitness}
+\input{propuestas/representacion}
+
+\chapter{Validación experimental}
+% capitulo validacion experimental
+\input{validacion/resultados}
+% resultados
+
+
+%Conclusiones 
+\newpage
+\chapter{Conclusiones y Trabajos a Futuro}\label{cap:ct} \minitoc
+\input{Conclusiones/Conclusiones}
+
+\appendix
+\input{Otros/Apendice} \newpage
+
+\bibliographystyle{acm}
+\bibliography{Referencias}
+
+\end{document}
