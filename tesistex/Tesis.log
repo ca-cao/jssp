@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.19)  26 APR 2021 14:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.19)  26 APR 2021 15:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -817,17 +817,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-<Imagenes/search1.png, id=178, 574.145pt x 560.0925pt>
+<Imagenes/search1.png, id=180, 574.145pt x 560.0925pt>
 File: Imagenes/search1.png Graphic file (type png)
 <use Imagenes/search1.png>
 Package pdftex.def Info: Imagenes/search1.png  used on input line 38.
 (pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
-<Imagenes/search2.png, id=179, 574.145pt x 560.0925pt>
+<Imagenes/search2.png, id=181, 574.145pt x 560.0925pt>
 File: Imagenes/search2.png Graphic file (type png)
 <use Imagenes/search2.png>
 Package pdftex.def Info: Imagenes/search2.png  used on input line 39.
 (pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
-<Imagenes/search3.png, id=180, 574.145pt x 560.0925pt>
+<Imagenes/search3.png, id=182, 574.145pt x 560.0925pt>
 File: Imagenes/search3.png Graphic file (type png)
 <use Imagenes/search3.png>
 Package pdftex.def Info: Imagenes/search3.png  used on input line 40.
@@ -852,7 +852,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
-<Imagenes/planejemplorc.png, id=196, 462.528pt x 346.896pt>
+<Imagenes/planejemplorc.png, id=198, 462.528pt x 346.896pt>
 File: Imagenes/planejemplorc.png Graphic file (type png)
 <use Imagenes/planejemplorc.png>
 Package pdftex.def Info: Imagenes/planejemplorc.png  used on input line 24.
@@ -882,11 +882,11 @@ Package minitoc Info: I0006
 (minitoc)             Tesis.mtc5 is empty on input line 77.
 (./Conclusiones/Conclusiones.tex) (./Otros/Apendice.tex) [11
 
-]
-No file Tesis.bbl.
+] (./Tesis.bbl)
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the Tesis.maf file.
+
 
 Package minitoc(hints) Warning: W0086
 (minitoc(hints))                The fncychap package should be 
@@ -902,9 +902,9 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the Tesis.log file.
 
-LaTeX Info: Redefining \. on input line 85.
-LaTeX Info: Redefining \% on input line 85.
-[12] (./Tesis.aux (./Portada.aux)
+[12
+
+] (./Tesis.aux (./Portada.aux)
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
  (./Otros/Resumen.aux) (./Otros/Abstract.aux))
@@ -916,10 +916,10 @@ Package rerunfilecheck Info: File `Tesis.out' has not changed.
 ### semi simple group (level 1) entered at line 43 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14005 strings out of 479383
- 200392 string characters out of 5875830
- 567225 words of memory out of 5000000
- 30517 multiletter control sequences out of 15000+600000
+ 14012 strings out of 479383
+ 200490 string characters out of 5875830
+ 567297 words of memory out of 5000000
+ 30520 multiletter control sequences out of 15000+600000
  419112 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,16n,72p,696b,575s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -942,10 +942,10 @@ fonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
 sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/
 texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/typ
 e1/urw/times/utmr8a.pfb>
-Output written on Tesis.pdf (17 pages, 320424 bytes).
+Output written on Tesis.pdf (17 pages, 328231 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 500000)
+ 305 PDF objects out of 1000 (max. 8388607)
+ 255 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
