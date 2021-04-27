@@ -1,33 +1,107 @@
 import numpy as np
 from scipy.stats import kruskal
+from scipy.stats import wilcoxon
 import matplotlib.pyplot as plt
 import os 
 import sys 
 
-res = np.zeros((2,80,100))
+res = np.zeros((len(sys.argv)-1,80,50))
 names = []
-colors = ["r","g"]
-for l,i in enumerate(sys.argv[1:]):
-    names.append(i)
-    for k,j in enumerate(sorted(os.listdir(i))):
-        res[l,k,:] = np.loadtxt(i+j)
 
-for i in range(80):
-    s,p = kruskal(res[0,i],res[1,i])
-    same = False
-    if p > .05:
-        same = True
-    print(np.median(res[0,i]),np.median(res[1,i]),"Same ",same)
-    print("best ",np.min(res[0,i]),np.min(res[1,i]))
-for i in range(2):
-    plt.plot(res[i].min(1),colors[i]+"o",label = names[i])
-    plt.plot(np.median(res[i],axis=1),colors[i]+"--")
+cl = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
+np.random.shuffle(cl)
+for l,i in enumerate(sys.argv[1:]):
+    names.append(i[:-1])
+    for k,j in enumerate(sorted(os.listdir(i))):
+        #print(i+j)
+        res[l,k,:] = np.loadtxt(i+j)[:50]
+
+# ver cual gana mas
+#plt.title("Minimo")
+#med = np.min(res,axis=2)
+#best = np.argmin(med,0)
+#plt.xticks(np.arange(len(names))+.5,labels=names)
+#xt=plt.hist(np.argmin(med,0),bins=np.arange(len(names)+1))
+#plt.show()
+#
+#plt.title("Medianas")
+med = np.median(res,axis=2)
+#best = np.argmin(med,0)
+#plt.xticks(np.arange(len(names))+.5,labels=names)
+#xt=plt.hist(np.argmin(med,0),bins=np.arange(len(names)+1))
+#plt.show()
+
+wins = np.zeros(len(names))
+
+heat = np.zeros((len(names),len(names)))
+# comparar todos los pares y anotar quien gana o pierde
+for k in range(80):
+    for i in range(len(names)-1):
+        for j in range(i+1,len(names)):
+            #s,p = kruskal(res[i,k],res[j,k])
+            s,p = wilcoxon(res[i,k],res[j,k])
+            # si son diferentes asignar los puntos
+            if p < .05:
+                win = 1*(med[i,k] < med[j,k])-1*(med[i,k] > med[j,k])
+                wins[i]+= win 
+                wins[j]-= win
+                heat[i,j]+=win
+                heat[j,i]-=win
+
+
+#xt=plt.plot(wins)
+#plt.xticks(np.arange(len(names)),labels=names)
+#plt.plot()
+#plt.title("Numero de comparaciones ganadas")
+#plt.show()
+
+# heatmap
+fig, ax = plt.subplots()
+im = ax.imshow(heat)
+# We want to show all ticks...
+ax.set_xticks(np.arange(len(names)))
+ax.set_yticks(np.arange(len(names)))
+# ... and label them with the respective list entries
+ax.set_xticklabels(names)
+ax.set_yticklabels(names)
+ax.set_xlim(-.5,len(names)-.5)
+ax.set_ylim(-.5,len(names)-.5)
+
+# Rotate the tick labels and set their alignment.
+plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+         rotation_mode="anchor")
+
+# Loop over data dimensions and create text annotations.
+for i in range(len(names)):
+    for j in range(len(names)):
+        text = ax.text(j, i, heat[i, j],
+                       ha="center", va="center", color="w")
+
+ax.set_title("Comparaciones ganadas o perdidas")
+fig.tight_layout()
+plt.show()
+
+for i in range(len(names)):
+    #plt.plot(res[i].min(1),"o",label = names[i],markersize=3,color=cl[i],alpha=.7)
+    plt.plot(np.median(res[i],axis=1),"o",markersize=4,color=cl[i],alpha =.7,label=names[i])
+plt.title("Medianas")
 
 plt.grid(True)
-plt.plot(np.loadtxt("/home/cacao/cimat/proyectotec/bestres/dmu_best.txt"),"b*",label="Estado del arte")
+plt.plot(np.loadtxt("/home/cacao/cimat/proyectotec/bestres/dmu_best.txt"),"k*",label="Estado del arte")
 plt.legend()
 plt.show()
 
+for i in range(len(names)):
+    plt.plot(res[i].min(1),"o",label = names[i],markersize=3,color=cl[i],alpha=.7)
+plt.title("Minimos")
+
+plt.grid(True)
+best = np.loadtxt("/home/cacao/cimat/proyectotec/bestres/dmu_best.txt")
+plt.plot(best,"k*",label="Estado del arte")
+plt.legend()
+plt.show()
+plt.plot(res[i].min(1) - best)
+plt.show()
 
 #points = dict(markersize=2,markerfacecolor = 'k')
 #for i in [0,40]:

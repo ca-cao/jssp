@@ -28,7 +28,6 @@ bool lex_vec_cmpr(const individuo& i1, const individuo& i2){
             return false;
     }
     return false;
-
 }
 
 vector<individuo> initpop(int popsize,instance req){
