@@ -19,17 +19,17 @@ En el contexto de la optimización una metaheurística es una metodología de al
 \item Con uso de memoria vs sin uso de memoria. El uso de memoria consiste en almacenar información que nos ayude a explorar el espacio de búsqueda.
 \end{itemize} 
 
-\section{Vecindad}
+\subsection{Vecindad}
 La definicion de vecindad es crucial para las metaheurísticas de trayectoria y las basadas en una sola solución.
 Formalmente, una vecindad es un mapeo $N:X\leftarrow 2^X$ que le asigna a cada solución $x\in X$ un subconjunto de soluciones en $X$. Intuitivamente podemos pensar que es una forma de definir a las soluciones que <<rodean>> a otra. Se dice que la solución $y$ es un vecino de $x$ si $y\in N(x)$.
 
 A partir de la definición de vecindad podemos también definir un operador de movimiento cuyo efecto al aplicarlo a una solución sea transformarla en una que pertenezca a su vecindad, i.e. este operador selecciona a un vecino de la solución inicial.  
  
-\section{Función de aptitud o fitness}
+\subsection{Función de aptitud o fitness}
 Aunque para un problema de optimización ya se tiene definida una función objetivo que se quiere minimizar, no siempre tenderemos el mejor desempeño de las metaheurísticas con solo esta función por lo que resulta benéfico plantear una nueva función a minimizar con la que tengamos mejor desempeño. Por ejemplo puede suceder que aunque dos soluciones tengan asociado el mismo valor de la función objetivo, una de ellas sea un mejor punto de partida para una metaheuristica de trayectoria.
 
 Esta función debe asociar a cada solución un elemento de un espacio donde esté definido un ordenamiento total. En esencia esta función define un operador de comparación entre soluciones.
-\section{Paisaje de búsqueda}
+\subsection{Paisaje de búsqueda}
 Una vez que tenemos el espacio de búsqueda y operadores de cambio para generar nuevas soluciones a partir de otras, se define el espacio de búsqueda como un grafo dirigido en el que los nodos son las soluciones al problema y una solución $x$ está conectada a otra $y$ si podemos generar a $y$ aplicando los operadores de cambio a $x$.\\
 
 Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que mide la calidad de dicha solución. La adición de esta función de aptitud al espacio de búsqueda genera al paisaje de búsqueda.
@@ -40,3 +40,12 @@ Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que
 \subfigure[Adición de la función de fitness]{\includegraphics[scale=.4]{Imagenes/search3.png}}
 \caption{Creación del paisaje de búsqueda}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{Imagenes/mettray.png}
+\caption{Ilustración de una metaheurística de trayectoria.\\ En cada paso se selecciona un vecino mejor que la solución actual hasta que se cumple algún criterio de paro }
+\end{figure}
+\subsection{Búsqueda Tabú}
+Esta metaheurística de trayectoria es la que actualmente ha obtenido mejores resultados por lo que se describe a continuación:
+% algoritmo

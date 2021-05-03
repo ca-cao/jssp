@@ -1,0 +1,8 @@
+\section{Extensión a vecindad N7}
+Como punto de partida se planteó agregar movimientos a la vecindad N7 con la cual se han obtenido los resultados del estado del arte.
+Los movimientos que plantea esta vecindad solo tienen que ver con pares de operaciones en la ruta crítica por lo que una extensión sencilla consiste en considerar movimientos de operaciones que pueden no pertenecer a la ruta crítica. Es importante resaltar que si no se planteara también una función de fitness que no tome solo en cuenta el makespan estos movimientos nunca llevarían a una mejora \cite{blazewicz1996job}. 
+Los movimientos planteados se basan en observar que en alguna solución encontrada por una búsqueda local para cada maquina pueden existir periodos de tiempo en la que está inactiva pero existe una operación que podría comenzar a procesarse en este periodo y que se procesa después.
+
+% diagrama 
+
+\section{Vecindad basada en soluciones activas}

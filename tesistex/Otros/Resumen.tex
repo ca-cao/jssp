@@ -1,8 +1,18 @@
 \chapter*{Resumen}
 En este trabajo se analiza el efecto de distintas metodologías de modificación del paisaje de búsqueda del problema de planificación de producción tipo taller (JSP por sus siglas en inglés). 
-El JSP es un tipo específico de problema de planificación, en general estos problemas consisten en encontrar una planificación que minimice el tiempo requerido para completar ciertos procesos. Existen una gran cantidad de tipos de problemas de planificación. 
+Existen una gran cantidad de tipos de problemas de planificación, el JSP es un tipo específico de problema que ha atraido considerable atención por su dificultad. En general estos problemas consisten en encontrar una planificación que minimice el tiempo requerido para completar ciertos procesos.  
 
-Aunque existen algoritmos exactos para resolver el JSP, 
+Aunque existen algoritmos exactos para encontrar la solución óptima JSP\cite{Brucker1994} el tiempo que requieren problemas grandes es demasiado largo como para que sean prácticos o inclusive factibles. La complejidad de este problema lo hizo un candidato ideal para utlizar métodos aproximados para conseguir una solución aceptable en un tiempo razonable. Actualmente los mejores resultados para las instancias de prueba más difíciles se han encontrado mediante metaheurísticas, en especfico la conocida como búsqueda tabú.
+
+Las metaheurísticas son convenientes por su relativa simplicidad algorítmica frente a otros métodos sin embargo, el tiempo requerido para obtener los resultados del estado del arte ha comenzado a crecer también, por lo que es importante dar un paso atrás y replantear un poco la forma de aplicar estos métodos para evitar complicarlos de más.
+
+
+En el campo de las metahurísticas hay varios conceptos fundamentales que tienen un gran impacto en su desempeño, en este trabajo se analizan tres de ellos que juntos componen lo que se conoce como paisaje de búsqueda el cual está estrechamente relacionado con la dificultad con el desempeño de las metaheurísticas de trayectoria. 
+
+Los conceptos analizados en este trabajo son : representación de las soluciones, definición de vecindad de una solución, función de aptitud o fitness. Para evaluar el impacto de cada uno de ellos se utliza una de las metaheurísticas de trayectoria más sencillas; la búsqueda local iterada. 
+
+Se tomaron las instancias dmu que son uno de los conjuntos de prueba más utilizados actualmente y que aun no ha sido resuelto por completo para hacer experimentos computacionales y se encontró que de las tres áreas en las que se plantearon modificaciones, la más importante fue la de la representación de soluciones.
+
 \let\cleardoublepage\clearpage
 
 

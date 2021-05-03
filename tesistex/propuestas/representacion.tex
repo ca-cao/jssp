@@ -1,0 +1,12 @@
+\section{Grafo disyuntivo}
+Inicialmente se trabajó con la representación del grafo disyuntivo \cite{balas1969machine}. Una solución factible se representa como un grafo dirigido acíclico en el que las aristas marcan el orden en el que se procesan las operaciones dentro de las máquinas. Esta representación se ha usado ampliamente en otros trabajos, siendo particularmente útil en aquellos que plantean métodos exactos de solución basados en enumeración completa\cite{Brucker2001}. 
+
+
+Formalmente en una instancia del JSP se representa cada operación como un nodo, se agregan dos nodos de control que sirven como el nodo inicial (del que dependen todos los trabajos) y final (que depdende de todos los trabajos), las restricciones de precedencia dentro de cada trabajo se representan como aristas dirigidas fijas y las operaciones que deben procesarse en una misma máquina se unen mediante aristas disyuntivas, una solución factible o planificación se obtiene al elegir la dirección para cada arista disyuntiva de modo que no se generen ciclos.  
+
+% figura 
+
+\section{Llaves aleatorias}
+La representación propuesta se basa en asignar a cada operación una número real entre 0 y 1 el cual sirve para definir un orden entre operaciones en una misma máquina mediante un proceso de decodificación un planteamiento similar puede encontrarse en \cite{bean1996}.
+
+Para decodificar la solución a partir de las llaves para cada operación se utiliza el algoritmo de Giffler \& Thompson \cite{Giffler1960} con el cual se generan soluciones activas.

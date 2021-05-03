@@ -3,7 +3,6 @@
 *gz
 *xls
 results/
-*png
 codigo_oscar/
-*o
-*dat
+*.o
+*.dat

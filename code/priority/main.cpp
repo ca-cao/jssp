@@ -50,15 +50,16 @@ int main(int argc, char** argv){
     d1_2.open("delta1_2.ind");
     d0.open("delta0.ind");
     // leer instancia y obtener parametros
-    for(int i=78;i<=78;i++){
-        string file("../../instancias/dmu");
+    for(int i=1;i<=40;i++){
+        string file("../../instancias/la");
         if(i<10)
             file = file + "0" +to_string(i)+".txt";
         else
             file =file +to_string(i)+".txt";
+        cout << file << endl;
         jsp problem(file);
         prule rule,update,avg;
-        problem.VNS(rule,300);
+        problem.VNS(rule,30);
     }
     return 0;
 }

@@ -1,9 +1,10 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Optimización}{\reset@font\mtcSfont 3}{section.2.1}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Metaheurísticas}{\reset@font\mtcSfont 4}{section.2.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Vecindad}{\reset@font\mtcSfont 4}{section.2.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Función de aptitud o fitness}{\reset@font\mtcSfont 5}{section.2.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Paisaje de búsqueda}{\reset@font\mtcSfont 5}{section.2.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Problema del planificación de producción tipo taller (JSSP)}{\reset@font\mtcSfont 6}{section.2.6}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.7}Representación de planificaciones}{\reset@font\mtcSfont 7}{section.2.7}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.8}Metaheurísticas aplicadas al JSP}{\reset@font\mtcSfont 8}{section.2.8}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.9}Vecindades previamente propuestas}{\reset@font\mtcSfont 8}{section.2.9}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Vecindad}{\reset@font\mtcSSfont 4}{subsection.2.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}Función de aptitud o fitness}{\reset@font\mtcSSfont 5}{subsection.2.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}Paisaje de búsqueda}{\reset@font\mtcSSfont 5}{subsection.2.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.4}Búsqueda Tabú}{\reset@font\mtcSSfont 7}{subsection.2.2.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Problema del planificación de producción tipo taller (JSSP)}{\reset@font\mtcSfont 7}{section.2.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Representación de planificaciones}{\reset@font\mtcSfont 8}{section.2.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Metaheurísticas aplicadas al JSP}{\reset@font\mtcSfont 9}{section.2.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Vecindades previamente propuestas}{\reset@font\mtcSfont 9}{section.2.6}}

@@ -370,7 +370,6 @@ individuo jsp::VNS(prule& rule,int max_seconds,double delta,int nflip,unsigned s
         cout << x.costo() << " " << best.costo();
         // reemplazar si es mejor e inicializar la vecindad
         if(x<best){
-            cout <<" accepted\n";
             best=x;
             rule.init(best);
             bestrule = rule;
@@ -378,11 +377,9 @@ individuo jsp::VNS(prule& rule,int max_seconds,double delta,int nflip,unsigned s
             moves = rule.changes;
         }
         else if(moves.empty()){
-            cout <<" not accepted flip\n ";
             rule.perturb(nflip);
         }
         else{
-            cout <<" not accepted\n";
             rule.init(best);
             rule.changes = moves;
             rule.make_change();
