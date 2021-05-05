@@ -21,9 +21,9 @@ A diagram describing the MESIF protocol: http://en.wikipedia.org/wiki/MESIF_prot
   font=\sffamily\Large\bfseries,minimum size=15mm}]
   \node[main node] (JPM) {};
   \node (M0) [below of=JPM]{};
-  \node[main node] (M)[below right of=JPM] {u};
+  \node[main node] (M)[below right of=JPM] {};
   \node[main node] (E) [right of=M] {};
-  \node[main node] (S) [right of=E] {v};
+  \node[main node] (S) [right of=E] {};
   \node[main node] (F) [right of=S] {};
   \node[main node] (I) [right of=F] {};
   \node[main node] (JSI) [below right of=I] {};
@@ -42,7 +42,7 @@ A diagram describing the MESIF protocol: http://en.wikipedia.org/wiki/MESIF_prot
     % flechas de movimimiento 
     %(M) edge [bend left=30] node{} (E)
     \path(M) edge [bend left=150] node[left=10mm,above=1mm]{forward} (S)
-	(S) edge [bend left=150] node{backward} (M) ;   
+	(S) edge [bend left=150] node{backward} (M);   
     
     %\path (E) edge [bend left=150] node[above=1mm] {backward} (I)
     %(I) edge [bend left=150] node{backward} (E);

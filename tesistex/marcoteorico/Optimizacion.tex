@@ -6,18 +6,22 @@ Formalmente, un problema de optimización consiste en hallar el mínimo o máxim
 \min_{x\in X} f(x)
 \end{gather}
 Es importante mencionar que cualquier problema de maximización puede transformarse en un problema equivalente de minimiación con el reemplazo $f(x) \leftarrow -f(x)$, por lo que se considera solo el caso de minimización sin pérdida de generalidad.
- 
+
+% mencionar optimimizacion continua, discreta
+% introducir el siguiente tema
 
 \section{Metaheurísticas}
 Es muy común que en nuestra cotidianidad nos enfrentemos a problemas tan difíciles o para los que tengamos tan poco tiempo de decisión que no podamos hacer un análisis riguroso, en estos casos es muy común que utilicemos algún método (posiblemente basado en la experiencia) que nos permita hallar una solución aceptable, por ejemplo, es común que reemplacemos el problema por uno más simple que sí podemos responder y cuya respuesta está relacionada con nuestro problema original.\footnote{No podemos predecir con certeza si lloverá durante el día pero sí podemos responder si el cielo está plagado de nubes oscuras}  
 
 En el contexto de la optimización una metaheurística es una metodología de alto nivel que combina diferentes heurísticas y puede aplicarse para resolver de manera aproximada una gran cantidad de problemas. En la práctica existen numerosas metaheuristicas que pueden ser muy diferentes entre sí por lo que no hay un sistema de clasificación universalmente aceptado aunque se han propuesto diferentes criterios de clasificación \cite{Stegherr2020} así como características como:
 \begin{itemize}
-\item De trayectoria vs discontinua. Una metaheurística de trayectoria consiste en, dada una solución inicial, mejorarla de manera iterativa mediante algún operador que <<mueve>> a la solución a través del espacio de búsqueda.
+\item De trayectoria vs discontinua. Una metaheurística de trayectoria consiste en, dada una solución inicial, mejorarla de manera iterativa mediante algún operador que <<mueve>> a la solución a través del espacio de búsqueda %extender.
 \item basadas en población vs basadas en una sola solución. En las metaheurísticas basadas en población se mantiene un conjunto de soluciones candidatas.
 \item basadas en búsqueda local vs constructivas. Como se explicará más adelante, en la búsqueda local, el proceso de mejora implica la evaluación de soluciones muy parecidas a una solución inicial dada mientras que en las constructivas se crean nuevas soluciones de acuerdo a una heurística o algoritmo preestablecido.
 \item Con uso de memoria vs sin uso de memoria. El uso de memoria consiste en almacenar información que nos ayude a explorar el espacio de búsqueda.
 \end{itemize} 
+
+% introducir los conceptos siguientes
 
 \subsection{Vecindad}
 La definicion de vecindad es crucial para las metaheurísticas de trayectoria y las basadas en una sola solución.
@@ -46,6 +50,7 @@ Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que
 \includegraphics[scale=.5]{Imagenes/mettray.png}
 \caption{Ilustración de una metaheurística de trayectoria.\\ En cada paso se selecciona un vecino mejor que la solución actual hasta que se cumple algún criterio de paro }
 \end{figure}
+% introducir ejemplos de mh de trayectoria
 \subsection{Búsqueda Tabú}
 Esta metaheurística de trayectoria es la que actualmente ha obtenido mejores resultados por lo que se describe a continuación:
 % algoritmo

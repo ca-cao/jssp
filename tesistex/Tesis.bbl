@@ -1,10 +1,4 @@
-\begin{thebibliography}{10}
-
-\bibitem{balas1969machine}
-{\sc Balas, E.}
-\newblock Machine sequencing via disjunctive graphs: an implicit enumeration
-  algorithm.
-\newblock {\em Operations research 17}, 6 (1969), 941--957.
+\begin{thebibliography}{1}
 
 \bibitem{Balas1998}
 {\sc Balas, E., and Vazacopoulos, A.}
@@ -17,11 +11,6 @@
 \newblock The job shop scheduling problem: Conventional and new solution
   techniques.
 \newblock {\em European journal of operational research 93}, 1 (1996), 1--33.
-
-\bibitem{Brucker2001}
-{\sc Brucker, P.}
-\newblock {\em {Due-Date Scheduling}}.
-\newblock 2001.
 
 \bibitem{Brucker1994}
 {\sc Brucker, P., Jurisch, B., and Sievers, B.}
@@ -41,6 +30,11 @@
 \bibitem{Giffler1960}
 {\sc Giffler, B., and Thompson, G.~L.}
 \newblock {Algorithms for Solving Production-Scheduling Problems}, 1960.
+
+\bibitem{norman1996random}
+{\sc Norman, B.~A., and Bean, J.~C.}
+\newblock A random keys genetic algorithm for job shop scheduling.
+\newblock Tech. rep., 1996.
 
 \bibitem{Stegherr2020}
 {\sc Stegherr, H., Heider, M., and H{\"{a}}hner, J.}
