@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Balas1998}
 {\sc Balas, E., and Vazacopoulos, A.}
@@ -12,10 +12,22 @@
   techniques.
 \newblock {\em European journal of operational research 93}, 1 (1996), 1--33.
 
+\bibitem{Blum2003}
+{\sc Blum, C., and Roli, A.}
+\newblock {Metaheuristics in Combinatorial Optimization: Overview and
+  Conceptual Comparison}.
+\newblock {\em ACM Computing Surveys 35}, 3 (2003), 268--308.
+
 \bibitem{Brucker1994}
 {\sc Brucker, P., Jurisch, B., and Sievers, B.}
 \newblock {A branch and bound algorithm for the job-shop scheduling problem}.
 \newblock {\em Discrete Applied Mathematics 49}, 1-3 (1994), 107--127.
+
+\bibitem{Cheng1996}
+{\sc Cheng, R., Gen, M., and Tsujimura, Y.}
+\newblock {A tutorial survey of job-shop scheduling problems using genetic
+  algorithms - I. Representation}.
+\newblock {\em Computers and Industrial Engineering 30}, 4 (1996), 983--997.
 
 \bibitem{dell1993applying}
 {\sc Dell'Amico, M., and Trubian, M.}
@@ -30,6 +42,17 @@
 \bibitem{Giffler1960}
 {\sc Giffler, B., and Thompson, G.~L.}
 \newblock {Algorithms for Solving Production-Scheduling Problems}, 1960.
+
+\bibitem{johnson1954optimal}
+{\sc Johnson, S.~M.}
+\newblock Optimal two-and three-stage production schedules with setup times
+  included.
+\newblock {\em Naval research logistics quarterly 1}, 1 (1954), 61--68.
+
+\bibitem{nocedal2006numerical}
+{\sc Nocedal, J., and Wright, S.}
+\newblock {\em Numerical optimization}.
+\newblock Springer Science \& Business Media, 2006.
 
 \bibitem{norman1996random}
 {\sc Norman, B.~A., and Bean, J.~C.}
@@ -47,5 +70,11 @@
 \newblock {A tabu search algorithm with a new neighborhood structure for the
   job shop scheduling problem}.
 \newblock {\em Computers and Operations Research 34}, 11 (2007), 3229--3242.
+
+\bibitem{Zhang2019}
+{\sc Zhang, J., Ding, G., Zou, Y., Qin, S., and Fu, J.}
+\newblock {Review of job shop scheduling research and its new perspectives
+  under Industry 4.0}.
+\newblock {\em Journal of Intelligent Manufacturing 30}, 4 (2019), 1809--1830.
 
 \end{thebibliography}

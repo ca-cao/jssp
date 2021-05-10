@@ -6,3 +6,5 @@ results/
 codigo_oscar/
 *.o
 *.dat
+biblio/
+priority/

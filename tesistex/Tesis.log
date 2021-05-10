@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.19)  4 MAY 2021 19:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.5.5)  10 MAY 2021 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -568,25 +568,25 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
  (./Otros/Resumen.aux) (./Otros/Abstract.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Info: Redefining \. on input line 35.
-LaTeX Info: Redefining \% on input line 35.
-Package hyperref Info: Link coloring ON on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Info: Redefining \. on input line 36.
+LaTeX Info: Redefining \% on input line 36.
+Package hyperref Info: Link coloring ON on input line 36.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -599,9 +599,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count321
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-LaTeX Info: Redefining \nameref on input line 35.
+LaTeX Info: Redefining \ref on input line 36.
+LaTeX Info: Redefining \pageref on input line 36.
+LaTeX Info: Redefining \nameref on input line 36.
 
 (./Tesis.out) (./Tesis.out)
 \@outlinefile=\write4
@@ -706,7 +706,7 @@ Package minitoc(hints) Warning: W0023
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (./Portada.tex
-<Imagenes/cimatlogo.png, id=96, 166.7028pt x 213.9192pt>
+<Imagenes/cimatlogo.png, id=88, 166.7028pt x 213.9192pt>
 File: Imagenes/cimatlogo.png Graphic file (type png)
 <use Imagenes/cimatlogo.png>
 Package pdftex.def Info: Imagenes/cimatlogo.png  used on input line 2.
@@ -735,7 +735,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38 \pagebreak \frontmatter
+l.39 \pagebreak \frontmatter
                              [2
 
 
@@ -754,7 +754,7 @@ l.38 \pagebreak \frontmatter
 
 ]
 Package minitoc Info: I0024
-(minitoc)             PREPARING MINITOCS FROM Tesis.toc on input line 41.
+(minitoc)             PREPARING MINITOCS FROM Tesis.toc on input line 42.
 Package minitoc Info: I0033
 (minitoc)             Writing Tesis.mtc1.
 Package minitoc Info: I0033
@@ -777,84 +777,123 @@ LaTeX Info: Redefining \% on input line 1.
 ]
 Cap\'{\i }tulo 1.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 4
-6.
+7.
 (/usr/share/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 4
-6.
+7.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (./Tesis.mtc1)
-(./Introduccion/AntecedentesYMotivacion.tex) (./Introduccion/Objetivos.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--1
+(./Introduccion/AntecedentesYMotivacion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
 
  []
 
-) (./Introduccion/Propuesta.tex [1
 
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
-]) (./Introduccion/Contribuciones.tex)
-(./Introduccion/Panorama.tex)
-LaTeX Info: Redefining \. on input line 52.
-LaTeX Info: Redefining \% on input line 52.
- [2]
-Cap\'{\i }tulo 2.
-(./Tesis.mtc2) (./marcoteorico/Optimizacion.tex [3
+ []
+
+[1
+
 
 ]
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 18
-.
-
-(/usr/share/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Info: Redefining \. on input line 31.
-LaTeX Info: Redefining \% on input line 31.
- [4]
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
+LaTeX Info: Redefining \. on input line 21.
+LaTeX Info: Redefining \% on input line 21.
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
-<Imagenes/search1.png, id=203, 574.145pt x 560.0925pt>
-File: Imagenes/search1.png Graphic file (type png)
-<use Imagenes/search1.png>
-Package pdftex.def Info: Imagenes/search1.png  used on input line 42.
-(pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
-<Imagenes/search2.png, id=204, 574.145pt x 560.0925pt>
-File: Imagenes/search2.png Graphic file (type png)
-<use Imagenes/search2.png>
-Package pdftex.def Info: Imagenes/search2.png  used on input line 43.
-(pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
-<Imagenes/search3.png, id=205, 574.145pt x 560.0925pt>
-File: Imagenes/search3.png Graphic file (type png)
-<use Imagenes/search3.png>
-Package pdftex.def Info: Imagenes/search3.png  used on input line 44.
-(pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
+) (./Introduccion/Objetivos.tex) (./Introduccion/Propuesta.tex
+LaTeX Info: Redefining \. on input line 7.
+LaTeX Info: Redefining \% on input line 7.
+ [3])
+LaTeX Info: Redefining \. on input line 53.
+LaTeX Info: Redefining \% on input line 53.
+ [4]
+Cap\'{\i }tulo 2.
+(./Tesis.mtc2) (./marcoteorico/Optimizacion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ []
 
-LaTeX Info: Redefining \. on input line 47.
-LaTeX Info: Redefining \% on input line 47.
- [5]
-<Imagenes/mettray.png, id=210, 462.528pt x 346.896pt>
-File: Imagenes/mettray.png Graphic file (type png)
-<use Imagenes/mettray.png>
-Package pdftex.def Info: Imagenes/mettray.png  used on input line 50.
-(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+[5
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+]
+Underfull \hbox (badness 10000) in paragraph at lines 10--14
 
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
- [6pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
+ []
+
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+[6]
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 29
+.
+ (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
+ [7]
+<Imagenes/representacion.pdf, id=219, 241.40086pt x 252.80447pt>
+File: Imagenes/representacion.pdf Graphic file (type pdf)
+<use Imagenes/representacion.pdf>
+Package pdftex.def Info: Imagenes/representacion.pdf  used on input line 55.
+(pdftex.def)             Requested size: 241.40025pt x 252.80383pt.
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
+ [8pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.54 \subsection
-                {Búsqueda Tabú} <./Imagenes/search1.png> <./Imagenes/search2.
-png> <./Imagenes/search3.png>]) (./marcoteorico/Definiciones.tex
+l.63 
+      <./Imagenes/representacion.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
+<Imagenes/search1.png, id=253, 574.145pt x 560.0925pt>
+File: Imagenes/search1.png Graphic file (type png)
+<use Imagenes/search1.png>
+Package pdftex.def Info: Imagenes/search1.png  used on input line 77.
+(pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
+<Imagenes/search2.png, id=254, 574.145pt x 560.0925pt>
+File: Imagenes/search2.png Graphic file (type png)
+<use Imagenes/search2.png>
+Package pdftex.def Info: Imagenes/search2.png  used on input line 78.
+(pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
+<Imagenes/search3.png, id=255, 574.145pt x 560.0925pt>
+File: Imagenes/search3.png Graphic file (type png)
+<use Imagenes/search3.png>
+Package pdftex.def Info: Imagenes/search3.png  used on input line 79.
+(pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
+ [9]
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 84.
+LaTeX Info: Redefining \% on input line 84.
+ [10pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.84 
+      <./Imagenes/search1.png> <./Imagenes/search2.png> <./Imagenes/search3.png
+>]
+<Imagenes/mettray.png, id=271, 462.528pt x 346.896pt>
+File: Imagenes/mettray.png Graphic file (type png)
+<use Imagenes/mettray.png>
+Package pdftex.def Info: Imagenes/mettray.png  used on input line 106.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+) (./marcoteorico/Definiciones.tex
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
@@ -864,124 +903,127 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-LaTeX Info: Redefining \. on input line 20.
-LaTeX Info: Redefining \% on input line 20.
-[7pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}
-) has been already used, duplicate ignored
+LaTeX Info: Redefining \. on input line 21.
+LaTeX Info: Redefining \% on input line 21.
+[11pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3
+}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.20 \end{table}
-                 <./Imagenes/mettray.png>]
-<Imagenes/planejemplorc.png, id=228, 462.528pt x 346.896pt>
+l.21 
+      <./Imagenes/mettray.png>]
+<Imagenes/planejemplorc.png, id=279, 462.528pt x 346.896pt>
 File: Imagenes/planejemplorc.png Graphic file (type png)
 <use Imagenes/planejemplorc.png>
 Package pdftex.def Info: Imagenes/planejemplorc.png  used on input line 25.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
-LaTeX Info: Redefining \. on input line 37.
-LaTeX Info: Redefining \% on input line 37.
- [8pdfTeX warning (ext4): destination with the same identifier (name{table.2.1}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.37 
-      <./Imagenes/planejemplorc.png>]
-<Imagenes/disyuntive.pdf, id=238, 382.90753pt x 191.66003pt>
+<Imagenes/disyuntive.pdf, id=280, 382.90753pt x 191.66003pt>
 File: Imagenes/disyuntive.pdf Graphic file (type pdf)
 <use Imagenes/disyuntive.pdf>
 Package pdftex.def Info: Imagenes/disyuntive.pdf  used on input line 41.
 (pdftex.def)             Requested size: 268.03343pt x 134.1611pt.
-<Imagenes/plandisyuntive.pdf, id=239, 354.91093pt x 200.71486pt>
+<Imagenes/plandisyuntive.pdf, id=281, 354.91093pt x 200.71486pt>
 File: Imagenes/plandisyuntive.pdf Graphic file (type pdf)
 <use Imagenes/plandisyuntive.pdf>
 Package pdftex.def Info: Imagenes/plandisyuntive.pdf  used on input line 42.
 (pdftex.def)             Requested size: 248.43594pt x 140.49944pt.
-) (./marcoteorico/union.tex
-LaTeX Info: Redefining \. on input line 3.
-LaTeX Info: Redefining \% on input line 3.
- [9pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
+ [12pdfTeX warning (ext4): destination with the same identifier (name{table.2.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.3 \section
-            {Metaheurísticas aplicadas al JSP} <./Imagenes/disyuntive.pdf> <./
-Imagenes/plandisyuntive.pdf>]
-<Imagenes/N1.pdf, id=285, 525.62675pt x 184.19414pt>
+l.44 \end{figure}
+                  <./Imagenes/planejemplorc.png>]) (./marcoteorico/union.tex
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+
+[13pdfTeX warning (ext4): destination with the same identifier (name{figure.2.4
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.2 \section
+            {Conjuntos de prueba} <./Imagenes/disyuntive.pdf> <./Imagenes/pland
+isyuntive.pdf>]
+<Imagenes/N1.pdf, id=329, 525.62675pt x 184.19414pt>
 File: Imagenes/N1.pdf Graphic file (type pdf)
 <use Imagenes/N1.pdf>
-Package pdftex.def Info: Imagenes/N1.pdf  used on input line 17.
+Package pdftex.def Info: Imagenes/N1.pdf  used on input line 21.
 (pdftex.def)             Requested size: 367.93622pt x 128.93501pt.
-<Imagenes/N4.pdf, id=287, 598.28622pt x 184.19414pt>
+<Imagenes/N4.pdf, id=331, 598.28622pt x 184.19414pt>
 File: Imagenes/N4.pdf Graphic file (type pdf)
 <use Imagenes/N4.pdf>
-Package pdftex.def Info: Imagenes/N4.pdf  used on input line 24.
+Package pdftex.def Info: Imagenes/N4.pdf  used on input line 28.
 (pdftex.def)             Requested size: 418.7975pt x 128.93501pt.
-<Imagenes/N5.pdf, id=289, 525.62675pt x 184.19414pt>
+
+Underfull \vbox (badness 1968) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 31.
+LaTeX Info: Redefining \% on input line 31.
+ [14pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.31 
+      <./Imagenes/N1.pdf>]
+<Imagenes/N5.pdf, id=343, 525.62675pt x 184.19414pt>
 File: Imagenes/N5.pdf Graphic file (type pdf)
 <use Imagenes/N5.pdf>
-Package pdftex.def Info: Imagenes/N5.pdf  used on input line 32.
+Package pdftex.def Info: Imagenes/N5.pdf  used on input line 36.
 (pdftex.def)             Requested size: 367.93622pt x 128.93501pt.
-LaTeX Info: Redefining \. on input line 34.
-LaTeX Info: Redefining \% on input line 34.
- [10pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
-4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.34 \end{figure}
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{figure.2.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.34 \end{figure}
-                  <./Imagenes/N1.pdf> <./Imagenes/N4.pdf>]
-<Imagenes/N6.pdf, id=302, 533.12878pt x 184.19414pt>
+<Imagenes/N6.pdf, id=345, 533.12878pt x 184.19414pt>
 File: Imagenes/N6.pdf Graphic file (type pdf)
 <use Imagenes/N6.pdf>
-Package pdftex.def Info: Imagenes/N6.pdf  used on input line 39.
+Package pdftex.def Info: Imagenes/N6.pdf  used on input line 43.
 (pdftex.def)             Requested size: 373.18759pt x 128.93501pt.
-<Imagenes/N7.pdf, id=304, 540.63081pt x 184.19414pt>
+<Imagenes/N7.pdf, id=347, 540.63081pt x 184.19414pt>
 File: Imagenes/N7.pdf Graphic file (type pdf)
 <use Imagenes/N7.pdf>
-Package pdftex.def Info: Imagenes/N7.pdf  used on input line 47.
+Package pdftex.def Info: Imagenes/N7.pdf  used on input line 51.
 (pdftex.def)             Requested size: 378.43898pt x 128.93501pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
- [11pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+LaTeX Info: Redefining \. on input line 53.
+LaTeX Info: Redefining \% on input line 53.
+ [15pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
 6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.50 \end{itemize}
-                  pdfTeX warning (ext4): destination with the same identifier (
-name{figure.2.7}) has been already used, duplicate ignored
+l.53 \end{figure}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{figure.2.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.50 \end{itemize}
-                   <./Imagenes/N5.pdf> <./Imagenes/N6.pdf>])
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
- [12pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
-8}) has been already used, duplicate ignored
+l.53 \end{figure}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{figure.2.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.61 \newpage
+l.53 \end{figure}
+                  <./Imagenes/N4.pdf> <./Imagenes/N5.pdf> <./Imagenes/N6.pdf>])
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
+[16pdfTeX warning (ext4): destination with the same identifier (name{figure.2.9
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.62 \newpage
               <./Imagenes/N7.pdf>]
 Cap\'{\i }tulo 3.
 (./propuestas/vecindades.tex) (./propuestas/fitness.tex)
-(./propuestas/representacion.tex) [13
+(./propuestas/representacion.tex) [17
 
 ]
 Cap\'{\i }tulo 4.
-(./validacion/resultados.tex) [14
+(./validacion/resultados.tex) [18
 
 ]
 Cap\'{\i }tulo 5.
 Package minitoc Info: I0006
-(minitoc)             Tesis.mtc5 is empty on input line 77.
-(./Conclusiones/Conclusiones.tex) (./Otros/Apendice.tex) [15
+(minitoc)             Tesis.mtc5 is empty on input line 78.
+(./Conclusiones/Conclusiones.tex) (./Otros/Apendice.tex) [19
 
-] (./Tesis.bbl)
+] (./Tesis.bbl
+[20
+
+])
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the Tesis.maf file.
@@ -1001,27 +1043,27 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the Tesis.log file.
 
-[16
-
-] (./Tesis.aux (./Portada.aux)
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+[21] (./Tesis.aux (./Portada.aux)
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
  (./Otros/Resumen.aux) (./Otros/Abstract.aux))
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
-(rerunfilecheck)             Checksum: 1C2558490E12C8027C445E539CCDC0E9;1583.
+(rerunfilecheck)             Checksum: 14AA8FB6AEFC77180E644581947F7C63;1444.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 43 (\begingroup)
+### semi simple group (level 1) entered at line 44 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14103 strings out of 479383
- 202223 string characters out of 5875830
- 566550 words of memory out of 5000000
- 30579 multiletter control sequences out of 15000+600000
+ 14123 strings out of 479383
+ 202494 string characters out of 5875831
+ 567730 words of memory out of 5000000
+ 30591 multiletter control sequences out of 15000+600000
  419112 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,16n,72p,696b,657s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,16n,72p,1080b,650s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced bu
 t does not exist, replaced by a fixed one
 
@@ -1036,16 +1078,17 @@ ts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 ></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsl12.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dis
-t/fonts/type1/public/amsfonts/latxfont/lasy10.pfb></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/urw
-/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on Tesis.pdf (21 pages, 403708 bytes).
+fonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssb
+x10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/latxfont/lasy10.pfb></usr/share/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr
+8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on Tesis.pdf (26 pages, 431447 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 363 compressed objects within 4 object streams
- 76 named destinations out of 1000 (max. 500000)
- 250 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 479 PDF objects out of 1000 (max. 8388607)
+ 405 compressed objects within 5 object streams
+ 90 named destinations out of 1000 (max. 500000)
+ 239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
