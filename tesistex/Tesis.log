@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.5.5)  10 MAY 2021 15:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.5.5)  10 MAY 2021 15:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -453,60 +453,86 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@ppsavesec=\count303
 \c@@ppsaveapp=\count304
 )
-(/usr/share/texmf-dist/tex/latex/algorithms/algorithm.sty
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
-\@float@every@algorithm=\toks31
-\c@algorithm=\count305
-)
-(/usr/share/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
-Package: algpseudocode 
+(/usr/share/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count305
+\algocf@hangindent=\skip62
 
-(/usr/share/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
-Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
-
-Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count306
-\c@ALG@rem=\count307
-\c@ALG@nested=\count308
-\ALG@tlm=\skip62
-\ALG@thistlm=\skip63
-\c@ALG@Lnr=\count309
-\c@ALG@blocknr=\count310
-\c@ALG@storecount=\count311
-\c@ALG@tmpcounter=\count312
-\ALG@tmplength=\skip64
+(/usr/share/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count306
 )
-Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/share/texmf-dist/tex/latex/fncychap/fncychap.sty
+(/usr/share/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/share/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip63
+\skiplinenumber=\skip64
+\skiprule=\skip65
+\skiphlne=\skip66
+\skiptext=\skip67
+\skiplength=\skip68
+\algomargin=\skip69
+\skipalgocfslide=\skip70
+\algowidth=\dimen180
+\inoutsize=\dimen181
+\inoutindent=\dimen182
+\interspacetitleruled=\dimen183
+\interspacealgoruled=\dimen184
+\interspacetitleboxruled=\dimen185
+\algocf@ruledwidth=\skip71
+\algocf@inoutbox=\box58
+\algocf@inputbox=\box59
+\AlCapSkip=\skip72
+\AlCapHSkip=\skip73
+\algoskipindent=\skip74
+\algocf@nlbox=\box60
+\algocf@hangingbox=\box61
+\algocf@untilbox=\box62
+\algocf@skipuntil=\skip75
+\algocf@capbox=\box63
+\algocf@lcaptionbox=\skip76
+\algoheightruledefault=\skip77
+\algoheightrule=\skip78
+\algotitleheightruledefault=\skip79
+\algotitleheightrule=\skip80
+\c@algocfline=\count307
+\c@algocfproc=\count308
+\c@algocf=\count309
+\algocf@algoframe=\box64
+\algocf@algobox=\box65
+)
+(/usr/share/texmf-dist/tex/latex/fncychap/fncychap.sty
 Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
-\RW=\skip65
-\mylen=\skip66
-\myhi=\skip67
-\px=\skip68
-\py=\skip69
-\pyy=\skip70
-\pxx=\skip71
+\RW=\skip81
+\mylen=\skip82
+\myhi=\skip83
+\px=\skip84
+\py=\skip85
+\pyy=\skip86
+\pxx=\skip87
 )
 (/usr/share/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip72
-\subfigcapskip=\skip73
-\subfigcaptopadj=\dimen180
-\subfigbottomskip=\skip74
-\subfigcapmargin=\dimen181
-\subfiglabelskip=\skip75
-\c@subfigure=\count313
-\c@lofdepth=\count314
-\c@subtable=\count315
-\c@lotdepth=\count316
+\subfigtopskip=\skip88
+\subfigcapskip=\skip89
+\subfigcaptopadj=\dimen186
+\subfigbottomskip=\skip90
+\subfigcapmargin=\dimen187
+\subfiglabelskip=\skip91
+\c@subfigure=\count310
+\c@lofdepth=\count311
+\c@subtable=\count312
+\c@lotdepth=\count313
 
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
 (/usr/share/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip76
-\subfig@bottom=\skip77
+\subfig@top=\skip92
+\subfig@bottom=\skip93
 )
 (./Otros/Comandos.tex
 Package minitoc Info: I0017
@@ -546,27 +572,27 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count317
-\Gm@cntv=\count318
-\c@Gm@tempcnt=\count319
-\Gm@bindingoffset=\dimen182
-\Gm@wd@mp=\dimen183
-\Gm@odd@mp=\dimen184
-\Gm@even@mp=\dimen185
-\Gm@layoutwidth=\dimen186
-\Gm@layoutheight=\dimen187
-\Gm@layouthoffset=\dimen188
-\Gm@layoutvoffset=\dimen189
-\Gm@dimlist=\toks32
+\Gm@cnth=\count314
+\Gm@cntv=\count315
+\c@Gm@tempcnt=\count316
+\Gm@bindingoffset=\dimen188
+\Gm@wd@mp=\dimen189
+\Gm@odd@mp=\dimen190
+\Gm@even@mp=\dimen191
+\Gm@layoutwidth=\dimen192
+\Gm@layoutheight=\dimen193
+\Gm@layouthoffset=\dimen194
+\Gm@layoutvoffset=\dimen195
+\Gm@dimlist=\toks31
 )
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count320
-\l__pdf_internal_box=\box58
+\l__kernel_color_stack_int=\count317
+\l__pdf_internal_box=\box66
 ) (./Tesis.aux
 (./Portada.aux)
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
  (./Otros/Resumen.aux) (./Otros/Abstract.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
@@ -597,7 +623,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count321
+\c@section@level=\count318
 )
 LaTeX Info: Redefining \ref on input line 36.
 LaTeX Info: Redefining \pageref on input line 36.
@@ -608,17 +634,17 @@ LaTeX Info: Redefining \nameref on input line 36.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count322
-\scratchdimen=\dimen190
-\scratchbox=\box59
-\nofMPsegments=\count323
-\nofMParguments=\count324
-\everyMPshowfont=\toks33
-\MPscratchCnt=\count325
-\MPscratchDim=\dimen191
-\MPnumerator=\count326
-\makeMPintoPDFobject=\count327
-\everyMPtoPDFconversion=\toks34
+\scratchcounter=\count319
+\scratchdimen=\dimen196
+\scratchbox=\box67
+\nofMPsegments=\count320
+\nofMParguments=\count321
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count322
+\MPscratchDim=\dimen197
+\MPnumerator=\count323
+\makeMPintoPDFobject=\count324
+\everyMPtoPDFconversion=\toks33
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -636,13 +662,13 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@lstlisting=\count328
-\c@minilofdepth=\count329
-\c@minilotdepth=\count330
-\c@partlofdepth=\count331
-\c@partlotdepth=\count332
-\c@sectlofdepth=\count333
-\c@sectlotdepth=\count334
+\c@lstlisting=\count325
+\c@minilofdepth=\count326
+\c@minilotdepth=\count327
+\c@partlofdepth=\count328
+\c@partlotdepth=\count329
+\c@sectlofdepth=\count330
+\c@sectlotdepth=\count331
 Package minitoc(hints) Info: I0049
 (minitoc(hints))             ==> You requested the hints option. 
 (minitoc(hints))             Some hints are eventually given below.
@@ -891,121 +917,129 @@ l.84
 <Imagenes/mettray.png, id=271, 462.528pt x 346.896pt>
 File: Imagenes/mettray.png Graphic file (type png)
 <use Imagenes/mettray.png>
-Package pdftex.def Info: Imagenes/mettray.png  used on input line 106.
+Package pdftex.def Info: Imagenes/mettray.png  used on input line 107.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 ) (./marcoteorico/Definiciones.tex
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
-
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
+[11pdfTeX warning (ext4): destination with the same identifier (name{algocf.1})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.6 
+    pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.6 
+     <./Imagenes/mettray.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-LaTeX Info: Redefining \. on input line 21.
-LaTeX Info: Redefining \% on input line 21.
-[11pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3
-}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.21 
-      <./Imagenes/mettray.png>]
-<Imagenes/planejemplorc.png, id=279, 462.528pt x 346.896pt>
+<Imagenes/planejemplorc.png, id=280, 462.528pt x 346.896pt>
 File: Imagenes/planejemplorc.png Graphic file (type png)
 <use Imagenes/planejemplorc.png>
 Package pdftex.def Info: Imagenes/planejemplorc.png  used on input line 25.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
-<Imagenes/disyuntive.pdf, id=280, 382.90753pt x 191.66003pt>
+LaTeX Info: Redefining \. on input line 33.
+LaTeX Info: Redefining \% on input line 33.
+[12pdfTeX warning (ext4): destination with the same identifier (name{table.2.1}
+) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.33 
+      <./Imagenes/planejemplorc.png>]
+<Imagenes/disyuntive.pdf, id=288, 382.90753pt x 191.66003pt>
 File: Imagenes/disyuntive.pdf Graphic file (type pdf)
 <use Imagenes/disyuntive.pdf>
 Package pdftex.def Info: Imagenes/disyuntive.pdf  used on input line 41.
 (pdftex.def)             Requested size: 268.03343pt x 134.1611pt.
-<Imagenes/plandisyuntive.pdf, id=281, 354.91093pt x 200.71486pt>
+<Imagenes/plandisyuntive.pdf, id=289, 354.91093pt x 200.71486pt>
 File: Imagenes/plandisyuntive.pdf Graphic file (type pdf)
 <use Imagenes/plandisyuntive.pdf>
 Package pdftex.def Info: Imagenes/plandisyuntive.pdf  used on input line 42.
 (pdftex.def)             Requested size: 248.43594pt x 140.49944pt.
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
- [12pdfTeX warning (ext4): destination with the same identifier (name{table.2.1
-}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.44 \end{figure}
-                  <./Imagenes/planejemplorc.png>]) (./marcoteorico/union.tex
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
 
-[13pdfTeX warning (ext4): destination with the same identifier (name{figure.2.4
-}) has been already used, duplicate ignored
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 48.
+LaTeX Info: Redefining \% on input line 48.
+ [13pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2 \section
-            {Conjuntos de prueba} <./Imagenes/disyuntive.pdf> <./Imagenes/pland
-isyuntive.pdf>]
+l.48 
+      <./Imagenes/disyuntive.pdf> <./Imagenes/plandisyuntive.pdf>])
+(./marcoteorico/union.tex
 <Imagenes/N1.pdf, id=329, 525.62675pt x 184.19414pt>
 File: Imagenes/N1.pdf Graphic file (type pdf)
 <use Imagenes/N1.pdf>
 Package pdftex.def Info: Imagenes/N1.pdf  used on input line 21.
 (pdftex.def)             Requested size: 367.93622pt x 128.93501pt.
-<Imagenes/N4.pdf, id=331, 598.28622pt x 184.19414pt>
+
+Underfull \vbox (badness 1953) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+ [14]
+<Imagenes/N4.pdf, id=340, 598.28622pt x 184.19414pt>
 File: Imagenes/N4.pdf Graphic file (type pdf)
 <use Imagenes/N4.pdf>
 Package pdftex.def Info: Imagenes/N4.pdf  used on input line 28.
 (pdftex.def)             Requested size: 418.7975pt x 128.93501pt.
-
-Underfull \vbox (badness 1968) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 31.
-LaTeX Info: Redefining \% on input line 31.
- [14pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
-5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.31 
-      <./Imagenes/N1.pdf>]
-<Imagenes/N5.pdf, id=343, 525.62675pt x 184.19414pt>
+<Imagenes/N5.pdf, id=342, 525.62675pt x 184.19414pt>
 File: Imagenes/N5.pdf Graphic file (type pdf)
 <use Imagenes/N5.pdf>
 Package pdftex.def Info: Imagenes/N5.pdf  used on input line 36.
 (pdftex.def)             Requested size: 367.93622pt x 128.93501pt.
-<Imagenes/N6.pdf, id=345, 533.12878pt x 184.19414pt>
+<Imagenes/N6.pdf, id=344, 533.12878pt x 184.19414pt>
 File: Imagenes/N6.pdf Graphic file (type pdf)
 <use Imagenes/N6.pdf>
 Package pdftex.def Info: Imagenes/N6.pdf  used on input line 43.
 (pdftex.def)             Requested size: 373.18759pt x 128.93501pt.
-<Imagenes/N7.pdf, id=347, 540.63081pt x 184.19414pt>
+LaTeX Info: Redefining \. on input line 46.
+LaTeX Info: Redefining \% on input line 46.
+
+[15pdfTeX warning (ext4): destination with the same identifier (name{figure.2.5
+}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.46 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.2
+.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.46 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.2
+.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.46 
+      <./Imagenes/N1.pdf> <./Imagenes/N4.pdf> <./Imagenes/N5.pdf>]
+<Imagenes/N7.pdf, id=359, 540.63081pt x 184.19414pt>
 File: Imagenes/N7.pdf Graphic file (type pdf)
 <use Imagenes/N7.pdf>
 Package pdftex.def Info: Imagenes/N7.pdf  used on input line 51.
 (pdftex.def)             Requested size: 378.43898pt x 128.93501pt.
-LaTeX Info: Redefining \. on input line 53.
-LaTeX Info: Redefining \% on input line 53.
- [15pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
-6}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.53 \end{figure}
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{figure.2.7}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.53 \end{figure}
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{figure.2.8}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.53 \end{figure}
-                  <./Imagenes/N4.pdf> <./Imagenes/N5.pdf> <./Imagenes/N6.pdf>])
+)
 LaTeX Info: Redefining \. on input line 62.
 LaTeX Info: Redefining \% on input line 62.
-[16pdfTeX warning (ext4): destination with the same identifier (name{figure.2.9
-}) has been already used, duplicate ignored
+ [16pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.62 \newpage
-              <./Imagenes/N7.pdf>]
+             pdfTeX warning (ext4): destination with the same identifier (name{
+figure.2.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.62 \newpage
+              <./Imagenes/N6.pdf> <./Imagenes/N7.pdf>]
 Cap\'{\i }tulo 3.
 (./propuestas/vecindades.tex) (./propuestas/fitness.tex)
 (./propuestas/representacion.tex) [17
@@ -1046,8 +1080,8 @@ Package minitoc(hints) Warning: W0024
 LaTeX Info: Redefining \. on input line 86.
 LaTeX Info: Redefining \% on input line 86.
 [21] (./Tesis.aux (./Portada.aux)
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
  (./Otros/Resumen.aux) (./Otros/Abstract.aux))
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
 (rerunfilecheck)             Checksum: 14AA8FB6AEFC77180E644581947F7C63;1444.
@@ -1057,13 +1091,13 @@ Package rerunfilecheck Info: File `Tesis.out' has not changed.
 ### semi simple group (level 1) entered at line 44 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14123 strings out of 479383
- 202494 string characters out of 5875831
- 567730 words of memory out of 5000000
- 30591 multiletter control sequences out of 15000+600000
+ 14545 strings out of 479383
+ 210251 string characters out of 5875831
+ 584491 words of memory out of 5000000
+ 31009 multiletter control sequences out of 15000+600000
  419112 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,16n,72p,1080b,650s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,16n,72p,1080b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced bu
 t does not exist, replaced by a fixed one
 
@@ -1085,10 +1119,10 @@ t/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/
 public/amsfonts/latxfont/lasy10.pfb></usr/share/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr
 8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on Tesis.pdf (26 pages, 431447 bytes).
+Output written on Tesis.pdf (26 pages, 434822 bytes).
 PDF statistics:
- 479 PDF objects out of 1000 (max. 8388607)
- 405 compressed objects within 5 object streams
- 90 named destinations out of 1000 (max. 500000)
+ 482 PDF objects out of 1000 (max. 8388607)
+ 408 compressed objects within 5 object streams
+ 92 named destinations out of 1000 (max. 500000)
  239 words of extra memory for PDF output out of 10000 (max. 10000000)
 

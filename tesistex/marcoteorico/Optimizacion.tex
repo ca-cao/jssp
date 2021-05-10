@@ -83,22 +83,23 @@ Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que
 El paisaje de búsqueda es el <<terreno>> a explorar y puede cambiar si cambiamos cualquiera de sus componentes, podría ser que alguna representación nos centre en un subconjunto de soluciones convenientes o que alguna estructura de vecindad se proponga de modo que las mejores soluciones nunca estan muy lejos del resto, o que la función de fitness nos ayude a atravesar cúmulos de soluciones que serían iguales sin ella. Las metaheurísticas sirven como una estrategía para explorar el paisaje de búsqueda. Una de las más sencillas e intuitivas es conocida como escalada estocástica y simplemente consiste en reemplazar la solución actual por algún vecino mejor escogido al azar hasta que la solución en la que estemos sea mejor que todos sus vecinos, es decir, un ótimo local. Esta es una metaheurística de trayectoria y traza un camino entre las soluciones inicial y final.
 
 %
-%\begin{algorithm}[H]
-% \KwData{Problema de Optimización}
-%    \KwResult{Óptimo local $x$}
-% Generar solución inicial $x$\;
-% \doWhile{$L$ no vacía}{
-%    Generar lista de vecinos $L$ de $x$\;
-%    Escoger al azar un vecino $y\in L$\;
-%  \eIf{y<x}{
-%      x $leftarrow$ y\;
-%      Generar lista de vecinos $L$ de $x$\;
-%   }{
-%       Quitar a $y$ de $L$\;
-%  }
-% }
-%    \caption{Algoritmo de escalada estocástica}
-%\end{algorithm}
+\begin{algorithm}[H]
+ \KwData{Problema de Optimización}
+    \KwResult{Óptimo local $x$}
+ Generar solución inicial $x$\;
+ \While{$L$ no vacía}{
+    Generar lista de vecinos $L$ de $x$\;
+    Escoger al azar un vecino $y\in L$\;
+  \eIf{$y<x$}{
+      x $leftarrow$ y\;
+      Generar lista de vecinos $L$ de $x$\;
+   }{
+       Quitar a $y$ de $L$\;
+  }
+ }
+    \Return{x}
+    \caption{Algoritmo de escalada estocástica}
+\end{algorithm}
 
 
 \begin{figure}[H]

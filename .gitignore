@@ -8,3 +8,10 @@ codigo_oscar/
 *.dat
 biblio/
 priority/
+*.bbl
+*.bbg
+*.log
+*.mtc*
+*.out
+*.toc
+*.aux
