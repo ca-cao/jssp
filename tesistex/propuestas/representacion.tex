@@ -1,4 +1,21 @@
 \section{Llaves aleatorias}
 La representación propuesta se basa en asignar a cada operación una número real entre 0 y 1 el cual sirve para definir un orden entre operaciones en una misma máquina mediante un proceso de decodificación un planteamiento similar puede encontrarse en \cite{norman1996random}.
 
-Para decodificar la solución a partir de las llaves para cada operación se utiliza el algoritmo de Giffler \& Thompson \cite{Giffler1960} con el cual se generan soluciones activas.
+Para decodificar la solución a partir de las llaves para cada operación se utiliza el algoritmo de Giffler \& Thompson \cite{Giffler1960} con el cual se generan soluciones activas. El primer paso es marcar como planificable la primera operacion de cada trabajo.Posteriormente se identifica la operación $O_{min}$ con el menor tiempo de finalización si se planifacara ya y la máquina $m^*=m(O_{min})$ en la cuál debe procesarse. Se toma el tiempo de finalización $t^*_f = t_f(O_{min})$ para escoger alguna de las operaciones planificables en $m^*$ cuyo tiempo de inicio sea menor a $t^*_f$, se actualizan las operaciones planificables y este proceso se repite hasta completar la planificación. A continuación se presenta formalmente el algoritmo.
+
+
+\begin{algorithm}[H]
+ \KwData{Instancia del JSP}
+ \KwResult{Planificación activa}
+ Inicializar el conjunto de operaciones planificables $\Omega$\;
+ \While{$\Omega$ no vacío}{
+    Determinar la operación con el menor tiempo de finalización $O_{min}\in\Omega$\;
+    Determinar el tiempo de finalazición $t^*_f$ y la máquina $m^*$ en que se procesa $O_{min}$\;
+    Escoger $O^*\in\Omega$ tal que $t_i(O^*) < t^*_f$ y $m(O^*)=m^*$\;
+    Asignar tiempo de inicio y fin a $O^*$\;
+    Actualizar $\Omega$ eliminando a $O^*$ y agregando a su sucesora si existe\;
+ }
+    \label{alg:GT}
+    \caption{Algoritmo de Giffler \& Thompson}
+\end{algorithm}
+

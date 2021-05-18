@@ -1,20 +1,22 @@
 \section{Optimización}
-La optimización es una herramienta que nos ayuda a encontrar \textit{la mejor} entre diferentes opciones elegibles. En nuestra vida diaria a menudo nos encontramos en este tipo de situaciones, por ejemplo al elegir entre diferentes rutas para llegar a algún lugar.
+La optimización es una herramienta que nos ayuda a encontrar \textit{la mejor} entre diferentes opciones elegibles. En nuestra vida diaria a menudo nos encontramos en este tipo de situaciones, por ejemplo al elegir entre diferentes rutas para llegar a algún lugar o entre diferentes productos.
 
-Formalmente, un problema de optimización consiste en hallar el mínimo o máximo de una función $f:X\rightarrow \mathbb{R}x$ (llamada función objetivo) en un conjunto de soluciones $X$. De modo que el problema consiste en hallar:
+Formalmente, un problema de optimización consiste en hallar el mínimo o máximo de una función $f:X\rightarrow \mathbb{R}$ (llamada función objetivo) en un conjunto de soluciones $X$. De modo que el problema consiste en hallar:
 \begin{gather}
 \min_{x\in X} f(x)
 \end{gather}
 Es importante mencionar que cualquier problema de maximización puede transformarse en un problema equivalente de minimiación con el reemplazo $f(x) \leftarrow -f(x)$, por lo que se considera solo el caso de minimización sin pérdida de generalidad.\\
 
 Hallar el mínimo de la función sobre todo el conjunto $X$ recibe el nombre de optimización global, esto puede llegar a ser muy costoso o incluso imposible de obtener por lo que es común optar por obtener un mínimo local, es decir una solución que sea mejor que cualquiera de las soluciones que tiene a la misma distancia de acuerdo con alguna medida.
+
+También puede ser que el algoritmo planteado para resolver el problema de optimización sea no determinista i.e. puede obtener soluciones diferentes aunque tenga las mismas condiciones iniciales. En muchas ocasiones es ventajoso tener algo de aleatoriedad porque nos permite explorar más el espacio de búsqueda, es decir que puede eliminar sesgos. Esta rama de la optimzación se conoce como optimización estocástica.
 % mencionar optimimizacion continua, discreta
 %\subsection*{Optimización continua vs}
 \\ En la definición anterior no se requiere que el conjunto de soluciones tenga alguna propiedad o alguna estructura adicional. Por ejemplo el conjunto de soluciones puede ser un conjunto numerable ( i.e. los enteros ) o no numerable ( i.e. los números reales ). Estos dos casos dividen a la optimización en dos ramas: optimización continua y optimización discreta. En general los problemas de optimización suelen ser más fáciles de abordar\cite{nocedal2006numerical} porque en muchas ocasiones es posible obtener información del valor de la función objetivo de puntos cercanos a cierto punto conocido mientras que en los problemas discretos esto rara vez puede hacerse.\\
 
 Dentro de los problemas de optimización discreta se distinguen los problemas de optimización combinatoria. Formalmente un problema de optimización discreta consta de los siguientes elementos\cite{Blum2003}:
 \begin{itemize}
-    \item Un conjunto de variables $Z={z_1,z_2,...,z_n}$
+    \item Un conjunto de variables $Z=\{z_1,z_2,...,z_n\}$
     \item Dominio para cada variable $D_1,D_2,...,D_n$
     \item Restricciones entre variables
 \end{itemize}
@@ -27,50 +29,56 @@ Es muy común que en nuestra cotidianidad nos enfrentemos a problemas tan difíc
 En el contexto de la optimización una metaheurística es una metodología de alto nivel que combina diferentes heurísticas y puede aplicarse para resolver de manera aproximada una gran cantidad de problemas. En la práctica existen numerosas metaheuristicas que pueden ser muy diferentes entre sí por lo que no hay un sistema de clasificación universalmente aceptado aunque se han propuesto diferentes criterios de clasificación \cite{Stegherr2020} así como características como:
 \begin{itemize}
 \item De trayectoria vs discontinua. Una metaheurística de trayectoria consiste en, dada una solución inicial, mejorarla de manera iterativa mediante algún operador que <<mueve>> a la solución a través del espacio de búsqueda %extender.
-\item basadas en población vs basadas en una sola solución. En las metaheurísticas basadas en población se mantiene un conjunto de soluciones candidatas.
-\item basadas en búsqueda local vs constructivas. Como se explicará más adelante, en la búsqueda local, el proceso de mejora implica la evaluación de soluciones muy parecidas a una solución inicial dada mientras que en las constructivas se crean nuevas soluciones de acuerdo a una heurística o algoritmo preestablecido.
+\item Basadas en población vs basadas en una sola solución. En las metaheurísticas basadas en población se mantiene un conjunto de soluciones candidatas.
+\item Basadas en búsqueda local vs constructivas. Como se explicará más adelante, en la búsqueda local, el proceso de mejora implica la evaluación de soluciones muy parecidas a una solución inicial dada mientras que en las constructivas se crean nuevas soluciones de acuerdo a una heurística o algoritmo preestablecido.
 \item Con uso de memoria vs sin uso de memoria. El uso de memoria consiste en almacenar información que nos ayude a explorar el espacio de búsqueda, por ejemplo una lista de soluciones previamente visitadas.
 \end{itemize} 
 Los primeros dos de estos criterios están muy relacionados porque casi todas las metaheurísticas discontinuas son poblacionales y muchas de trayectoria son basadas en una sola solución.
 
 
-Si bien las metaheurísticas son muy diversas existen elementos comunes que tienen un papel determinante en el buen funcionamiento de las mismas. En espécifico para las metaheurísticas de trayectoria existen tres conceptos que determinan cómo se ve el espacio de soluciones: las soluciones en sí, la forma en que las soluciones están conectadas y cómo podemos comparlas entre sí. A continuación se describebe cada uno de ellos
+Si bien las metaheurísticas son muy diversas existen elementos comunes que tienen un papel determinante en el buen funcionamiento de las mismas. En espécifico para las metaheurísticas de trayectoria existen tres conceptos que determinan el llamado paisaje de búsqueda: las soluciones en sí, la forma en que las soluciones están conectadas y cómo podemos comparlas entre sí. A continuación se describe cada uno de ellos.
 % introducir los conceptos siguientes
 \subsection{Representación}
-Puede ser que el problema de optimización en el que estemos interesados surja directamente de las matemáticas aunque si estamos interesados en un problema de nuestro entorno físico es necesario que tengamos una forma de traducirlo a un lenguaje matemático, incluidas las soluciones al mismo. Debemos encontrar una forma de representar de manera útil las soluciones posibles.
-Por ejemplo si buscamos un ordenamiento óptimo para algún conjunto de $n$ cosas podemos asignarle a cada elemento del conjunto un número entero del $1$ al $n$, en este modelo el espacio de soluciones está constituido por todas las permutaciones de los números del $1$ al $n$. Hay varias maneras de representar permutaciones, podemos usar un arreglo de $n$ entradas o bien una matriz de permutación por mencionar algunos. Algo sumamente importante es que estas dos formas de representar las soluciones son muy distintas y se tiene que trabajar con ellas de manera muy diferente. La primera de ellas puede llegar a representar \textit{soluciones no factibles} por ejemplo que aparezca un número repetido, mientras que la segunda no.
+Puede ser que el problema de optimización en el que estemos interesados surja directamente de las matemáticas aunque si estamos interesados en un problema de nuestro entorno físico es necesario que tengamos que idear una forma de traducirlo a un lenguaje matemático, incluidas las soluciones al mismo. Debemos encontrar una forma de representar de manera útil las soluciones posibles.
+Por ejemplo si buscamos un ordenamiento óptimo para algún conjunto de $n$ cosas podemos asignarle a cada elemento del conjunto un número entero del $1$ al $n$, en este modelo el espacio de soluciones está constituido por todas las permutaciones de los números del $1$ al $n$. 
 
-Con el ejemplo anterior también podemos ver que cuando queramos establecer algunos operadores que, por ejemplo, perturben la solución tendremos que definirlos de maneras completamente distinta. Tambien es importante notar que es posible que las soluciones no factibles que podamos representar sean muchas más que las factibles.
+Hay varias maneras de representar permutaciones, podemos usar un arreglo de $n$ entradas o bien una matriz de permutación por mencionar algunos. Algo sumamente importante es que estas dos formas de representar las soluciones son muy distintas y se tiene que trabajar con ellas de manera muy diferente. La primera de ellas puede llegar a representar \textit{soluciones no factibles} por ejemplo que aparezca un número repetido, mientras que la segunda no.
 
-Formalmente una represntación es un mapa que asocia elementos entre el conjunto de soluciones y el conjunto de las representaciones. Pueden distinguirse tres tipos de representaciones\cite{Cheng1996} de acuerdo a como asocian los elementos de estos dos conjuntos.
+Con el ejemplo anterior también podemos ver que si queremos establecer algunos operadores que, por ejemplo, perturben la solución tendremos que definirlos de maneras completamente distintas. Tambien es importante notar que es posible que el número de soluciones no factibles que podamos representar sea mayor que el de las factibles.
+
+Formalmente una represntación es un mapa que asocia elementos entre el conjunto de soluciones y el conjunto de las representaciones. Este mapeo no tiene por que ser suryectivo, es decir que puede ser que solo asigne una representación a parte del conjunto de soluciones. También puede ser el caso como se mencionió anterioremente que haya representaciones que no correspondan a soluciones. Pueden distinguirse tres tipos de representaciones\cite{Cheng1996} de acuerdo a como asocian los elementos de estos dos conjuntos.
 \begin{itemize}
-    \item $1$ a $1$
-    \item $1$ a $n$
-    \item $n$ a $1$
+    \item $1$ a $1$ A cada solución le corresponde una única representación.
+    \item $1$ a $n$ La misma representación puede asociarse a varias soluciones.
+    \item $n$ a $1$ Una solución puede tener diferentes representaciones.
 \end{itemize}
 
-% imagen de mapeo
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{Imagenes/representacion.pdf}
     \caption{Tipos de representaciones}
 \end{figure}
-Lo más conveniente suele ser un mapeo $1$ a $1$ y lo menos deseable es tener un mapeo $n$ a $1$.
+
+Lo más conveniente suele ser un mapeo $1$ a $1$ porque resulta mucho más eficiente y lo menos deseable es tener un mapeo $n$ a $1$ en el que es posible que la misma representación esté asociada a soluciones de calidad muy diferente. 
+
 
 \subsection{Vecindad}
 La definicion de vecindad es crucial para las metaheurísticas de trayectoria y las basadas en una sola solución.
-Formalmente, una vecindad es un mapeo $N:X\leftarrow 2^X$ que le asigna a cada solución $x\in X$ un subconjunto de soluciones en $X$. Intuitivamente podemos pensar que es una forma de definir a las soluciones que <<rodean>> a otra. Se dice que la solución $y$ es un vecino de $x$ si $y\in N(x)$.
+Formalmente, una vecindad es un mapeo $N:X\rightarrow 2^X$ que le asigna a cada solución $x\in X$ un subconjunto de soluciones en $X$. Intuitivamente podemos pensar que es una forma de definir a las soluciones que <<rodean>> a otra. Se dice que la solución $y$ es un vecino de $x$ si $y\in N(x)$.
 
-A partir de la definición de vecindad podemos también definir un operador de movimiento cuyo efecto al aplicarlo a una solución sea transformarla en una que pertenezca a su vecindad, i.e. este operador selecciona a un vecino de la solución inicial.  
- 
+A partir de la definición de vecindad podemos también definir un operador de movimiento $M:X\rightarrow X$ cuyo efecto al aplicarlo a una solución sea transformarla en una que pertenezca a su vecindad, i.e. este operador selecciona a un vecino de la solución inicial.  
+\[M(x)=y\in N(x)\quad x\neq y\]
+
 \subsection{Función de aptitud o fitness}
 Aunque para un problema de optimización ya se tiene definida una función objetivo que se quiere minimizar, no siempre tenderemos el mejor desempeño de las metaheurísticas con solo esta función por lo que resulta benéfico plantear una nueva función a minimizar con la que tengamos mejor desempeño. Por ejemplo puede suceder que aunque dos soluciones tengan asociado el mismo valor de la función objetivo una de ellas posee características que la hacen un mejor punto de partida para alguna metaheuristica.
 
-Esta función debe asociar a cada solución un elemento de un conjunto donde esté definido un ordenamiento total. En esencia esta función define un operador de comparación entre soluciones de modo que podemos elegir la mejor de dos soluciones.
+Esta función debe asociar a cada solución un elemento de un conjunto donde esté definido un ordenamiento total. En esencia esta función define un operador de comparación entre soluciones de modo que podemos elegir la mejor de dos soluciones.\\
+
 \subsection{Paisaje de búsqueda}
+
 Una vez que tenemos el espacio de búsqueda y operadores de cambio para generar nuevas soluciones a partir de otras, se define el espacio de búsqueda como un grafo dirigido en el que los nodos son las soluciones al problema y una solución $x$ está conectada a otra $y$ si podemos generar a $y$ aplicando los operadores de cambio a $x$.
 
-Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que mide la calidad de dicha solución. La adición de esta función de aptitud al espacio de búsqueda genera al paisaje de búsqueda.\\
+Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que mide la calidad de dicha solución. La adición de esta función de aptitud al espacio de búsqueda genera al paisaje de búsqueda.
 
 \begin{figure}[H]
 \centering
@@ -80,7 +88,9 @@ Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que
 \caption{Creación del paisaje de búsqueda}
 \end{figure}
 
-El paisaje de búsqueda es el <<terreno>> a explorar y puede cambiar si cambiamos cualquiera de sus componentes, podría ser que alguna representación nos centre en un subconjunto de soluciones convenientes o que alguna estructura de vecindad se proponga de modo que las mejores soluciones nunca estan muy lejos del resto, o que la función de fitness nos ayude a atravesar cúmulos de soluciones que serían iguales sin ella. Las metaheurísticas sirven como una estrategía para explorar el paisaje de búsqueda. Una de las más sencillas e intuitivas es conocida como escalada estocástica y simplemente consiste en reemplazar la solución actual por algún vecino mejor escogido al azar hasta que la solución en la que estemos sea mejor que todos sus vecinos, es decir, un ótimo local. Esta es una metaheurística de trayectoria y traza un camino entre las soluciones inicial y final.
+El paisaje de búsqueda es el <<terreno>> a explorar y puede cambiar si cambiamos cualquiera de sus componentes, podría ser que alguna representación nos centre en un subconjunto de soluciones convenientes o que alguna estructura de vecindad se proponga de modo que las mejores soluciones nunca estan muy lejos del resto, o que la función de fitness nos ayude a atravesar cúmulos de soluciones que serían iguales sin ella.
+
+Las metaheurísticas sirven como una estrategía para explorar el paisaje de búsqueda. Una de las más sencillas e intuitivas es conocida como escalada estocástica y simplemente consiste en reemplazar la solución actual por algún vecino mejor escogido al azar hasta que la solución en la que estemos sea mejor que todos sus vecinos, es decir, un óptimo local. Esta es una metaheurística de trayectoria y traza un camino entre las soluciones inicial y final.
 
 %
 \begin{algorithm}[H]
@@ -91,21 +101,66 @@ El paisaje de búsqueda es el <<terreno>> a explorar y puede cambiar si cambiamo
     Generar lista de vecinos $L$ de $x$\;
     Escoger al azar un vecino $y\in L$\;
   \eIf{$y<x$}{
-      x $leftarrow$ y\;
+      $x \leftarrow y$\;
       Generar lista de vecinos $L$ de $x$\;
    }{
        Quitar a $y$ de $L$\;
   }
  }
     \Return{x}
+    \label{alg:LS}
     \caption{Algoritmo de escalada estocástica}
 \end{algorithm}
 
-
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.5]{Imagenes/mettray.png}
-    \caption{Ilustración de una escalada estocástica.\\ En cada paso se selecciona un vecino mejor que la solución actual hasta que la solución actual sea mejor que todos sus vecinos}
+\includegraphics[scale=.7]{Imagenes/mettray.png}
+    \caption{Ilustración de una escalada estocástica. Las aristas rayadas representan la vecindad del óptimo local.}
 \end{figure}
-% introducir ejemplos de mh de trayectoria
 
+
+% introducir ejemplos de mh de trayectoria
+Otra metaheurística de trayectoria importante que es parte de muchas de las estrategias que han obtenido los resultados del estado del arte es la llamada búsqueda tabú. Esta metaheurística se basa en la búsqueda local pero puede aceptar vecinos que no mejoran la función de fitness con la intención de evitar atascarse en un óptimo local de mala calidad. La búsqueda tabú almacena soluciones previamente vistas para evitar vistitarlas de nuevo. Es necesario definir el tamaño de la lista, el criterio de paro y cómo escoger una nueva solución.\\ 
+
+\begin{algorithm}[H]
+ \KwData{Problema de Optimización}
+ \KwResult{Mejor solución encontrada $x^*$}
+ Generar solución inicial $x$\;
+    Inicializar mejor solución como $x^*\leftarrow x$
+ Inicializar la lista tabú $TL$ con $x$\; 
+ \While{no criterio de paro}{
+     Generar lista de vecinos aceptables $L$ de $x$ tal que $L\cap TL =\varnothing$\;
+    Escoger un vecino $y\in L$\;
+      $x \leftarrow y$\;
+      Actualizar $TL$\;
+      \If{$x<x^*$}{
+      $x^* \leftarrow x$\;
+      }
+ }
+    \Return{$x^*$}
+    \label{alg:TS}
+    \caption{Algoritmo básico de búsqueda tabú}
+\end{algorithm}
+
+\smallskip
+Por último se presenta una metaheurística de trayectoria muy sencilla que intenta subsanar el problema de atascarse en óptimos locales de mala calidad de la búsqueda local. La idea es obtener un mínimo local a partir de una solución inicial mediante búsqueda local, aplicarle una perturbación y repetir el proceso hasta que se cumpla algun criterio de paro. Esta estrategia es conceptualmente muy simple aunque se debe definir la perturbación que se hace a la solución y por lo general no es tan sencillo plantear una perturbación adecuada.\\
+
+\begin{algorithm}[H]
+ \KwData{Problema de Optimización}
+ \KwResult{Mejor solución encontrada $x^*$}
+ Generar solución inicial $x$\;
+ Inicializar mejor solución como $x^*\leftarrow x$
+ \While{no criterio de paro}{
+     Obtener una solución $y$ a partir de $x$ mediante búsqueda local \ref{alg:LS}\;
+     \eIf{$y<x^*$}{
+     $x \leftarrow y$\;
+     $x^* \leftarrow y$\;
+    }{
+     $x \leftarrow x^*$\;
+     Perturbar $x$\;
+    }
+ }
+    \Return{$x^*$}
+    \label{alg:ILS}
+    \caption{Algoritmo búsqueda local iterada}
+\end{algorithm}

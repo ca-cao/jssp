@@ -117,6 +117,39 @@ vector<pair<int,int>> make_n7(const individuo& x){
     return n7;
 }
 
+// encontrar los huecos y tratar de meter jobs de la rc ahi
+vector<pair<int,int>> make_vec2(const individuo& x){
+    int nmaq = x.nmaq;
+    int njobs = x.njobs;
+    vector<pair<int,int>> vec;
+    vector<vector<int>> gaps(nmaq);
+    for(int i=0;i<nmaq;i++){
+        for(int j=0;j<njobs-1;j++){
+            // si hay un gap
+            if(x.plan[i*njobs+j].end!=x.plan[i*njobs+j+1].start)
+                gaps[i].push_back(i*njobs+j);
+        }
+    }
+    for(auto rc : x.ruta){
+        for(int j=1;j<rc.size()-1;j++){
+            // para cada op de la ruta critica agrega el mov
+            // puede que el gap este a la izq o derecha
+            // aux/njobs es la maquina en la que esta aux
+            for(auto k: gaps[rc[j]/njobs]){
+               if(x.plan[k].start>x.plan[rc[j]].end) 
+                   vec.push_back(pair<int,int>(rc[j],k+1));
+               else
+                   vec.push_back(pair<int,int>(rc[j],k));
+            }
+        }
+    }
+    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+    //seed = 1;
+    shuffle(vec.begin(),vec.end(),default_random_engine(seed));
+    return vec;
+
+}
+
 individuo jsp::local_search(individuo x,vector<pair<int,int>> (*vec)(const individuo&) ){
     int u,v;
     unsigned long int cost0;

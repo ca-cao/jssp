@@ -11,6 +11,7 @@ using namespace std;
 // regresa la matriz con los pesos de las aristas
 instance getData(string fname);
 vector<pair<int,int>> make_n7(const individuo& x);
+vector<pair<int,int>> make_vec2(const individuo& x);
 
 class jsp{
     public:

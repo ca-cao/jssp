@@ -37,13 +37,13 @@ for i in range(maq):
     ax.broken_barh(bb, (i, .6), facecolors = col)
 
 #ax.grid(True)
-ax.xaxis.grid() # vertical lines
-ax.set_yticklabels(["Mejorar la \nfunción de\n fitness","Cambiar la \nrepresentación\n (nodos)","Plantear nueva\n vecindad","Redacción\n de tesis"])
+#ax.xaxis.grid() # vertical lines
+#ax.set_yticklabels(["Mejorar la \nfunción de\n fitness","Cambiar la \nrepresentación\n (nodos)","Plantear nueva\n vecindad","Redacción\n de tesis"])
 ax.set_yticks(maq -.7-np.arange(maq))
-ax.set_xticks(np.arange(6)*4)
-ax.set_xticklabels(["Febrero","Marzo","Abril","Mayo","Junio","Julio"])
-#ax.figure.colorbar(mpl.cm.ScalarMappable(cmap=cmap, norm=norm),ax=ax)
-#ax.set_title(sys.argv[1])
-#ax.set_xlabel("Tiempo")
-#ax.set_ylabel("Máquina")
+#ax.set_xticks(np.arange(6)*4)
+#ax.set_xticklabels(["Febrero","Marzo","Abril","Mayo","Junio","Julio"])
+ax.figure.colorbar(mpl.cm.ScalarMappable(cmap=cmap, norm=norm),ax=ax)
+ax.set_title(sys.argv[1])
+ax.set_xlabel("Tiempo")
+ax.set_ylabel("Máquina")
 plt.show()

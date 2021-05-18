@@ -9,6 +9,7 @@ delta[:,0] = 1-2*(np.random.rand(nl))
 delta[:,1] = (1-2*(np.random.rand(nl)<.7))*np.sqrt(1- delta[:,0]**2)
 lopt = np.cumsum(delta,0)
 
+
 for x in lopt:
     # numero de vecinos 3-5
     nv = int(np.random.randint(4,7))
@@ -28,6 +29,25 @@ for x in lopt:
     else:
         plt.plot(x[0]+.4*np.cos(theta),x[1]+.4*np.sin(theta),"k*")
 
+ns = 100
+space = np.zeros((ns,2))
+space[:,0] = lopt[:,0].min()-1+((lopt[:,0].max()+2-lopt[:,0].min())*np.random.rand(ns))
+space[:,1] = lopt[:,1].min()-1+((lopt[:,1].max()+2-lopt[:,1].min())*np.random.rand(ns))
+
+mask = []
+for j,x in enumerate(space):
+    for i in space:
+        if np.linalg.norm(x-i)<1 and any(j!=i):
+            mask+=[j]
+            break
+
+print(mask)
+
+# muy ingenuo
+for k,x in enumerate(space):
+    for i in lopt:
+        if np.linalg.norm(x-i)>2.5 and not(k in mask):
+            plt.plot(x[0],x[1],"k*",alpha=.1)
 
 plt.plot(lopt[:,0],lopt[:,1])
 plt.plot(lopt[:,0],lopt[:,1],"o")

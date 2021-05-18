@@ -3,6 +3,7 @@
 #include<iostream>
 #include<fstream>
 #include<sstream>
+#include<algorithm>
 #include<numeric>
 #include<vector>
 #include<random>
@@ -28,11 +29,20 @@ ostream& operator<<(ostream& os, const job& dt){
 
 // deberia llamarse makespan
 bool individuo::operator<(const individuo& other){
-    if (this->cost<other.cost)
-        return true;
-    else if(this->cost==other.cost)
-        if(this->ruta.size()<other.ruta.size())
+    vector<int> thisftimes,otherftimes;
+    for(int i=0;i<nmaq;i++){
+        thisftimes[i] = plan[i].back().end;
+        otherftimes[i] = other.plan[i].back().end;
+    }
+    sort(thisftimes.rbegin(),thisftimes.rend());
+    sort(otherftimes.rbegin(),otherftimes.rend());
+
+    for(int i=0;i<nmaq;i++){
+        if(thisftimes[i]>otherftimes[i])
+            return false;
+        if(thisftimes[i]<otherftimes[i])
             return true;
+    }
     return false;
 }
 

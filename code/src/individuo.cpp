@@ -671,52 +671,6 @@ void individuo::perturb(double pm,double pj){
 }
 
 /*
-// encontrar los huecos y tratar de meter jobs de la rc ahi
-vector<pair<int,int>> individuo::make_vec2(const instance& req){
-    vector<pair<int,int>> vec;
-    instance gaps;
-    gaps.resize(nmaq);
-    for(int i=0;i<nmaq;i++){
-        for(int j=0;j<njobs-1;j++){
-            // si hay un gap
-            if(plan[i*njobs+j].end!=plan[i*njobs+j+1].start)
-                gaps[i].push_back(make_pair<int,int>(i*njobs+j,i*njobs+j+1));
-        }
-    }
-    int aux;
-    for(auto rc : ruta){
-        for(int j=1;j<rc.size()-1;j++){
-            aux = rc[j];
-            for(auto k: gaps[aux/njobs]){
-                while(k.second<aux){
-                    // mover a la izq
-                    if(connected(plan[aux-1].jobsuc,plan[aux].jobdep))
-                        break;
-                    swap_op(aux,aux-1);
-                    aux-=1;
-                }
-                while(k.first>aux){
-                    // mover a la der
-                    if(connected(plan[aux].jobsuc,plan[aux+1].jobdep))
-                        break;
-                    swap_op(aux,aux+1);
-                    aux++;
-                }
-                if(aux == k.second)
-                    vec.push_back(pair<int,int>(rc[j],k.second));
-                if(aux == k.first)
-                    vec.push_back(pair<int,int>(rc[j],k.first));
-            }
-            // regresarla a su lugar original
-            move_op(aux,rc[j]);
-        }
-    }
-    unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-    //seed = 1;
-    shuffle(vec.begin(),vec.end(),default_random_engine(seed));
-    return vec;
-
-}
 */
 
 // branch and bound

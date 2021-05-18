@@ -4,7 +4,7 @@ El objetivo es hallar la planificación que minimiza el tiempo que toma terminar
 
 Una planificación consiste en asignar tiempos de inicio y fin a cada operación respetando el orden requerido para cada trabajo. El tiempo que toma terminar todos los trabajos se conoce como makespan y la secuencia de trabajos que toma el mayor tiempo en completarse se conoce como ruta crítica. La ruta crítica puede verse como una serie de bloques críticos que consisten en las secuencias de operaciones de la ruta crítica que se ejecutan de forma adyacente en la misma máquina. Una planificación puede tener una o varias rutas críticas. \\
 
-En general se considera que el tiempo requerido para procesar cada operación puede expresarse como un entero.\\
+Sin pérdida de generalidad puede considerarse que el tiempo requerido para procesar cada operación puede expresarse como un entero.\\
 
 \subsection*{Ejemplo}
 Se muestra un ejemplo de una instancia con 3 máquinas y 2 trabajos.
@@ -22,7 +22,9 @@ Trabajo & \multicolumn{3}{l}{\begin{tabular}[c]{@{}l@{}}Secuencia de procesamien
 La siguiente es una posible planificación para la instancia de ejemplo, visualizada mediante un diagrama de gantt. En negro se marca los trabajos que conforman la ruta crítica. 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=.5]{Imagenes/planejemplorc.png}
+\includegraphics[scale=.7]{Imagenes/planejemplorc.png}
+\caption{Diagrama de gantt de una planificación posible}
+\label{fig:gantt}
 \end{figure}
 
 
@@ -38,13 +40,27 @@ Formalmente en una instancia del JSP se representa cada operación como un nodo,
 % poner las representaciones
 \begin{figure}
 \centering
-\subfigure[Representación de una instancia]{\includegraphics[scale=.7]{Imagenes/disyuntive.pdf}}
-\subfigure[Planificación obtenida al fijar las aristas disyuntivas. La ruta critica se resalta en amarillo]{\includegraphics[scale=.7]{Imagenes/plandisyuntive.pdf}}
+\subfigure[Representación de una instancia, los colores distinguen entre las tres máquinas.]{\includegraphics[scale=.7]{Imagenes/disyuntive.pdf}}
+    \subfigure[Planificación obtenida al fijar las aristas disyuntivas como en \ref{fig:gantt}. La ruta critica se resalta en amarillo]{\includegraphics[scale=.7]{Imagenes/plandisyuntive.pdf}}
 \caption{Modelo de grafo disyuntivo para la instancia de ejemplo \ref{tab:inst}}
 \end{figure}
 
 \subsection*{Reglas de prioridad}
-En esta representación una planificación se construye al aplicar un proceso de simulación en el que para cada maquina se construye una cola con las operaciones cuyas dependencias ya han sido procesadas. Inicialmente se tienen en las colas solo las operaciones iniciales de cada trabajo. Una vez que se tiene esto se utiliza una regla de prioridad para elegir qué operación debe planificarse en qué máquina. Se actualizan las colas para las máquinas que lo requieran y se continua con este proceso hasta completar la planificación (vaciar las colas)
+En esta representación una planificación se construye al aplicar un proceso de simulación en el que para cada maquina se construye una cola con las operaciones cuyas dependencias ya han sido procesadas. Inicialmente se tienen en las colas solo las operaciones iniciales de cada trabajo. Una vez que se tiene esto se utiliza una regla de prioridad para elegir qué operación debe planificarse en qué máquina. Se actualizan las colas para las máquinas que lo requieran y se continua con este proceso hasta completar la planificación (vaciar las colas).
 
-\subsection*{Tipos de planificaciones}
-Dentro de el conjunto de planificaciones factibles se pueden distinguir dos subconjuntos de interés para el presente trabajo: el conjunto de las planificaciones óptimas que está conformado por las planificaciones con el menor makespan posible y el conjunto de las planificaciones activas. Estas últimas se definen como las planificaciones en las que no es posible disminuir el tiempo de inicio de ninguna operación sin aumentar el tiempo de inicio de otra. Es conocido que las planificaciones óptimas representan un subconjunto de las activas.
+Existen muchas reglas de prioridad que toman en cuenta cosas como la duración de la operación, la cantidad de operaciones restantes, la duración del trabajo al que pertenece una operación, entre muchas otras. La calidad de la planificación construida depende de la regla de prioridad que se utilice y de la estructura de la instancia en sí.
+
+
+\section{Tipos de planificaciones}
+Independientemente de cómo se representen o como se construyan las planificaciones pueden clasificarse en varios conjuntos. Dentro de el conjunto de planificaciones factibles se pueden distinguir dos subconjuntos de interés para el presente trabajo: el conjunto de las planificaciones óptimas que está conformado por las planificaciones con el menor makespan posible y el conjunto de las planificaciones activas. 
+Estas últimas se definen como las planificaciones en las que no es posible disminuir el tiempo de inicio de ninguna operación sin aumentar el tiempo de inicio de otra. Es conocido que las planificaciones óptimas representan un subconjunto de las activas\cite{Ponsich2013}.
+
+% imagen 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.8]{Imagenes/solspace.pdf}
+    \caption{Subconjuntos de planificaciones}
+\end{figure}
+
+Estas clasifaciones resultan interesantes porque existen algoritmos para generar tipos de planificaciones de modo que podamos centrarnos en solo un subconjunto del espacio de búsqueda.

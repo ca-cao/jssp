@@ -59,6 +59,12 @@
 \newblock A random keys genetic algorithm for job shop scheduling.
 \newblock Tech. rep., 1996.
 
+\bibitem{Ponsich2013}
+{\sc Ponsich, A., and {Coello Coello}, C.~A.}
+\newblock {A hybrid Differential Evolution - Tabu Search algorithm for the
+  solution of Job-Shop Scheduling Problems}.
+\newblock {\em Applied Soft Computing Journal 13}, 1 (2013), 462--474.
+
 \bibitem{Stegherr2020}
 {\sc Stegherr, H., Heider, M., and H{\"{a}}hner, J.}
 \newblock {Classifying Metaheuristics: Towards a unified multi-level

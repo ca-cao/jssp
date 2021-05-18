@@ -1,10 +1,10 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Optimización}{\reset@font\mtcSfont 5}{section.2.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Metaheurísticas}{\reset@font\mtcSfont 6}{section.2.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Representación}{\reset@font\mtcSSfont 7}{subsection.2.2.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Metaheurísticas}{\reset@font\mtcSfont 7}{section.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Representación}{\reset@font\mtcSSfont 8}{subsection.2.2.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}Vecindad}{\reset@font\mtcSSfont 9}{subsection.2.2.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}Función de aptitud o fitness}{\reset@font\mtcSSfont 9}{subsection.2.2.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.4}Paisaje de búsqueda}{\reset@font\mtcSSfont 9}{subsection.2.2.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Problema del planificación de producción tipo taller (JSSP)}{\reset@font\mtcSfont 11}{section.2.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Representación de planificaciones}{\reset@font\mtcSfont 12}{section.2.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Conjuntos de prueba}{\reset@font\mtcSfont 14}{section.2.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Metaheurísticas aplicadas al JSP}{\reset@font\mtcSfont 14}{section.2.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.4}Paisaje de búsqueda}{\reset@font\mtcSSfont 10}{subsection.2.2.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Problema del planificación de producción tipo taller (JSSP)}{\reset@font\mtcSfont 14}{section.2.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Representación de planificaciones}{\reset@font\mtcSfont 15}{section.2.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Tipos de planificaciones}{\reset@font\mtcSfont 17}{section.2.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Metaheurísticas aplicadas al JSP}{\reset@font\mtcSfont 18}{section.2.6}}
