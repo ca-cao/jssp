@@ -1,6 +1,8 @@
 \section{Extensión a vecindad N7}
 Como punto de partida se planteó agregar movimientos a la vecindad N7 con la cual se han obtenido los resultados del estado del arte.
-Los movimientos que plantea esta vecindad solo tienen que ver con pares de operaciones en la ruta crítica por lo que una extensión sencilla consiste en considerar movimientos de operaciones que pueden no pertenecer a la ruta crítica. Es importante resaltar que si no se planteara también una función de fitness que no tome solo en cuenta el makespan estos movimientos podrían nunca llevarían a una mejora \cite{blazewicz1996job}. 
+Los movimientos que plantea esta vecindad solo tienen que ver con pares de operaciones en la ruta crítica por lo que una extensión sencilla consiste en considerar movimientos de operaciones que pueden no pertenecer a la ruta crítica.
+
+Es importante resaltar que si no se planteara también una función de fitness que no tome solo en cuenta el makespan estos movimientos podrían nunca llevarían a una mejora \cite{blazewicz1996job}. 
 Los movimientos planteados se basan en observar que en alguna solución encontrada por una búsqueda local para cada maquina pueden existir periodos de tiempo en la que está inactiva pero existe alguna operación en la ruta critica que podría comenzar a procesarse en este periodo y que se procesa después. Ninguna de las vecindades previamente propuestas considera movimientos de las operaciones de la ruta crítica más allá del bloque crítico por lo que estos movimientos representan un conjunto previamente no explorado de soluciones.
 
 Intuitivamente lo que se pretende es llenar un <<hueco>> en la planificación con una operación de un bloque crítico.
@@ -18,6 +20,10 @@ La idea es construir la vecindad a partir de estas operaciones que compiten. En 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1.3]{Imagenes/vec2.pdf}
-\caption{Movimientos de la vecindad propuesta. $k(O^*)$ es la llave de la operación elegida}
+\caption{Movimientos de la vecindad propuesta. $k(O^*)$ es la llave de la operación elegida, las flechas representan los posibles intercambios entre las $j$ operaciones competidoras.}
 \end{figure}
 %diagrama
+
+El tamaño de esta vecindad puede ser bastante grande ya que para cada paso del algoritmo \ref{alg:GT} se tienen tantos movimientos como operaciones competidoras, las cuales pueden ir desde 0 hasta el número de trabajos $n$ siendo en el peor caso $O(nm*n)$. Como se mostará mas adelante, en realidad el número de operaciones que compiten por lo general es solo una fracción pequeña de $n$.
+
+Los movimientos de esta vecindad pueden generar soluciones muy diferentes dependiendo de dónde se encuentren en la planificación las operaciones consideradas. Si se cambia la llave de una operación al principio de la planificación puede ser que la solución cambie en muchos otros lugares porque el conjunto de operaciones disponibles puede cambiar radicalemente. 

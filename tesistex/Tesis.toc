@@ -17,8 +17,8 @@
 \contentsline {section}{\numberline {2.5}Tipos de planificaciones}{17}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Metaheurísticas aplicadas al JSP}{18}{section.2.6}%
 \contentsline {chapter}{\numberline {3}Propuestas}{21}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Extensión a vecindad N7}{21}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Vecindad basada en soluciones activas}{22}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Llaves aleatorias}{22}{section.3.3}%
+\contentsline {section}{\numberline {3.1}Llaves aleatorias}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Extensión a vecindad N7}{22}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Vecindad basada en soluciones activas}{22}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Validación experimental}{24}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{25}{chapter.5}%

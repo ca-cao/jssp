@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.5.5)  18 MAY 2021 14:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.5.5)  18 MAY 2021 15:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1100,46 +1100,40 @@ LaTeX Info: Redefining \% on input line 71.
 l.71 \newpage
               <./Imagenes/N7.pdf>]
 Cap\'{\i }tulo 3.
-(./propuestas/vecindades.tex
-<Imagenes/N8.pdf, id=423, 532.22134pt x 186.11934pt>
+(./propuestas/representacion.tex) (./propuestas/vecindades.tex [21
+
+pdfTeX warning (ext4): destination with the same identifier (name{algocf.4}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.1 \section
+            {Extensión a vecindad N7}]
+<Imagenes/N8.pdf, id=433, 532.22134pt x 186.11934pt>
 File: Imagenes/N8.pdf Graphic file (type pdf)
 <use Imagenes/N8.pdf>
 Package pdftex.def Info: Imagenes/N8.pdf  used on input line 10.
 (pdftex.def)             Requested size: 372.55238pt x 130.28262pt.
-
-Underfull \vbox (badness 1527) has occurred while \output is active []
-
- [21
-
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.16 
-      <./Imagenes/N8.pdf>]
 <Imagenes/vec2.pdf, id=434, 150.44707pt x 134.9863pt>
 File: Imagenes/vec2.pdf Graphic file (type pdf)
 <use Imagenes/vec2.pdf>
 Package pdftex.def Info: Imagenes/vec2.pdf  used on input line 20.
 (pdftex.def)             Requested size: 195.58115pt x 175.48215pt.
-) (./propuestas/fitness.tex)
-(./propuestas/representacion.tex)
+LaTeX Info: Redefining \. on input line 22.
+LaTeX Info: Redefining \% on input line 22.
+ [22pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.22 \end{figure}
+                  <./Imagenes/N8.pdf>]) (./propuestas/fitness.tex)
 LaTeX Info: Redefining \. on input line 78.
 LaTeX Info: Redefining \% on input line 78.
- [22pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+ [23pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
 2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.78 \chapter
              {Validación experimental} <./Imagenes/vec2.pdf>]
-LaTeX Info: Redefining \. on input line 78.
-LaTeX Info: Redefining \% on input line 78.
- [23pdfTeX warning (ext4): destination with the same identifier (name{algocf.4}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.78 \chapter
-             {Validación experimental}]
 Cap\'{\i }tulo 4.
 (./validacion/resultados.tex) [24
 
@@ -1179,7 +1173,7 @@ LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./Otros/Resumen.aux) (./Otros/Abstract.aux))
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
-(rerunfilecheck)             Checksum: 4F1E02EBD985BAB2D73D6CDD6B7B0A3B;1569.
+(rerunfilecheck)             Checksum: 423DDB02B87D5B2C95F42492647C7B4E;1569.
  )
 (\end occurred inside a group at level 1)
 
@@ -1216,10 +1210,10 @@ cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy1
 0.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></u
 sr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/
 fonts/type1/urw/times/utmr8a.pfb>
-Output written on Tesis.pdf (32 pages, 470563 bytes).
+Output written on Tesis.pdf (32 pages, 472380 bytes).
 PDF statistics:
- 577 PDF objects out of 1000 (max. 8388607)
- 491 compressed objects within 5 object streams
+ 578 PDF objects out of 1000 (max. 8388607)
+ 492 compressed objects within 5 object streams
  109 named destinations out of 1000 (max. 500000)
  270 words of extra memory for PDF output out of 10000 (max. 10000000)
 

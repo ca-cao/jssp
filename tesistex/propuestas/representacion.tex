@@ -1,7 +1,9 @@
 \section{Llaves aleatorias}
 La representación propuesta se basa en asignar a cada operación una número real entre 0 y 1 el cual sirve para definir un orden entre operaciones en una misma máquina mediante un proceso de decodificación un planteamiento similar puede encontrarse en \cite{norman1996random}.
 
-Para decodificar la solución a partir de las llaves para cada operación se utiliza el algoritmo de Giffler \& Thompson \cite{Giffler1960} con el cual se generan soluciones activas. El primer paso es marcar como planificable la primera operacion de cada trabajo.Posteriormente se identifica la operación $O_{min}$ con el menor tiempo de finalización si se planifacara ya y la máquina $m^*=m(O_{min})$ en la cuál debe procesarse. Se toma el tiempo de finalización $t^*_f = t_f(O_{min})$ para escoger alguna de las operaciones planificables en $m^*$ cuyo tiempo de inicio sea menor a $t^*_f$, se actualizan las operaciones planificables y este proceso se repite hasta completar la planificación. A continuación se presenta formalmente el algoritmo.
+
+
+Para decodificar la solución a partir de las llaves se utiliza el algoritmo de Giffler \& Thompson \cite{Giffler1960} con el cual se generan soluciones activas. El primer paso es marcar como planificable la primera operacion de cada trabajo.Posteriormente se identifica la operación $O_{min}$ con el menor tiempo de finalización si se planifacara ya y la máquina $m^*=m(O_{min})$ en la cuál debe procesarse. Se toma el tiempo de finalización $t^*_f = t_f(O_{min})$ para escoger alguna de las operaciones planificables en $m^*$ cuyo tiempo de inicio sea menor a $t^*_f$, se actualizan las operaciones planificables y este proceso se repite hasta completar la planificación. A continuación se presenta formalmente el algoritmo.
 
 
 \begin{algorithm}[H]
@@ -19,3 +21,6 @@ Para decodificar la solución a partir de las llaves para cada operación se uti
     \caption{Algoritmo de Giffler \& Thompson}
 \end{algorithm}
 
+Una consecuencia importante de este cambio en la representación es que el espacio de búsqeda se reduce a solo las soluciones activas y como se sabe que las planifaciones óptimas son un subconjunto de estas, esta representación puede representar cualquier solución óptima. 
+
+Otro punto negativo es que esta representación es n a 1 porque solo importa el tamaño relativo de las llaves que compiten entre sí, es decir que diferentes valores de llaves pueden llevarnos a la misma solución. En principio no parece un problema muy grave auqnue sería más eficiente tener una representación 1 a 1 aunque se requiere de más análisis para plantearla.
