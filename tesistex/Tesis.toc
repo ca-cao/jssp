@@ -16,9 +16,11 @@
 \contentsline {section}{\numberline {2.4}Representación de planificaciones}{15}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Tipos de planificaciones}{17}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Metaheurísticas aplicadas al JSP}{18}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Propuestas}{21}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Llaves aleatorias}{21}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Extensión a vecindad N7}{22}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Vecindad basada en soluciones activas}{22}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Validación experimental}{24}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{25}{chapter.5}%
+\contentsline {section}{\numberline {2.7}Paisaje de búsqueda del JSP}{21}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Propuestas}{24}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Representación de soluciones activas basada en llaves aleatorias}{24}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Vecindad basada en soluciones activas}{26}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Extensión a vecindad N7}{27}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Función de fitness}{28}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Validación experimental}{29}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{30}{chapter.5}%

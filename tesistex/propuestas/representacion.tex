@@ -1,9 +1,26 @@
-\section{Llaves aleatorias}
-La representación propuesta se basa en asignar a cada operación una número real entre 0 y 1 el cual sirve para definir un orden entre operaciones en una misma máquina mediante un proceso de decodificación un planteamiento similar puede encontrarse en \cite{norman1996random}.
+\section{Representación de soluciones activas basada en llaves aleatorias}
+La representación propuesta se basa en asignar a cada operación una número real entre 0 y 1 el cual sirve para definir un orden entre operaciones en una misma máquina mediante un proceso de decodificación un planteamiento similar puede encontrarse en \cite{norman1996random} y en \cite{Ponsich2013}.
 
+Para decodificar la solución a partir de las llaves se utiliza el algoritmo de Giffler \& Thompson \cite{Giffler1960} con el cual se generan soluciones activas.\\ 
 
+Una consecuencia importante de este cambio en la representación es que el espacio de búsqeda se reduce a solo las soluciones activas y como se sabe que las planifaciones óptimas son un subconjunto de estas, esta representación puede representar cualquier solución óptima. 
+\\
 
-Para decodificar la solución a partir de las llaves se utiliza el algoritmo de Giffler \& Thompson \cite{Giffler1960} con el cual se generan soluciones activas. El primer paso es marcar como planificable la primera operacion de cada trabajo.Posteriormente se identifica la operación $O_{min}$ con el menor tiempo de finalización si se planifacara ya y la máquina $m^*=m(O_{min})$ en la cuál debe procesarse. Se toma el tiempo de finalización $t^*_f = t_f(O_{min})$ para escoger alguna de las operaciones planificables en $m^*$ cuyo tiempo de inicio sea menor a $t^*_f$, se actualizan las operaciones planificables y este proceso se repite hasta completar la planificación. A continuación se presenta formalmente el algoritmo.
+Un punto negativo es que esta representación es n a 1 porque solo importa el tamaño relativo de las llaves que compiten entre sí, es decir que diferentes valores de llaves pueden llevarnos a la misma solución. En principio no parece un problema muy grave auqnue sería más eficiente tener una representación 1 a 1 aunque se requiere de más análisis para plantearla.
+
+A continuación se presenta el algoritmo para construir planificaciones activas de llaves númericas.
+
+\subsection*{Algoritmo de Giffler \& Thompson}
+Para explicar el algoritmo de Giffler \& Thompson se adoptan las siguientes notaciones:
+\begin{itemize}
+    \item $O_i$ la operación $i$.
+    \item $M(O_i)$ la máquina en la que debe procesarse la operacion $O_i$.
+    \item $t_f(O_i)$ el tiempo en que se terminaría de procesar la operación $O_i$ si se planifica en este paso.
+    \item $t_i(O_i)$ el tiempo en que se comenzaría a procesar la operación $O_i$ si se planifica en este paso.
+    \item $k(O_i)\in [0,1]$ el valor de la llave asignada a $O_i$.
+\end{itemize}
+
+El primer paso es marcar como planificable la primera operacion de cada trabajo.Posteriormente se identifica la operación $O_{min}$ con el menor tiempo de finalización si se planifacara ya y la máquina $M^*=M(O_{min})$ en la cuál debe procesarse. Se toma el tiempo de finalización $t^*_f = t_f(O_{min})$ para escoger alguna de las operaciones planificables en $m^*$ cuyo tiempo de inicio sea menor a $t^*_f$, se actualizan las operaciones planificables y este proceso se repite hasta completar la planificación. A continuación se presenta formalmente el algoritmo.\\ 
 
 
 \begin{algorithm}[H]
@@ -11,16 +28,37 @@ Para decodificar la solución a partir de las llaves se utiliza el algoritmo de 
  \KwResult{Planificación activa}
  Inicializar el conjunto de operaciones planificables $\Omega$\;
  \While{$\Omega$ no vacío}{
-    Determinar la operación con el menor tiempo de finalización $O_{min}\in\Omega$\;
-    Determinar el tiempo de finalazición $t^*_f$ y la máquina $m^*$ en que se procesa $O_{min}$\;
-    Escoger $O^*\in\Omega$ tal que $t_i(O^*) < t^*_f$ y $m(O^*)=m^*$\;
+    Determinar la operación con el menor tiempo potencial de finalización $O_{min}=\arg\min_{O\in\Omega} \,\,t_f(O)$ \;
+    Determinar el tiempo de finalización $t^*_f$ y la máquina $M^*$ en que se procesa $O_{min}$\;
+    Identificar el conjunto $C\subset\Omega$ de operaciones que cumplen $t_i(O) < t^*_f$ y $M(O)=M^*$\;
+    Escoger la operación $O^*\in C$ que tenga asignada la llave de mayor valor\;
     Asignar tiempo de inicio y fin a $O^*$\;
     Actualizar $\Omega$ eliminando a $O^*$ y agregando a su sucesora si existe\;
  }
     \label{alg:GT}
     \caption{Algoritmo de Giffler \& Thompson}
 \end{algorithm}
+\subsection*{Ejemplo}
+Como ejemplo ilustrativo se muestran los primeros pasos para construir la planificación mostrada en la figura \ref{fig:gantt} asociada a la instancia de ejemplo mostrada en la tabla \ref{tab:inst}.\\
 
-Una consecuencia importante de este cambio en la representación es que el espacio de búsqeda se reduce a solo las soluciones activas y como se sabe que las planifaciones óptimas son un subconjunto de estas, esta representación puede representar cualquier solución óptima. 
+Para recuperar la planifiación previamente mostrada se asignan las llaves de la siguiente manera: \[k(O_{00})=k(O_{01})=k(O_{02})=1\]  \[k(O_{10})=k(O_{11})=k(O_{12})=0\]
+\begin{itemize}
+    \item Se inicializa $\Omega$ agregando las operaciones iniciales de cada trabajo, es decir:
 
-Otro punto negativo es que esta representación es n a 1 porque solo importa el tamaño relativo de las llaves que compiten entre sí, es decir que diferentes valores de llaves pueden llevarnos a la misma solución. En principio no parece un problema muy grave auqnue sería más eficiente tener una representación 1 a 1 aunque se requiere de más análisis para plantearla.
+\[\Omega = \{O_{10},O_{00}\}\]
+
+     \item Se identifica a la operación que acabaría primero si se planifica ya, en este caso es $O_{10}$ que se debe procesar en la máquina $M_0$. 
+
+     \item Se identifican las operaciones que podrían comenzar a procesarse antes del tiempo potencial de finalización de $O_{10}$. En este caso solo $O_{00}$ y  $O_{10}$ cumplen las condiciones.
+
+Como $k(O_{00})>k(O_{10})$ se planifica $O_{00}$ se le asignan $0$ y $54$ como tiempos inicial y final.
+
+     \item Se actualiza $\Omega$ removiendo a la operación planificada y agregando a su sucesora $O_{02}$.
+
+\[\Omega\leftarrow \{O_{10},O_{02}\}\]
+\end{itemize}
+Este proceso continua de acuerdo al algortimo \ref{alg:GT} hasta que todas las operaciones se encuentren planificadas.\\
+
+Una característica importante de este algortimo es que en cada paso para planificar una operación se consideran varias que cumplen con ciertos criterios. Estas operaciones son la pieza en la que se basa la siguiente propuesta para una estructura de vecindad.
+
+% diagrama del algoritmo

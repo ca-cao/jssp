@@ -1,3 +1,4 @@
+En este capítulo se presentan los conceptos sobre los cuales se basa el trabajo así como definiciones relativas al problema y algunos algortimos específicos relevantes para el presente trabajo.
 \section{Optimización}
 La optimización es una herramienta que nos ayuda a encontrar \textit{la mejor} entre diferentes opciones elegibles. En nuestra vida diaria a menudo nos encontramos en este tipo de situaciones, por ejemplo al elegir entre diferentes rutas para llegar a algún lugar o entre diferentes productos.
 
@@ -46,7 +47,7 @@ Hay varias maneras de representar permutaciones, podemos usar un arreglo de $n$ 
 
 Con el ejemplo anterior también podemos ver que si queremos establecer algunos operadores que, por ejemplo, perturben la solución tendremos que definirlos de maneras completamente distintas. Tambien es importante notar que es posible que el número de soluciones no factibles que podamos representar sea mayor que el de las factibles.
 
-Formalmente una represntación es un mapa que asocia elementos entre el conjunto de soluciones y el conjunto de las representaciones. Este mapeo no tiene por que ser suryectivo, es decir que puede ser que solo asigne una representación a parte del conjunto de soluciones. También puede ser el caso como se mencionió anterioremente que haya representaciones que no correspondan a soluciones. Pueden distinguirse tres tipos de representaciones\cite{Cheng1996} de acuerdo a como asocian los elementos de estos dos conjuntos.
+Formalmente una representación es un mapa que asocia elementos entre el conjunto de soluciones y el conjunto de las representaciones. Este mapeo no tiene por que ser suryectivo, es decir que puede ser que solo asigne una representación a parte del conjunto de soluciones. También puede ser el caso como se mencionió anterioremente que haya representaciones que no correspondan a soluciones. Pueden distinguirse tres tipos de representaciones\cite{Cheng1996} de acuerdo a como asocian los elementos de estos dos conjuntos.
 \begin{itemize}
     \item $1$ a $1$ A cada solución le corresponde una única representación.
     \item $1$ a $n$ La misma representación puede asociarse a varias soluciones.
@@ -76,15 +77,17 @@ Esta función debe asociar a cada solución un elemento de un conjunto donde est
 
 \subsection{Paisaje de búsqueda}
 
-Una vez que tenemos el espacio de búsqueda y operadores de cambio para generar nuevas soluciones a partir de otras, se define el espacio de búsqueda como un grafo dirigido en el que los nodos son las soluciones al problema y una solución $x$ está conectada a otra $y$ si podemos generar a $y$ aplicando los operadores de cambio a $x$.
+Una vez que tenemos el espacio de búsqueda y operadores de cambio para generar nuevas soluciones a partir de otras, se define el espacio de búsqueda como un grafo dirigido $G$ en el que los nodos son las soluciones al problema y una solución $x$ está conectada a otra $y$ si podemos generar a $y$ aplicando los operadores de cambio a $x$.
 
-Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que mide la calidad de dicha solución. La adición de esta función de aptitud al espacio de búsqueda genera al paisaje de búsqueda.
+Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que mide la calidad de dicha solución. La adición de esta función de aptitud al espacio de búsqueda genera al paisaje de búsqueda. Formalmente el paisaje de búsqueda $\mathcal{L}$ es entonces una tupla conformada por el espacio de búsqueda junto con una función objetivo que guía la búsqueda $\mathcal{L}=(G,f)$
 
+A continuación se muestra una representación pictórica de cómo se crea el paisaje de búsqueda para un problema de optimización.
 \begin{figure}[H]
 \centering
-\subfigure[Soluciones]{\includegraphics[scale=.4]{Imagenes/search1.png}}
+\subfigure[Soluciones representables]{\includegraphics[scale=.4]{Imagenes/search1.png}}
 \subfigure[Relaciones inducidas por los operadores de cambio]{\includegraphics[scale=.4]{Imagenes/search2.png}}
 \subfigure[Adición de la función de fitness]{\includegraphics[scale=.4]{Imagenes/search3.png}}
+    \label{fig:landscape}
 \caption{Creación del paisaje de búsqueda}
 \end{figure}
 

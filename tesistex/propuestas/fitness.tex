@@ -1,1 +1,12 @@
-Este problema 
+\section{Función de fitness}
+La idea principal es la de tener un arreglo de características de la planificación y compararlos lexicográficamente para distinguir entre las soluciones. Para plantear qué características son las que se iban a tomar en cuenta para este arreglo se tomaron en cuenta otros criterios de optimalidad hallados en la literatura así como propuestas porpias. También se planteó considerar todos los tiempos de finalización de las máquinas. Las características tomadas en cuenta fueron las siguientes:
+\begin{itemize}
+\item $C_{max}$ Makespan 
+\item $\sum C_i^2$ Tiempo al cuadrado total 
+\item $\sum J_i$ Flowtime 
+\item $\sum I(C_i=C_{max})$ Número de máquinas cuyo tiempo de finalizacion es igual al makespan 
+\item Número de rutas críticas 
+\item $\sqrt{Var(C_i)}$ Desviación estandar de los tiempos de finalización 
+\end{itemize}
+
+Se probaron estos criterios a pares para determinar el orden en el que podrian dar mejores resultados al cosiderar a todos en el areglo.

@@ -1,0 +1,28 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{hobby}
+\begin{document}
+\begin{tikzpicture}[use Hobby shortcut]
+    \node at (3,6) (om) {$\Omega$};
+  \path
+  (0,0) coordinate (z0)
+  (6,0) coordinate (z1)
+  (4,5) coordinate (z2)
+  (1,6) coordinate (z3);
+  %(0,40) coordinate (z4);
+  \draw[closed] (z0) .. (z1) .. (z2) .. (z3);
+    \node at (2.3,1.5) (o1) {$O_l$}; 
+    \node at (1.4,2) (o1) {$O_m$}; 
+    \node at (2.1,3.5) (o1) {$O_n$}; 
+  \path
+       (2.4,1) coordinate (c1)
+       (1,1.5) coordinate (c2)
+       (2.1,4) coordinate (c3);
+  \draw[closed] (c1) .. (c2) .. (c3);
+% \path
+%  (10,.1) coordinate (x0)
+%  (13,.2) coordinate (x1)
+%  (15,2) coordinate (x2)
+%  (9.5,3) coordinate (x3);
+%  \draw[closed] (x0) .. (x1) .. (x2) .. (x3);
+\end{tikzpicture}
+\end{document}

@@ -1,3 +1,19 @@
+\section{Vecindad basada en soluciones activas}
+Esta vecindad surge del cambio de representación propuesto. En cada paso del algoritmo para construir una solución activa se consideran varias operaciones que <<compiten>> para ser planificadas (i.e. son planificables en ese momento) de las cuales se elige la que tiene la llave de mayor valor numérico. 
+
+La idea es construir la vecindad a partir de estas operaciones que compiten. En un principio puede pensarse en considerar todos los posibles ordenamientos posibles para dichas operaciones pero esto da lugar a una vecindad demasiado grande por lo que se considera únicamente hacer cambios por pares de llaves entre la operación elegida y todas sus competidoras.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1.3]{Imagenes/vec2.pdf}
+\caption{Movimientos de la vecindad propuesta. $k(O^*)$ es la llave de la operación elegida, las flechas representan los posibles intercambios entre las $j$ operaciones competidoras.}
+\end{figure}
+%diagrama
+
+El tamaño de esta vecindad puede ser bastante grande ya que para cada paso del algoritmo \ref{alg:GT} se tienen tantos movimientos como operaciones competidoras, las cuales pueden ir desde 1 hasta el número de trabajos $n$ siendo en el peor caso de tamaño $O(nm*n)$. Como se mostará mas adelante en la validación experimental, en realidad el número de operaciones que compiten por lo general es solo una fracción pequeña de $n$ con lo que la vecindad puede manejarse sin problemas.
+
+
+Los movimientos de esta vecindad pueden generar soluciones muy diferentes dependiendo de dónde se encuentren en la planificación las operaciones consideradas. Si se cambia la llave de una operación que fue planificada al principio puede ser que la solución cambie en muchos otros lugares porque el conjunto de operaciones disponibles puede llegar a ser completamente distinto al llegar a un paso más avanzado en la construcción de la solución. 
+
 \section{Extensión a vecindad N7}
 Como punto de partida se planteó agregar movimientos a la vecindad N7 con la cual se han obtenido los resultados del estado del arte.
 Los movimientos que plantea esta vecindad solo tienen que ver con pares de operaciones en la ruta crítica por lo que una extensión sencilla consiste en considerar movimientos de operaciones que pueden no pertenecer a la ruta crítica.
@@ -10,20 +26,7 @@ Intuitivamente lo que se pretende es llenar un <<hueco>> en la planificación co
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.7]{Imagenes/N8.pdf}
-    \caption{Movimientos propuestos. El tiempo de inicio de \textbf{v} es mayor al de finalización de \textbf{v}}
+    \caption{Movimientos propuestos. El tiempo de inicio de \textbf{v} es mayor al de finalización de \textbf{u}}
 \end{figure}
 
-\section{Vecindad basada en soluciones activas}
-Esta vecindad surge del cambio de representación propuesto. En cada paso del algoritmo para construir una solución activa se consideran varias operaciones que <<compiten>> para ser planificadas (i.e. son planificables en ese momento) de las cuales se elige la que tiene la llave de mayor valor numérico. 
-
-La idea es construir la vecindad a partir de estas operaciones que compiten. En un principio puede pensarse en considerar todos los posibles ordenamientos posibles para dichas operaciones pero esto da lugar a una vecindad demasiado grande por lo que se considera únicamente hacer cambios por pares de llaves entre la operación elegida y todas sus competidoras.
-\begin{figure}[H]
-\centering
-\includegraphics[scale=1.3]{Imagenes/vec2.pdf}
-\caption{Movimientos de la vecindad propuesta. $k(O^*)$ es la llave de la operación elegida, las flechas representan los posibles intercambios entre las $j$ operaciones competidoras.}
-\end{figure}
-%diagrama
-
-El tamaño de esta vecindad puede ser bastante grande ya que para cada paso del algoritmo \ref{alg:GT} se tienen tantos movimientos como operaciones competidoras, las cuales pueden ir desde 0 hasta el número de trabajos $n$ siendo en el peor caso $O(nm*n)$. Como se mostará mas adelante, en realidad el número de operaciones que compiten por lo general es solo una fracción pequeña de $n$.
-
-Los movimientos de esta vecindad pueden generar soluciones muy diferentes dependiendo de dónde se encuentren en la planificación las operaciones consideradas. Si se cambia la llave de una operación al principio de la planificación puede ser que la solución cambie en muchos otros lugares porque el conjunto de operaciones disponibles puede cambiar radicalemente. 
+En general esta vecindad resulta de un tamaño muy reducido porque existen muchos movimientos que hacen que la solución resultante sea infactible. 

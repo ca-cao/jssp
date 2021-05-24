@@ -1,7 +1,6 @@
 %Como se juntan las definiciones con lo demas
 \section{Metaheurísticas aplicadas al JSP}
 La complejidad del JSP hace que las metaheurísticas sean actualmente los métodos más utilizados para resolver instancias grandes. Estas han conseguido hallar buenas soluciones para los conjuntos de prueba más populares. Aunque se han propuesto muchas metaheurísticas, práticamente todas utilizan el concepto de vecindad. Como ya se explicó, la definición de una estructura de vecindad es parte del paisaje de búsqueda y tiene un gran impacto en los resultados obtenidos. Desde que se propuso la primera vecindad en 1996, se han propuesto veecindades cada vez con mejores resultados.
-% poblacionales 
 
 \subsection*{Vecindades previamente propuestas}
 Se han propuesto varias estructuras de vecindad al JSP, a continuación se describen las más importantes a la fecha:
@@ -47,5 +46,37 @@ Se han propuesto varias estructuras de vecindad al JSP, a continuación se descr
 
 Las vecindades antes presentadas se han centrado en operaciones que pertenecen a la ruta crítica por varias razones, la vecindad resultante es suficientemente pequeña como para ser explorada en su totalidad, el makespan de una planificación solo puede reducirse haciendo cambios en la ruta crítica y pueden garantizarse que cualquier vecino representa una solución factible.\\
 
-La literatura reciente se ha centrado en hacer los algoritmos existentes más eficientes dejando de lado la parte de la representación o de la función de fitness. Existen otras ideas que no se han explorado a fondo pero parecen prometedoras como proponer extensiones a alguna de las vecindades, cambiar la representación y proponer una función de fitness que no solo tome en cuenta el makespan de modo que tengamos más formas de diferenciar entre soluciones.
+La literatura reciente se ha centrado en hacer los algoritmos existentes más eficientes dejando de lado la parte de la representación o de la función de fitness. Existen otras ideas que no se han explorado a fondo pero parecen prometedoras como proponer extensiones a alguna de las vecindades, cambiar la representación y proponer una función de fitness que no solo tome en cuenta el makespan de modo que tengamos más formas de diferenciar entre soluciones. En la siguiente sección se presentan algunas otras medidas de calidad para planificaciones del JSP.
 % ve como se pueden mejorar 
+\subsection*{Criterios de optimalidad}
+Como ya se ha mencionado el criterio de optimalidad más usado es el makespan, no obstante existen muchos otros criterios de optimalidad que pueden usarse para asignar un valor de fitness a una planificación. 
+
+Si denotamos por $C_i$ al tiempo de finalización del trabajo $J_i$ y $f_i(C_i)$ a su costo asociado, podemos distinguir dos tipos de funciones de costo en la literatura\cite{Brucker2001}:
+\[f_{\max}:=\max\{f_i(C_i)\}\]
+y 
+\[\sum f_i(C):=\sum_{1\leq i\leq n}f_i(C_i)\]
+
+Los costos asociados a cada uno de los tiempos de finalización de los trabajos pueden tomar muchas formas, por ejemplo pueden introducirse pesos para cada trabajo o fijar tiempos de finalización esperado para cada trabajo y medir la desviación de ellos.
+
+Dependiendo del problema en sí, puede ser que se le de más o menos valor a distintos aspectos de la planificación como el tiempo que están detenidas las máquinas, o el tiempo que tarda un trabajo en particular. El makespan se ha extendido como criterio de optimalidad porque está muy relacionado con los costos económicos de la planifacición\cite{Rand1977}.
+
+
+Con las definiciones anteriores sobre vecindades, función objetivo y representaciones de las soluciones podemos construir el paisaje de búsqueda para el JSP. 
+\section{Paisaje de búsqueda del JSP}
+
+La estructura del paisaje de búsqueda influye de manera determiante en el éxito o fracaso de las metaheurísticas. Dependiendo de la <<forma>> que tenga el paisaje se favorecera el uso de ciertas metaheurísticas. La <<forma>> del paisaje hace referencia a cómo cambia el valor de fitness para soluciones conectadas entre sí. Dos medidas que son generalmente utlizadas para esto miden cómo cambia el valor de la función de fitness conforme nos acercamos a un óptimo local y la otra mide qué tanto cambia el fitness entre soluciones vecinas\cite{skauffman}. La primera de estas medidas nos da una idea de qué tan grandes son los valles que rodean a un mínimo local si es que existen y la segunda nos da una ida de la rugosidad del paisaje.
+
+% imagen
+\begin{figure}[H]
+    \centering
+    \subfigure[Paisaje rugoso con muchos óptimos locales]{\includegraphics[scale=.3]{Imagenes/rugged.png}}
+    \subfigure[Paisaje rugoso con con un gran valle]{\includegraphics[scale=.3]{Imagenes/ruggedvalley.png}}
+    \subfigure[Paisaje suave con un gran valle]{\includegraphics[scale=.3]{Imagenes/smoothvalley.png}}
+    \caption{Diferentes tipos de paisajes de búsqueda. Se muestran paisajes continuos con fines ilustratios}
+\end{figure}
+
+En el caso del JSP se ha encontrado que el paisaje de búsqueda para una instancia al azar tiende a ser muy dependiente de la razón entre el número de máquinas y número de trabajos de la misma \cite{Streeter2006}. También se ha observado que el paisaje tiende a tener muchos óptimos locales de baja calidad para instancias dificiles \cite{mattfeld1999search} y que en general algunas soluciones están mucho mas conectadas que otras \cite{bierwirth2004landscape}. 
+
+Estas características explican en parte por qué los métodos basados en búsqueda local como la búsqueda tabú combinados con métodos sofisticados de exploración han tenido tan buenos resultados. Puede ser que las soluciones que esten más conectadas a otras sean de baja calidad y sea necesario evitar ser <<atraidos>> hacia ellas para llegar a soluciones de mejor calidad.
+
+En este sentido, podemos pensar que para que una metaheurística basada en búsqueda local tenga mayor probabilidad de encontrar buenas soluciones debemos plantear el paisaje de búsqueda de modo que no nos atasquemos en óptimos locales de mala calidad, ya sea porque están muy conectados y funcionan como atractores o bien porque el paisaje de búsqueda es tan rugoso que hay óptimos locales por doquier.

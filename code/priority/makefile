@@ -15,6 +15,10 @@ best: best.cpp jsp.o individuo.o
 	g++ -c best.cpp -g
 	g++ -o best best.o jsp.o individuo.o
 
+example: example.cpp jsp.o individuo.o prule.o
+	g++ -c  individuo.cpp jsp.cpp example.cpp prule.cpp -O2
+	g++ -o example example.o -fopenmp jsp.o individuo.o prule.o -O2 
+
 debug:
 	gdb ./main ../instancias/cscmax_20_15_1.txt
 clean:

@@ -1,10 +1,20 @@
 \begin{thebibliography}{10}
 
+\bibitem{skauffman}
+{The origins of order: self-organization and selection in evolution}, 1993.
+
 \bibitem{Balas1998}
 {\sc Balas, E., and Vazacopoulos, A.}
 \newblock {Guided local search with shifting bottleneck for job shop
   scheduling}.
 \newblock {\em Management Science 44}, 2 (1998), 262--275.
+
+\bibitem{bierwirth2004landscape}
+{\sc Bierwirth, C., Mattfeld, D.~C., and Watson, J.-P.}
+\newblock Landscape regularity and random walks for the job-shop scheduling
+  problem.
+\newblock In {\em European Conference on Evolutionary Computation in
+  Combinatorial Optimization\/} (2004), Springer, pp.~21--30.
 
 \bibitem{blazewicz1996job}
 {\sc B{\l}a{\.z}ewicz, J., Domschke, W., and Pesch, E.}
@@ -17,6 +27,11 @@
 \newblock {Metaheuristics in Combinatorial Optimization: Overview and
   Conceptual Comparison}.
 \newblock {\em ACM Computing Surveys 35}, 3 (2003), 268--308.
+
+\bibitem{Brucker2001}
+{\sc Brucker, P.}
+\newblock {\em {Due-Date Scheduling}}.
+\newblock 2001.
 
 \bibitem{Brucker1994}
 {\sc Brucker, P., Jurisch, B., and Sievers, B.}
@@ -49,6 +64,11 @@
   included.
 \newblock {\em Naval research logistics quarterly 1}, 1 (1954), 61--68.
 
+\bibitem{mattfeld1999search}
+{\sc Mattfeld, D.~C., Bierwirth, C., and Kopfer, H.}
+\newblock A search space analysis of the job shop scheduling problem.
+\newblock {\em Annals of Operations Research 86\/} (1999), 441--453.
+
 \bibitem{nocedal2006numerical}
 {\sc Nocedal, J., and Wright, S.}
 \newblock {\em Numerical optimization}.
@@ -65,11 +85,24 @@
   solution of Job-Shop Scheduling Problems}.
 \newblock {\em Applied Soft Computing Journal 13}, 1 (2013), 462--474.
 
+\bibitem{Rand1977}
+{\sc Rand, G.~K.}
+\newblock {\em {Machine scheduling problems: Classification, complexity and
+  computations}}, vol.~1.
+\newblock 1977.
+
 \bibitem{Stegherr2020}
 {\sc Stegherr, H., Heider, M., and H{\"{a}}hner, J.}
 \newblock {Classifying Metaheuristics: Towards a unified multi-level
   classification system}.
 \newblock {\em Natural Computing 0\/} (2020).
+
+\bibitem{Streeter2006}
+{\sc Streeter, M.~J., and Smith, S.~F.}
+\newblock {How the landscape of random job shop scheduling instances depends on
+  the ratio of jobs to machines}.
+\newblock {\em Journal of Artificial Intelligence Research 26\/} (2006),
+  247--287.
 
 \bibitem{Zhang2007}
 {\sc Zhang, C.~Y., Li, P.~G., Guan, Z.~L., and Rao, Y.~Q.}
