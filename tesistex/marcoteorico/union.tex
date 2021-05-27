@@ -62,21 +62,10 @@ Dependiendo del problema en sí, puede ser que se le de más o menos valor a dis
 
 
 Con las definiciones anteriores sobre vecindades, función objetivo y representaciones de las soluciones podemos construir el paisaje de búsqueda para el JSP. 
+
 \section{Paisaje de búsqueda del JSP}
-
-La estructura del paisaje de búsqueda influye de manera determiante en el éxito o fracaso de las metaheurísticas. Dependiendo de la <<forma>> que tenga el paisaje se favorecera el uso de ciertas metaheurísticas. La <<forma>> del paisaje hace referencia a cómo cambia el valor de fitness para soluciones conectadas entre sí. Dos medidas que son generalmente utlizadas para esto miden cómo cambia el valor de la función de fitness conforme nos acercamos a un óptimo local y la otra mide qué tanto cambia el fitness entre soluciones vecinas\cite{skauffman}. La primera de estas medidas nos da una idea de qué tan grandes son los valles que rodean a un mínimo local si es que existen y la segunda nos da una ida de la rugosidad del paisaje.
-
-% imagen
-\begin{figure}[H]
-    \centering
-    \subfigure[Paisaje rugoso con muchos óptimos locales]{\includegraphics[scale=.3]{Imagenes/rugged.png}}
-    \subfigure[Paisaje rugoso con con un gran valle]{\includegraphics[scale=.3]{Imagenes/ruggedvalley.png}}
-    \subfigure[Paisaje suave con un gran valle]{\includegraphics[scale=.3]{Imagenes/smoothvalley.png}}
-    \caption{Diferentes tipos de paisajes de búsqueda. Se muestran paisajes continuos con fines ilustratios}
-\end{figure}
-
 En el caso del JSP se ha encontrado que el paisaje de búsqueda para una instancia al azar tiende a ser muy dependiente de la razón entre el número de máquinas y número de trabajos de la misma \cite{Streeter2006}. También se ha observado que el paisaje tiende a tener muchos óptimos locales de baja calidad para instancias dificiles \cite{mattfeld1999search} y que en general algunas soluciones están mucho mas conectadas que otras \cite{bierwirth2004landscape}. 
 
 Estas características explican en parte por qué los métodos basados en búsqueda local como la búsqueda tabú combinados con métodos sofisticados de exploración han tenido tan buenos resultados. Puede ser que las soluciones que esten más conectadas a otras sean de baja calidad y sea necesario evitar ser <<atraidos>> hacia ellas para llegar a soluciones de mejor calidad.
 
-En este sentido, podemos pensar que para que una metaheurística basada en búsqueda local tenga mayor probabilidad de encontrar buenas soluciones debemos plantear el paisaje de búsqueda de modo que no nos atasquemos en óptimos locales de mala calidad, ya sea porque están muy conectados y funcionan como atractores o bien porque el paisaje de búsqueda es tan rugoso que hay óptimos locales por doquier.
+En este sentido, podemos pensar que para que una metaheurística basada en búsqueda local tenga mayor probabilidad de encontrar buenas soluciones debemos plantear el paisaje de búsqueda de modo que no nos atasquemos en óptimos locales de mala calidad, ya sea porque están muy conectados y funcionan como atractores o bien porque el paisaje de búsqueda es tan rugoso que hay óptimos locales por doquier y es fácil atascarse en uno de mala calidad.

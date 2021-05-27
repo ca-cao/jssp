@@ -13,7 +13,7 @@ Hallar el mínimo de la función sobre todo el conjunto $X$ recibe el nombre de 
 También puede ser que el algoritmo planteado para resolver el problema de optimización sea no determinista i.e. puede obtener soluciones diferentes aunque tenga las mismas condiciones iniciales. En muchas ocasiones es ventajoso tener algo de aleatoriedad porque nos permite explorar más el espacio de búsqueda, es decir que puede eliminar sesgos. Esta rama de la optimzación se conoce como optimización estocástica.
 % mencionar optimimizacion continua, discreta
 %\subsection*{Optimización continua vs}
-\\ En la definición anterior no se requiere que el conjunto de soluciones tenga alguna propiedad o alguna estructura adicional. Por ejemplo el conjunto de soluciones puede ser un conjunto numerable ( i.e. los enteros ) o no numerable ( i.e. los números reales ). Estos dos casos dividen a la optimización en dos ramas: optimización continua y optimización discreta. En general los problemas de optimización suelen ser más fáciles de abordar\cite{nocedal2006numerical} porque en muchas ocasiones es posible obtener información del valor de la función objetivo de puntos cercanos a cierto punto conocido mientras que en los problemas discretos esto rara vez puede hacerse.\\
+\\ En la definición anterior no se requiere que el conjunto de soluciones tenga alguna propiedad o alguna estructura adicional. Por ejemplo el conjunto de soluciones puede ser un conjunto numerable ( e.g. los enteros ) o no numerable ( e.g. los números reales ). Estos dos casos dividen a la optimización en dos ramas: optimización continua y optimización discreta. En general los problemas de optimización suelen ser más fáciles de abordar\cite{nocedal2006numerical} porque en muchas ocasiones es posible obtener información del valor de la función objetivo de puntos cercanos a cierto punto conocido mientras que en los problemas discretos esto rara vez puede hacerse.\\
 
 Dentro de los problemas de optimización discreta se distinguen los problemas de optimización combinatoria. Formalmente un problema de optimización discreta consta de los siguientes elementos\cite{Blum2003}:
 \begin{itemize}
@@ -92,6 +92,18 @@ A continuación se muestra una representación pictórica de cómo se crea el pa
 \end{figure}
 
 El paisaje de búsqueda es el <<terreno>> a explorar y puede cambiar si cambiamos cualquiera de sus componentes, podría ser que alguna representación nos centre en un subconjunto de soluciones convenientes o que alguna estructura de vecindad se proponga de modo que las mejores soluciones nunca estan muy lejos del resto, o que la función de fitness nos ayude a atravesar cúmulos de soluciones que serían iguales sin ella.
+
+La estructura del paisaje de búsqueda influye de manera determinante en el éxito o fracaso de las metaheurísticas. Dependiendo de la <<forma>> que tenga el paisaje se favorecera el uso de ciertas metaheurísticas. La <<forma>> del paisaje hace referencia a cómo cambia el valor de fitness para soluciones conectadas entre sí. Dos medidas que son generalmente utlizadas para esto miden cómo cambia el valor de la función de fitness conforme nos acercamos a un óptimo local y la otra mide qué tanto cambia el fitness entre soluciones vecinas\cite{skauffman}. La primera de estas medidas nos da una idea de qué tan grandes son los valles que rodean a un mínimo local si es que existen y la segunda nos da una ida de la rugosidad del paisaje.
+
+% imagen
+\begin{figure}[H]
+    \centering
+    \subfigure[Paisaje rugoso con muchos óptimos locales]{\includegraphics[scale=.3]{Imagenes/rugged.png}}
+    \subfigure[Paisaje rugoso con con un gran valle]{\includegraphics[scale=.3]{Imagenes/ruggedvalley.png}}
+    \subfigure[Paisaje suave con un gran valle]{\includegraphics[scale=.3]{Imagenes/smoothvalley.png}}
+    \caption{Diferentes tipos de paisajes de búsqueda. Se muestran paisajes continuos con fines ilustratios}
+\end{figure}
+
 
 Las metaheurísticas sirven como una estrategía para explorar el paisaje de búsqueda. Una de las más sencillas e intuitivas es conocida como escalada estocástica y simplemente consiste en reemplazar la solución actual por algún vecino mejor escogido al azar hasta que la solución en la que estemos sea mejor que todos sus vecinos, es decir, un óptimo local. Esta es una metaheurística de trayectoria y traza un camino entre las soluciones inicial y final.
 

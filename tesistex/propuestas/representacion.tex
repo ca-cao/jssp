@@ -10,7 +10,7 @@ Un punto negativo es que esta representación es n a 1 porque solo importa el ta
 
 A continuación se presenta el algoritmo para construir planificaciones activas de llaves númericas.
 
-\subsection*{Algoritmo de Giffler \& Thompson}
+\subsection{Algoritmo de Giffler \& Thompson}
 Para explicar el algoritmo de Giffler \& Thompson se adoptan las siguientes notaciones:
 \begin{itemize}
     \item $O_i$ la operación $i$.
@@ -38,7 +38,7 @@ El primer paso es marcar como planificable la primera operacion de cada trabajo.
     \label{alg:GT}
     \caption{Algoritmo de Giffler \& Thompson}
 \end{algorithm}
-\subsection*{Ejemplo}
+\subsubsection*{Ejemplo}
 Como ejemplo ilustrativo se muestran los primeros pasos para construir la planificación mostrada en la figura \ref{fig:gantt} asociada a la instancia de ejemplo mostrada en la tabla \ref{tab:inst}.\\
 
 Para recuperar la planifiación previamente mostrada se asignan las llaves de la siguiente manera: \[k(O_{00})=k(O_{01})=k(O_{02})=1\]  \[k(O_{10})=k(O_{11})=k(O_{12})=0\]
@@ -57,8 +57,50 @@ Como $k(O_{00})>k(O_{10})$ se planifica $O_{00}$ se le asignan $0$ y $54$ como t
 
 \[\Omega\leftarrow \{O_{10},O_{02}\}\]
 \end{itemize}
-Este proceso continua de acuerdo al algortimo \ref{alg:GT} hasta que todas las operaciones se encuentren planificadas.\\
+Este proceso continua de acuerdo al algortimo \ref{alg:GT} hasta que todas las operaciones se encuentren planificadas.\\ 
 
-Una característica importante de este algortimo es que en cada paso para planificar una operación se consideran varias que cumplen con ciertos criterios. Estas operaciones son la pieza en la que se basa la siguiente propuesta para una estructura de vecindad.
+\subsection{Construcción de soluciones activas a partir de no activas}
 
-% diagrama del algoritmo
+Hasta ahora se ha considerado que la asignación de las llaves a las operaciones se hace de manera aleatoria. Esta asignación también puede hacerse tomando como base una solución previamente dada que no necesariamente tiene que ser activa. 
+
+Como se vio en el modelo de grafo distyuntivo construir una planificación consiste en elegir direcciones de aristas disyuntivas. Esto al final genera un orden para las operaciones en cada máquina i.e. una permutación. Para hallar la representación de alguna de estas soluciones en el esquema propuesto se toma esta permutación de las operaciones en cada máquina y se le asigna a cada una una prioridad decreciente acuerdo a su posición en la permutación.
+\[k(O_i)>k(O_{i+1})\]
+\[\text{donde }O_i\text{ es la operación numéro $i$ en procesarse en la máquina que le corresponde.}\]
+
+Esta asignación nos asegura que se mantega el orden de muchas operaciones pero convierte a la solución en activa. A continuación se muestra un ejemplo ilustrativo
+
+\subsubsection*{Ejemplo}
+Consideremos la instancia del JSP en la siguiente tabla
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}llll@{}}
+Trabajo & \multicolumn{3}{l}{\begin{tabular}[c]{@{}l@{}}Secuencia de procesamiento \\ (máquina, tiempo)\end{tabular}} \\ \midrule
+0 & 1, 37 & 0, 13 & 2, 35\\ \midrule
+1 & 0, 8 & 1, 4 & 2, 9 \\\hline                         
+2 & 1, 34 & 2, 72 & 0, 96 \\\hline                         
+3 & 1, 63 & 0, 77 & 2, 24 \\\hline                         
+\end{tabular}
+\caption{Instancia 3 maquinas y 4 trabajos}
+\label{tab:instactive}
+\end{table}
+
+La siguiente figura muestra un diagrama de gantt para una posible planificación.
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[scale=.7]{Imagenes/ganttnonactivepr.png}
+     \label{fig:nonactivepr}
+     \caption{Planificación posible para la instancia en \ref{tab:instactive}. }
+\end{figure}
+A partir de la planificación mostrada podemos asignar las prioridades del modo previamente dicho con lo que después de construir la planificación a partir de estas prioridades obtenemos la planifiación que se muestra en la siguiente figura.
+\begin{figure}[H]
+     \centering
+     \includegraphics[scale=.7]{Imagenes/ganttactivepr.png}
+     \label{fig:activepr}
+     \caption{Planificación activa reconstruida a partir de la mostrada en \ref{fig:nonactivepr}}
+\end{figure}
+
+Podemos notar como dos operaciones cambian de lugar de modo que se planifican antes sin aumentar el tiempo de inicio de otras.
+
+Una característica importante de esta representación es que el algortimo usado para decodificar una solución activa a partir de las llaves numéricas considera en cada paso varias operaciones candidatas a planificar que cumplen con ciertos criterios. Estas operaciones son la pieza en la que se basa la siguiente propuesta para una estructura de vecindad.
+

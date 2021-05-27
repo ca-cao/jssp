@@ -18,8 +18,10 @@
 \BOOKMARK [1][-]{section.2.7}{Paisaje de b\372squeda del JSP}{chapter.2}% 18
 \BOOKMARK [0][-]{chapter.3}{Propuestas}{}% 19
 \BOOKMARK [1][-]{section.3.1}{Representaci\363n de soluciones activas basada en llaves aleatorias}{chapter.3}% 20
-\BOOKMARK [1][-]{section.3.2}{Vecindad basada en soluciones activas}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.3}{Extensi\363n a vecindad N7}{chapter.3}% 22
-\BOOKMARK [1][-]{section.3.4}{Funci\363n de fitness}{chapter.3}% 23
-\BOOKMARK [0][-]{chapter.4}{Validaci\363n experimental}{}% 24
-\BOOKMARK [0][-]{chapter.5}{Conclusiones y Trabajos a Futuro}{}% 25
+\BOOKMARK [2][-]{subsection.3.1.1}{Algoritmo de Giffler \046 Thompson}{section.3.1}% 21
+\BOOKMARK [2][-]{subsection.3.1.2}{Construcci\363n de soluciones activas a partir de no activas}{section.3.1}% 22
+\BOOKMARK [1][-]{section.3.2}{Vecindad basada en soluciones activas}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.3}{Extensi\363n a vecindad N7}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.4}{Funci\363n de fitness}{chapter.3}% 25
+\BOOKMARK [0][-]{chapter.4}{Validaci\363n experimental}{}% 26
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y Trabajos a Futuro}{}% 27
