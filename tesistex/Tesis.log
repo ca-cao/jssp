@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.5.25)  27 MAY 2021 11:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.5.25)  27 MAY 2021 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1262,7 +1262,7 @@ LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./Otros/Resumen.aux) (./Otros/Abstract.aux))
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
-(rerunfilecheck)             Checksum: 0C0DCD9E6A229D6A5A05FDA8A2A9E3D2;1966.
+(rerunfilecheck)             Checksum: 5636D76186FC514D4B0B2277E9DA8898;1965.
  )
 (\end occurred inside a group at level 1)
 
@@ -1300,7 +1300,7 @@ public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
 are/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf
 -dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb>
-Output written on Tesis.pdf (38 pages, 1275214 bytes).
+Output written on Tesis.pdf (38 pages, 1275200 bytes).
 PDF statistics:
  673 PDF objects out of 1000 (max. 8388607)
  569 compressed objects within 6 object streams

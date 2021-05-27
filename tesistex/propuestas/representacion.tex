@@ -63,14 +63,14 @@ Este proceso continua de acuerdo al algortimo \ref{alg:GT} hasta que todas las o
 
 Hasta ahora se ha considerado que la asignación de las llaves a las operaciones se hace de manera aleatoria. Esta asignación también puede hacerse tomando como base una solución previamente dada que no necesariamente tiene que ser activa. 
 
-Como se vio en el modelo de grafo distyuntivo construir una planificación consiste en elegir direcciones de aristas disyuntivas. Esto al final genera un orden para las operaciones en cada máquina i.e. una permutación. Para hallar la representación de alguna de estas soluciones en el esquema propuesto se toma esta permutación de las operaciones en cada máquina y se le asigna a cada una una prioridad decreciente acuerdo a su posición en la permutación.
+Como se vio en el modelo de grafo distyuntivo construir una planificación consiste en elegir direcciones de aristas disyuntivas. Esto al final genera un orden para las operaciones en cada máquina i.e. una permutación. Para hallar la representación de alguna de estas soluciones en el esquema propuesto se toma esta permutación de las operaciones para cada máquina y se le asigna a cada una una prioridad decreciente acuerdo a su posición en la permutación.
 \[k(O_i)>k(O_{i+1})\]
-\[\text{donde }O_i\text{ es la operación numéro $i$ en procesarse en la máquina que le corresponde.}\]
+\[\text{donde }O_i\text{ es la operación numéro $i$ en procesarse}\]
 
 Esta asignación nos asegura que se mantega el orden de muchas operaciones pero convierte a la solución en activa. A continuación se muestra un ejemplo ilustrativo
 
 \subsubsection*{Ejemplo}
-Consideremos la instancia del JSP en la siguiente tabla
+Consideremos la instancia del JSP mostrada en la siguiente tabla:
 \begin{table}[H]
 \centering
 \begin{tabular}{@{}llll@{}}
@@ -102,5 +102,4 @@ A partir de la planificación mostrada podemos asignar las prioridades del modo 
 
 Podemos notar como dos operaciones cambian de lugar de modo que se planifican antes sin aumentar el tiempo de inicio de otras.
 
-Una característica importante de esta representación es que el algortimo usado para decodificar una solución activa a partir de las llaves numéricas considera en cada paso varias operaciones candidatas a planificar que cumplen con ciertos criterios. Estas operaciones son la pieza en la que se basa la siguiente propuesta para una estructura de vecindad.
-
+Una característica importante de esta representación es que el algortimo usado para decodificar una solución activa a partir de las llaves numéricas considera en cada paso varias operaciones candidatas a planificar que cumplen con los criterios antes mencionados. Estas operaciones son la pieza en la que se basa la siguiente propuesta para una estructura de vecindad.
