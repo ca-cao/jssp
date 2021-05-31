@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {2.2.2}Vecindad}{9}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Función de aptitud o fitness}{9}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Paisaje de búsqueda}{10}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Problema de planificación de producción tipo taller (JSSP)}{15}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Problema de planificación de producción tipo taller (JSP)}{15}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Representación de planificaciones}{16}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Tipos de planificaciones}{18}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Metaheurísticas aplicadas al JSP}{19}{section.2.6}%
@@ -23,6 +23,6 @@
 \contentsline {subsection}{\numberline {3.1.2}Construcción de soluciones activas a partir de no activas}{25}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Vecindad basada en soluciones activas}{27}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Extensión a vecindad N7}{28}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Función de fitness}{28}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Función de fitness}{29}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Validación experimental}{30}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{31}{chapter.5}%

@@ -1,6 +1,6 @@
-%Como se juntan las definiciones con lo demas
+%Como se juntan las definiciones con lo demás
 \section{Metaheurísticas aplicadas al JSP}
-La complejidad del JSP hace que las metaheurísticas sean actualmente los métodos más utilizados para resolver instancias grandes. Estas han conseguido hallar buenas soluciones para los conjuntos de prueba más populares. Aunque se han propuesto muchas metaheurísticas, práticamente todas utilizan el concepto de vecindad. Como ya se explicó, la definición de una estructura de vecindad es parte del paisaje de búsqueda y tiene un gran impacto en los resultados obtenidos. Desde que se propuso la primera vecindad en 1996, se han propuesto veecindades cada vez con mejores resultados.
+La complejidad del JSP hace que las metaheurísticas sean actualmente los métodos más utilizados para resolver instancias grandes. Estas han conseguido hallar buenas soluciones para los conjuntos de prueba más populares. Aunque se han propuesto muchas metaheurísticas, prácticamente todas utilizan el concepto de vecindad. Como ya se explicó, la definición de una estructura de vecindad es parte del paisaje de búsqueda y tiene un gran impacto en los resultados obtenidos. Desde que se propuso la primera vecindad en 1996, se han propuesto vecindades cada vez con mejores resultados.
 
 \subsection*{Vecindades previamente propuestas}
 Se han propuesto varias estructuras de vecindad al JSP, a continuación se describen las más importantes a la fecha:
@@ -58,14 +58,16 @@ y
 
 Los costos asociados a cada uno de los tiempos de finalización de los trabajos pueden tomar muchas formas, por ejemplo pueden introducirse pesos para cada trabajo o fijar tiempos de finalización esperado para cada trabajo y medir la desviación de ellos.
 
-Dependiendo del problema en sí, puede ser que se le de más o menos valor a distintos aspectos de la planificación como el tiempo que están detenidas las máquinas, o el tiempo que tarda un trabajo en particular. El makespan se ha extendido como criterio de optimalidad porque está muy relacionado con los costos económicos de la planifacición\cite{Rand1977}.
+Dependiendo del problema en sí, puede ser que se le de más o menos valor a distintos aspectos de la planificación como el tiempo que están detenidas las máquinas, o el tiempo que tarda un trabajo en particular. El makespan se ha extendido como criterio de optimalidad porque está muy relacionado con los costos económicos de la planificación\cite{Rand1977}.
 
 
 Con las definiciones anteriores sobre vecindades, función objetivo y representaciones de las soluciones podemos construir el paisaje de búsqueda para el JSP. 
 
 \section{Paisaje de búsqueda del JSP}
-En el caso del JSP se ha encontrado que el paisaje de búsqueda para una instancia al azar tiende a ser muy dependiente de la razón entre el número de máquinas y número de trabajos de la misma \cite{Streeter2006}. También se ha observado que el paisaje tiende a tener muchos óptimos locales de baja calidad para instancias dificiles \cite{mattfeld1999search} y que en general algunas soluciones están mucho mas conectadas que otras \cite{bierwirth2004landscape}. 
+En el caso del JSP se ha encontrado que el paisaje de búsqueda para una instancia al azar tiende a ser muy dependiente de la razón entre el número de máquinas y número de trabajos de la misma \cite{Streeter2006}. También se ha observado que el paisaje tiende a tener muchos óptimos locales de baja calidad para instancias difíciles \cite{mattfeld1999search} y que en general algunas soluciones están mucho mas conectadas que otras \cite{bierwirth2004landscape}. 
 
-Estas características explican en parte por qué los métodos basados en búsqueda local como la búsqueda tabú combinados con métodos sofisticados de exploración han tenido tan buenos resultados. Puede ser que las soluciones que esten más conectadas a otras sean de baja calidad y sea necesario evitar ser <<atraidos>> hacia ellas para llegar a soluciones de mejor calidad.
+Estas características explican en parte por qué los métodos basados en búsqueda local como la búsqueda tabú combinados con métodos sofisticados de exploración han tenido tan buenos resultados. Puede ser que las soluciones que estén más conectadas a otras sean de baja calidad y sea necesario evitar ser <<atraídos>> hacia ellas para llegar a soluciones de mejor calidad.
 
-En este sentido, podemos pensar que para que una metaheurística basada en búsqueda local tenga mayor probabilidad de encontrar buenas soluciones debemos plantear el paisaje de búsqueda de modo que no nos atasquemos en óptimos locales de mala calidad, ya sea porque están muy conectados y funcionan como atractores o bien porque el paisaje de búsqueda es tan rugoso que hay óptimos locales por doquier y es fácil atascarse en uno de mala calidad.
+En este sentido, podemos pensar que para que una metaheurística basada en búsqueda local tenga mayor probabilidad de encontrar buenas soluciones debemos plantear el paisaje de búsqueda de modo que no nos atasquemos en óptimos locales de mala calidad, ya sea porque están muy conectados y funcionan como atractores o bien porque el paisaje de búsqueda es tan rugoso que hay óptimos locales por doquier y es fácil atascarse en uno de mala calidad. Las soluciones altamente conectadas también pueden servir como un punto de partida hacia una solución muy buena.
+
+% stogatz small world networks

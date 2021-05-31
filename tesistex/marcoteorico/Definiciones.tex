@@ -1,5 +1,5 @@
-\section{Problema de planificación de producción tipo taller (JSSP)}
-Una instancia del JSSP consiste en $n$ trabajos diferentes constituidos cada uno por $m$ operaciones que deben procesarse por un tiempo determinado en $m$ máquinas en una secuencia predeterminada.\\
+\section{Problema de planificación de producción tipo taller (JSP)}
+Una instancia del JSP consiste en $n$ trabajos diferentes constituidos cada uno por $m$ operaciones que deben procesarse por un tiempo determinado en $m$ máquinas en una secuencia predeterminada.\\
 El objetivo es hallar la planificación que minimiza el tiempo que toma terminar todos los trabajos dado que cada máquina puede procesar solo un trabajo a la vez.
 
 Una planificación consiste en asignar tiempos de inicio y fin a cada operación respetando el orden requerido para cada trabajo. El tiempo que toma terminar todos los trabajos se conoce como makespan y la secuencia de trabajos que toma el mayor tiempo en completarse se conoce como ruta crítica. La ruta crítica puede verse como una serie de bloques críticos que consisten en las secuencias de operaciones de la ruta crítica que se ejecutan de forma adyacente en la misma máquina. Una planificación puede tener una o varias rutas críticas. \\
@@ -33,14 +33,14 @@ Existen varias formas de representar las planificaciones, en este trabajo se uti
 En este modelo las planificaciones se representan con un grafo dirigido $G=(V,A,E)$ en el que $V$ es un conjunto de nodos que representa las operaciones, las aristas $A$ representan la secuencia que deben seguir las operaciones dentro de un mismo trabajo y $E$ es otro conjunto de aristas que indica el orden de procesamiento en cada una de las máquinas. Es importante mencionar que con este modelo podemos representar planificaciones no factibles, esto se da cuando el grafo $G$ contiene un ciclo.
 
 
-Formalmente en una instancia del JSP se representa cada operación como un nodo, se agregan dos nodos de control que sirven como el nodo inicial (del que dependen todos los trabajos) y final (que depdende de todos los trabajos), las restricciones de precedencia dentro de cada trabajo se representan como aristas dirigidas fijas llamadas aristas conjuntivas y las operaciones que deben procesarse en una misma máquina se unen mediante aristas llamadas disyuntivas, una solución factible o planificación se obtiene al elegir la dirección para cada arista disyuntiva de modo que no se generen ciclos.   
+Formalmente en una instancia del JSP se representa cada operación como un nodo, se agregan dos nodos de control que sirven como el nodo inicial (del que dependen todos los trabajos) y final (que depende de todos los trabajos), las restricciones de precedencia dentro de cada trabajo se representan como aristas dirigidas fijas llamadas aristas conjuntivas y las operaciones que deben procesarse en una misma máquina se unen mediante aristas llamadas disyuntivas, una solución factible o planificación se obtiene al elegir la dirección para cada arista disyuntiva de modo que no se generen ciclos.   
 %El problema de hallar una planificación para cada una de las $m$ operaciones de los $n$ trabajos en las $m$ máquinas se reduce a elegir una permutación de los $n$ trabajos en cada máquina por lo que el número de posibles soluciones es $O(n!^m)$.
 
 % poner las representaciones
 \begin{figure}
 \centering
-\subfigure[Representación de una instancia, los colores distinguen entre las tres máquinas.]{\includegraphics[scale=.7]{Imagenes/disyuntive.pdf}}
-    \subfigure[Planificación obtenida al fijar las aristas disyuntivas como en \ref{fig:gantt}. La ruta critica se resalta en amarillo]{\includegraphics[scale=.7]{Imagenes/plandisyuntive.pdf}}
+\subfigure[Representación de una instancia, los colores distinguen entre las tres máquinas.]{\includegraphics[scale=.8]{Imagenes/disyuntive.pdf}}
+    \subfigure[Planificación obtenida al fijar las aristas disyuntivas como en \ref{fig:gantt}. La ruta critica se resalta en amarillo]{\includegraphics[scale=.8]{Imagenes/plandisyuntive.pdf}}
 \caption{Modelo de grafo disyuntivo para la instancia de ejemplo \ref{tab:inst}}
 \end{figure}
 
@@ -62,4 +62,4 @@ Estas últimas se definen como las planificaciones en las que no es posible dism
     \caption{Subconjuntos de planificaciones}
 \end{figure}
 
-Estas clasifaciones resultan interesantes porque existen algoritmos para generar tipos de planificaciones de modo que podamos centrarnos en solo un subconjunto del espacio de búsqueda.
+Estas clasificaciones resultan interesantes porque existen algoritmos para generar tipos de planificaciones de modo que podamos centrarnos en solo un subconjunto del espacio de búsqueda.
