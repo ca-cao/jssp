@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.5.25)  31 MAY 2021 15:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.5.25)  7 JUN 2021 13:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -732,7 +732,7 @@ Package minitoc(hints) Warning: W0023
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (./Portada.tex
-<Imagenes/cimatlogo.png, id=112, 166.7028pt x 213.9192pt>
+<Imagenes/cimatlogo.png, id=120, 166.7028pt x 213.9192pt>
 File: Imagenes/cimatlogo.png Graphic file (type png)
 <use Imagenes/cimatlogo.png>
 Package pdftex.def Info: Imagenes/cimatlogo.png  used on input line 2.
@@ -880,7 +880,7 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 LaTeX Info: Redefining \. on input line 42.
 LaTeX Info: Redefining \% on input line 42.
  [7]
-<Imagenes/representacion.pdf, id=248, 241.40086pt x 252.80447pt>
+<Imagenes/representacion.pdf, id=258, 241.40086pt x 252.80447pt>
 File: Imagenes/representacion.pdf Graphic file (type pdf)
 <use Imagenes/representacion.pdf>
 Package pdftex.def Info: Imagenes/representacion.pdf  used on input line 65.
@@ -900,17 +900,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-<Imagenes/search1.png, id=286, 574.145pt x 560.0925pt>
+<Imagenes/search1.png, id=296, 574.145pt x 560.0925pt>
 File: Imagenes/search1.png Graphic file (type png)
 <use Imagenes/search1.png>
 Package pdftex.def Info: Imagenes/search1.png  used on input line 93.
 (pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
-<Imagenes/search2.png, id=287, 574.145pt x 560.0925pt>
+<Imagenes/search2.png, id=297, 574.145pt x 560.0925pt>
 File: Imagenes/search2.png Graphic file (type png)
 <use Imagenes/search2.png>
 Package pdftex.def Info: Imagenes/search2.png  used on input line 94.
 (pdftex.def)             Requested size: 229.65393pt x 224.03302pt.
-<Imagenes/search3.png, id=288, 574.145pt x 560.0925pt>
+<Imagenes/search3.png, id=298, 574.145pt x 560.0925pt>
 File: Imagenes/search3.png Graphic file (type png)
 <use Imagenes/search3.png>
 Package pdftex.def Info: Imagenes/search3.png  used on input line 95.
@@ -931,17 +931,17 @@ LaTeX Info: Redefining \% on input line 103.
 l.103 
        <./Imagenes/search1.png> <./Imagenes/search2.png> <./Imagenes/search3.pn
 g>]
-<Imagenes/rugged.png, id=305, 736.7525pt x 736.7525pt>
+<Imagenes/rugged.png, id=316, 736.7525pt x 736.7525pt>
 File: Imagenes/rugged.png Graphic file (type png)
 <use Imagenes/rugged.png>
 Package pdftex.def Info: Imagenes/rugged.png  used on input line 107.
 (pdftex.def)             Requested size: 221.02745pt x 221.02745pt.
-<Imagenes/ruggedvalley.png, id=306, 736.7525pt x 736.7525pt>
+<Imagenes/ruggedvalley.png, id=317, 736.7525pt x 736.7525pt>
 File: Imagenes/ruggedvalley.png Graphic file (type png)
 <use Imagenes/ruggedvalley.png>
 Package pdftex.def Info: Imagenes/ruggedvalley.png  used on input line 108.
 (pdftex.def)             Requested size: 221.02745pt x 221.02745pt.
-<Imagenes/smoothvalley.png, id=307, 736.7525pt x 736.7525pt>
+<Imagenes/smoothvalley.png, id=318, 736.7525pt x 736.7525pt>
 File: Imagenes/smoothvalley.png Graphic file (type png)
 <use Imagenes/smoothvalley.png>
 Package pdftex.def Info: Imagenes/smoothvalley.png  used on input line 109.
@@ -955,7 +955,7 @@ LaTeX Info: Redefining \% on input line 115.
 l.115 
        <./Imagenes/rugged.png> <./Imagenes/ruggedvalley.png> <./Imagenes/smooth
 valley.png>]
-<Imagenes/mettray.png, id=321, 462.528pt x 346.896pt>
+<Imagenes/mettray.png, id=331, 462.528pt x 346.896pt>
 File: Imagenes/mettray.png Graphic file (type png)
 <use Imagenes/mettray.png>
 Package pdftex.def Info: Imagenes/mettray.png  used on input line 138.
@@ -1002,7 +1002,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
-<Imagenes/planejemplorc.png, id=340, 462.528pt x 346.896pt>
+<Imagenes/planejemplorc.png, id=350, 462.528pt x 346.896pt>
 File: Imagenes/planejemplorc.png Graphic file (type png)
 <use Imagenes/planejemplorc.png>
 Package pdftex.def Info: Imagenes/planejemplorc.png  used on input line 24.
@@ -1018,12 +1018,12 @@ LaTeX Info: Redefining \% on input line 28.
                                                   
 l.28 
      ]
-<Imagenes/disyuntive.pdf, id=347, 382.90753pt x 191.66003pt>
+<Imagenes/disyuntive.pdf, id=357, 382.90753pt x 191.66003pt>
 File: Imagenes/disyuntive.pdf Graphic file (type pdf)
 <use Imagenes/disyuntive.pdf>
 Package pdftex.def Info: Imagenes/disyuntive.pdf  used on input line 42.
 (pdftex.def)             Requested size: 306.32643pt x 153.32823pt.
-<Imagenes/plandisyuntive.pdf, id=348, 354.91093pt x 200.71486pt>
+<Imagenes/plandisyuntive.pdf, id=358, 354.91093pt x 200.71486pt>
 File: Imagenes/plandisyuntive.pdf Graphic file (type pdf)
 <use Imagenes/plandisyuntive.pdf>
 Package pdftex.def Info: Imagenes/plandisyuntive.pdf  used on input line 43.
@@ -1047,7 +1047,7 @@ LaTeX Info: Redefining \% on input line 49.
                                                   
 l.49 
       <./Imagenes/disyuntive.pdf> <./Imagenes/plandisyuntive.pdf>]
-<Imagenes/solspace.pdf, id=395, 427.19098pt x 284.92749pt>
+<Imagenes/solspace.pdf, id=405, 427.19098pt x 284.92749pt>
 File: Imagenes/solspace.pdf Graphic file (type pdf)
 <use Imagenes/solspace.pdf>
 Package pdftex.def Info: Imagenes/solspace.pdf  used on input line 61.
@@ -1062,12 +1062,12 @@ LaTeX Info: Redefining \% on input line 2.
                                                   
 l.2 \section
             {Metaheurísticas aplicadas al JSP} <./Imagenes/solspace.pdf>]
-<Imagenes/N1.pdf, id=413, 525.62675pt x 184.19414pt>
+<Imagenes/N1.pdf, id=423, 525.62675pt x 184.19414pt>
 File: Imagenes/N1.pdf Graphic file (type pdf)
 <use Imagenes/N1.pdf>
 Package pdftex.def Info: Imagenes/N1.pdf  used on input line 12.
 (pdftex.def)             Requested size: 367.93622pt x 128.93501pt.
-<Imagenes/N4.pdf, id=415, 598.28622pt x 184.19414pt>
+<Imagenes/N4.pdf, id=425, 598.28622pt x 184.19414pt>
 File: Imagenes/N4.pdf Graphic file (type pdf)
 <use Imagenes/N4.pdf>
 Package pdftex.def Info: Imagenes/N4.pdf  used on input line 19.
@@ -1083,17 +1083,17 @@ LaTeX Info: Redefining \% on input line 22.
                                                   
 l.22 
       <./Imagenes/N1.pdf>]
-<Imagenes/N5.pdf, id=426, 525.62675pt x 184.19414pt>
+<Imagenes/N5.pdf, id=436, 525.62675pt x 184.19414pt>
 File: Imagenes/N5.pdf Graphic file (type pdf)
 <use Imagenes/N5.pdf>
 Package pdftex.def Info: Imagenes/N5.pdf  used on input line 27.
 (pdftex.def)             Requested size: 367.93622pt x 128.93501pt.
-<Imagenes/N6.pdf, id=428, 533.12878pt x 184.19414pt>
+<Imagenes/N6.pdf, id=438, 533.12878pt x 184.19414pt>
 File: Imagenes/N6.pdf Graphic file (type pdf)
 <use Imagenes/N6.pdf>
 Package pdftex.def Info: Imagenes/N6.pdf  used on input line 34.
 (pdftex.def)             Requested size: 373.18759pt x 128.93501pt.
-<Imagenes/N7.pdf, id=430, 540.63081pt x 184.19414pt>
+<Imagenes/N7.pdf, id=440, 540.63081pt x 184.19414pt>
 File: Imagenes/N7.pdf Graphic file (type pdf)
 <use Imagenes/N7.pdf>
 Package pdftex.def Info: Imagenes/N7.pdf  used on input line 42.
@@ -1179,12 +1179,12 @@ ALEATORIAS \OT1/cmr/m/n/12 25
  []
 
 [25]
-<Imagenes/ganttnonactivepr.png, id=497, 462.528pt x 346.896pt>
+<Imagenes/ganttnonactivepr.png, id=507, 462.528pt x 346.896pt>
 File: Imagenes/ganttnonactivepr.png Graphic file (type png)
 <use Imagenes/ganttnonactivepr.png>
 Package pdftex.def Info: Imagenes/ganttnonactivepr.png  used on input line 90.
 (pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-<Imagenes/ganttactivepr.png, id=499, 462.528pt x 346.896pt>
+<Imagenes/ganttactivepr.png, id=509, 462.528pt x 346.896pt>
 File: Imagenes/ganttactivepr.png Graphic file (type png)
 <use Imagenes/ganttactivepr.png>
 Package pdftex.def Info: Imagenes/ganttactivepr.png  used on input line 97.
@@ -1205,7 +1205,7 @@ l.101
                                                   
 l.101 
        <./Imagenes/ganttnonactivepr.png>]) (./propuestas/vecindades.tex
-<Imagenes/vec2.pdf, id=509, 150.44707pt x 134.9863pt>
+<Imagenes/vec2.pdf, id=519, 150.44707pt x 134.9863pt>
 File: Imagenes/vec2.pdf Graphic file (type pdf)
 <use Imagenes/vec2.pdf>
 Package pdftex.def Info: Imagenes/vec2.pdf  used on input line 7.
@@ -1229,7 +1229,7 @@ LaTeX Info: Redefining \% on input line 25.
                                                   
 l.25 
       <./Imagenes/vec2.pdf>]
-<Imagenes/N8.pdf, id=548, 532.22134pt x 186.11934pt>
+<Imagenes/N8.pdf, id=558, 532.22134pt x 186.11934pt>
 File: Imagenes/N8.pdf Graphic file (type pdf)
 <use Imagenes/N8.pdf>
 Package pdftex.def Info: Imagenes/N8.pdf  used on input line 28.
@@ -1244,16 +1244,34 @@ LaTeX Info: Redefining \% on input line 79.
 l.79 \chapter
              {Validación experimental} <./Imagenes/N8.pdf>]
 Cap\'{\i }tulo 4.
-(./validacion/resultados.tex) [30
+(./validacion/intro.tex) (./validacion/instancias.tex) (./validacion/ILS.tex
+Underfull \vbox (badness 7326) has occurred while \output is active []
 
-]
+ [30
+
+])
+(./validacion/resultados.tex (./validacion/resn7ils.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
+ [31]))
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+ [32]
+LaTeX Info: Redefining \. on input line 89.
+LaTeX Info: Redefining \% on input line 89.
+
+[33]
 Cap\'{\i }tulo 5.
 Package minitoc Info: I0006
-(minitoc)             Tesis.mtc5 is empty on input line 88.
-(./Conclusiones/Conclusiones.tex) (./Otros/Apendice.tex) [31
+(minitoc)             Tesis.mtc5 is empty on input line 91.
+(./Conclusiones/Conclusiones.tex) (./Otros/Apendice.tex) [34
 
 ] (./Tesis.bbl
-[32
+[35
 
 ])
 Package minitoc Info: I0009
@@ -1275,24 +1293,24 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the Tesis.log file.
 
-LaTeX Info: Redefining \. on input line 96.
-LaTeX Info: Redefining \% on input line 96.
-[33] (./Tesis.aux (./Portada.aux)
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
+[36] (./Tesis.aux (./Portada.aux)
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./Otros/Resumen.aux) (./Otros/Abstract.aux))
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
-(rerunfilecheck)             Checksum: 231EED34D1297E36C42B208D7AEA720C;1964.
+(rerunfilecheck)             Checksum: B396357E99BF21D1BE6D54878D64352C;2109.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 44 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14673 strings out of 479383
- 212542 string characters out of 5875830
- 586238 words of memory out of 5000000
- 31078 multiletter control sequences out of 15000+600000
+ 14698 strings out of 479383
+ 212965 string characters out of 5875830
+ 606289 words of memory out of 5000000
+ 31085 multiletter control sequences out of 15000+600000
  418058 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,16n,72p,988b,649s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1317,10 +1335,10 @@ s/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/las
 y10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><
 /usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb>
-Output written on Tesis.pdf (38 pages, 1275071 bytes).
+Output written on Tesis.pdf (41 pages, 1283814 bytes).
 PDF statistics:
- 669 PDF objects out of 1000 (max. 8388607)
- 565 compressed objects within 6 object streams
- 134 named destinations out of 1000 (max. 500000)
- 327 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 696 PDF objects out of 1000 (max. 8388607)
+ 589 compressed objects within 6 object streams
+ 141 named destinations out of 1000 (max. 500000)
+ 343 words of extra memory for PDF output out of 10000 (max. 10000000)
 

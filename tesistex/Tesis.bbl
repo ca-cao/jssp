@@ -49,6 +49,12 @@
 \newblock Applying tabu search to the job-shop scheduling problem.
 \newblock {\em Annals of Operations research 41}, 3 (1993), 231--252.
 
+\bibitem{demirkol1997computational}
+{\sc Demirkol, E., Mehta, S., and Uzsoy, R.}
+\newblock A computational study of shifting bottleneck procedures for shop
+  scheduling problems.
+\newblock {\em Journal of Heuristics 3}, 2 (1997), 111--137.
+
 \bibitem{EugeniuszNowicki2003}
 {\sc {Eugeniusz Nowicki}, C.~S., and To}.
 \newblock {A Fast Taboo Search Algorithm for the Job Shop Problem}.

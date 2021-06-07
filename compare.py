@@ -11,6 +11,8 @@ names = []
 cl = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
 np.random.shuffle(cl)
 for l,i in enumerate(sys.argv[1:]):
+    if i[-1]!="/":
+        i=i+"/"
     names.append(i[:-1])
     for k,j in enumerate(sorted(os.listdir(i))):
         #print(i+j)
@@ -39,7 +41,10 @@ for k in range(80):
     for i in range(len(names)-1):
         for j in range(i+1,len(names)):
             #s,p = kruskal(res[i,k],res[j,k])
-            s,p = wilcoxon(res[i,k],res[j,k])
+            if all(res[i,k]==res[j,k]):
+                p=1
+            else:
+                s,p = wilcoxon(res[i,k],res[j,k])
             # si son diferentes asignar los puntos
             if p < .05:
                 win = 1*(med[i,k] < med[j,k])-1*(med[i,k] > med[j,k])
@@ -80,24 +85,23 @@ for i in range(len(names)):
 ax.set_title("Comparaciones ganadas o perdidas")
 fig.tight_layout()
 plt.show()
-
+xx = np.arange(80)+1
+best = np.loadtxt("/home/cacao/cimat/proyectotec/bestres/dmu_best.txt")
 for i in range(len(names)):
     #plt.plot(res[i].min(1),"o",label = names[i],markersize=3,color=cl[i],alpha=.7)
-    plt.plot(np.median(res[i],axis=1),"o",markersize=4,color=cl[i],alpha =.7,label=names[i])
+    #plt.plot(np.median(res[i],axis=1),"o",markersize=4,color=cl[i],alpha =.7,label=names[i])
+    plt.plot(xx,best/np.median(res[i],axis=1),"o",markersize=4,color=cl[i],alpha =.7,label=names[i])
 plt.title("Medianas")
-
 plt.grid(True)
-plt.plot(np.loadtxt("/home/cacao/cimat/proyectotec/bestres/dmu_best.txt"),"k*",label="Estado del arte")
 plt.legend()
 plt.show()
 
 for i in range(len(names)):
-    plt.plot(res[i].min(1),"o",label = names[i],markersize=3,color=cl[i],alpha=.7)
+    plt.plot(xx,best/res[i].min(1),"o",label = names[i],markersize=3,color=cl[i],alpha=.7)
 plt.title("Minimos")
 
 plt.grid(True)
-best = np.loadtxt("/home/cacao/cimat/proyectotec/bestres/dmu_best.txt")
-plt.plot(best,"k*",label="Estado del arte")
+#plt.plot(best,"k*",label="Estado del arte")
 plt.legend()
 plt.show()
 plt.plot(res[i].min(1) - best)

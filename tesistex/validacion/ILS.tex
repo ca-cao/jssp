@@ -1,0 +1,6 @@
+\subsection*{Búsqueda local iterada}
+Como se muestra en el algoritmo \ref{alg:ILS} la búsqueda local iterada requiere que definamas una manera de perturbar una solución dada así como definir un criterio de paro. La perturbación debe ser suficientemente grande como para permitirnos salir de un óptimo local pero no tan grande como para eliminar toda la estructura que se tiene hasta el momento.
+
+Por estas razones y para evitar complicar más el algoritmo con la definición de operadores completamente nuevos que realicen cambios arbitrarios, la perturbación implementada consiste simplemente en reemplazar a la solución actual por un vecino suyo (de acuerdo con la definición de vecindad que se esté usando). Esta definicion es conveniente porque presenta una manera de aceptar cambios que no mejoran la solución pero que a su vez están conectados a soluciones de mejor calidad que la mejor actual.
+
+ El criterio de paro en este caso fue el tiempo, se tomaron 5 minutos para todos los experimentos lo cual representa una cantidad de tiempo muy pequeña comparada con la requerida por los métodos del estado del arte.

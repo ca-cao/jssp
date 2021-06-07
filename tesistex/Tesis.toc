@@ -25,4 +25,6 @@
 \contentsline {section}{\numberline {3.3}Extensión a vecindad N7}{28}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Función de fitness}{29}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Validación experimental}{30}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{31}{chapter.5}%
+\contentsline {section}{\numberline {4.1}Conjunto de instancias de prueba}{30}{section.4.1}%
+\contentsline {section}{\numberline {4.2}ILS con vecindad N7}{31}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{34}{chapter.5}%
