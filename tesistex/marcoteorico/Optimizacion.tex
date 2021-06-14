@@ -87,13 +87,22 @@ Una vez que tenemos el espacio de búsqueda y operadores de cambio para generar 
 
 Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que mide la calidad de dicha solución. La adición de esta función de aptitud al espacio de búsqueda genera al paisaje de búsqueda. Formalmente el paisaje de búsqueda $\mathcal{L}$ es entonces una tupla conformada por el espacio de búsqueda junto con una función objetivo que guía la búsqueda $\mathcal{L}=(G,f)$
 
-A continuación se muestra una representación pictórica de cómo se crea el paisaje de búsqueda para un problema de optimización.
+A continuación se muestra una representación pictórica de la definición del paisaje de búsqueda para un problema de optimización.
 \begin{figure}[H]
-\centering
-\subfigure[Soluciones representables]{\includegraphics[scale=.4]{Imagenes/search1.png}}
-\subfigure[Relaciones inducidas por los operadores de cambio]{\includegraphics[scale=.4]{Imagenes/search2.png}}
-\subfigure[Adición de la función de fitness]{\includegraphics[scale=.4]{Imagenes/search3.png}}
-    \label{fig:landscape}
+\begin{subfigure}{.4\textwidth}
+    \includegraphics[scale=.5]{Imagenes/search1.png}
+    \caption{Soluciones representables}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+    \includegraphics[scale=.5]{Imagenes/search2.png}
+    \caption{Relaciones inducidas por los operadores de cambio}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[scale=.5]{Imagenes/search3.png}
+    \caption{Adición de la función de fitness}    
+\end{subfigure}
+\label{fig:landscape}
 \caption{Creación del paisaje de búsqueda}
 \end{figure}
 
@@ -103,11 +112,20 @@ La estructura del paisaje de búsqueda influye de manera determinante en el éxi
 
 % imagen
 \begin{figure}[H]
+\begin{subfigure}{.45\textwidth}
+    \includegraphics[scale=.4]{Imagenes/rugged.png}
+    \caption{Paisaje rugoso con muchos óptimos locales}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+    \includegraphics[scale=.4]{Imagenes/ruggedvalley.png}
+    \caption{Paisaje rugoso con con un gran valle}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
     \centering
-    \subfigure[Paisaje rugoso con muchos óptimos locales]{\includegraphics[scale=.3]{Imagenes/rugged.png}}
-    \subfigure[Paisaje rugoso con con un gran valle]{\includegraphics[scale=.3]{Imagenes/ruggedvalley.png}}
-    \subfigure[Paisaje suave con un gran valle]{\includegraphics[scale=.3]{Imagenes/smoothvalley.png}}
-    \caption{Diferentes tipos de paisajes de búsqueda. Se muestran paisajes continuos con fines ilustrativos}
+    \includegraphics[scale=.4]{Imagenes/smoothvalley.png}
+    \caption{Paisaje suave con un gran valle}
+\end{subfigure}
+\caption{Diferentes tipos de paisajes de búsqueda. Se muestran paisajes continuos con fines ilustrativos.}
 \end{figure}
 
 

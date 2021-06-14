@@ -12,19 +12,25 @@
 \contentsline {subsection}{\numberline {2.2.2}Vecindad}{9}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Función de aptitud o fitness}{9}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Paisaje de búsqueda}{10}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Problema de planificación de producción tipo taller (JSP)}{15}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Representación de planificaciones}{16}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Tipos de planificaciones}{18}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Metaheurísticas aplicadas al JSP}{19}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Paisaje de búsqueda del JSP}{22}{section.2.7}%
-\contentsline {chapter}{\numberline {3}Propuestas}{23}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Representación de soluciones activas basada en llaves aleatorias}{23}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Algoritmo de Giffler \& Thompson}{23}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Construcción de soluciones activas a partir de no activas}{25}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Vecindad basada en soluciones activas}{27}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Extensión a vecindad N7}{28}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Función de fitness}{29}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Validación experimental}{30}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Conjunto de instancias de prueba}{30}{section.4.1}%
-\contentsline {section}{\numberline {4.2}ILS con vecindad N7}{31}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{34}{chapter.5}%
+\contentsline {section}{\numberline {2.3}Problema de planificación de producción tipo taller (JSP)}{16}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Representación de planificaciones}{17}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Tipos de planificaciones}{19}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Metaheurísticas aplicadas al JSP}{20}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Paisaje de búsqueda del JSP}{23}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Propuestas}{24}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Representación de soluciones activas basada en llaves aleatorias}{24}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Algoritmo de Giffler \& Thompson}{24}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Construcción de soluciones activas a partir de no activas}{26}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Vecindad basada en soluciones activas}{28}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Extensión a vecindad N7}{29}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Función de fitness}{30}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Validación experimental}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Conjunto de instancias de prueba}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}ILS con vecindad N7}{32}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Función de fitness}{34}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Extensión a vecindad N7}{35}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Cambio de representación y vecindad}{36}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{37}{chapter.5}%
+\contentsline {chapter}{\numberline {A}Apéndice}{38}{chapter.1}%
+\contentsline {section}{\numberline {A.1}Mejores resultados reportados en la literatura}{39}{section.1.1}%
+\contentsline {section}{\numberline {A.2}Resultados para ILS con vecindad N7}{40}{section.1.2}%

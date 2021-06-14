@@ -26,4 +26,10 @@
 \BOOKMARK [0][-]{chapter.4}{Validaci\363n experimental}{}% 26
 \BOOKMARK [1][-]{section.4.1}{Conjunto de instancias de prueba}{chapter.4}% 27
 \BOOKMARK [1][-]{section.4.2}{ILS con vecindad N7}{chapter.4}% 28
-\BOOKMARK [0][-]{chapter.5}{Conclusiones y Trabajos a Futuro}{}% 29
+\BOOKMARK [1][-]{section.4.3}{Funci\363n de fitness}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.4}{Extensi\363n a vecindad N7}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.5}{Cambio de representaci\363n y vecindad}{chapter.4}% 31
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y Trabajos a Futuro}{}% 32
+\BOOKMARK [0][-]{chapter.1}{Ap\351ndice}{}% 33
+\BOOKMARK [1][-]{section.1.1}{Mejores resultados reportados en la literatura}{chapter.1}% 34
+\BOOKMARK [1][-]{section.1.2}{Resultados para ILS con vecindad N7}{chapter.1}% 35

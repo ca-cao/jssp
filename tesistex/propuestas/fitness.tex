@@ -1,4 +1,4 @@
-\section{Función de fitness}
+\section{Función de fitness}\label{prop:fitness}
 La idea principal es la de tener un arreglo de características de la planificación y compararlos lexicográficamente para distinguir entre las soluciones. Para plantear qué características son las que se iban a tomar en cuenta para este arreglo se tomaron en cuenta otros criterios de optimalidad hallados en la literatura así como propuestas propias. También se planteó considerar todos los tiempos de finalización de las máquinas. Las características tomadas en cuenta fueron las siguientes:
 \begin{itemize}
 \item $C_{max}$ Makespan 
@@ -6,6 +6,8 @@ La idea principal es la de tener un arreglo de características de la planificac
 \item $\sum J_i$ Flowtime 
 \item $\sum I(C_i=C_{max})$ Número de máquinas cuyo tiempo de finalización es igual al makespan 
 \item Número de rutas críticas 
-\item $\sqrt{Var(C_i)}$ Desviación estándar de los tiempos de finalización 
+\item $Var(C_i)$ Varianza de los tiempos de finalización 
+\item $(\{C_i\})$ Tupla de tiempos de finalización ordenados.
 \end{itemize}
+
 Estas características se combinaron de varias formas como se mostrará en la validación experimental. 

@@ -38,9 +38,16 @@ Formalmente en una instancia del JSP se representa cada operación como un nodo,
 
 % poner las representaciones
 \begin{figure}
-\centering
-\subfigure[Representación de una instancia, los colores distinguen entre las tres máquinas.]{\includegraphics[scale=.8]{Imagenes/disyuntive.pdf}}
-    \subfigure[Planificación obtenida al fijar las aristas disyuntivas como en \ref{fig:gantt}. La ruta critica se resalta en amarillo]{\includegraphics[scale=.8]{Imagenes/plandisyuntive.pdf}}
+    \begin{subfigure}{.8\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{Imagenes/disyuntive.pdf}
+        \caption{Representación de una instancia, los colores distinguen entre las tres máquinas.}
+    \end{subfigure}
+    \begin{subfigure}{.8\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{Imagenes/plandisyuntive.pdf}
+        \caption{Planificación obtenida al fijar las aristas disyuntivas como en \ref{fig:gantt}. La ruta critica se resalta en amarillo}
+    \end{subfigure}
 \caption{Modelo de grafo disyuntivo para la instancia de ejemplo \ref{tab:inst}}
 \end{figure}
 

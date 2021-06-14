@@ -1,5 +1,72 @@
 \section{ILS con vecindad N7}
 A continuación se muestran los resultados de únicamente cambiar la metaheurística. Estos resultados sirven como una base para determinar si las modificaciones posteriores resultan en mejoras apreciables.
 
-\input{validacion/resn7ils}
+A continuación se muestran los resultados de manera gráfica para facilitar su visualización. Los resultados detallados se encuentran en el apéndice \ref{app:resn7ils}. Para cada instancia se muestra la mediana del error relativo de los resultados con respecto a los mejores resultados reportados en la literatura mostrados en el ápendice \ref{tab:sota}. 
+
+\begin{figure}[H]
+    \begin{subfigure}{\textwidth}
+        \centering
+        %\includegraphics[height=.78\textwidth,width=.95\textheight,angle=270]{Imagenes/resn7ils1.png}
+        \includegraphics[scale=.65]{Imagenes/resn7ils1.png}
+        \caption{Resultados para las instancias \textbf{DMU01-40}}
+    \end{subfigure}
+\end{figure}
+\begin{figure}[H]\ContinuedFloat
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[scale=.65]{Imagenes/resn7ils2.png}
+        \caption{Resultados para las instancias \textbf{DMU41-80}}
+    \end{subfigure}
+    \caption{Resultados para la propuesta más simple. Se marcan los casos en los que se llegó a la mejor solución conocida.}
+\end{figure}
 % grafica normalizando
+
+\section{Función de fitness}
+
+Para comparar los resultados obtenidos de las características propuestas para agregar al makespan en la función objetivo, se comparan por pares los conjuntos de resultados obtenidos para cada instancia. Para determinar si los conjuntos de resultados muestran diferencias estadísticamente significativas se utiliza la prueba de Wilcoxon con un nivel de significancia de $0.01$. 
+
+Para determinar cuál es la función de fitness que obtiene mejores resultados las modificaciones a la función de fitness se comparan a pares. Si se encuentra que la diferencia entre dos modificaciones es estadísticamente significativa, se le suma un punto a la ganadora y se le resta uno a la perdedora. La función de fitness se obtiene al construir la dupla formada por el makespan y la característica en ese orden.
+
+Los resultados para las propuestas mostradas en \ref{prop:fitness} pueden verse de manera condensada en la siguiente figura. El cuadro $(i,j)$ muestra el número de veces que $i$ fue mejor que $j$.\\
+Todas las pruebas se realizaron con la vencindad N7. Se muestra también una tupla construida con las características que obtuvieron mejores resultados. Estas características se ordenan de acuerdo a su número de comparaciones ganadas totales .
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.8]{Imagenes/fitnesscomp.png}
+    \caption{Condensado de los resultados para las modificaciones a la función de fitness. }
+\end{figure}
+
+Los mejores resultados se obtienen al construir la tupla mencionada previamente por lo que de ahora en adelante la función de fitness queda fija de esta manera y en los resultados subsecuentes solo se considera este caso.
+
+\section{Extensión a vecindad N7}
+Los resultados para la extensió que considera movimientos con espacios de inactividad de las máquinas se comparan con los mostrados en la sescción pasada. A continuación se muestra una figura en donde se comparan estos métodos de la forma que se planteó en la sección pasada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.7]{Imagenes/n8vsn7.png}
+    \caption{Resultados de la comparación}
+\end{figure}
+
+También se muestra de manera gráfica los resultados para todas las intancias. En la siguiente figura se muestra se muestra la mediana del error relativo para cada método e instancia. 
+
+\begin{figure}[H]
+    \begin{subfigure}{\textwidth}
+        \centering
+        %\includegraphics[height=.78\textwidth,width=.95\textheight,angle=270]{Imagenes/n8vsn7err1.png}
+        \includegraphics[scale=.6]{Imagenes/n8vsn7err1.png}
+        \caption{Resultados para las instancias \textbf{DMU01-40}}
+    \end{subfigure}
+\end{figure}
+\begin{figure}[H]\ContinuedFloat
+    \begin{subfigure}{\textwidth}
+        \centering
+        %\includegraphics[height=.78\textwidth,width=.95\textheight,angle=270]{Imagenes/n8vsn7err2.png}
+        \includegraphics[scale=.6]{Imagenes/n8vsn7err2.png}
+        \caption{Resultados para las instancias \textbf{DMU41-80}}
+    \end{subfigure}
+    \caption{Resultados para ambos métodos. Se marcan los casos en los que se llegó a la mejor solución conocida.}
+\end{figure}
+
+\section{Cambio de representación y vecindad}
+
+
+

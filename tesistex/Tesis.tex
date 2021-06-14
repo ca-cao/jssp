@@ -25,7 +25,7 @@
 \usepackage[ruled,vlined]{algorithm2e}
 %\usepackage{algorithmicx}
 \usepackage[Lenny]{fncychap}
-\usepackage{subfigure}
+\usepackage{subcaption}
 \input{Otros/Comandos}
 
 
@@ -89,9 +89,10 @@
 \newpage
 \chapter{Conclusiones y Trabajos a Futuro}\label{cap:ct} \minitoc
 \input{Conclusiones/Conclusiones}
-
 \appendix
-\input{Otros/Apendice} \newpage
+\chapter{Apéndice}
+\input{apendice/sotares}\label{app:sotares} \newpage
+\input{apendice/resn7ils}\label{app:resn7ils} \newpage
 
 \bibliographystyle{acm}
 \bibliography{Referencias}

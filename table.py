@@ -38,26 +38,27 @@ for i in range(40):
 
 
 
-
-# construir la tabla
+# construir la tabla II
+print("")
 print("\\begin{table}[H]")    
 print("\\centering")
 print("\\begin{tabular}{@{}ccccc@{}}")
 print("\\toprule")
-print("\\multirow{2}{*}{Instancia} & \\multirow{2}{*}{Tamaño} & \\multicolumn{2}{c}{ILS con N7} & \\multirow{2}{*}{Estado del arte} \\\\ \\cmidrule(lr){3-4}")
-print("& & Mejor& Mediana & \\\\ \\midrule")
+print("\\multirow{2}{*}{Instancia} & \\multirow{2}{*}{Tamaño} & \\multicolumn{3}{c}{ILS con N7} \\\\ \\cmidrule(lr){3-5}")
+print("& & Mediana& Error relativo & Mejor  \\\\ \\midrule")
 for i in range(40):
     row = ""
     row = row+ dmu[i]
     row = row+ " & "+dmusize[i]
     for j,name in enumerate(names):
+        row = row+ " & "+ str(int(np.median(res[j,i,:])))
+        row = row+ " & {:.2f}".format(np.median(res[j,i,:])/best[i]-1)
         # si es igual al estado del arte poner en negritas
         if res[j,i,:].min() == best[i]:
             row = row+ " & \\textbf{"+ str(int(res[j,i,:].min()))+"}"
         else:
             row = row+ " & "+ str(int(res[j,i,:].min()))
-        row = row+ " & "+ str(int(np.median(res[j,i,:])))
-    row = row + " & "+str(int(best[i]))
+    #row = row + " & "+str(int(best[i]))
     if i+1<40:
         row = row + "\\\\ "
     else:
@@ -68,26 +69,28 @@ print("\\end{tabular}")
 print("\\end{table}") 
 
 
+
 # construir la tabla II
 print("")
 print("\\begin{table}[H]")    
 print("\\centering")
 print("\\begin{tabular}{@{}ccccc@{}}")
 print("\\toprule")
-print("\\multirow{2}{*}{Instancia} & \\multirow{2}{*}{Tamaño} & \\multicolumn{2}{c}{ILS con N7} & \\multirow{2}{*}{Estado del arte} \\\\ \\cmidrule(lr){3-4}")
-print("& & Mejor& Mediana & \\\\ \\midrule")
+print("\\multirow{2}{*}{Instancia} & \\multirow{2}{*}{Tamaño} & \\multicolumn{3}{c}{ILS con N7}  \\\\ \\cmidrule(lr){3-5}")
+print("& & Mediana& Error relativo & Mejor  \\\\ \\midrule")
 for i in range(40,80):
     row = ""
     row = row+ dmu[i]
     row = row+ " & "+dmusize[i-40]
     for j,name in enumerate(names):
+        row = row+ " & "+ str(int(np.median(res[j,i,:])))
+        row = row+ " & {:.2f}".format(np.median(res[j,i,:])/best[i]-1)
         # si es igual al estado del arte poner en negritas
         if res[j,i,:].min() == best[i]:
             row = row+ " & \\textbf{"+ str(int(res[j,i,:].min()))+"}"
         else:
             row = row+ " & "+ str(int(res[j,i,:].min()))
-        row = row+ " & "+ str(int(np.median(res[j,i,:])))
-    row = row + " & "+str(int(best[i]))
+    #row = row + " & "+str(int(best[i]))
     if i+1<80:
         row = row + "\\\\ "
     else:
