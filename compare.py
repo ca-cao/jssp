@@ -9,6 +9,8 @@ import re
 # construir un diccionario para nombres
 
 regexps  = [
+    # pr
+    ('.*pr.*','Representación propuesta'),
     # cmax
     ('(?i).*[^i]cmax.*', r'$C_{max}$'),
     # dist2
@@ -36,7 +38,7 @@ def lookup(s):
     for pattern, value in regexps:
         if re.search(pattern, s):
             return value
-    return "not_found"
+    return s
 
 
 res = np.zeros((len(sys.argv)-1,80,50))
@@ -44,8 +46,8 @@ names = []
 cl = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf','000000']
 np.random.shuffle(cl)
 for l,i in enumerate(sys.argv[1:]):
-    if i[-1]!="/":
-        i=i+"/"
+    #if i[-1]!="/":
+    #    i=i+"/"
     names.append(lookup(i[:-1]))
     #names.append(i[:-1])
     for k,j in enumerate(sorted(os.listdir(i))):
@@ -79,14 +81,15 @@ for k in range(80):
             else:
                 s,p = wilcoxon(res[i,k],res[j,k])
             # si son diferentes asignar los puntos
-            if p < .05:
+            if p < .01:
                 win = 1*(med[i,k] < med[j,k])-1*(med[i,k] > med[j,k])
                 wins[i]+= win 
                 wins[j]-= win
                 heat[i,j]+=win
                 heat[j,i]-=win
 
-
+# ordenarlos por comparaciones ganadas
+print( [names[i] for i in np.argsort(-1*wins)] )
 #xt=plt.plot(wins)
 #plt.xticks(np.arange(len(names)),labels=names)
 #plt.plot()
@@ -141,9 +144,3 @@ for st,end in [(0,40),(40,80)]:
     plt.legend()
     plt.show()
 
-for i in range(len(names)):
-    plt.plot(xx,best/res[i].min(1),"o",label = names[i],markersize=3,color=cl[i],alpha=.7)
-plt.title("Minimos")
-plt.grid(True)
-plt.legend()
-plt.show()

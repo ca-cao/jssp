@@ -29,8 +29,11 @@
 \contentsline {section}{\numberline {4.2}ILS con vecindad N7}{32}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Función de fitness}{34}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Extensión a vecindad N7}{35}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Cambio de representación y vecindad}{36}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{37}{chapter.5}%
-\contentsline {chapter}{\numberline {A}Apéndice}{38}{chapter.1}%
-\contentsline {section}{\numberline {A.1}Mejores resultados reportados en la literatura}{39}{section.1.1}%
-\contentsline {section}{\numberline {A.2}Resultados para ILS con vecindad N7}{40}{section.1.2}%
+\contentsline {section}{\numberline {4.5}Cambio de representación y vecindad}{37}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{39}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones}{39}{section.5.1}%
+\contentsline {chapter}{\numberline {A}Apéndice}{40}{chapter.1}%
+\contentsline {section}{\numberline {A.1}Resultados paraN7 con makespan}{42}{section.1.1}%
+\contentsline {section}{\numberline {A.2}Resultados paraN7 con tupla}{44}{section.1.2}%
+\contentsline {section}{\numberline {A.3}Resultados para Extensión de vecindad con tupla}{46}{section.1.3}%
+\contentsline {section}{\numberline {A.4}Resultados para Nueva vecindad con tupla}{48}{section.1.4}%

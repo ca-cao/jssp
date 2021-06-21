@@ -1,1 +1,9 @@
-Conclusiones
+\section{Conclusiones}
+Los resultados obtenidos muestran una clara diferencia entre las instancias \textbf{DMU01-40} y las \textbf{DMU41-80} en cuestión de dificultad. 
+
+La búsqueda local iterada con la vecindad N7 y la función de fitness propuesta muestra un desempeño muy diferente en las dos mitades. En la primera mitad se obtienen resultados con bajo error relativo e inclusive en varias ocasiones se alcanzan los resultados del estado del arte mientras que en la segunda mitad el error relativo es bastante más alto y se crece con el tamaño de la instancia considerada. 
+La extensión propuesta no mostró ventajas importantes frente a la vecindad N7 y muestra el mismo comportamiento a pesar de plantearse como una posible manera de escapar de óptimos locales. 
+
+La función de fitness planteada en general muestra que es benéfico considerar características de la planificación a demás del makespan para obtener mejores resultados. Aunque sí se tienen mejoras con la adición de estas características es posible que exista una mejor manera de construir la función de fitness para lograr una mejor exploración del pasaje de búsqueda.
+
+El cambio de representación tuvo en gran efecto en la mejora del desempeño de la búsqueda local. Este cambio logra una disminución sustancial del error relativo en la segunda mitad de las instancias. 

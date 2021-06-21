@@ -35,10 +35,10 @@ Todas las pruebas se realizaron con la vencindad N7. Se muestra también una tup
     \caption{Condensado de los resultados para las modificaciones a la función de fitness. }
 \end{figure}
 
-Los mejores resultados se obtienen al construir la tupla mencionada previamente por lo que de ahora en adelante la función de fitness queda fija de esta manera y en los resultados subsecuentes solo se considera este caso.
+Los mejores resultados se obtienen al construir la tupla mencionada previamente por lo que de ahora en adelante la función de fitness queda fija de esta manera y en los resultados subsecuentes solo se considera este caso. Los resultados detallados para este caso se muestran en el ápendice \ref{app:n7tuple}
 
 \section{Extensión a vecindad N7}
-Los resultados para la extensió que considera movimientos con espacios de inactividad de las máquinas se comparan con los mostrados en la sescción pasada. A continuación se muestra una figura en donde se comparan estos métodos de la forma que se planteó en la sección pasada.
+Los resultados para la extensión que considera movimientos con espacios de inactividad de las máquinas se comparan con el mejor mostrado en la sección pasada. A continuación se muestra una figura en donde se comparan estos métodos de la forma que se planteó en la sección pasada.
 
 \begin{figure}[H]
     \centering
@@ -46,7 +46,7 @@ Los resultados para la extensió que considera movimientos con espacios de inact
     \caption{Resultados de la comparación}
 \end{figure}
 
-También se muestra de manera gráfica los resultados para todas las intancias. En la siguiente figura se muestra se muestra la mediana del error relativo para cada método e instancia. 
+También se muestra de manera gráfica los resultados para todas las instancias. En la siguiente figura se muestra se muestra la mediana del error relativo para cada método e instancia.  Los resultados detallados para la extensión propuesta se encuentran en el ápendice \ref{app:resn8tuple}.
 
 \begin{figure}[H]
     \begin{subfigure}{\textwidth}
@@ -67,6 +67,31 @@ También se muestra de manera gráfica los resultados para todas las intancias. 
 \end{figure}
 
 \section{Cambio de representación y vecindad}
+El cambio de representación y vecindad se compara con las dos propuestas previas. Se sigue el mismo procedimiento mencionado para determinar si hay una diferencia significativa entre los resultados obtenidos.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=.7]{Imagenes/prn7n8comp.png}
+    \caption{Resultados de la comparación entre los tres métodos.}
+\end{figure}
+También se muestra la mediana del error relativo alcanzado por los distintos métodos. Los resultados detallados para la extensión de vecindad se encuentran en el apéndice \ref{app:resprtuple}.
+
+\begin{figure}[H]
+    \begin{subfigure}{\textwidth}
+        \centering
+        %\includegraphics[height=.78\textwidth,width=.95\textheight,angle=270]{Imagenes/n8vsn7err1.png}
+        \includegraphics[scale=.6]{Imagenes/prvsn7vsn8err1.png}
+        \caption{Resultados para las instancias \textbf{DMU01-40}}
+    \end{subfigure}
+\end{figure}
+\begin{figure}[H]\ContinuedFloat
+    \begin{subfigure}{\textwidth}
+        \centering
+        %\includegraphics[height=.78\textwidth,width=.95\textheight,angle=270]{Imagenes/n8vsn7err2.png}
+        \includegraphics[scale=.6]{Imagenes/prvsn7vsn8err2.png}
+        \caption{Resultados para las instancias \textbf{DMU41-80}}
+    \end{subfigure}
+    \caption{Resultados para ambos métodos. Se marcan los casos en los que se llegó a la mejor solución conocida.}
+\end{figure}
 
 
 
