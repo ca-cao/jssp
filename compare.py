@@ -46,8 +46,8 @@ names = []
 cl = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf','000000']
 np.random.shuffle(cl)
 for l,i in enumerate(sys.argv[1:]):
-    #if i[-1]!="/":
-    #    i=i+"/"
+    if i[-1]!="/":
+        i=i+"/"
     names.append(lookup(i[:-1]))
     #names.append(i[:-1])
     for k,j in enumerate(sorted(os.listdir(i))):

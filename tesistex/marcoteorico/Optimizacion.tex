@@ -11,16 +11,24 @@ El problema consiste en hallar:
 \begin{gather}
 \min_{x\in X} f(x)
 \end{gather}
-Es importante mencionar que cualquier problema en el que se requiera encontrar el argumento que hace tomar el valor máximo a $f$ puede transformarse en un problema equivalente de minimización con el reemplazo $f(x) \leftarrow -f(x)$, por lo que se considera solo el caso de minimización sin pérdida de generalidad.\\
+Es importante mencionar que cualquier problema en el que se requiera encontrar el argumento que hace tomar el valor máximo a $f$ puede transformarse en un problema equivalente de minimización con el reemplazo $f(x) \leftarrow -f(x)$, por lo que puede considerarse solo el caso de minimización sin pérdida de generalidad.\\
 
-A la definición también pueden agregarse un conjunto de restricciones que toman una solución e indican si esta cumple o no con ellas, se dice que una solución es factible si cumple con las restricciones. Estas restricciones se agregan para asegurarse que la solución tenga sentido, por ejemplo si $f$ tiene como argumento un número real que representa una longitud debe requerirse que esta longitud sea un número positivo.\\
+De acuerdo con la definición del problema como tal o con los métodos de solución se distinguen distintas ramas de la optimización. A continuación se presentan algunas de ellas de especial importancia para el presente trabajo.
 
-Hallar el mínimo de la función sobre todo el conjunto $X$ recibe el nombre de optimización global, esto puede llegar a ser muy costoso o incluso imposible de obtener por lo que es común optar por obtener un mínimo local, es decir una solución que sea la mejor de un subconjunto de $X$. A menudo este subconjunto se define utilizando alguna medida de distancia entre soluciones y considerando a todas las soluciones que estén en algún rango de distancia a otra de referencia. \\
+\subsection*{Optimización con restricciones}
+A la definición de un problema de optimización también pueden agregarse un conjunto de restricciones las cuales son en la práctica un conjunto de funciones que toman una solución e indican si esta cumple o no con ellas, se dice que una solución es factible si cumple con las restricciones e infactible en caso contrario. Estas restricciones se agregan ya sea porque el problema así lo requiere o bien para asegurarse que la solución tenga sentido, por ejemplo si $f$ tiene como argumento un número real que representa una longitud debe requerirse que esta longitud sea un número positivo.\\
 
-También puede ser que el algoritmo planteado para resolver el problema de optimización sea no determinista i.e. puede obtener soluciones diferentes aunque tenga las mismas condiciones iniciales. En muchas ocasiones es ventajoso tener algo de aleatoriedad porque nos permite explorar más el espacio de búsqueda, es decir que puede eliminar sesgos. Esta rama de la optimización se conoce como optimización estocástica.\\
+\subsection*{Optimización global y local}
 
+Hallar el mínimo de la función sobre todo el conjunto $X$ recibe el nombre de optimización global, esto puede llegar a ser muy costoso o incluso imposible de obtener por lo que es común optar por obtener un mínimo local, es decir, una solución que sea la mejor de un subconjunto de $X$. A menudo este subconjunto se define utilizando alguna medida de distancia entre soluciones y considerando a todas las soluciones que estén en algún rango de distancia a otra de referencia o bien añadiendo un operador que permita crear soluciones nuevas a partir de una solución ya conocida. \\
+
+\subsection*{Optimización estocástica}
+También puede ser que el algoritmo planteado para resolver el problema de optimización sea no determinista i.e. puede obtener soluciones diferentes aunque tenga las mismas condiciones iniciales. En muchas ocasiones es ventajoso tener algo de aleatoriedad porque nos permite explorar el espacio de búsqueda con pocos sesgos. Estos métodos son especialmente útiles cuando el espacio de búsqueda es poco <<predecible>> en el sentido en que no podemos a priori distinguir regiones de buena o mala calidad. Tal vez el método más famoso de este tipo es el llamado recocido simulado, el cual se inspira en un fenómeno metalúrgico y que encuentra soluciones muy buenas a una gran variedad de problemas de optimización.
+
+\subsection*{Optimización continua y discreta}
  En la definición anterior no se requiere que el conjunto de soluciones tenga alguna propiedad o alguna estructura adicional. Por ejemplo el conjunto de soluciones puede ser un conjunto numerable ( e.g. los enteros ) o no numerable ( e.g. los números reales ). Estos dos casos dividen a la optimización en dos ramas: optimización continua y optimización discreta. En general los problemas de optimización continua suelen ser más fáciles de abordar\cite{nocedal2006numerical} porque en muchas ocasiones es posible obtener información del valor de la función objetivo de puntos cercanos a cierto punto conocido mientras que en los problemas discretos esto rara vez puede hacerse.\\
 
+\subsection*{Optimización combinatoria}
 Dentro de los problemas de optimización discreta se distinguen los problemas de optimización combinatoria. Formalmente un problema de optimización combinatoria consta de los siguientes elementos\cite{Blum2003}:
 \begin{itemize}
     \item Un conjunto de variables $Z=\{z_1,z_2,...,z_n\}$
@@ -125,6 +133,7 @@ La estructura del paisaje de búsqueda influye de manera determinante en el éxi
     \includegraphics[scale=.4]{Imagenes/smoothvalley.png}
     \caption{Paisaje suave con un gran valle}
 \end{subfigure}
+    \label{fig:landtypes}
 \caption{Diferentes tipos de paisajes de búsqueda. Se muestran paisajes continuos con fines ilustrativos.}
 \end{figure}
 

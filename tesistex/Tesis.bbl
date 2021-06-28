@@ -70,6 +70,12 @@
   included.
 \newblock {\em Naval research logistics quarterly 1}, 1 (1954), 61--68.
 
+\bibitem{mammen1997new}
+{\sc Mammen, D.~L., and Hogg, T.}
+\newblock A new look at the easy-hard-easy pattern of combinatorial search
+  difficulty.
+\newblock {\em Journal of Artificial Intelligence Research 7\/} (1997), 47--66.
+
 \bibitem{mattfeld1999search}
 {\sc Mattfeld, D.~C., Bierwirth, C., and Kopfer, H.}
 \newblock A search space analysis of the job shop scheduling problem.
@@ -109,6 +115,11 @@
   the ratio of jobs to machines}.
 \newblock {\em Journal of Artificial Intelligence Research 26\/} (2006),
   247--287.
+
+\bibitem{watson2003problem}
+{\sc Watson, J.-P., Beck, J.~C., Howe, A.~E., and Whitley, L.~D.}
+\newblock Problem difficulty for tabu search in job-shop scheduling.
+\newblock {\em Artificial intelligence 143}, 2 (2003), 189--217.
 
 \bibitem{Zhang2007}
 {\sc Zhang, C.~Y., Li, P.~G., Guan, Z.~L., and Rao, Y.~Q.}
