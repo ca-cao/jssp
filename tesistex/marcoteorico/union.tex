@@ -1,19 +1,22 @@
 %Como se juntan las definiciones con lo demás
 \section{Metaheurísticas aplicadas al JSP}
-La complejidad del JSP hace que las metaheurísticas sean actualmente los métodos más utilizados para resolver instancias grandes. Estas han conseguido hallar buenas soluciones para los conjuntos de prueba más populares. Aunque se han propuesto muchas metaheurísticas, prácticamente todas utilizan el concepto de vecindad. Como ya se explicó, la definición de una estructura de vecindad es parte del paisaje de búsqueda y tiene un gran impacto en los resultados obtenidos. Desde que se propuso la primera vecindad en 1996, se han propuesto vecindades cada vez con mejores resultados.
+La complejidad del JSP hace que las metaheurísticas sean actualmente los métodos más utilizados para resolver instancias grandes. Estas han conseguido hallar buenas soluciones para los conjuntos de prueba más populares. Se han empleado una gran variedad de metaheurísticas como: algoritmos genéticos\cite{Cheng1999}, evolución diferencial\cite{Ponsich2013}, algoritmos de colonia de hormigas\cite{Klc2007}, algoritmos de enjambre de partículas\cite{zhang2019novel} y búsqueda tabú \cite{Zhang2007}. Aunque estos son algoritmos muy diferentes entre sí, la mayoría de ellos aplican de alguna forma el concepto de búsqueda local para mejorar su desempeño.\\
+
+Para aplicar el proceso de búsqueda local es necesario introducir una definición de vecindad, como se ha mencionado anteriormente, esta estructura es parte del paisaje de búsqueda y tiene un gran impacto en los resultados obtenidos. Desde que se propuso la primera vecindad en 1996, se han propuesto vecindades cada vez con mejores resultados. A continuación se presentan las vecindades más importantes hasta la fecha. 
+
 
 \subsection*{Vecindades previamente propuestas}
-Se han propuesto varias estructuras de vecindad al JSP, a continuación se describen las más importantes a la fecha:
+Todas las vecindades presentadas aquí se basan en el concepto de ruta crítica y solo consideran cambios dentro de los bloques críticos. En las figuras siguientes se presentan figuras ilustrativas para cada una de estas definiciones.
 
 \begin{itemize}
-\item N1 \cite{blazewicz1996job} Consiste en considerar todas las soluciones que se crean al intercambiar cualquier par de operaciones adyacentes que pertenecen a un bloque crítico. Esta vecindad es muy grande y considera muchos cambios que no mejoran el makespan.
+\item N1 \cite{blazewicz1996job} Consiste en considerar todas las soluciones que se crean al intercambiar cualquier par de operaciones adyacentes que pertenecen a un bloque crítico. Aunque esta vecindad no es particularmente grande ya que es aproximadamente del tamaño de la ruta crítca, considera muchos cambios que no mejoran el makespan.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.7]{Imagenes/N1.pdf}
 \caption{Movimientos de la vecindad N1}
 \end{figure}
 
-\item N4 \cite{dell1993applying} Esta vecindad se propuso como un refinamiento y extensión de la vecindad N1 y toma como base el concepto de bloque crítico. Consiste en llevar operaciones internas del bloque crítico al inicio o final. 
+\item N4 \cite{dell1993applying} Esta vecindad se propuso como un refinamiento y extensión de la vecindad N1 y toma como base el concepto de bloque crítico. Consiste en llevar operaciones internas del bloque crítico al inicio o final. Esta vecindad es de tamaño comparable a la anterior pero presenta movimientos más perturbativos.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.7]{Imagenes/N4.pdf}
@@ -21,14 +24,14 @@ Se han propuesto varias estructuras de vecindad al JSP, a continuación se descr
 \end{figure}
 
 
-\item N5 \cite{EugeniuszNowicki2003} Consiste en intercambiar solo las operaciones adyacentes a la final o inicial de un bloque crítico.  
+\item N5 \cite{EugeniuszNowicki2003} Consiste en intercambiar solo las operaciones adyacentes a la final o inicial de un bloque crítico.  Es aun más pequeña que la anterior ya que es aproximadamente del tamaño del número de bloques críticos.  
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.7]{Imagenes/N5.pdf}
 \caption{Movimientos de la vecindad N5}
 \end{figure}
 
-\item N6 \cite{Balas1998} Los autores utilizan varios teoremas para identificar pares $(u,v)$ de operaciones dentro de un bloque crítico que puedan llevar a mejorar la solución y a su vez identificar si se tiene que mover a $u$ justo después de $v$(forward) o bien a $v$ justo antes de $u$ (backward).
+\item N6 \cite{Balas1998} Los autores utilizan varios teoremas para identificar pares $(u,v)$ de operaciones dentro de un bloque crítico que puedan llevar a mejorar la solución y a su vez identificar si se tiene que mover a $u$ justo después de $v$(forward) o bien a $v$ justo antes de $u$ (backward). Esta vecindad puede verse com un refinamiento y extensión de la N4 por lo que tiene un tamaño similar.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.7]{Imagenes/N6.pdf}
@@ -44,14 +47,14 @@ Se han propuesto varias estructuras de vecindad al JSP, a continuación se descr
 \end{figure}
 \end{itemize}
 
-Las vecindades antes presentadas se han centrado en operaciones que pertenecen a la ruta crítica por varias razones, la vecindad resultante es suficientemente pequeña como para ser explorada en su totalidad, el makespan de una planificación solo puede reducirse haciendo cambios en la ruta crítica y pueden garantizarse que cualquier vecino representa una solución factible.\\
+Las vecindades antes presentadas se han centrado en operaciones que pertenecen a la ruta crítica, esto les confiere las siguientes ventajas: la vecindad resultante es suficientemente pequeña como para ser explorada en su totalidad, para deducir el makespan de una planificación necesariamente deben hacerse cambios en la ruta crítica y puede garantizarse que cualquier vecino representa una solución factible\cite{balas1969machine}.\\
 
 La literatura reciente se ha centrado en hacer los algoritmos existentes más eficientes dejando de lado la parte de la representación o de la función de fitness. Existen otras ideas que no se han explorado a fondo pero parecen prometedoras como proponer extensiones a alguna de las vecindades, cambiar la representación y proponer una función de fitness que no solo tome en cuenta el makespan de modo que tengamos más formas de diferenciar entre soluciones. En la siguiente sección se presentan algunas otras medidas de calidad para planificaciones del JSP.
 % ve como se pueden mejorar 
 \subsection*{Criterios de optimalidad}
 Como ya se ha mencionado el criterio de optimalidad más usado es el makespan, no obstante existen muchos otros criterios de optimalidad que pueden usarse para asignar un valor de fitness a una planificación. 
 
-Si denotamos por $C_i$ al tiempo de finalización del trabajo $J_i$ y $f_i(C_i)$ a su costo asociado, podemos distinguir dos tipos de funciones de costo en la literatura\cite{Brucker2001}:
+Si denotamos por $C_i$ al tiempo de finalización de la máquina $i$ y por $f_i(C_i)$ a su costo asociado, podemos distinguir dos tipos de funciones de costo en la literatura\cite{Brucker2001}:
 \[f_{\max}:=\max\{f_i(C_i)\}\]
 y 
 \[\sum f_i(C):=\sum_{1\leq i\leq n}f_i(C_i)\]
@@ -70,7 +73,9 @@ Analizar el paisaje de búsqueda de un problema de optimización combinatoria pu
 
 Para el JSP se han realizado estudios con instancias pequeñas en los que se puede construir explícitamente todo el paisaje, i. e. se puede evaluar y construir la vecindad correspondiente a todas las soluciones. Con este paisaje construido pueden medirse cantidades de interés como la similitud entre óptimos locales o globales, el número de vecinos entre otros que dan pistas de la forma (como las mostradas en la figura \ref{fig:landtypes}) que tiene el paisaje de búsqueda.\\
 
-Se ha encontrado que el paisaje de búsqueda para una instancia al azar sigue el patrón \textit{fácil-difícil-fácil} dependiendo de la razón entre el número de máquinas y número de trabajos de la misma\cite{Streeter2006}  ($\frac{N}{M}$) conforme esta cantidad  varía de 0 a infinito, siendo el caso más \textit{difícil} cuando $\frac{N}{M}\simeq 1$. Los experimentos computacionales sugieren que este patrón se da por cambios en la rugosidad del paisaje de búsqueda que se vuelve más y más pronunciada conforme $\frac{N}{M}$ crece, para valores pequeños se tiene un paisaje semejante a un gran valle suave, para valores grandes se tiene un pasaje con muchos óptimos locales de buena calidad y para valores cercanos a 1 se tienen muchos óptimos locales de baja calidad.\\
+Se ha encontrado que el paisaje de búsqueda para una instancia al azar sigue el patrón \textit{fácil-difícil-fácil} dependiendo de la razón entre el número de máquinas y número de trabajos de la misma\cite{Streeter2006}  ($\frac{N}{M}$) conforme esta cantidad  varía de 0 a infinito, siendo el caso más \textit{difícil} cuando $\frac{N}{M}\simeq 1$. También se ha encontrado este patrón al medir la fuerza de las constricciones la fuerza de las constricciones se mide al comparar el número de soluciones factibles contra el número de bits necesarios para representar una solución\cite{beck1997constrainedness}.\\
+
+Los experimentos computacionales sugieren que este patrón se da por cambios en la rugosidad del paisaje de búsqueda que se vuelve más y más pronunciada conforme $\frac{N}{M}$ o la fuerza de las constricciones crecen, para valores pequeños se tiene un paisaje semejante a un gran valle suave, para valores grandes se tiene un pasaje con muchos óptimos locales de buena calidad y para valores cercanos a 1 se tienen muchos óptimos locales de baja calidad.\\
 
 
 También se ha encontrado que una de las características que hacen difícil a una instancia del JSP es la existencia de muchos óptimos locales de baja calidad que no son parecidos entre sí \cite{mattfeld1999search}. Esto implica que sin importar el punto inicial de la metaheurística elegida rara vez estaremos muy lejos de uno de estos puntos. Otro factor que afecta el proceso de búsqueda local es que en general se ha encontrado que algunas soluciones están mucho mas conectadas que otras \cite{bierwirth2004landscape}. Este último hecho puede ser tanto benéfico como perjudicial dependiendo si las soluciones altamente conectadas son de buena o mala calidad. \\

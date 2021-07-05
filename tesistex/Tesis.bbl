@@ -3,11 +3,27 @@
 \bibitem{skauffman}
 {The origins of order: self-organization and selection in evolution}, 1993.
 
+\bibitem{balas1969machine}
+{\sc Balas, E.}
+\newblock Machine sequencing via disjunctive graphs: an implicit enumeration
+  algorithm.
+\newblock {\em Operations research 17}, 6 (1969), 941--957.
+
 \bibitem{Balas1998}
 {\sc Balas, E., and Vazacopoulos, A.}
 \newblock {Guided local search with shifting bottleneck for job shop
   scheduling}.
 \newblock {\em Management Science 44}, 2 (1998), 262--275.
+
+\bibitem{bean1994genetic}
+{\sc Bean, J.~C.}
+\newblock Genetic algorithms and random keys for sequencing and optimization.
+\newblock {\em ORSA journal on computing 6}, 2 (1994), 154--160.
+
+\bibitem{beck1997constrainedness}
+{\sc Beck, J.~C., and Jackson, W.~K.}
+\newblock Constrainedness and the phase transition in job shop scheduling.
+\newblock {\em Technical Report, School of Computing Science\/} (1997).
 
 \bibitem{bierwirth2004landscape}
 {\sc Bierwirth, C., Mattfeld, D.~C., and Watson, J.-P.}
@@ -44,6 +60,12 @@
   algorithms - I. Representation}.
 \newblock {\em Computers and Industrial Engineering 30}, 4 (1996), 983--997.
 
+\bibitem{Cheng1999}
+{\sc Cheng, R., Gen, M., and Tsujimura, Y.}
+\newblock {Tutorial survey of job-shop scheduling problems using genetic
+  algorithms: Part II. Hybrid genetic search strategies}.
+\newblock {\em Computers and Industrial Engineering 37}, 1 (1999), 51--55.
+
 \bibitem{dell1993applying}
 {\sc Dell'Amico, M., and Trubian, M.}
 \newblock Applying tabu search to the job-shop scheduling problem.
@@ -64,11 +86,24 @@
 {\sc Giffler, B., and Thompson, G.~L.}
 \newblock {Algorithms for Solving Production-Scheduling Problems}, 1960.
 
+\bibitem{gong2019effective}
+{\sc Gong, G., Deng, Q., Chiong, R., Gong, X., and Huang, H.}
+\newblock An effective memetic algorithm for multi-objective job-shop
+  scheduling.
+\newblock {\em Knowledge-Based Systems 182\/} (2019), 104840.
+
 \bibitem{johnson1954optimal}
 {\sc Johnson, S.~M.}
 \newblock Optimal two-and three-stage production schedules with setup times
   included.
 \newblock {\em Naval research logistics quarterly 1}, 1 (1954), 61--68.
+
+\bibitem{Klc2007}
+{\sc K$\iota$l$\iota${\c{c}}, S., and Kahraman, C.}
+\newblock {Metaheuristic Techniques for Job Shop Scheduling Problem and a Fuzzy
+  Ant Colony Optimization Algorithm}.
+\newblock {\em Fuzzy Applications in Industrial Engineering 425}, 2006 (2007),
+  401--425.
 
 \bibitem{mammen1997new}
 {\sc Mammen, D.~L., and Hogg, T.}
@@ -91,6 +126,11 @@
 \newblock A random keys genetic algorithm for job shop scheduling.
 \newblock Tech. rep., 1996.
 
+\bibitem{ponnambalam2001multiobjective}
+{\sc Ponnambalam, S., Ramkumar, V., and Jawahar, N.}
+\newblock A multiobjective genetic algorithm for job shop scheduling.
+\newblock {\em Production planning \& control 12}, 8 (2001), 764--774.
+
 \bibitem{Ponsich2013}
 {\sc Ponsich, A., and {Coello Coello}, C.~A.}
 \newblock {A hybrid Differential Evolution - Tabu Search algorithm for the
@@ -102,6 +142,13 @@
 \newblock {\em {Machine scheduling problems: Classification, complexity and
   computations}}, vol.~1.
 \newblock 1977.
+
+\bibitem{sakawa2000fuzzy}
+{\sc Sakawa, M., and Kubota, R.}
+\newblock Fuzzy programming for multiobjective job shop scheduling with fuzzy
+  processing time and fuzzy duedate through genetic algorithms.
+\newblock {\em European Journal of operational research 120}, 2 (2000),
+  393--407.
 
 \bibitem{Stegherr2020}
 {\sc Stegherr, H., Heider, M., and H{\"{a}}hner, J.}
@@ -116,10 +163,20 @@
 \newblock {\em Journal of Artificial Intelligence Research 26\/} (2006),
   247--287.
 
+\bibitem{uckun1993managing}
+{\sc Uckun, S., Bagchi, S., Kawamura, K., and Miyabe, Y.}
+\newblock Managing genetic search in job shop scheduling.
+\newblock {\em IEEE expert 8}, 5 (1993), 15--24.
+
 \bibitem{watson2003problem}
 {\sc Watson, J.-P., Beck, J.~C., Howe, A.~E., and Whitley, L.~D.}
 \newblock Problem difficulty for tabu search in job-shop scheduling.
 \newblock {\em Artificial intelligence 143}, 2 (2003), 189--217.
+
+\bibitem{wright1932roles}
+{\sc Wright, S., et~al.}
+\newblock The roles of mutation, inbreeding, crossbreeding, and selection in
+  evolution.
 
 \bibitem{Zhang2007}
 {\sc Zhang, C.~Y., Li, P.~G., Guan, Z.~L., and Rao, Y.~Q.}
@@ -132,5 +189,11 @@
 \newblock {Review of job shop scheduling research and its new perspectives
   under Industry 4.0}.
 \newblock {\em Journal of Intelligent Manufacturing 30}, 4 (2019), 1809--1830.
+
+\bibitem{zhang2019novel}
+{\sc Zhang, Z., Guan, Z., Zhang, J., and Xie, X.}
+\newblock A novel job-shop scheduling strategy based on particle swarm
+  optimization and neural network.
+\newblock {\em Int. J. Simul. Model 18}, 4 (2019), 699--707.
 
 \end{thebibliography}

@@ -11,45 +11,46 @@ Warning--empty publisher in Brucker2001
 Warning--empty institution in norman1996random
 Warning--can't use both volume and number fields in Rand1977
 Warning--empty publisher in Rand1977
-You've used 24 entries,
+Warning--empty journal in wright1932roles
+You've used 35 entries,
             2253 wiz_defined-function locations,
-            698 strings with 8130 characters,
-and the built_in function-call counts, 7565 in all, are:
-= -- 745
-> -- 332
+            766 strings with 10037 characters,
+and the built_in function-call counts, 11087 in all, are:
+= -- 1096
+> -- 499
 < -- 0
-+ -- 143
-- -- 114
-* -- 629
-:= -- 1234
-add.period$ -- 69
-call.type$ -- 24
-change.case$ -- 127
++ -- 216
+- -- 172
+* -- 937
+:= -- 1820
+add.period$ -- 101
+call.type$ -- 35
+change.case$ -- 188
 chr.to.int$ -- 0
-cite$ -- 29
-duplicate$ -- 237
-empty$ -- 619
-format.name$ -- 114
-if$ -- 1537
+cite$ -- 41
+duplicate$ -- 335
+empty$ -- 889
+format.name$ -- 172
+if$ -- 2240
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 24
-newline$ -- 120
-num.names$ -- 46
-pop$ -- 122
+int.to.str$ -- 35
+missing$ -- 35
+newline$ -- 174
+num.names$ -- 68
+pop$ -- 164
 preamble$ -- 1
-purify$ -- 105
+purify$ -- 155
 quote$ -- 0
-skip$ -- 140
+skip$ -- 197
 stack$ -- 0
-substring$ -- 540
-swap$ -- 53
+substring$ -- 805
+swap$ -- 74
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 90
-warning$ -- 5
-while$ -- 81
-width$ -- 26
-write$ -- 235
-(There were 5 warnings)
+type$ -- 134
+warning$ -- 6
+while$ -- 120
+width$ -- 37
+write$ -- 341
+(There were 6 warnings)

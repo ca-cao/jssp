@@ -26,10 +26,16 @@ La siguiente es una posible planificación para la instancia de ejemplo, visuali
 \label{fig:gantt}
 \end{figure}
 
+Si bien es conveniente visualizar una planificación mediante un diagrama como el mostrado anteriormente, resulta ventajoso representar estas planifaciones de otras formas. La representación de soluciones a un problema resulta ser una elección sumamente importante al momento de desarrollar, implementar y analizar los algoritmos que se propongan para resolver el problema. En la siguiente sección se desarrollan dos formas de representación de especial importancia.
 
-\section{Representación de planificaciones}
-Existen varias formas de representar las planificaciones, en este trabajo se utilizaron dos: el grafo disyuntivo y las reglas de prioridad.
-\subsection*{Modelo de grafo disyuntivo} 
+\subsection{Representación de planificaciones}
+De manera general existen dos formas de representar las soluciones al JSP \cite{Cheng1996}:
+\begin{itemize}
+    \item \textbf{Representación directa} Se almacena el orden de los trabajos en cada máquina.
+    \item \textbf{Representación indirecta} Se almacena información con la que se puede construir una solución mediante un proceso de decodificación.
+\end{itemize}
+En este trabajo se utilizaron dos: el grafo disyuntivo (representación directa) y las reglas de prioridad (representación indirecta).
+\subsubsection*{Modelo de grafo disyuntivo} 
 En este modelo las planificaciones se representan con un grafo dirigido $G=(V,A,E)$ en el que $V$ es un conjunto de nodos que representa las operaciones, las aristas $A$ representan la secuencia que deben seguir las operaciones dentro de un mismo trabajo y $E$ es otro conjunto de aristas que indica el orden de procesamiento en cada una de las máquinas. Es importante mencionar que con este modelo podemos representar planificaciones no factibles, esto se da cuando el grafo $G$ contiene un ciclo.
 
 
@@ -52,13 +58,13 @@ Formalmente en una instancia del JSP se representa cada operación como un nodo,
 \caption{Modelo de grafo disyuntivo para la instancia de ejemplo \ref{tab:inst}}
 \end{figure}
 
-\subsection*{Reglas de prioridad}
+\subsubsection*{Reglas de prioridad}
 En esta representación una planificación se construye al aplicar un proceso de simulación en el que para cada maquina se construye una cola con las operaciones cuyas dependencias ya han sido procesadas. Inicialmente se tienen en las colas solo las operaciones iniciales de cada trabajo. Una vez que se tiene esto se utiliza una regla de prioridad para elegir qué operación debe planificarse en qué máquina. Se actualizan las colas para las máquinas que lo requieran y se continua con este proceso hasta completar la planificación (vaciar las colas).
 
 Existen muchas reglas de prioridad que toman en cuenta cosas como la duración de la operación, la cantidad de operaciones restantes, la duración del trabajo al que pertenece una operación, entre muchas otras. La calidad de la planificación construida depende de la regla de prioridad que se utilice y de la estructura de la instancia en sí.
 
 
-\section{Tipos de planificaciones}
+\subsection{Tipos de planificaciones}
 Independientemente de cómo se representen o como se construyan las planificaciones pueden clasificarse en varios conjuntos. Dentro de el conjunto de planificaciones factibles se pueden distinguir dos subconjuntos de interés para el presente trabajo: el conjunto de las planificaciones óptimas que está conformado por las planificaciones con el menor makespan posible y el conjunto de las planificaciones activas. 
 Estas últimas se definen como las planificaciones en las que no es posible disminuir el tiempo de inicio de ninguna operación sin aumentar el tiempo de inicio de otra. Es conocido que las planificaciones óptimas representan un subconjunto de las activas\cite{Ponsich2013}.
 

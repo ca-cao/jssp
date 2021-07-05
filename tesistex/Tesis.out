@@ -7,15 +7,15 @@
 \BOOKMARK [0][-]{chapter.2}{Marco te\363rico}{}% 7
 \BOOKMARK [1][-]{section.2.1}{Optimizaci\363n}{chapter.2}% 8
 \BOOKMARK [1][-]{section.2.2}{Metaheur\355sticas}{chapter.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.1}{Representaci\363n}{section.2.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.2}{Vecindad}{section.2.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.3}{Funci\363n de aptitud o fitness}{section.2.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.4}{Paisaje de b\372squeda}{section.2.2}% 13
-\BOOKMARK [1][-]{section.2.3}{Problema de planificaci\363n de producci\363n tipo taller \(JSP\)}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.4}{Representaci\363n de planificaciones}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.5}{Tipos de planificaciones}{chapter.2}% 16
-\BOOKMARK [1][-]{section.2.6}{Metaheur\355sticas aplicadas al JSP}{chapter.2}% 17
-\BOOKMARK [1][-]{section.2.7}{Paisaje de b\372squeda del JSP}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.3}{Paisaje de b\372squeda}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.3.1}{Representaci\363n}{section.2.3}% 11
+\BOOKMARK [2][-]{subsection.2.3.2}{Vecindad}{section.2.3}% 12
+\BOOKMARK [2][-]{subsection.2.3.3}{Funci\363n de aptitud o fitness}{section.2.3}% 13
+\BOOKMARK [1][-]{section.2.4}{Problema de planificaci\363n de producci\363n tipo taller \(JSP\)}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.4.1}{Representaci\363n de planificaciones}{section.2.4}% 15
+\BOOKMARK [2][-]{subsection.2.4.2}{Tipos de planificaciones}{section.2.4}% 16
+\BOOKMARK [1][-]{section.2.5}{Metaheur\355sticas aplicadas al JSP}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.6}{Paisaje de b\372squeda del JSP}{chapter.2}% 18
 \BOOKMARK [0][-]{chapter.3}{Propuestas}{}% 19
 \BOOKMARK [1][-]{section.3.1}{B\372squeda local iterada}{chapter.3}% 20
 \BOOKMARK [1][-]{section.3.2}{Representaci\363n de soluciones activas basada en llaves aleatorias}{chapter.3}% 21

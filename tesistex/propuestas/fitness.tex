@@ -1,13 +1,17 @@
 \section{Función de fitness}\label{prop:fitness}
-La idea principal es la de tener un arreglo de características de la planificación y compararlos lexicográficamente para distinguir entre las soluciones. Para plantear qué características son las que se iban a tomar en cuenta para este arreglo se tomaron en cuenta otros criterios de optimalidad hallados en la literatura así como propuestas propias. También se planteó considerar todos los tiempos de finalización de las máquinas. Las características tomadas en cuenta fueron las siguientes:
+La función de fitness es el elemento del paisaje de búsqueda al que se han reportado menos modificaciones en la literatura. En general cuando se utilizan otros criterios de optimalidad el problema se vuelve uno de optimización multiobjetivo\cite{gong2019effective,sakawa2000fuzzy,ponnambalam2001multiobjective} en lugar de construir una función objetivo nueva se ha propuesto tomar en cuenta el tiempo inactivo en la planificación\cite{uckun1993managing} aunque con resultados no muy alentadores.   
+
+La idea principal de la propuesta de este trabajo es la de tener un arreglo de características de la planificación y compararlos lexicográficamente para distinguir entre las soluciones. La idea principal es tener una forma de distinguir entre soluciones con el mismo makespan, esto nos ayuda a atravesar regiones que de otro modo serían <<planas>> que están plagadas de óptimos locales. En el mejor de los casos la adición de estas cantidades no solo nos permite atravesar planicies sino que también sirve como guía para mantener una planificación que se estanque prematuramente en óptimo local de mala calidad.\\
+
+Para plantear qué características son las que se iban a tomar en cuenta para este arreglo se tomaron en cuenta otros criterios de optimalidad hallados en la literatura así como propuestas propias. También se planteó considerar todos los tiempos de finalización de las máquinas. Las características tomadas en cuenta fueron las siguientes($J_i$ es el tiempo de finalización del trabajo $i$ y $C_i$ el tiempo de finalización de la máquina $i$):
 \begin{itemize}
-\item $C_{max}$ Makespan 
-\item $\sum C_i^2$ Tiempo al cuadrado total 
-\item $\sum J_i$ Flowtime 
-\item $\sum I(C_i=C_{max})$ Número de máquinas cuyo tiempo de finalización es igual al makespan 
-\item Número de rutas críticas 
-\item $Var(C_i)$ Varianza de los tiempos de finalización 
-\item $(\{C_i\})$ Tupla de tiempos de finalización ordenados.
+    \item $\mathbf{C_{max} = \max{C_i}}$: Este es el criterio de optimalidad más usado y el más ampliamente reportado en la literatura. 
+    \item $\mathbf{\sum C_i^2}$: La ventaja de esta medida es que toma en cuenta todos los tiempos de finalización de las máquinas y al elevar al cuadrado las que toman más tiempo en acabar contribuyen mucho más que las que toman poco tiempo. Con esta medida podemos distinguir entre dos soluciones con el mismo makespan pero en la que se ha mejorado el tiempo de alguna máquina.
+    \item $\mathbf{\sum J_i}$: También conocido como \textit{Flowtime}, como mide los tiempos de finalización de los trabajos puede llevar a encontrar mejoras en distintas máquinas a la vez.
+    \item $\mathbf{\sum I(C_i=C_{max})}$: Número de máquinas cuyo tiempo de finalización es igual al makespan. Entre más máquinas cumplan esta condición es menos probable que un solo cambio contribuya a mejorar el makespan ya que se tendría que reducir a la vez el tiempo de todas ellas. 
+    \item \textbf{Número de rutas críticas}. Esta medida está directamente relacionada con la anterior pero puede tener la ventaja de poder hacer cambios progresivos para eliminar las rutas críticas y lograr una mejora en el makespan. 
+    \item $\mathbf{Var(C_i)}$ Varianza de los tiempos de finalización. Esta medida es parecida a la suma de tiempos de finalización al cuadrado pero en este caso se mide la distancia a la duración promedio por lo que no solo se centra en las máquinas que tardan más sino también en las que se tardan menos. Esto puede ayudar a que no se planifiquen operaciones en una solo subconjunto de máquinas mientras que las otras permanecen en espera.
+    \item $\mathbf{(\{C_i\})}$ Tupla de tiempos de finalización ordenados. Esta tupla engloba de cierto modo varias de las características previamente mencionadas pero tiene la ventaja de requerir menos trabajo computacional para construir al solo ser necesario ordenar cantidades ya conocidas.
 \end{itemize}
 
 Estas características se combinaron de varias formas como se mostrará en la validación experimental. 

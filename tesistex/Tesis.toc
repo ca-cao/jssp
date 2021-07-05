@@ -8,15 +8,15 @@
 \contentsline {chapter}{\numberline {2}Marco teórico}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Optimización}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Metaheurísticas}{7}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Representación}{8}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Vecindad}{10}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Función de aptitud o fitness}{10}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Paisaje de búsqueda}{10}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Problema de planificación de producción tipo taller (JSP)}{17}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Representación de planificaciones}{18}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Tipos de planificaciones}{20}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Metaheurísticas aplicadas al JSP}{21}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Paisaje de búsqueda del JSP}{24}{section.2.7}%
+\contentsline {section}{\numberline {2.3}Paisaje de búsqueda}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Representación}{9}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Vecindad}{10}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Función de aptitud o fitness}{11}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Problema de planificación de producción tipo taller (JSP)}{17}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Representación de planificaciones}{18}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Tipos de planificaciones}{20}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Metaheurísticas aplicadas al JSP}{21}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Paisaje de búsqueda del JSP}{24}{section.2.6}%
 \contentsline {chapter}{\numberline {3}Propuestas}{26}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Búsqueda local iterada}{26}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Representación de soluciones activas basada en llaves aleatorias}{26}{section.3.2}%
@@ -31,10 +31,10 @@
 \contentsline {section}{\numberline {4.3}Función de fitness}{36}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Extensión a vecindad N7}{37}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Cambio de representación y vecindad}{39}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{42}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones}{42}{section.5.1}%
-\contentsline {chapter}{\numberline {A}Apéndice}{43}{chapter.1}%
-\contentsline {section}{\numberline {A.1}Resultados paraN7 con makespan}{45}{section.1.1}%
-\contentsline {section}{\numberline {A.2}Resultados paraN7 con tupla}{47}{section.1.2}%
-\contentsline {section}{\numberline {A.3}Resultados para Extensión de vecindad con tupla}{49}{section.1.3}%
-\contentsline {section}{\numberline {A.4}Resultados para Nueva vecindad con tupla}{51}{section.1.4}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajos a Futuro}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones}{43}{section.5.1}%
+\contentsline {chapter}{\numberline {A}Apéndice}{44}{chapter.1}%
+\contentsline {section}{\numberline {A.1}Resultados paraN7 con makespan}{46}{section.1.1}%
+\contentsline {section}{\numberline {A.2}Resultados paraN7 con tupla}{48}{section.1.2}%
+\contentsline {section}{\numberline {A.3}Resultados para Extensión de vecindad con tupla}{50}{section.1.3}%
+\contentsline {section}{\numberline {A.4}Resultados para Nueva vecindad con tupla}{52}{section.1.4}%

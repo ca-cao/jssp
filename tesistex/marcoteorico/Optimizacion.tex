@@ -44,15 +44,21 @@ Es muy común que en nuestra cotidianidad nos enfrentemos a problemas tan difíc
 En el contexto de la optimización una metaheurística es una metodología de alto nivel que combina diferentes heurísticas y puede aplicarse para resolver de manera aproximada una gran cantidad de problemas. En la práctica existen numerosas metaheurísticas que pueden ser muy diferentes entre sí por lo que no hay un sistema de clasificación universalmente aceptado aunque se han propuesto diferentes criterios de clasificación \cite{Stegherr2020} así como características como:
 \begin{itemize}
 \item De trayectoria vs discontinua. Una metaheurística de trayectoria consiste en, dada una solución inicial, mejorarla de manera iterativa mediante algún operador que <<mueve>> a la solución a través del espacio de búsqueda %extender.
-\item Basadas en población vs basadas en una sola solución. En las metaheurísticas basadas en población se mantiene un conjunto de soluciones candidatas.
+\item Basadas en población vs basadas en una sola solución. En las metaheurísticas basadas en población se mantiene un conjunto de soluciones candidatas que a menudo se combinan entre sí en lugar de modificar una sola.
 \item Basadas en búsqueda local vs constructivas. Como se explicará más adelante, en la búsqueda local, el proceso de mejora implica la evaluación de soluciones muy parecidas a una solución inicial dada mientras que en las constructivas se crean nuevas soluciones de acuerdo a una heurística o algoritmo preestablecido.
 \item Con uso de memoria vs sin uso de memoria. El uso de memoria consiste en almacenar información que nos ayude a explorar el espacio de búsqueda, por ejemplo una lista de soluciones previamente visitadas.
 \end{itemize} 
 Los primeros dos de estos criterios están muy relacionados porque casi todas las metaheurísticas discontinuas son poblacionales y muchas de trayectoria son basadas en una sola solución.
 
 
-Si bien las metaheurísticas son muy diversas existen elementos comunes que tienen un papel determinante en el buen funcionamiento de las mismas. En específico para las metaheurísticas de trayectoria existen tres conceptos que determinan el llamado paisaje de búsqueda: las soluciones en sí, la forma en que las soluciones están conectadas y cómo podemos compararlas entre sí. A continuación se describe cada uno de ellos.
-% introducir los conceptos siguientes
+Si bien las metaheurísticas son muy diversas existen elementos comunes que tienen un papel determinante en el buen funcionamiento de las mismas. En específico para las metaheurísticas de trayectoria, aunque también aplican para las demás, existen tres conceptos que determinan el llamado paisaje de búsqueda: las soluciones, la forma en que las soluciones están conectadas y cómo podemos compararlas entre sí. En la siguiente sección se introduce el concepto de paisaje de búsqueda y sus componentes.
+\section{Paisaje de búsqueda}
+El concepto de paisaje de búsqueda surgió en la biología para explicar los mecanismos de evolución de poblaciones de seres vivos\cite{wright1932roles}. La idea básica es que los genes de algún organismo en particular le confieren ventajas o desventajas en su hábitat, i.e. puede estar más o menos adaptado. De esta manera puede pensarse en clasificar a todos los individuos de acuerdo a su grada de adaptación. 
+
+Conforme se introducen nuevas variaciones en el código genético ya sea por la reproducción o mutación, se pueden añadir a los nuevos individuos a la clasificación. Si se continua de esta forma se obtendrá una especie de mapa en el cual podríamos asignar a cada variación del código genético un punto en el mapa y un valor de adaptabilidad, también podemos agregar información de la procedencia de cada genoma.\\
+
+El proceso previamente descrito tiene como resultado una estructura que puede representarse mediante un grafo. En el ámbito de las metaheurísticas el concepto de paisaje de búsqueda se inspira fuertemente en la descripción biológica. Los conceptos de genoma, adaptabilidad y reproducción y mutación tienen como análogos la representación, la función de fitness o aptitud y la estructura de vecindad.   
+
 \subsection{Representación}
 Puede ser que el problema de optimización en el que estemos interesados surja directamente de las matemáticas aunque si estamos interesados en un problema de nuestro entorno físico es necesario que tengamos que idear una forma de traducirlo a un lenguaje matemático, incluidas las soluciones al mismo. Debemos encontrar una forma de representar de manera útil las soluciones posibles.
 Por ejemplo si buscamos un ordenamiento óptimo para algún conjunto de $n$ cosas podemos asignarle a cada elemento del conjunto un número entero del $1$ al $n$, en este modelo el espacio de soluciones está constituido por todas las permutaciones de los números del $1$ al $n$. 
@@ -89,7 +95,6 @@ Aunque para un problema de optimización ya se tiene definida una función objet
 
 Esta función debe asociar a cada solución un elemento de un conjunto donde esté definido un ordenamiento total. En esencia esta función define un operador de comparación entre soluciones de modo que podemos elegir la mejor de dos soluciones.\\
 
-\subsection{Paisaje de búsqueda}
 
 Una vez que tenemos el espacio de búsqueda y operadores de cambio para generar nuevas soluciones a partir de otras, se define el espacio de búsqueda como un grafo dirigido $G$ en el que los nodos son las soluciones al problema y una solución $x$ está conectada a otra $y$ si podemos generar a $y$ aplicando los operadores de cambio a $x$.
 
