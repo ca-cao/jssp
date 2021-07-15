@@ -6,51 +6,51 @@ A level-1 auxiliary file: Otros/Resumen.aux
 A level-1 auxiliary file: Otros/Abstract.aux
 The style file: acm.bst
 Database file #1: Referencias.bib
-Warning--to sort, need author or key in skauffman
 Warning--empty publisher in Brucker2001
 Warning--empty institution in norman1996random
 Warning--can't use both volume and number fields in Rand1977
 Warning--empty publisher in Rand1977
+Warning--can't use both volume and number fields in wigderson2006p
 Warning--empty journal in wright1932roles
-You've used 35 entries,
+You've used 40 entries,
             2253 wiz_defined-function locations,
-            766 strings with 10037 characters,
-and the built_in function-call counts, 11087 in all, are:
-= -- 1096
-> -- 499
+            792 strings with 10836 characters,
+and the built_in function-call counts, 12850 in all, are:
+= -- 1268
+> -- 585
 < -- 0
-+ -- 216
-- -- 172
-* -- 937
-:= -- 1820
-add.period$ -- 101
-call.type$ -- 35
-change.case$ -- 188
++ -- 253
+- -- 202
+* -- 1070
+:= -- 2119
+add.period$ -- 118
+call.type$ -- 40
+change.case$ -- 215
 chr.to.int$ -- 0
-cite$ -- 41
-duplicate$ -- 335
-empty$ -- 889
-format.name$ -- 172
-if$ -- 2240
+cite$ -- 46
+duplicate$ -- 404
+empty$ -- 1022
+format.name$ -- 202
+if$ -- 2600
 int.to.chr$ -- 0
-int.to.str$ -- 35
-missing$ -- 35
-newline$ -- 174
-num.names$ -- 68
-pop$ -- 164
+int.to.str$ -- 40
+missing$ -- 42
+newline$ -- 201
+num.names$ -- 80
+pop$ -- 191
 preamble$ -- 1
-purify$ -- 155
+purify$ -- 178
 quote$ -- 0
-skip$ -- 197
+skip$ -- 238
 stack$ -- 0
-substring$ -- 805
-swap$ -- 74
+substring$ -- 908
+swap$ -- 93
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 134
+type$ -- 150
 warning$ -- 6
-while$ -- 120
-width$ -- 37
-write$ -- 341
+while$ -- 139
+width$ -- 42
+write$ -- 397
 (There were 6 warnings)

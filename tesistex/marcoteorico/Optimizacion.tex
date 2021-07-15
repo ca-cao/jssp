@@ -36,7 +36,12 @@ Dentro de los problemas de optimización discreta se distinguen los problemas de
     \item Restricciones entre variables
 \end{itemize}
 
-En muchos problemas de optimización combinatoria el conjunto de soluciones no tiene alguna estructura adicional que ayude a buscar el mínimo de la función objetivo; es raro que exista un ordenamiento de las soluciones o una medida de distancia entre ellas que brinde propiedades a la función objetivo tales como continuidad o suavidad las cuales facilitarían la búsqueda del mínimo. Dicho de otro modo, no tenemos a priori una forma eficiente de explorar el espacio de búsqueda. Ante estas limitaciones surgieron técnicas conocidas como metaheurísticas que buscan facilitar la resolución de estos problemas.
+Estos tipo de problemas aparecen en múltiples escenarios, por ejemplo cuando se requiere hallar una permutación de objetos.
+
+Hasta ahora se han mencionado distintos tipos de problemas pero no se ha dicho nada sobre su dificultad, esta es el área de estudio de la teoría de la complejidad.
+
+\input{marcoteorico/complejidad}
+
 
 \section{Metaheurísticas}
 Es muy común que en nuestra cotidianidad nos enfrentemos a problemas tan difíciles o para los que tengamos tan poco tiempo de decisión que no podamos hacer un análisis riguroso, en estos casos es muy común que utilicemos algún método (posiblemente basado en la experiencia) que nos permita hallar una solución aceptable, por ejemplo, es común que reemplacemos el problema por uno más simple que sí podemos responder y cuya respuesta está relacionada con nuestro problema original (no podemos predecir con certeza si lloverá durante el día pero sí podemos responder si el cielo está plagado de nubes oscuras).
@@ -90,18 +95,19 @@ Formalmente, una vecindad es un mapeo $N:X\rightarrow 2^X$ que le asigna a cada 
 A partir de la definición de vecindad podemos también definir un operador de movimiento $M:X\rightarrow X$ cuyo efecto al aplicarlo a una solución sea transformarla en una que pertenezca a su vecindad, i.e. este operador selecciona a un vecino de la solución inicial.  
 \[M(x)=y\in N(x)\quad x\neq y\]
 
-\subsection{Función de aptitud o fitness}
-Aunque para un problema de optimización ya se tiene definida una función objetivo que se quiere minimizar, no siempre tenderemos el mejor desempeño de las metaheurísticas con solo esta función por lo que resulta benéfico plantear una nueva función a minimizar con la que tengamos mejor desempeño. Por ejemplo puede suceder que aunque dos soluciones tengan asociado el mismo valor de la función objetivo una de ellas posee características que la hacen un mejor punto de partida para alguna metaheurística.
+En general se busca que una vecindad cumpla con ciertas características, entre las más importantes es que esté bien conectada, que no tenga un tamaño excesivamente grande y que contenga soluciones de calidad no muy distinta, esta última característica le confiere <<suavidad>> y puede ser de ayuda para reducir el número de óptimos locales en los que se pueda atascar alguna metaheurística.
 
-Esta función debe asociar a cada solución un elemento de un conjunto donde esté definido un ordenamiento total. En esencia esta función define un operador de comparación entre soluciones de modo que podemos elegir la mejor de dos soluciones.\\
+\subsection{Funci\'on de aptitud o fitness}
+En el momento en el que se define el problema de optimización, se define cuál es la función objetivo, no obstante puede resultar útil construir otra función a la cual se le conoce como función de aptitud o fitness que toma en cuenta otras características de las soluciones para que el paisaje de búsqueda tenga una estructura más favorable para los métodos de solución que se pretendan usar. Por ejemplo puede suceder que aunque dos soluciones tengan asociado el mismo valor de la función objetivo una de ellas posee características que la hacen un mejor punto de partida para alguna metaheurística.
 
-
+Esta función debe asociar a cada solución un elemento de un conjunto donde esté definida una noción de ordenamiento. En esencia esta función define un operador de comparación entre soluciones de modo que esté definido cuándo una solución es mejor que otra.
 Una vez que tenemos el espacio de búsqueda y operadores de cambio para generar nuevas soluciones a partir de otras, se define el espacio de búsqueda como un grafo dirigido $G$ en el que los nodos son las soluciones al problema y una solución $x$ está conectada a otra $y$ si podemos generar a $y$ aplicando los operadores de cambio a $x$.
 
-Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que mide la calidad de dicha solución. La adición de esta función de aptitud al espacio de búsqueda genera al paisaje de búsqueda. Formalmente el paisaje de búsqueda $\mathcal{L}$ es entonces una tupla conformada por el espacio de búsqueda junto con una función objetivo que guía la búsqueda $\mathcal{L}=(G,f)$
+Podemos asociar a cada solución en el espacio un valor de aptitud o fitness que mide la calidad de dicha solución. La adición de esta función de aptitud al espacio de búsqueda genera al paisaje de búsqueda. Formalmente el paisaje de búsqueda $\mathcal{L}$ es entonces una tupla conformada por el espacio de búsqueda junto con una función objetivo que guía la búsqueda $\mathcal{L}=(G,f)$.
 
-A continuación se muestra una representación pictórica de la definición del paisaje de búsqueda para un problema de optimización.
-\begin{figure}[H]
+En la figura \ref{fig:landscape} se muestra una representación pictórica del paisaje de búsqueda para un problema de optimización.
+
+\begin{figure}
 \begin{subfigure}{.4\textwidth}
     \includegraphics[scale=.5]{Imagenes/search1.png}
     \caption{Soluciones representables}
@@ -115,10 +121,11 @@ A continuación se muestra una representación pictórica de la definición del 
     \includegraphics[scale=.5]{Imagenes/search3.png}
     \caption{Adición de la función de fitness}    
 \end{subfigure}
-\label{fig:landscape}
 \caption{Creación del paisaje de búsqueda}
+\label{fig:landscape}
 \end{figure}
 
+\medskip
 El paisaje de búsqueda es el <<terreno>> a explorar y puede cambiar si cambiamos cualquiera de sus componentes, podría ser que alguna representación nos centre en un subconjunto de soluciones convenientes o que alguna estructura de vecindad se proponga de modo que las mejores soluciones nunca están muy lejos del resto, o que la función de fitness nos ayude a atravesar cúmulos de soluciones que serían iguales sin ella.
 
 La estructura del paisaje de búsqueda influye de manera determinante en el éxito o fracaso de las metaheurísticas. Dependiendo de la <<forma>> que tenga el paisaje se favorecerá el uso de ciertas metaheurísticas. La <<forma>> del paisaje hace referencia a cómo cambia el valor de fitness para soluciones conectadas entre sí. Dos medidas que son generalmente utilizadas para esto miden cómo cambia el valor de la función de fitness conforme nos acercamos a un óptimo local y la otra mide qué tanto cambia el fitness entre soluciones vecinas\cite{skauffman}. La primera de estas medidas nos da una idea de qué tan grandes son los valles que rodean a un mínimo local si es que existen y la segunda nos da una ida de la rugosidad del paisaje.
@@ -142,8 +149,8 @@ La estructura del paisaje de búsqueda influye de manera determinante en el éxi
 \caption{Diferentes tipos de paisajes de búsqueda. Se muestran paisajes continuos con fines ilustrativos.}
 \end{figure}
 
-
-Las metaheurísticas sirven como una estrategia para explorar el paisaje de búsqueda. Una de las más sencillas e intuitivas es conocida como escalada estocástica y simplemente consiste en reemplazar la solución actual por algún vecino mejor escogido al azar hasta que la solución en la que estemos sea mejor que todos sus vecinos, es decir, un óptimo local. Esta es una metaheurística de trayectoria y traza un camino entre las soluciones inicial y final.
+\subsection*{Algunas metaheurísticas de relevancia}
+Las metaheurísticas sirven como una estrategia para explorar el paisaje de búsqueda. Una de las más sencillas e intuitivas es conocida como escalada estocástica y simplemente consiste en reemplazar la solución actual por algún vecino mejor escogido al azar hasta que la solución en la que estemos sea mejor que todos sus vecinos, es decir, un óptimo local. Esta es una metaheurística de trayectoria y traza un camino entre las soluciones inicial y final.\\
 
 %
 \begin{algorithm}[H]

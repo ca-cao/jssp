@@ -1,8 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{skauffman}
-{The origins of order: self-organization and selection in evolution}, 1993.
-
 \bibitem{balas1969machine}
 {\sc Balas, E.}
 \newblock Machine sequencing via disjunctive graphs: an implicit enumeration
@@ -66,6 +63,11 @@
   algorithms: Part II. Hybrid genetic search strategies}.
 \newblock {\em Computers and Industrial Engineering 37}, 1 (1999), 51--55.
 
+\bibitem{cormen2009introduction}
+{\sc Cormen, T.~H., Leiserson, C.~E., Rivest, R.~L., and Stein, C.}
+\newblock {\em Introduction to algorithms}.
+\newblock MIT press, 2009.
+
 \bibitem{dell1993applying}
 {\sc Dell'Amico, M., and Trubian, M.}
 \newblock Applying tabu search to the job-shop scheduling problem.
@@ -92,11 +94,28 @@
   scheduling.
 \newblock {\em Knowledge-Based Systems 182\/} (2019), 104840.
 
+\bibitem{graham1989concrete}
+{\sc Graham, R.~L., Knuth, D.~E., Patashnik, O., and Liu, S.}
+\newblock Concrete mathematics: a foundation for computer science.
+\newblock {\em Computers in Physics 3}, 5 (1989), 106--107.
+
+\bibitem{jain1998state}
+{\sc Jain, A.~S., Meeran, S., et~al.}
+\newblock A state-of-the-art review of job-shop scheduling techniques.
+\newblock Tech. rep., Technical report, Department of Applied Physics,
+  Electronic and Mechanical~…, 1998.
+
 \bibitem{johnson1954optimal}
 {\sc Johnson, S.~M.}
 \newblock Optimal two-and three-stage production schedules with setup times
   included.
 \newblock {\em Naval research logistics quarterly 1}, 1 (1954), 61--68.
+
+\bibitem{skauffman}
+{\sc Kauffman, S.~A., et~al.}
+\newblock {\em The origins of order: Self-organization and selection in
+  evolution}.
+\newblock Oxford University Press, USA, 1993.
 
 \bibitem{Klc2007}
 {\sc K$\iota$l$\iota${\c{c}}, S., and Kahraman, C.}
@@ -150,6 +169,11 @@
 \newblock {\em European Journal of operational research 120}, 2 (2000),
   393--407.
 
+\bibitem{sipser1996introduction}
+{\sc Sipser, M.}
+\newblock Introduction to the theory of computation.
+\newblock {\em ACM Sigact News 27}, 1 (1996), 27--29.
+
 \bibitem{Stegherr2020}
 {\sc Stegherr, H., Heider, M., and H{\"{a}}hner, J.}
 \newblock {Classifying Metaheuristics: Towards a unified multi-level
@@ -172,6 +196,11 @@
 {\sc Watson, J.-P., Beck, J.~C., Howe, A.~E., and Whitley, L.~D.}
 \newblock Problem difficulty for tabu search in job-shop scheduling.
 \newblock {\em Artificial intelligence 143}, 2 (2003), 189--217.
+
+\bibitem{wigderson2006p}
+{\sc Wigderson, A.}
+\newblock P, np and mathematics--a computational complexity perspective.
+\newblock In {\em Proceedings of the ICM\/} (2006), vol.~1, pp.~665--712.
 
 \bibitem{wright1932roles}
 {\sc Wright, S., et~al.}
