@@ -162,6 +162,12 @@
   computations}}, vol.~1.
 \newblock 1977.
 
+\bibitem{rothlauf2002representations}
+{\sc Rothlauf, F.}
+\newblock Representations for genetic and evolutionary algorithms.
+\newblock In {\em Representations for Genetic and Evolutionary Algorithms}.
+  Springer, 2002, pp.~9--30.
+
 \bibitem{sakawa2000fuzzy}
 {\sc Sakawa, M., and Kubota, R.}
 \newblock Fuzzy programming for multiobjective job shop scheduling with fuzzy

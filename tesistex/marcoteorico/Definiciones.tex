@@ -1,24 +1,33 @@
 \section{Problema de planificación de producción tipo taller (JSP)}
-Una instancia del JSP consiste en $n$ trabajos diferentes constituidos cada uno por $m$ operaciones que deben procesarse por un tiempo determinado en $m$ máquinas en una secuencia predeterminada.\\
-El objetivo es hallar la planificación que minimiza el tiempo que toma terminar todos los trabajos dado que cada máquina puede procesar solo un trabajo a la vez.
 
-Una planificación consiste en asignar tiempos de inicio y fin a cada operación respetando el orden requerido para cada trabajo. El tiempo que toma terminar todos los trabajos se conoce como makespan y la secuencia de trabajos que toma el mayor tiempo en completarse se conoce como ruta crítica. La ruta crítica puede verse como una serie de bloques críticos que consisten en las secuencias de operaciones de la ruta crítica que se ejecutan de forma adyacente en la misma máquina. Una planificación puede tener una o varias rutas críticas. \\
-Sin pérdida de generalidad podemos restringirnos al caso en el que el tiempo requerido para procesar cada operación es un entero positivo.
+Dentro de los problemas de planificación, el JSP modela un taller en el que hay $m$ máquinas, cada una de las cuales puede hacer varios tipos de procedimientos pero solo puede hacer uno de ellos a la vez. Se requiere completar $n$ trabajos cada uno de los cuales está compuesto por $m$ operaciones, una por cada máquina en el taller, y que deben procesarse en un orden específico y por un tiempo específico en cada una de ellas. 
+
+Por ejemplo una panadería puede modelarse del siguiente modo; las herramientas como batidora, rodillo, horno, etc. pueden representarse como las $m$ máquinas que se utilizan en un orden determinado para hacer $n$ distintos tipos de pan los cuales pueden representarse como los trabajos a completar.
+
+Las secuencias y tiempos de procesamiento para cada trabajo deben de especificarse para definir el problema. Habitualmente se presentan en una tabla de $n$ renglones por $m$ columnas esto se conoce como una instancia del JSP. Para cada renglón, las columnas contienen la máquina en que debe procesarse el trabajo en este paso y el tiempo que toma procesarlo. 
+
+Por ejemplo en la tabla \ref{tab:inst} se presenta una instancia del JSP con 3 máquinas y 2 trabajos. En esta instancia el trabajo 1 debe procesarse primero en la máquina 0 por 75 unidades de tiempo, luego en la máquina 2 por 54 unidades de tiempo y por último en la máquina 1 por 59 unidades de tiempo.\\
+
+El problema a resolver consiste en hallar una planificación que sea óptima en algún sentido. Una planificación consiste en asignar tiempos de inicio y fin a cada operación respetando el orden requerido para cada trabajo. Existen varias formas de determinar si una planificación es óptima como se explicará más adelante pero la más usada es el tiempo que toma terminar todos los trabajos y se conoce como makespan. Sin pérdida de generalidad podemos restringirnos al caso en el que el tiempo requerido para procesar cada operación es un entero positivo.\\
+
+Otro concepto que es de gran utilidad en los métodos que se presentarán en las siguientes secciones es la secuencia de trabajos que toma el mayor tiempo en completarse conocida como \textbf{ruta crítica}. Esta ruta crítica se compone a su vez de una serie de bloques críticos que consisten en las secuencias de operaciones de la ruta crítica que se ejecutan de forma adyacente en la misma máquina. Es importante mencionar que una planificación siempre tiene al menos una ruta crítica pero puede tener más de una a la vez.
+
+Es muy usual que una planifacación se visualice mediante un diagrama de gantt. El siguiente ejemplo sirve para mostrar los conceptos antes presentados en un caso práctico y simple.
 
 \subsection*{Ejemplo}
 Se muestra un ejemplo de una instancia con 3 máquinas y 2 trabajos.
 \begin{table}[H]
 \centering
-\caption{Instancia simple con 3 maquinas y 2 trabajos}
 \begin{tabular}{@{}llll@{}}
 Trabajo & \multicolumn{3}{l}{\begin{tabular}[c]{@{}l@{}}Secuencia de procesamiento \\ (máquina, tiempo)\end{tabular}} \\ \midrule
 0       & 0, 75                              & 2, 54                               & 1, 59                             \\ \midrule
 1       & 0, 47                              & 2, 72                              & 1, 45   \\\hline                         
 \end{tabular}
+\caption{Instancia simple con 3 maquinas y 2 trabajos}
 \label{tab:inst}
 \end{table}
 
-La siguiente es una posible planificación para la instancia de ejemplo, visualizada mediante un diagrama de gantt. En negro se marca los trabajos que conforman la ruta crítica. 
+La siguiente es una posible planificación para la instancia de ejemplo, visualizada mediante un diagrama de gantt. En negro se marcan los trabajos que conforman la ruta crítica. 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.7]{Imagenes/planejemplorc.png}
@@ -26,7 +35,7 @@ La siguiente es una posible planificación para la instancia de ejemplo, visuali
 \label{fig:gantt}
 \end{figure}
 
-Si bien es conveniente visualizar una planificación mediante un diagrama como el mostrado anteriormente, resulta ventajoso representar estas planifaciones de otras formas. La representación de soluciones a un problema resulta ser una elección sumamente importante al momento de desarrollar, implementar y analizar los algoritmos que se propongan para resolver el problema. En la siguiente sección se desarrollan dos formas de representación de especial importancia.
+Si bien es conveniente visualizar una planificación mediante un diagrama de gantt como el mostrado anteriormente, resulta ventajoso representar computacionalmente estas planifaciones de otras formas. La representación de soluciones a un problema resulta ser una elección sumamente importante al momento de desarrollar, implementar y analizar los algoritmos que se propongan para resolver el problema\cite{rothlauf2002representations}. En la siguiente sección se desarrollan dos formas de representación de especial importancia.
 
 \subsection{Representación de planificaciones}
 De manera general existen dos formas de representar las soluciones al JSP \cite{Cheng1996}:
