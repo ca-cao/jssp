@@ -84,6 +84,11 @@
 \newblock {A Fast Taboo Search Algorithm for the Job Shop Problem}.
 \newblock {\em Manage. Sci. 42}, 6 (2003), 797--813.
 
+\bibitem{garey1976complexity}
+{\sc Garey, M.~R., Johnson, D.~S., and Sethi, R.}
+\newblock The complexity of flowshop and jobshop scheduling.
+\newblock {\em Mathematics of operations research 1}, 2 (1976), 117--129.
+
 \bibitem{Giffler1960}
 {\sc Giffler, B., and Thompson, G.~L.}
 \newblock {Algorithms for Solving Production-Scheduling Problems}, 1960.
