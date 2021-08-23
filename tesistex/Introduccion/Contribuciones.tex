@@ -1,8 +1,23 @@
 \section{Contribuciones}
-En este trabajo se consiguió plantear modificaciones al paisaje de búsqueda que combinados con una metaheurística de búsqueda local iterada obtuvieron resultados con una mediana de error relativo no mayor al $0.21$ para todas las instancias de prueba en un tiempo de 5 minutos no paralelo comparado con las 24 a 48 horas de cómputo paralelo necesarios para hallar los resultados del estado del arte.
+En este trabajo se consiguió plantear modificaciones al paisaje de búsqueda que, combinados con la metaheurística búsqueda local iterada, obtuvieron resultados 
+con una mediana de error relativo no mayor al $0.21$ \% para todas las instancias de prueba en un tiempo de 5 minutos no paralelo comparado con las 24 a 48 horas 
+de cómputo paralelo necesarios para hallar dichas soluciones.
+%
+Además, estas mejores fueron muy significativas en comparación con las casos en que no se incorporan dichas modificaciones.
+%
+En particular, sin las modificaciones propuestas, existen casos en los que la mediana del error relativo es superior al doble del valor encontrado con la nueva
+propuesta.
 
-De todos los cambios que se implementaron al paisaje de búsqueda, el que tuvo más impacto en el desempeño de la búsqueda local iterada consistió en cambiar la representación y con ella el conjunto de soluciones representables y la estructura de vecindad. No se logró plantear una función de fitness que mostrara una mejora sustancial en los resultados aunque definitivamente tiene un impacto positivo considerar algo más que únicamente el makespan de una planificación para hallar mejores soluciones.
+De todos los cambios que se implementaron al paisaje de búsqueda, el que tuvo más impacto en el desempeño de la búsqueda local iterada consistió en cambiar 
+la representación con el fin de generar exclusivamente soluciones que cumplen ciertas propiedades que se saben que aparecen en soluciones óptimas.
+%
+No se logró plantear una función de fitness que mostrara una mejora sustancial en los resultados aunque definitivamente tiene un impacto positivo considerar 
+algo más que únicamente el makespan de una planificación para hallar mejores soluciones.
 
-Estas modificaciones pueden servir de punto de partida para proponer estrategias más complejas que puedan acercarse mucho más a los resultados del estado del arte pero en una fracción del tiempo requerido actualmente. También hay trabajo por hacer para refinar la representación y la estructura de vecindad aquí presentadas.
+Las modificaciones propuestas en esta tesis pueden servir como punto de partida para proponer estrategias más complejas que puedan acercarse mucho más a los 
+resultados del estado del arte pero en una fracción del tiempo requerido actualmente. 
+%
+Por su puesto, conseguir esto es un reto importante que requiere refinar aún más la representación y la estructura de vecindad aquí presentadas, así como
+estudiar la forma en que se debe integrar con muchas de las componentes que han llevado a encontrar las mejores soluciones conocidas hasta la fecha.
 
 

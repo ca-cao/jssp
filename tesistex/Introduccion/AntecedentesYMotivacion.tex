@@ -1,48 +1,114 @@
-En este capítulo se presenta el problema de interés así como una revisión de los distintos métodos que se han formulado para resolverlo. Se plantea la hipótesis del trabajo y los objetivos así como las propuestas que servirán para alcanzar los objetivos. Al final del mismo se presentan las contribuciones de este trabajo al problema considerado.
+En este capítulo se presenta el problema de interés así como una revisión de los distintos métodos que se han formulado para resolverlo. 
+%
+Se plantea la hipótesis del trabajo y los objetivos así como las propuestas que servirán para alcanzar dichos objetivos. 
+%
+Al final del mismo se resumen las contribuciones de este trabajo.
+
 \section{Antecedentes y Motivación}
-% un pequeño review
-Los problemas de planificación surgen de manera natural en sistemas de producción o procesamiento en los que la tarea general que se quiere completar a su vez está compuesta por varias subtareas que pueden o deben repartirse entre distintas máquinas o unidades de procesamiento. A grandes rasgos, un problema de planificación consiste en asignar a cada subtarea una máquina que debe procesarla y un tiempo de inicio y fin.  Estos problemas pueden surgir de todo tipo de contextos, desde la producción de algo como una bicicleta hasta la forma en que los sistemas computacionales procesan información o cómo se asignan las clases en una escuela. 
+Los problemas de planificación surgen de manera natural en sistemas de producción o procesamiento en los que la tarea general que se 
+quiere completar está compuesta por varios trabajos que pueden o deben repartirse entre distintos recursos, como máquinas o unidades de procesamiento. 
+%
+A grandes rasgos, un problema de planificación consiste en asignar la forma en que se van a asignar un conjunto de recursos para completar una
+tarea.
+%
+Estos problemas pueden surgir de todo tipo de contextos, desde la producción de algo como una bicicleta hasta la forma en que los sistemas computacionales 
+procesan información o cómo se asignan las clases en una escuela. 
 
-En muchos de estos contextos no solo se requiere hallar una planificación sino que a demás se quiere encontrar una que sea óptima en algún sentido, habitualmente se quiere la que haga que se complete el trabajo lo más rápido posible aunque puede haber otros criterios como se presenta más adelante.\\
-Desde los década de los 50 se comenzaron a formular algoritmos para hallar planificaciones óptimas para un problema con dos y tres máquinas\cite{johnson1954optimal} y el interés en ellos ha crecido en las décadas siguientes hasta la fecha por su gran campo de aplicación.\\ 
+En la mayor parte de estos contextos no solo se requiere hallar una planificación factible, es decir, que cumpla una serie de requisitos, sino que además se quiere 
+encontrar una que sea óptima en algún sentido.
+%
+Una de las funciones objetivo más habitualmente usada consiste en minimizar el tiempo requerido para completar la tarea; sin embargo, existen muchas otras funciones.
+
+Desde los década de los 50 se comenzaron a desarrollar algoritmos para hallar planificaciones óptimas para problemas con dos y tres máquinas~\cite{johnson1954optimal}
+y el interés en ellos ha crecido en las décadas siguientes hasta la fecha, por su gran campo de aplicación.
+%
+Así, han surgido numerosas formulaciones de problemas de planificación, que incluyen diferentes restricciones y funciones objetivo.
  
-En este trabajo se trata un tipo específico de problema de planificación conocido como el \textbf{Problema de Planificación de Producción tipo Taller} o JSP por sus siglas en inglés. Este problema consiste en hallar una secuencia de procesamiento de $n$ ítems en $m$ máquinas que tome el mínimo tiempo posible cumpliendo ciertas restricciones de orden para el procesamiento de los $n$ ítems. Este es un problema de optimización combinatoria en el que se requiere encontrar una secuencia de procesamiento para las operaciones en cada una de las máquinas disponibles y pertenece a la clase de problemas \textbf{NP-completo} cuando el número de máquinas es mayor a dos\cite{garey1976complexity}.\\
+En este trabajo se trata un tipo específico de problema de planificación conocido como el \textbf{Problema de Planificación de Producción tipo Taller} o JSP por sus 
+siglas en inglés. 
+%
+En este problema la tarea global está constituida por un conjunto de $n$ trabajos, que se deben procesar en $m$ máquinas. 
+%
+Cada uno se esos trabajos están constituído por un conjunto de operaciones (habitualmente $m$), que se deben procesar en un orden determinado y cada uno de ellos
+en una máquina en específico.
+%
+El propósito es encontrar una planificación (asignación de las operaciones a las máquinas), que respete el orden establecido y que minimice el tiempo en que finaliza
+la última operación (makespan).
+%
+El JSP es un problema de optimización combinatoria que pertenece a la clase de problemas \textbf{NP-hard} cuando el número de máquinas es mayor a dos\cite{garey1976complexity}.
 
-Anteriormente se han propuesto métodos exactos para resolver este problema \cite{Brucker1994} pero la cantidad de recursos computacionales que requieren conforme el tamaño del problema (número de máquinas y trabajos) aumenta los hace imprácticos excepto para instancias pequeñas aproximadamente 10 máquinas y 10 trabajos.
-% poner explicacion de instancias
-
-
-Dado el interés que se tiene en este problema y en que su tamaño puede ser suficientemente grande para no poder utilizar métodos exactos, se han propuesto otros métodos aproximados para encontrar soluciones buenas en tiempos aceptables. Estos métodos pueden agruparse de la siguiente manera\cite{jain1998state,Zhang2019}:
+Anteriormente se han propuesto métodos exactos para resolver el JSP~\cite{Brucker1994}. 
+%
+Sin embargo, la cantidad de recursos computacionales que requieren conforme el tamaño del problema (número de máquinas y trabajos) aumenta los hace imprácticos excepto 
+para instancias pequeñas de aproximadamente 10 máquinas y 10 trabajos.
+%
+Dado el interés que se tiene en este problema y en que su tamaño puede ser suficientemente grande para no poder utilizar métodos exactos, se han propuesto métodos aproximados 
+para encontrar soluciones aceptables en tiempos reducidos. 
+%
+Estos métodos pueden agruparse de la siguiente manera\cite{jain1998state,Zhang2019}:
 \begin{itemize}
-\item \textbf{Métodos Constructivos} Estos métodos construyen una planificación mediante el uso de alguna regla simple por lo que son muy rápidos y conceptualmente sencillos. En general pueden clasificarse en tres tipos: los que usan reglas de prioridad, los que usan heurísticas de cuello de botella y los que usan algún método de inserción.
+\item \textbf{Métodos Constructivos.} Estos métodos construyen una planificación mediante el uso de alguna regla simple que de forma iterativa va tomando decisiones sobre la solución
+hasta generar una solución completa. Se caracterizan por ser muy rápidos y conceptualmente sencillos pero habitualmente no alcanzan calidades cercanas a las óptimas.
+Se pueden clasificar en tres tipos: los que usan reglas de prioridad, los que usan heurísticas de cuello de botella y los que usan algún método de inserción.
 
-    El primero de estos consiste en establecer una forma de elegir la operación a planificar entre varias disponibles. Esto puede hacerse por ejemplo eligiendo la que tome más tiempo o la que pueda procesarse antes.
+El primero de estos consiste en establecer una forma de elegir la operación a planificar entre varias disponibles. Esto puede hacerse por ejemplo eligiendo la que tome 
+más tiempo o la que pueda procesarse antes.
 
-        El segundo consiste en replantear el problema como una serie de subproblemas más sencillos que puedan resolverse iterativamente hasta que se tenga una solución completa, por ejemplo planificando una sola máquina manteniendo las otras fijas.
+El segundo consiste en replantear el problema como una serie de subproblemas más sencillos que puedan resolverse iterativamente hasta que se tenga una solución completa, 
+por ejemplo planificando una sola máquina manteniendo las otras fijas.
 
-        El tercer tipo construye una solución partiendo del ordenamiento de solo un subconjunto de operaciones y progresivamente agregando más a partir de las que ya se tienen.
+El tercer tipo construye una solución partiendo del ordenamiento de solo un subconjunto de operaciones y progresivamente agregando más a partir de las que ya se tienen.
 
-\item \textbf{Métodos de inteligencia artificial} En estos métodos utilizan redes neuronales para encontrar la planificación. Existen muchos tipos de redes que se han diseñado para atacar este problema aunque en general suelen combinarse con otros métodos para obtener resultados competitivos.
+\item \textbf{Métodos de inteligencia artificial.} En estos métodos se utilizan redes neuronales para encontrar la planificación. Existen muchos tipos de redes que se 
+han diseñado para atacar este problema aunque en general suelen combinarse con otros métodos para obtener resultados competitivos, ya que por sí sólas no suele generar
+soluciones de muy alta calidad. La gran desventaja de estos métodos es que se tienen que construir y entrenar redes a la medida según el tipo de instancia y a menudo 
+se necesita mucha adaptación para aplicarse a nuevas variantes, lo cual los vuelve poco prácticos.
 
-    La gran desventaja de estos métodos es que se tienen que construir y entrenar redes a la medida de cada problema y a menudo se necesita de mucha preparación previa para aplicarse a algún problema lo cual los vuelve poco prácticos.
+\item \textbf{Métodos de búsqueda local.} En estos métodos se establece una forma de crear soluciones nuevas a partir de una solución dada para reemplazarla por una nueva 
+que sea mejor y repetir el proceso hasta que se cumpla algún criterio de paro.  Para crear nuevas soluciones se hace un cambio pequeño como, por ejemplo, intercambiar el 
+orden de dos operaciones.  En general estos métodos se distinguen entre sí por la manera de generar nuevas soluciones y por el criterio de paro. Tienen el inconveniente 
+de quedarse estancados en óptimos locales. 
 
-\item \textbf{Métodos de búsqueda local} En estos métodos se establece una forma de crear soluciones nuevas a partir de una solución dada para reemplazarla por una nueva y repetir el proceso hasta que se cumpla algún criterio de paro. 
-    Para crear nuevas soluciones se hace un cambio pequeño como, por ejemplo, intercambiar el orden de dos operaciones de modo que sea posible evaluar todas las posibles soluciones generadas al aplicar esta modificación. 
-        En general estos métodos se distinguen entre sí por la manera en que se escoge la solución con la cual reemplazar la solución inicial y el criterio de paro.
-\item \textbf{Metaheurísticas} Estos métodos combinan elementos de los previamente mencionados para plantear estrategias que obtengan aun mejores resultados. 
-    Es muy común que se planteen metaheurísticas inspiradas en la naturaleza como los algoritmos genéticos basados en la evolución, algoritmos basados en el comportamiento de seres vivos como algoritmos de colonia de hormigas o de abejas o bien en procesos naturales como el algoritmo de recocido simulado. Al ser de alto nivel pueden adaptarse a una gran cantidad de problemas.
+\item \textbf{Metaheurísticas.} Estos métodos combinan elementos de los previamente mencionados junto con otras ideas para tratar de evitar óptimos locales. 
+Se distingue entre mtaheurísticas de trayectoria y metaheurísticas poblaciones, y son los métodos que han dado mejores resultados para las instancias de mayor
+tamaño. 
+%
+Es muy común que se planteen metaheurísticas inspiradas en la naturaleza como los algoritmos genéticos basados en la evolución, o algoritmos basados en el 
+comportamiento de seres vivos, como el algoritmo de colonia de hormigas o de abejas.
+%
+Este tipo de optimizadores son estrategias de alto nivel que se pueden adaptar a diferentes problemas, y prácticamente la totalidad de las metaheurísticas más populares
+han sido adaptadas para tratar el JSP.
 \end{itemize}
 
-Actualmente los algoritmos más exitosos para resolver el JSP son algoritmos meméticos que combinan un método de búsqueda local con una metaheurística poblacional que mantiene varias soluciones. El método de búsqueda local más usado se conoce como búsqueda tabú, el cual logra escapar de óptimos locales mediante el uso de memoria.
+Actualmente los algoritmos más exitosos para resolver el JSP son algoritmos meméticos que combinan un método de búsqueda local o una metaheurística de trayectoria,
+con una metaheurística poblacional que mantiene varias soluciones. 
+%
+En particular, la mataheurística de trayectoria búsqueda tabú es una de las más efectivas en el JSP.
+%
+Aunque se han obtenido buenos resultados con estos algoritmos, su mayor inconveniente el su alto requerimiento de recursos de cómputo.
+%
+En particular, los mejores resultados conocidos se han generado haciendo uso de ejecuciones de 24 a 48 horas en entornos paralelos, y los resutaldos a corto
+plazo con estos métodos son de baja calidad.
+%
+La literatura reciente se ha centrado en hacer más eficiente la búsqueda tabú para reducir los tiempos de ejecución, y aunque tener optimizadores muy efectivos
+a largo plazo es importante, también lo es disponer de métodos que a corto plazo sean capaces de encontrar soluciones de alta calidad.
 
-Aunque se han obtenido buenos resultados con estos algoritmos son necesarias de 24 a 48 horas paralelas de ejecución para obtener los resultados del estado del arte. La literatura reciente se ha centrado en hacer más eficiente la búsqueda tabú para reducir los tiempos de ejecución, dejando de lado los otros elementos que forman parte de las metaheurísticas. 
-
-Como se explicará a detalle más adelante el desempeño de las metaheurísticas depende del llamado paisaje de búsqueda del problema, el cual se compone de tres elementos.
-
-El primero y más básico es cómo representar computacionalmente una solución, actualmente lo más común es que una solución se represente como un grafo dirigido cuyos nodos son las operaciones a procesar y las aristas indican el ordenamiento de éstas.
-
-El segundo es la forma de generar una solución a partir de otra, esto se conoce como una estructura de vecindad y la más exitosa es conocida como N7 y fue propuesta en 2006 \cite{Zhang2007}. 
-
-El tercer elemento se conoce como función de fitness o aptitud y nos permite comparar soluciones y decidir si una es mejor que otra. 
+Como se explicará a detalle más adelante un aspecto muy importante a la hora de diseñar metaheurísticas de trayectoria viene dado por la definición del
+paisaje de búsqueda del problema, el cual se compone de tres elementos.
+%
+El primero y más básico es cómo representar computacionalmente una solución en el optimizador, y cómo decodificarla a soluciones del problema a tratar.
+%
+Actualmente lo más común es que una solución se represente con tantas permutaciones de operaciones como máquinas, y que dichas permutaciones establezcan
+el orden exacto en el que las operaciones se ejecutan en la máquina.
+%
+El segundo es la definición de la vecindad, que permite establecer cómo se generarn unas soluciones a partir de otras.
+%
+En este caso la más exitosa es conocida como N7 y fue propuesta en 2006~\cite{Zhang2007}. 
+%
+Finalmente, el tercer elemento se conoce como función de fitness o aptitud y nos permite comparar soluciones y decidir si una es mejor que otra. 
+%
+El análisis de la literatura muestra que durante bastantes años no se han realizado innovaciones con respecto al paisaje de búsqueda y que se ha dado
+énfasis en otras componentes, como operadores de cruce, modelos subrogados o estructuras de datos que permitan reducir los tiempos de los métodos híbridos
+basados en búsqueda tabú.
 
 
