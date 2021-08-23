@@ -1,25 +1,22 @@
 \chapter*{Resumen}
-En este trabajo se analiza el efecto de distintas metodologías de modificación del paisaje de búsqueda del problema de planificación 
-de producción tipo taller (JSP por sus siglas en inglés).
-%
-Existen una gran cantidad de tipos de problemas de planificación, siendo el JSP un tipo específico que ha atraido considerable atención 
-por su dificultad y aplicabilidad. 
+Existe una gran cantidad de tipos de problemas de planificación, siendo el problema de planificación de producción tipo taller
+(JSP por sus siglas en inglés) un tipo específico que ha atraído considerable atención por su dificultad y aplicabilidad. 
 %
 En general estos problemas consisten en encontrar una planificación que cumpla un conjunto de restricciones y optimice alguna función
-objetivo, siendo la minimización del tiempo requerido para completar ciertos procesos una de las funciones objetivo más habituales.
+objetivo, siendo la minimización del tiempo requerido para completar un conjunto de trabajos (makespan) una de las funciones objetivo más habituales.
 %
-En esta tesis se trabaja con la formulación estándar del JSP, en la que precisamente se debe minimizar el tiempo requerido para completar
-todos los procesos.
+En esta tesis se trabaja con la formulación estándar del JSP, en la que precisamente se debe minimizar el makespan, y en particular se analiza 
+el efecto sobre el rendimiento de distintas estrategias de modificación del paisaje de búsqueda.
 
-En la actualidad existen algoritmos exactos para encontrar la solución óptima del JSP\cite{Brucker1994}.
+En la actualidad existen algoritmos exactos para encontrar la solución óptima del JSP~\cite{Brucker1994}.
 %
 Sin embargo, el tiempo requerido para resolver instancias grandes es demasiado elevado como para que sean prácticos o inclusive factibles.
 %
-La complejidad de este problema lo hizo un candidato ideal para utlizar métodos aproximados con el fin de generar soluciones aceptables 
+La complejidad de este problema lo hizo un candidato ideal para utilizar métodos aproximados con el fin de generar soluciones aceptables 
 en tiempos razonables. 
 %
 Así, en la actualidad, los mejores resultados obtenidos para las instancias de prueba más difíciles se han encontrado mediante metaheurísticas, y
-en especfico la metaheurística de trayectoria búsqueda tabú es una de las más efectivas.
+en específico la metaheurística de trayectoria búsqueda tabú es una de las más efectivas.
 %
 Las metaheurísticas son convenientes por su relativa simplicidad algorítmica frente a otros métodos; sin embargo, el tiempo requerido para obtener 
 soluciones de alta calidad también ha comenzado a crecer y el diseño de las técnicas se ha complicado enormemente, incluyendo así numerosas
@@ -29,29 +26,36 @@ A modo de ejemplo, algunos trabajos recientes consideran ejecuciones de varios d
 como algoritmos evolutivos, búsqueda tabú y modelos subrogados.
 %
 Estos requerimientos pueden no ser muy prácticos a la hora de resolver problemas de este tipo en empresas, por lo que esta tesis parte de la
-idea que es importante dar un paso atrás y replantear un poco la forma de aplicar estos métodos para evitar complicarlos en exceso.
+idea de que es importante dar un paso atrás y replantear un poco la forma de aplicar estos métodos para evitar complicarlos en exceso.
 
-En el campo de las metahurísticas hay varios conceptos fundamentales que tienen un gran impacto en su desempeño.
+En el campo de las metaheurísticas hay varios conceptos fundamentales que tienen un gran impacto en su desempeño.
 %
 En este trabajo se analizan tres de ellos que juntos componen lo que se conoce como paisaje de búsqueda: la representación de las soluciones, 
 la definición de vecindad de una solución, y la función de aptitud o fitness. 
 %
-En el trabajo se analizan diferentes alternativas para cada una de estas componentes, y se evalúa el impacto sobre el rendimiento utilizando
-para ello una de las maetaheurísticas de trayectoria más sencillas, la búsqueda local iterada.
+En el trabajo se proponen y analizan diferentes alternativas para cada una de estas componentes, y se evalúa el impacto sobre el rendimiento utilizando
+para ello una de las metaheurísticas de trayectoria más sencillas, la búsqueda local iterada.
 %
 Esta evaluación experimental considera las instancias dmu, las cuales son uno de los conjuntos de prueba más utilizados actualmente y que aun no ha
 sido resuelto por completo.
 %
-A partir de los análisis realizados se pudo concluir que de las tres áreas en las que se plantearon modificaciones, la que más impacto tiene para el
+A partir de los análisis realizados se pudo concluir que de las tres componentes en las que se plantearon modificaciones, la que más impacto tiene para el
 rendimiento es la representación de soluciones.
 %
-En concreto, un tipo de representación que se diseñó durante los 90s pero que no goza de popularidad actualmente,
-permitió mejorar de forma significativa la calidad de las soluciones encontradas en ejecuciones a corto plazo, 
-al ser integrada con definiciones de funciones de fitness y de vecindades adecuadas.
+Entre otras propuestas, se diseñó una nueva representación basada en algunas propiedades que se estudiaron en los 90s, y junto con definiciones
+de funciones de fitness y vecindades adecuadas, permitió mejorar de forma significativa la calidad de las soluciones encontradas en ejecuciones a corto plazo. 
 %
 Dado que esta representación difiere de las usadas en algoritmos mucho más complejos como búsqueda tabú, los resultados discutidos en esta tesis
 abren la puerta a nuevas investigaciones que utilicen este tipo de representación más elaborada, junto a metaheurísticas de
 trayectoria más complejas.
+%
+En esta tesis también se proponen nuevas funciones de fitness y definiciones de vecindad, mostrándose que, aunque permiten mejorar aún más las soluciones,
+el efecto es mucho más limitado.
+%
+Entre las contribuciones, cabe destacar que se dispone de un optimizador, en el que en ejecuciones de 5 minutos en entornos secuenciales, 
+la mediana del error relativos es menor al $0.21$ en todas las instancias tratadas, valor que es significativamente inferior en comparación de los casos 
+en que no se incorporan los cambios propuestos en esta tesis, que alcanzan errores relativos de $0.34$.
+
 
 \let\cleardoublepage\clearpage
 
