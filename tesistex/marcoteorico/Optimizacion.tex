@@ -46,9 +46,9 @@ Hasta ahora se han mencionado distintos tipos de problemas pero no se ha dicho n
 \section{Metaheurísticas}
 Es muy común que en nuestra cotidianidad nos enfrentemos a problemas tan difíciles o para los que tengamos tan poco tiempo de decisión que no podamos hacer un análisis riguroso, en estos casos es muy común que utilicemos algún método (posiblemente basado en la experiencia) que nos permita hallar una solución aceptable, por ejemplo, es común que reemplacemos el problema por uno más simple que sí podemos responder y cuya respuesta está relacionada con nuestro problema original (no podemos predecir con certeza si lloverá durante el día pero sí podemos responder si el cielo está plagado de nubes oscuras).
 
-En el contexto de la optimización una metaheurística es una metodología de alto nivel que combina diferentes heurísticas y puede aplicarse para resolver de manera aproximada una gran cantidad de problemas. En la práctica existen numerosas metaheurísticas que pueden ser muy diferentes entre sí por lo que no hay un sistema de clasificación universalmente aceptado aunque se han propuesto diferentes criterios de clasificación \cite{Stegherr2020} así como características como:
+En el contexto de la optimización una metaheurística es una metodología de alto nivel que combina diferentes heurísticas y puede aplicarse para resolver de manera aproximada una gran cantidad de problemas. En la práctica existen numerosas metaheurísticas que pueden ser muy diferentes entre sí por lo que no hay un sistema de clasificación universalmente aceptado aunque se han propuesto diferentes criterios de clasificación. Un criterio reciente que se basa en los previamente propuestos es el siguiente\cite{Stegherr2020}:
 \begin{itemize}
-\item De trayectoria vs discontinua. Una metaheurística de trayectoria consiste en, dada una solución inicial, mejorarla de manera iterativa mediante algún operador que <<mueve>> a la solución a través del espacio de búsqueda %extender.
+\item De trayectoria vs discontinua. Una metaheurística de trayectoria consiste en, dada una solución inicial, mejorarla de manera iterativa mediante algún operador que <<mueve>> a la solución a través del espacio de búsqueda de modo que sigue un camino o trayectoria en el espacio de búsqueda. En las discontinuas los movimientos no trazan una 
 \item Basadas en población vs basadas en una sola solución. En las metaheurísticas basadas en población se mantiene un conjunto de soluciones candidatas que a menudo se combinan entre sí en lugar de modificar una sola.
 \item Basadas en búsqueda local vs constructivas. Como se explicará más adelante, en la búsqueda local, el proceso de mejora implica la evaluación de soluciones muy parecidas a una solución inicial dada mientras que en las constructivas se crean nuevas soluciones de acuerdo a una heurística o algoritmo preestablecido.
 \item Con uso de memoria vs sin uso de memoria. El uso de memoria consiste en almacenar información que nos ayude a explorar el espacio de búsqueda, por ejemplo una lista de soluciones previamente visitadas.
@@ -85,8 +85,7 @@ Formalmente una representación es un mapa que asocia elementos entre el conjunt
     \caption{Tipos de representaciones}
 \end{figure}
 
-Lo más conveniente suele ser un mapeo $1$ a $1$ porque resulta mucho más eficiente y lo menos deseable es tener un mapeo $n$ a $1$ en el que es posible que la misma representación esté asociada a soluciones de calidad muy diferente. 
-
+Lo más conveniente suele ser un mapeo $1$ a $1$ porque resulta mucho más eficiente y lo menos deseable es tener un mapeo $1$ a $n$ en el que es posible que la misma representación esté asociada a soluciones de calidad muy diferente. 
 
 \subsection{Vecindad}
 La definición de vecindad es crucial para las metaheurísticas de trayectoria y las basadas en una sola solución.

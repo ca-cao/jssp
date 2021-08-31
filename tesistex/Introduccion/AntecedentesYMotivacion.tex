@@ -6,30 +6,31 @@ Al final del mismo se resumen las contribuciones de este trabajo.
 
 \section{Antecedentes y Motivación}
 Los problemas de planificación surgen de manera natural en sistemas de producción o procesamiento en los que la tarea general que se 
-quiere completar está compuesta por varios trabajos que pueden o deben repartirse entre distintos recursos, como máquinas o unidades de procesamiento. 
+quiere completar está compuesta por varios trabajos que a su vez están compuestos por operaciones que pueden o deben repartirse entre distintos recursos, como máquinas o unidades de procesamiento. 
 %
-A grandes rasgos, un problema de planificación consiste en asignar la forma en que se van a asignar un conjunto de recursos para completar una
-tarea.
+A grandes rasgos un problema de planificación consiste en asignar tiempos de procesamiento a las operaciones antes mencionadas. A esta asignación se le conoce como \textbf{planificación}.
 %
 Estos problemas pueden surgir de todo tipo de contextos, desde la producción de algo como una bicicleta hasta la forma en que los sistemas computacionales 
 procesan información o cómo se asignan las clases en una escuela. 
-
-En la mayor parte de estos contextos no solo se requiere hallar una planificación factible, es decir, que cumpla una serie de requisitos, sino que además se quiere 
+%
+En la mayor parte de estos contextos se tienen restricciones, por ejemplo que ciertas operaciones respeten algún orden de precedencia o que sean procesadas por algún recurso en específico. Se dice que una planificación es factible si cumple con las restricciones impuestas.
+%
+En la mayor parte de estos contextos no solo se requiere hallar una planificación factible sino que además se quiere 
 encontrar una que sea óptima en algún sentido.
 %
-Una de las funciones objetivo más habitualmente usada consiste en minimizar el tiempo requerido para completar la tarea; sin embargo, existen muchas otras funciones.
+Una de las funciones objetivo más habitualmente usada consiste en minimizar el tiempo requerido para completar la tarea; sin embargo, existen muchas otras.
 
 Desde los década de los 50 se comenzaron a desarrollar algoritmos para hallar planificaciones óptimas para problemas con dos y tres máquinas~\cite{johnson1954optimal}
-y el interés en ellos ha crecido en las décadas siguientes hasta la fecha, por su gran campo de aplicación.
+y, dado su gran campo de aplicaciones, el interés en ellos ha crecido en las décadas siguientes hasta la fecha.
 %
 Así, han surgido numerosas formulaciones de problemas de planificación, que incluyen diferentes restricciones y funciones objetivo.
  
-En este trabajo se trata un tipo específico de problema de planificación conocido como el \textbf{Problema de Planificación de Producción tipo Taller} o JSP por sus 
-siglas en inglés. 
+En este trabajo se trata un tipo específico de problema de planificación conocido como el \textbf{Problema de Planificación de Producción tipo Taller} o \textbf{JSP} por sus 
+siglas en inglés (Job Shop Schedulig Problem). 
 %
-En este problema la tarea global está constituida por un conjunto de $n$ trabajos, que se deben procesar en $m$ máquinas. 
+En este problema la tarea global está constituida por un conjunto de $n$ trabajos que se deben procesar en $m$ máquinas. 
 %
-Cada uno se esos trabajos están constituído por un conjunto de operaciones (habitualmente $m$), que se deben procesar en un orden determinado y cada uno de ellos
+Cada uno se esos trabajos están constituido por un conjunto de operaciones (habitualmente $m$), que se deben procesar en un orden determinado y cada una de ellas
 en una máquina en específico.
 %
 El propósito es encontrar una planificación (asignación de las operaciones a las máquinas), que respete el orden establecido y que minimice el tiempo en que finaliza
@@ -39,7 +40,7 @@ El JSP es un problema de optimización combinatoria que pertenece a la clase de 
 
 Anteriormente se han propuesto métodos exactos para resolver el JSP~\cite{Brucker1994}. 
 %
-Sin embargo, la cantidad de recursos computacionales que requieren conforme el tamaño del problema (número de máquinas y trabajos) aumenta los hace imprácticos excepto 
+Sin embargo, la cantidad de recursos computacionales que requieren conforme el tamaño del problema (número de máquinas y trabajos) aumenta los hace inviables excepto 
 para instancias pequeñas de aproximadamente 10 máquinas y 10 trabajos.
 %
 Dado el interés que se tiene en este problema y en que su tamaño puede ser suficientemente grande para no poder utilizar métodos exactos, se han propuesto métodos aproximados 
@@ -70,7 +71,7 @@ orden de dos operaciones.  En general estos métodos se distinguen entre sí por
 de quedarse estancados en óptimos locales. 
 
 \item \textbf{Metaheurísticas.} Estos métodos combinan elementos de los previamente mencionados junto con otras ideas para tratar de evitar óptimos locales. 
-Se distingue entre mtaheurísticas de trayectoria y metaheurísticas poblaciones, y son los métodos que han dado mejores resultados para las instancias de mayor
+Se distingue entre metaheurísticas de trayectoria y metaheurísticas poblaciones, y son los métodos que han dado mejores resultados para las instancias de mayor
 tamaño. 
 %
 Es muy común que se planteen metaheurísticas inspiradas en la naturaleza como los algoritmos genéticos basados en la evolución, o algoritmos basados en el 
@@ -87,7 +88,7 @@ En particular, la mataheurística de trayectoria búsqueda tabú es una de las m
 %
 Aunque se han obtenido buenos resultados con estos algoritmos, su mayor inconveniente el su alto requerimiento de recursos de cómputo.
 %
-En particular, los mejores resultados conocidos se han generado haciendo uso de ejecuciones de 24 a 48 horas en entornos paralelos, y los resutaldos a corto
+En particular, los mejores resultados conocidos se han generado haciendo uso de ejecuciones de 24 a 48 horas en entornos paralelos, y los resultados a corto
 plazo con estos métodos son de baja calidad.
 %
 La literatura reciente se ha centrado en hacer más eficiente la búsqueda tabú para reducir los tiempos de ejecución, y aunque tener optimizadores muy efectivos
@@ -101,7 +102,7 @@ El primero y más básico es cómo representar computacionalmente una solución 
 Actualmente lo más común es que una solución se represente con tantas permutaciones de operaciones como máquinas, y que dichas permutaciones establezcan
 el orden exacto en el que las operaciones se ejecutan en la máquina.
 %
-El segundo es la definición de la vecindad, que permite establecer cómo se generarn unas soluciones a partir de otras.
+El segundo es la definición de la vecindad, que permite establecer cómo se generan unas soluciones a partir de otras.
 %
 En este caso la más exitosa es conocida como N7 y fue propuesta en 2006~\cite{Zhang2007}. 
 %

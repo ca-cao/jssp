@@ -16,13 +16,13 @@ De manera intuitiva $f(n)=O(g(n))$ quiere decir que $cg(n)$ es una cota superior
     \caption{Representación de $f(n)= O(g(n))$}
     \label{fig:bigo}
 \end{figure}
-Se dice que un algoritmo es $O(g(n))$ si el número de operaciones que requiere para resolver un problema de tamaño $n$ es $O(g(n))$. Por ejemplo, el algoritmo para sumar dos números de $n$ toma $O(n)$ operaciones. 
+Se dice que un algoritmo es $O(g(n))$ si el número de operaciones que requiere para resolver un problema de tamaño $n$ es $O(g(n))$. Por ejemplo el algoritmo para sumar dos números de $n$ dígitos toma $O(n)$ operaciones. 
 
 \subsection*{Clases \textbf{P} y \textbf{NP}}
-La forma de la función $g$ es la base para clasificar los problemas de acuerdo a su complejidad dos de las clases más analizadas son definidas por el número de operaciones y se conocen como:
+La forma de la función $g$ es la base para clasificar los problemas de acuerdo a su complejidad. Dos de las clases más analizadas son definidas por el número de operaciones y se conocen como:
 \begin{itemize} 
-    \item \textbf{P} Los problemas para los que se conoce un algoritmo para resolverlos que toma a lo más $Kn^c$ operaciones con $K,c$ finitas. El nombre de esta clase hace referencia que pueden resolverse en tiempo polinomial es decir que toman $O(n^c)$ operaciones para alguna $c$ positiva y finita. 
-    \item \textbf{NP} Los problemas para los que se puede verificar que se encontró una solución en tiempo polinomial. \footnote{Una definición alternativa pero equivalente se basa en el concepto de máquinas de turing no deterministas.}
+    \item \textbf{P}    Los problemas para los que se conoce un algoritmo para resolverlos que toma a lo más $Kn^c$ operaciones con $K,c$ finitas. El nombre de esta clase hace referencia que pueden resolverse en tiempo polinomial es decir que toman $O(n^c)$ operaciones para alguna $c$ positiva y finita. 
+    \item \textbf{NP}   Los problemas para los que se puede verificar que se encontró una solución en tiempo polinomial. \footnote{Una definición alternativa pero equivalente se basa en el concepto de máquinas de turing no deterministas.}
 \end{itemize}
 
 Una subclase importante de la clase \textbf{NP} es la llamada \textbf{NP-completo} que incluye a los problemas para los cuales hallar un algoritmo de solución en tiempo polinomial implica hallar uno para todos los problemas en \textbf{NP}. De modo intuitivo es el conjunto de los problemas más difíciles en la clase.
