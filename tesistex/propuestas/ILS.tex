@@ -1,7 +1,32 @@
 \section{Búsqueda local iterada}
-Se propone utilizar la metaheurística de búsqueda local iterada por su simplicidad. Como se muestra en el algoritmo \ref{alg:ILS} la búsqueda local iterada requiere que definamos una manera de perturbar una solución dada así como definir un criterio de paro. La perturbación debe ser suficientemente grande como para permitirnos escapar de un óptimo local pero no tan grande como para eliminar toda la estructura que se tiene hasta el momento.
 
-Por estas razones y para evitar complicar más el algoritmo con la definición de operadores completamente nuevos que realicen cambios arbitrarios, la perturbación implementada consiste simplemente en reemplazar a la solución actual por un vecino suyo (de acuerdo con la definición de vecindad que se esté usando). Esta definición es conveniente porque presenta una manera de aceptar cambios que no mejoran la solución pero que a su vez pueden estar conectados a soluciones de mejor calidad que la mejor actual.
+Dado que uno de los objetivos de esta tesis es utilizar técnicas algorítmicas relativamente simples, y sólo introducir cierta complejidad
+a través de la modificación del paisaje de búsqueda, se decidió utilizar la búsqueda local iterada.
+%
+Como se mostró anteriormente en el algoritmo~\ref{alg:ILS}, la búsqueda local iterada requiere que definamos una manera de perturbar una 
+solución dada así como definir un criterio de paro. 
+%
+La perturbación debe ser suficientemente grande como para permitirnos escapar de un óptimo local pero no tan grande como para eliminar toda 
+la estructura que se tiene hasta el momento.
+%
+Con el fin de evitar complicar el algoritmo con la definición de operadores completamente nuevos que realicen cambios arbitrarios, la 
+perturbación implementada consiste simplemente en reemplazar a la solución actual por un vecino suyo (de acuerdo con la definición de vecindad 
+que se esté usando). 
+%
+Este vecino es aceptado, independientemente de su nivel de calidad.
+%
+Así, esta definición es conveniente porque presenta una manera de aceptar cambios que no mejoran la solución pero que a su vez pueden estar 
+conectados a soluciones de mejor calidad que la mejor actual.
+%
+Nótese que esta perturbación puede parecer muy pequeña, ya que habitualmente se incorporan perturbaciones bastante más disruptivas.
+%
+Sin embargo, esta tesis está enfocada en obtener soluciones de calidad relativamente alta en tiempo muy cortos.
+%
+Algunos estudios iniciales con operadores más disruptivos no ofrecieron ventajas sobre la propuesta de moverse simplemente a un vecino,
+por lo que por simplicidad y eficiencia se decidió mantener esta decisión de diseño.
 
- También es necesario establecer un criterio de paro, en este caso fue el tiempo, se tomaron 5 minutos lo cual representa una cantidad de tiempo muy pequeña comparada con la requerida por los métodos del estado del arte.
+Por otro lado también es necesario establecer un criterio de paro. 
+%
+Teniendo en cuenta los objetivos de esta tesis, se fijó el criterio de paro a 5 minutos, lo cual representa una cantidad de tiempo muy pequeña comparada 
+con la requerida por los métodos del estado del arte, que están del orden de varios días de ejecución.
 
