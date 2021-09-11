@@ -1,0 +1,23 @@
+\section{Conjuntos de instancias de prueba}
+A lo largo de los años se han propuesto múltiples instancias de prueba para medir el desempeño de los algoritmos para la resolución del JSP. Estos conjuntos de prueba han aumentado progresivamente en tamaño y dificultad. En la tabla \ref{tab:benchmark} se muestran en orden cronológico los conjuntos más usados. La mayor parte de ellos ya han sido resueltos. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccc@{}}
+\toprule
+Nombre & \begin{tabular}[c]{@{}c@{}}Rango de tamaños\\ (trabajos$\times$máquinas)\end{tabular} & Número de instancias & \begin{tabular}[c]{@{}c@{}}Instancias sin\\ solución óptima\end{tabular} \\ \midrule
+ft ~\cite{fisher1963} & $6\times 6$ - $20\times 5$     & 3  & 0  \\
+la ~\cite{lawrence1984resource} & $10\times 5$ - $15\times 15$   & 40 & 0  \\
+abz~\cite{adams1988shifting} & $10\times 10$ - $20\times 15$  & 5  & 1  \\
+orb~\cite{applegate1991computational} & $10\times 10$                & 10 & 0  \\
+swv~\cite{storer1992new} & $20\times 10$ - $50\times 10$  & 20 & 5  \\
+yn ~\cite{yamada1992genetic} & $20\times 20$                & 4  & 3  \\
+ta~\cite{taillard1993benchmarks}  & $15\times 15$ - $100\times 20$ & 80 & 21 \\ 
+dmu~\cite{demirkol1997computational} & $20\times 15$-$50\times 20$  & 80 & 54 \\ \midrule
+\end{tabular}
+    \caption{Conjuntos de instancias de prueba populares}
+    \label{tab:benchmark}
+\end{table}
+
+Actualmente el conjunto más popular es el llamado dmu\cite{demirkol1997computational} también conocido como \textbf{DMU01-80}. La segunda mitad de estas instancias \textbf{DMU40-80} son consideradas especialmente difíciles porque las operaciones iniciales de todos los trabajos tienen que ser procesadas en solo una fracción de las máquinas lo cual genera un cuello de botella al inicio de la planificación. Esta característica genera óptimos locales de muy baja calidad.
+

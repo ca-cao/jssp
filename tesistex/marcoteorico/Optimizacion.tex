@@ -109,17 +109,14 @@ Así, no podemos predecir con certeza si lloverá durante el día, pero sí pode
 En el contexto de la optimización, una metaheurística es una metodología de alto nivel que combina diferentes heurísticas y puede aplicarse para resolver 
 de manera aproximada una gran cantidad de problemas. 
 %
-En la práctica existen numerosas metaheurísticas que pueden ser muy diferentes entre sí por lo que no hay un sistema de clasificación universalmente aceptado, 
-aunque se han propuesto diferentes criterios de clasificación~\cite{Stegherr2020} con base en diferentes características:
+En la práctica existen numerosas metaheurísticas que pueden ser muy diferentes entre sí por lo que no hay un sistema de clasificación universalmente aceptado 
+aunque se han propuesto diferentes criterios de clasificación~\cite{sorensen2013,Stegherr2020} con base en diferentes características:
 
 \begin{itemize}
-\item De trayectoria vs discontinua. Una metaheurística de trayectoria consiste en, dada una solución inicial, mejorarla de manera iterativa mediante algún operador que <<mueve>> a la solución a través del espacio de búsqueda de modo que sigue un camino o trayectoria en el espacio de búsqueda. En las discontinuas los movimientos no trazan una 
-\item Basadas en población vs basadas en una sola solución. En las metaheurísticas basadas en población se mantiene un conjunto de soluciones candidatas que a menudo se combinan entre sí en lugar de modificar una sola.
-\item Basadas en búsqueda local vs constructivas. Como se explicará más adelante, en la búsqueda local, el proceso de mejora implica la evaluación de soluciones muy parecidas a una solución inicial dada mientras que en las constructivas se crean nuevas soluciones de acuerdo a una heurística o algoritmo preestablecido.
-\item Con uso de memoria vs sin uso de memoria. El uso de memoria consiste en almacenar información que nos ayude a explorar el espacio de búsqueda, por ejemplo una lista de soluciones previamente visitadas.
+    \item \textbf{Poblacionales vs de trayectoria}. En las metaheurísticas poblacionales se mantiene un conjunto de soluciones candidatas que se utilizan para generar nuevas soluciones a menudo utilizando nociones de la teoría de la evolución o bien de comportamientos colectivos que se dan en la naturaleza como el comportamiento de una colonia de abejas. Por otro lado las metaheurísticas de trayectoria mantienen una única solución que se va reemplazando conforme el algoritmo avanza de modo que la solución sigue una trayectoria en el espacio de búsqueda.
+    \item \textbf{Constructivas vs de mejora}. En las metaheurísticas constructivas se mantienen soluciones parciales a las que se añaden elementos hasta que se consigue una solución completa. En general suelen usar adaptaciones de algoritmos voraces para añadir estos elementos. Por otra parte en las metaheurísticas de mejora se mantienen soluciones completas que van mejorando a medida que avanza el tiempo ya sea haciendo cambios en ellas o bien reemplazándolas por nuevas soluciones mejores.
+    \item \textbf{Con uso de memoria vs sin uso de memoria}. El uso de memoria consiste en almacenar información que nos ayude a explorar el espacio de búsqueda, por ejemplo una lista de soluciones previamente visitadas o una serie de características que queramos evitar o bien que sean deseables. De este modo la memoria permite tener algo parecido a un aprendizaje o a un reconocimiento de patrones en el paisaje de búsqueda que puede servir de guía.
 \end{itemize} 
-Los primeros dos de estos criterios están muy relacionados porque casi todas las metaheurísticas discontinuas son poblacionales y muchas de trayectoria son basadas en una sola solución.
-
 
 Si bien las metaheurísticas son muy diversas, existen elementos comunes que tienen un papel determinante en el buen funcionamiento de las mismas. 
 %
@@ -152,22 +149,25 @@ Los conceptos de genoma, adaptabilidad y reproducción y mutación tienen como a
 En ocasiones, el problema de optimización en el que estemos interesados puede surgir directamente de un ámbito de las matemáticas;
 %
 sin embargo, si estamos interesados en un problema de nuestro entorno físico es necesario idear una forma de traducirlo a un lenguaje matemático, 
-incluidas la soluciones al mismo. 
+incluyendo la soluciones al mismo. 
 %
 Por ello, debemos encontrar una forma de representar de manera útil las soluciones posibles.
 %
-Por ejemplo si buscamos un ordenamiento óptimo para algún conjunto de $n$ cosas podemos asignarle a cada elemento del conjunto un número entero del $1$ al $n$, 
-en este modelo el espacio de soluciones está constituido por todas las permutaciones de los números del $1$ al $n$. 
+A continuación se considera un ejemplo sencillo donde las soluciones que buscamos son elementos de $\mathbb{R}^2$.
+\subsubsection*{Ejemplo}
+Supongamos que queremos colocar una lámpara en una habitación de manera que obtengamos la mejor iluminación. En este caso podemos elegir algún punto en la habitación como el origen y representar las soluciones a nuestro problema como puntos en un subconjunto de $\mathbb{R}^2$. Podemos representar estos puntos de varias maneras por ejemplo con sus coordenadas cartesianas o bien con sus coordenadas polares como en la figura \ref{fig:cartpol}.
 
-Hay varias maneras de representar permutaciones, podemos usar un arreglo de $n$ entradas o bien una matriz de permutación por mencionar algunos. 
-%
-Algo sumamente importante es que estas dos formas de representar las soluciones son muy distintas y se tiene que trabajar con ellas de manera muy diferente. 
-%
-Por ejemplo, es notorio que la primera de ellas puede llegar a representar \textit{soluciones no factibles}, por ejemplo, si aparece un número repetido, mientras que 
-la segunda no.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.5]{Imagenes/repr_example.pdf}
+    \caption{Representación en coordenadas cartesianas $(a,b)$ y polares $(r,\theta)$ para un punto  en $\mathbb{R}^2$}
+    \label{fig:cartpol}
+\end{figure}
+
+Aunque son equivalentes, estas dos representaciones tienen propiedades diferentes. Por ejemplo, la representación en coordenadas polares no necesariamente es única porque $(r,\theta)$ y  $(r,\theta+2\pi)$ representan el mismo punto. Cada una de estas representaciones puede presentar ventajas o desventajas de acuerdo con factores como la forma de la habitación, tal vez sea ventajoso usar la representación cartesiana si la habitación es cuadrada o usar la representación polar si la habitación es redonda.\\
 
 Con el ejemplo anterior también podemos ver que si queremos establecer algunos operadores que, por ejemplo, perturben la solución tendremos que definirlos de maneras 
-completamente distintas, en función de la representación que estemos considerando.
+distintas en función de la representación que estemos considerando para asegurarnos que la perturbación tiene el efecto que deseamos.
 %
 También es importante notar que es posible que el número de soluciones factibles e infactibles cambian en función de la representación, por lo que dependiendo de
 la misma, se puede facilitar o dificultar la búsqueda.
@@ -179,12 +179,13 @@ Este mapeo no tiene por que ser suryectivo, es decir, que puede ser que solo asi
 %
 También puede ser el caso como se mencionó anteriormente que haya representaciones que no correspondan a soluciones. 
 %
-En función del tipo de mapeo entre representaciones y soluciones se pueden distinguir las siguientes~\cite{Cheng1996}:
+En función del tipo de mapeo entre representaciones y soluciones se pueden distinguir las siguientes~\cite{Cheng1996}: 
 \begin{itemize}
     \item $1$ a $1$ A cada solución le corresponde una única representación.
     \item $1$ a $n$ La misma representación puede asociarse a varias soluciones.
     \item $n$ a $1$ Una solución puede tener diferentes representaciones.
 \end{itemize}
+Una representación pictórica de los tipo de mapeo se encuentra en la figura \ref{fig:reptypes}.
 
 Nótese que en una representación se pueden combinar las propiedades anteriores, así una solución podría estar representada por una única representación
 y otra por muchas.
@@ -195,11 +196,12 @@ Estas características también son importantes y afectan enormemente al rendimi
     \centering
     \includegraphics[scale=1]{Imagenes/representacion.pdf}
     \caption{Tipos de representaciones}
+    \label{fig:reptypes}
 \end{figure}
 
-En general, el mapeo $1$ a $1$ es el más utiilizado, sin embargo, todos estos tipos de mapeos han sido útiles.
+En general, el mapeo $1$ a $1$ es el más utilizado, sin embargo, todos estos tipos de mapeos han sido útiles.
 %
-En particular, si conseguimos un mapeo en el que las soluciones de más calidad, estén sobrerepresentadas, se pueden conseguir búsqueda más efectivas.
+En particular, si conseguimos un mapeo en el que las soluciones de más calidad, estén sobrerrepresentadas, se pueden conseguir búsqueda más efectivas.
 
 \subsection{Vecindad}
 La definición de vecindad es crucial para las metaheurísticas de trayectoria y las basadas en una sola solución.
@@ -269,14 +271,14 @@ El paisaje de búsqueda es el <<terreno>> a explorar y puede cambiar si cambiamo
 %
 Así, podría ser que alguna representación nos centre en un subconjunto de soluciones convenientes o que se proponga alguna estructura de vecindad 
 de modo que las mejores soluciones nunca están muy lejos del resto, o que la función de fitness nos ayude a atravesar cúmulos de soluciones que serían iguales si se usara
-directamente la función objetivo..
+directamente la función objetivo.
 
 La estructura del paisaje de búsqueda influye de manera determinante en el éxito o fracaso de las metaheurísticas. 
 %
 Dependiendo de la <<forma>> del paisaje se favorecerá el uso de ciertas metaheurísticas. 
 %
 La <<forma>> del paisaje hace referencia a cómo cambia el valor de fitness para soluciones conectadas entre sí y para modelarlo de forma adecuada se usan diferentes
-tipos de mediciones.
+tipos de mediciones. En la figura \ref{fig:landtypes} se muestran los diferentes tipos de paisajes de búsqueda.
 %
 Una medida ampliamente usada estima cómo cambia el valor de la función de fitness conforme nos acercamos a óptimos locales, mientras que otra se gran popularidad 
 estima qué tanto cambia el fitness entre soluciones vecinas\cite{skauffman}. 
@@ -310,9 +312,8 @@ El objetivo se centra en proponer modificaciones a los paisajes de búsqueda má
 \subsection*{Algunas metaheurísticas de relevancia}
 Las metaheurísticas sirven como una estrategia para explorar el paisaje de búsqueda. 
 %
-Una de las más sencillas e intuitivas es conocida como escalada estocástica y simplemente consiste en reemplazar la solución actual por algún vecino mejor 
-escogido al azar hasta que la solución en la que estemos sea mejor que todos sus vecinos, es decir, un óptimo local. 
-%
+Una de las más sencillas e intuitivas es conocida como descenso/escalada estocástica y simplemente consiste en reemplazar la solución actual por algún vecino mejor 
+escogido al azar .%
 Esta es una metaheurística de trayectoria y traza un camino entre las soluciones inicial y final.
 
 %
@@ -320,6 +321,7 @@ Esta es una metaheurística de trayectoria y traza un camino entre las solucione
  \KwData{Problema de Optimización}
     \KwResult{Óptimo local $x$}
  Generar solución inicial $x$\;
+ Generar lista de vecinos $L$ de $x$\;
  \While{$L$ no vacía}{
     Generar lista de vecinos $L$ de $x$\;
     Escoger al azar un vecino $y\in L$\;
@@ -332,19 +334,18 @@ Esta es una metaheurística de trayectoria y traza un camino entre las solucione
  }
     \Return{x}
     \label{alg:LS}
-    \caption{Algoritmo de escalada estocástica}
+    \caption{Algoritmo de descenso/escalada estocástica}
 \end{algorithm}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.7]{Imagenes/mettray.png}
-    \caption{Ilustración de una escalada estocástica. Las aristas rayadas representan la vecindad del óptimo local.}
+    \caption{Ilustración de un descenso estocástico. Las aristas rayadas representan la vecindad del óptimo local.}
 \end{figure}
 
 
-% introducir ejemplos de mh de trayectoria
 Otra metaheurística de trayectoria importante que se ha considerado en la mayor parte de métodos que han alcanzado las mejores soluciones conocidas para el JSP es
-la llamada búsqueda tabú. 
+la llamada búsqueda tabú \ref{alg:TS}. 
 %
 Esta metaheurística se basa en la búsqueda local pero puede aceptar vecinos que no mejoran la función de fitness con la intención de evitar atascarse en un óptimo 
 local de mala calidad. 
@@ -360,10 +361,10 @@ Es necesario definir el tamaño de la lista, el tipo de información que contend
  \KwResult{Mejor solución encontrada $x^*$}
  Generar solución inicial $x$\;
     Inicializar mejor solución como $x^*\leftarrow x$
- Inicializar la lista tabú $TL$ con $x$\; 
+ Inicializar la lista tabú $TL$ con información de $x$ \; 
  \While{no criterio de paro}{
-     Generar lista de vecinos aceptables $L$ de $x$ tal que $L\cap TL =\varnothing$\;
-    Escoger un vecino $y\in L$\;
+    Generar lista de vecinos $L$\;
+    Escoger un vecino $y\in L$ que no esté prohibido por $TL$ \;
       $x \leftarrow y$\;
       Actualizar $TL$\;
       \If{$x<x^*$}{
@@ -377,23 +378,23 @@ Es necesario definir el tamaño de la lista, el tipo de información que contend
 
 \smallskip
 Por último se presenta una metaheurística de trayectoria muy sencilla que intenta subsanar el problema de atascarse en óptimos locales de mala calidad de la búsqueda local,
-la búsqueda local iterada.
+la búsqueda local iterada \ref{alg:ILS}.
 %
 La idea de esta metaheurística es obtener un mínimo local a partir de una solución inicial mediante búsqueda local, y aplicarle una perturbación seguida de búsqueda local para
 evitar el óptimo local.
 %
 Este proceso se repite hasta que se cumpla algún criterio de paro. 
 %
-Esta estrategia es conceptualmente muy simple aunque se debe definir la perturbación que se hace a la solución y por lo general no es tan sencillo plantear una perturbación adecuada.\\
+Esta estrategia es conceptualmente muy simple aunque se debe definir la perturbación que se hace a la solución y por lo general no es tan sencillo plantear una perturbación adecuada. También debe definirse un criterio de aceptación para las soluciones, lo más común es que se pida que la nueva solución tenga un valor de fitness mejor que la anterior, como es el caso en este trabajo.\\
 
 \begin{algorithm}[H]
  \KwData{Problema de Optimización}
- \KwResult{Mejor solución encontrada $x^*$}
+ \KwResult{Última solución aceptada $x^*$}
  Generar solución inicial $x$\;
  Inicializar mejor solución como $x^*\leftarrow x$
  \While{no criterio de paro}{
      Obtener una solución $y$ a partir de $x$ mediante búsqueda local \ref{alg:LS}\;
-     \eIf{$y<x^*$}{
+     \eIf{$y$ es aceptada}{
      $x \leftarrow y$\;
      $x^* \leftarrow y$\;
     }{

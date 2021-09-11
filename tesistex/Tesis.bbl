@@ -1,5 +1,15 @@
 \begin{thebibliography}{10}
 
+\bibitem{adams1988shifting}
+{\sc Adams, J., Balas, E., and Zawack, D.}
+\newblock The shifting bottleneck procedure for job shop scheduling.
+\newblock {\em Management science 34}, 3 (1988), 391--401.
+
+\bibitem{applegate1991computational}
+{\sc Applegate, D., and Cook, W.}
+\newblock A computational study of the job-shop scheduling problem.
+\newblock {\em ORSA Journal on computing 3}, 2 (1991), 149--156.
+
 \bibitem{balas1969machine}
 {\sc Balas, E.}
 \newblock Machine sequencing via disjunctive graphs: an implicit enumeration
@@ -16,11 +26,6 @@
 {\sc Bean, J.~C.}
 \newblock Genetic algorithms and random keys for sequencing and optimization.
 \newblock {\em ORSA journal on computing 6}, 2 (1994), 154--160.
-
-\bibitem{beck1997constrainedness}
-{\sc Beck, J.~C., and Jackson, W.~K.}
-\newblock Constrainedness and the phase transition in job shop scheduling.
-\newblock {\em Technical Report, School of Computing Science\/} (1997).
 
 \bibitem{bierwirth2004landscape}
 {\sc Bierwirth, C., Mattfeld, D.~C., and Watson, J.-P.}
@@ -84,6 +89,12 @@
 \newblock {A Fast Taboo Search Algorithm for the Job Shop Problem}.
 \newblock {\em Manage. Sci. 42}, 6 (2003), 797--813.
 
+\bibitem{fisher1963}
+{\sc Fisher, H.}
+\newblock Probabilistic learning combinations of local job-shop scheduling
+  rules.
+\newblock {\em Industrial scheduling\/} (1963), 225--251.
+
 \bibitem{garey1976complexity}
 {\sc Garey, M.~R., Johnson, D.~S., and Sethi, R.}
 \newblock The complexity of flowshop and jobshop scheduling.
@@ -128,6 +139,12 @@
   Ant Colony Optimization Algorithm}.
 \newblock {\em Fuzzy Applications in Industrial Engineering 425}, 2006 (2007),
   401--425.
+
+\bibitem{lawrence1984resource}
+{\sc Lawrence, S.}
+\newblock Resource constrained project scheduling.
+\newblock {\em an experimental investigation of heuristic scheduling
+  techniques\/} (1984).
 
 \bibitem{mammen1997new}
 {\sc Mammen, D.~L., and Hogg, T.}
@@ -185,11 +202,29 @@
 \newblock Introduction to the theory of computation.
 \newblock {\em ACM Sigact News 27}, 1 (1996), 27--29.
 
+\bibitem{sorensen2013}
+{\sc S{\"o}rensen, K., and Glover, F.}
+\newblock Metaheuristics.
+\newblock {\em Encyclopedia of operations research and management science 62\/}
+  (2013), 960--970.
+
+\bibitem{sprecher1995semi}
+{\sc Sprecher, A., Kolisch, R., and Drexl, A.}
+\newblock Semi-active, active, and non-delay schedules for the
+  resource-constrained project scheduling problem.
+\newblock {\em European Journal of Operational Research 80}, 1 (1995), 94--102.
+
 \bibitem{Stegherr2020}
 {\sc Stegherr, H., Heider, M., and H{\"{a}}hner, J.}
 \newblock {Classifying Metaheuristics: Towards a unified multi-level
   classification system}.
 \newblock {\em Natural Computing 0\/} (2020).
+
+\bibitem{storer1992new}
+{\sc Storer, R.~H., Wu, S.~D., and Vaccari, R.}
+\newblock New search spaces for sequencing problems with application to job
+  shop scheduling.
+\newblock {\em Management science 38}, 10 (1992), 1495--1509.
 
 \bibitem{Streeter2006}
 {\sc Streeter, M.~J., and Smith, S.~F.}
@@ -197,6 +232,12 @@
   the ratio of jobs to machines}.
 \newblock {\em Journal of Artificial Intelligence Research 26\/} (2006),
   247--287.
+
+\bibitem{taillard1993benchmarks}
+{\sc Taillard, E.}
+\newblock Benchmarks for basic scheduling problems.
+\newblock {\em european journal of operational research 64}, 2 (1993),
+  278--285.
 
 \bibitem{uckun1993managing}
 {\sc Uckun, S., Bagchi, S., Kawamura, K., and Miyabe, Y.}
@@ -217,6 +258,11 @@
 {\sc Wright, S., et~al.}
 \newblock The roles of mutation, inbreeding, crossbreeding, and selection in
   evolution.
+
+\bibitem{yamada1992genetic}
+{\sc Yamada, T., and Nakano, R.}
+\newblock A genetic algorithm applicable to large-scale job-shop problems.
+\newblock In {\em PPSN\/} (1992), vol.~2, pp.~281--290.
 
 \bibitem{Zhang2007}
 {\sc Zhang, C.~Y., Li, P.~G., Guan, Z.~L., and Rao, Y.~Q.}

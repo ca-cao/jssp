@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.8.12)  31 AUG 2021 12:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.8.12)  11 SEP 2021 01:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -917,293 +917,260 @@ Cap\'{\i }tulo 2.
 
 \openout3 = `Tesis.mtc'.
 
-(./Tesis.mtc2) (./marcoteorico/Optimizacion.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-[6
+(./Tesis.mtc2) (./marcoteorico/Optimizacion.tex [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 13--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 26
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
+ [7]
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 88
 .
+
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Info: Redefining \. on input line 27.
-LaTeX Info: Redefining \% on input line 27.
- [7]
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
-(./marcoteorico/complejidad.tex
-LaTeX Info: Redefining \. on input line 3.
-LaTeX Info: Redefining \% on input line 3.
- [8]
-<Imagenes/bigo.png, id=332, 353.32pt x 250.9375pt>
+) (./marcoteorico/complejidad.tex
+LaTeX Info: Redefining \. on input line 7.
+LaTeX Info: Redefining \% on input line 7.
+[8]
+<Imagenes/bigo.png, id=333, 353.32pt x 250.9375pt>
 File: Imagenes/bigo.png Graphic file (type png)
 <use Imagenes/bigo.png>
-Package pdftex.def Info: Imagenes/bigo.png  used on input line 15.
+Package pdftex.def Info: Imagenes/bigo.png  used on input line 35.
 (pdftex.def)             Requested size: 282.65639pt x 200.75026pt.
-LaTeX Info: Redefining \. on input line 21.
-LaTeX Info: Redefining \% on input line 21.
- [9 <./Imagenes/bigo.png>])
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
- [10]
-LaTeX Info: Redefining \. on input line 63.
-LaTeX Info: Redefining \% on input line 63.
- [11]
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
-
- []
-
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
-[12]
-<Imagenes/representacion.pdf, id=371, 241.40086pt x 252.80447pt>
-File: Imagenes/representacion.pdf Graphic file (type pdf)
-<use Imagenes/representacion.pdf>
-Package pdftex.def Info: Imagenes/representacion.pdf  used on input line 84.
-(pdftex.def)             Requested size: 241.40025pt x 252.80383pt.
-LaTeX Info: Redefining \. on input line 98.
-LaTeX Info: Redefining \% on input line 98.
- [13 <./Imagenes/representacion.pdf>]
-<Imagenes/search1.png, id=404, 574.145pt x 560.0925pt>
-File: Imagenes/search1.png Graphic file (type png)
-<use Imagenes/search1.png>
-Package pdftex.def Info: Imagenes/search1.png  used on input line 111.
-(pdftex.def)             Requested size: 287.0718pt x 280.04556pt.
-
-Overfull \hbox (86.88126pt too wide) in paragraph at lines 111--112
-[][] 
- []
-
-<Imagenes/search2.png, id=405, 574.145pt x 560.0925pt>
-File: Imagenes/search2.png Graphic file (type png)
-<use Imagenes/search2.png>
-Package pdftex.def Info: Imagenes/search2.png  used on input line 115.
-(pdftex.def)             Requested size: 287.0718pt x 280.04556pt.
-
-Overfull \hbox (36.8298pt too wide) in paragraph at lines 115--116
-[][] 
- []
-
-<Imagenes/search3.png, id=406, 574.145pt x 560.0925pt>
-File: Imagenes/search3.png Graphic file (type png)
-<use Imagenes/search3.png>
-Package pdftex.def Info: Imagenes/search3.png  used on input line 120.
-(pdftex.def)             Requested size: 287.0718pt x 280.04556pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--123
-[]$[]$ $[]$
- []
-
-<Imagenes/rugged.png, id=408, 736.7525pt x 736.7525pt>
-File: Imagenes/rugged.png Graphic file (type png)
-<use Imagenes/rugged.png>
-Package pdftex.def Info: Imagenes/rugged.png  used on input line 135.
-(pdftex.def)             Requested size: 294.69577pt x 294.69577pt.
-
-Overfull \hbox (69.4795pt too wide) in paragraph at lines 135--136
-[][] 
- []
-
-<Imagenes/ruggedvalley.png, id=409, 736.7525pt x 736.7525pt>
-File: Imagenes/ruggedvalley.png Graphic file (type png)
-<use Imagenes/ruggedvalley.png>
-Package pdftex.def Info: Imagenes/ruggedvalley.png  used on input line 139.
-(pdftex.def)             Requested size: 294.69577pt x 294.69577pt.
-
-Overfull \hbox (44.45378pt too wide) in paragraph at lines 139--140
-[][] 
- []
-
-<Imagenes/smoothvalley.png, id=410, 736.7525pt x 736.7525pt>
-File: Imagenes/smoothvalley.png Graphic file (type png)
-<use Imagenes/smoothvalley.png>
-Package pdftex.def Info: Imagenes/smoothvalley.png  used on input line 144.
-(pdftex.def)             Requested size: 294.69577pt x 294.69577pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 134--147
-[]$[]$ $[]$
- []
-
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
-[14]
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [15 <./Imagenes/search1.png> <./Imagenes/search2.png> <./Imagenes/search3.png>
-]
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
-
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 153.
-LaTeX Info: Redefining \% on input line 153.
- [16 <./Imagenes/rugged.png> <./Imagenes/ruggedvalley.png> <./Imagenes/smoothva
-lley.png>]
-<Imagenes/mettray.png, id=432, 462.528pt x 346.896pt>
-File: Imagenes/mettray.png Graphic file (type png)
-<use Imagenes/mettray.png>
-Package pdftex.def Info: Imagenes/mettray.png  used on input line 176.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+LaTeX Info: Redefining \. on input line 39.
+LaTeX Info: Redefining \% on input line 39.
+ [9]
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+[10 <./Imagenes/bigo.png>])
+LaTeX Info: Redefining \. on input line 116.
+LaTeX Info: Redefining \% on input line 116.
+ [11]
+LaTeX Info: Redefining \. on input line 140.
+LaTeX Info: Redefining \% on input line 140.
+ [12]
+<Imagenes/repr_example.pdf, id=375, 111.05891pt x 109.53522pt>
+File: Imagenes/repr_example.pdf Graphic file (type pdf)
+<use Imagenes/repr_example.pdf>
+Package pdftex.def Info: Imagenes/repr_example.pdf  used on input line 162.
+(pdftex.def)             Requested size: 166.58794pt x 164.30238pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
-LaTeX Info: Redefining \. on input line 183.
-LaTeX Info: Redefining \% on input line 183.
-[17 <./Imagenes/mettray.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
+LaTeX Info: Redefining \. on input line 168.
+LaTeX Info: Redefining \% on input line 168.
+[13 <./Imagenes/repr_example.pdf>]
+<Imagenes/representacion.pdf, id=395, 241.40086pt x 252.80447pt>
+File: Imagenes/representacion.pdf Graphic file (type pdf)
+<use Imagenes/representacion.pdf>
+Package pdftex.def Info: Imagenes/representacion.pdf  used on input line 197.
+(pdftex.def)             Requested size: 241.40025pt x 252.80383pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
+ [14]
+LaTeX Info: Redefining \. on input line 233.
+LaTeX Info: Redefining \% on input line 233.
+
+[15 <./Imagenes/representacion.pdf>]
+<Imagenes/search1.png, id=431, 574.145pt x 560.0925pt>
+File: Imagenes/search1.png Graphic file (type png)
+<use Imagenes/search1.png>
+Package pdftex.def Info: Imagenes/search1.png  used on input line 253.
+(pdftex.def)             Requested size: 287.0718pt x 280.04556pt.
+
+Overfull \hbox (86.88126pt too wide) in paragraph at lines 253--254
+[][] 
+ []
+
+<Imagenes/search2.png, id=432, 574.145pt x 560.0925pt>
+File: Imagenes/search2.png Graphic file (type png)
+<use Imagenes/search2.png>
+Package pdftex.def Info: Imagenes/search2.png  used on input line 257.
+(pdftex.def)             Requested size: 287.0718pt x 280.04556pt.
+
+Overfull \hbox (36.8298pt too wide) in paragraph at lines 257--258
+[][] 
+ []
+
+<Imagenes/search3.png, id=433, 574.145pt x 560.0925pt>
+File: Imagenes/search3.png Graphic file (type png)
+<use Imagenes/search3.png>
+Package pdftex.def Info: Imagenes/search3.png  used on input line 262.
+(pdftex.def)             Requested size: 287.0718pt x 280.04556pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--265
+[]$[]$ $[]$
+ []
+
+<Imagenes/rugged.png, id=436, 736.7525pt x 736.7525pt>
+File: Imagenes/rugged.png Graphic file (type png)
+<use Imagenes/rugged.png>
+Package pdftex.def Info: Imagenes/rugged.png  used on input line 296.
+(pdftex.def)             Requested size: 294.69577pt x 294.69577pt.
+
+Overfull \hbox (69.4795pt too wide) in paragraph at lines 296--297
+[][] 
+ []
+
+<Imagenes/ruggedvalley.png, id=437, 736.7525pt x 736.7525pt>
+File: Imagenes/ruggedvalley.png Graphic file (type png)
+<use Imagenes/ruggedvalley.png>
+Package pdftex.def Info: Imagenes/ruggedvalley.png  used on input line 300.
+(pdftex.def)             Requested size: 294.69577pt x 294.69577pt.
+
+Overfull \hbox (44.45378pt too wide) in paragraph at lines 300--301
+[][] 
+ []
+
+<Imagenes/smoothvalley.png, id=438, 736.7525pt x 736.7525pt>
+File: Imagenes/smoothvalley.png Graphic file (type png)
+<use Imagenes/smoothvalley.png>
+Package pdftex.def Info: Imagenes/smoothvalley.png  used on input line 305.
+(pdftex.def)             Requested size: 294.69577pt x 294.69577pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--308
+[]$[]$ $[]$
+ []
+
+LaTeX Info: Redefining \. on input line 310.
+LaTeX Info: Redefining \% on input line 310.
+[16]
+LaTeX Info: Redefining \. on input line 310.
+LaTeX Info: Redefining \% on input line 310.
+ [17 <./Imagenes/search1.png> <./Imagenes/search2.png> <./Imagenes/search3.png>
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 311.
+LaTeX Info: Redefining \% on input line 311.
+ [18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 318.
+LaTeX Info: Redefining \% on input line 318.
+ [19 <./Imagenes/rugged.png> <./Imagenes/ruggedvalley.png> <./Imagenes/smoothva
+lley.png>]
+<Imagenes/mettray.png, id=465, 462.528pt x 346.896pt>
+File: Imagenes/mettray.png Graphic file (type png)
+<use Imagenes/mettray.png>
+Package pdftex.def Info: Imagenes/mettray.png  used on input line 342.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
+LaTeX Info: Redefining \. on input line 358.
+LaTeX Info: Redefining \% on input line 358.
+
+[20 <./Imagenes/mettray.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 380--389
 
  []
 
 ) (./marcoteorico/Definiciones.tex
-LaTeX Info: Redefining \. on input line 4.
-LaTeX Info: Redefining \% on input line 4.
- [18]
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- []
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [21]
+LaTeX Info: Redefining \. on input line 29.
+LaTeX Info: Redefining \% on input line 29.
 
+[22]
+<Imagenes/solspace.pdf, id=496, 455.64427pt x 341.83308pt>
+File: Imagenes/solspace.pdf Graphic file (type pdf)
+<use Imagenes/solspace.pdf>
+Package pdftex.def Info: Imagenes/solspace.pdf  used on input line 43.
+(pdftex.def)             Requested size: 364.51591pt x 273.46681pt.
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
+ [23 <./Imagenes/solspace.pdf>]
+<Imagenes/planejemplorc.png, id=512, 462.528pt x 346.896pt>
+File: Imagenes/planejemplorc.png Graphic file (type png)
+<use Imagenes/planejemplorc.png>
+Package pdftex.def Info: Imagenes/planejemplorc.png  used on input line 92.
+(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
+Underfull \vbox (badness 2856) has occurred while \output is active []
 
- []
+LaTeX Info: Redefining \. on input line 96.
+LaTeX Info: Redefining \% on input line 96.
+ [24]
+LaTeX Info: Redefining \. on input line 120.
+LaTeX Info: Redefining \% on input line 120.
 
+[25 <./Imagenes/planejemplorc.png>]
+<Imagenes/disyuntive.pdf, id=533, 382.90753pt x 191.66003pt>
+File: Imagenes/disyuntive.pdf Graphic file (type pdf)
+<use Imagenes/disyuntive.pdf>
+Package pdftex.def Info: Imagenes/disyuntive.pdf  used on input line 141.
+(pdftex.def)             Requested size: 320.3122pt x 160.32654pt.
+<Imagenes/plandisyuntive.pdf, id=534, 354.91093pt x 200.71486pt>
+File: Imagenes/plandisyuntive.pdf Graphic file (type pdf)
+<use Imagenes/plandisyuntive.pdf>
+Package pdftex.def Info: Imagenes/plandisyuntive.pdf  used on input line 146.
+(pdftex.def)             Requested size: 320.3122pt x 181.14702pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
- [19]
-<Imagenes/planejemplorc.png, id=458, 462.528pt x 346.896pt>
-File: Imagenes/planejemplorc.png Graphic file (type png)
-<use Imagenes/planejemplorc.png>
-Package pdftex.def Info: Imagenes/planejemplorc.png  used on input line 33.
-(pdftex.def)             Requested size: 323.76738pt x 242.82553pt.
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
+LaTeX Info: Redefining \. on input line 152.
+LaTeX Info: Redefining \% on input line 152.
+ [26])
+(./marcoteorico/union.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[20 <./Imagenes/planejemplorc.png>]
-<Imagenes/disyuntive.pdf, id=470, 382.90753pt x 191.66003pt>
-File: Imagenes/disyuntive.pdf Graphic file (type pdf)
-<use Imagenes/disyuntive.pdf>
-Package pdftex.def Info: Imagenes/disyuntive.pdf  used on input line 58.
-(pdftex.def)             Requested size: 320.3122pt x 160.32654pt.
-<Imagenes/plandisyuntive.pdf, id=471, 354.91093pt x 200.71486pt>
-File: Imagenes/plandisyuntive.pdf Graphic file (type pdf)
-<use Imagenes/plandisyuntive.pdf>
-Package pdftex.def Info: Imagenes/plandisyuntive.pdf  used on input line 63.
-(pdftex.def)             Requested size: 320.3122pt x 181.14702pt.
-LaTeX Info: Redefining \. on input line 78.
-LaTeX Info: Redefining \% on input line 78.
- [21]
-LaTeX Info: Redefining \. on input line 78.
-LaTeX Info: Redefining \% on input line 78.
- [22 <./Imagenes/disyuntive.pdf> <./Imagenes/plandisyuntive.pdf>]
-<Imagenes/solspace.pdf, id=516, 427.19098pt x 284.92749pt>
-File: Imagenes/solspace.pdf Graphic file (type pdf)
-<use Imagenes/solspace.pdf>
-Package pdftex.def Info: Imagenes/solspace.pdf  used on input line 83.
-(pdftex.def)             Requested size: 341.75323pt x 227.94229pt.
-) (./marcoteorico/union.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-LaTeX Info: Redefining \. on input line 10.
-LaTeX Info: Redefining \% on input line 10.
-[23 <./Imagenes/solspace.pdf>]
-<Imagenes/N1.pdf, id=541, 525.62675pt x 184.19414pt>
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+ [27 <./Imagenes/disyuntive.pdf> <./Imagenes/plandisyuntive.pdf>]
+<Imagenes/N1.pdf, id=584, 525.62675pt x 184.19414pt>
 File: Imagenes/N1.pdf Graphic file (type pdf)
 <use Imagenes/N1.pdf>
-Package pdftex.def Info: Imagenes/N1.pdf  used on input line 15.
+Package pdftex.def Info: Imagenes/N1.pdf  used on input line 34.
 (pdftex.def)             Requested size: 367.93622pt x 128.93501pt.
-<Imagenes/N4.pdf, id=543, 598.28622pt x 184.19414pt>
+<Imagenes/N4.pdf, id=586, 598.28622pt x 184.19414pt>
 File: Imagenes/N4.pdf Graphic file (type pdf)
 <use Imagenes/N4.pdf>
-Package pdftex.def Info: Imagenes/N4.pdf  used on input line 22.
+Package pdftex.def Info: Imagenes/N4.pdf  used on input line 45.
 (pdftex.def)             Requested size: 418.7975pt x 128.93501pt.
-<Imagenes/N5.pdf, id=545, 525.62675pt x 184.19414pt>
+LaTeX Info: Redefining \. on input line 47.
+LaTeX Info: Redefining \% on input line 47.
+ [28 <./Imagenes/N1.pdf>]
+<Imagenes/N5.pdf, id=600, 525.62675pt x 184.19414pt>
 File: Imagenes/N5.pdf Graphic file (type pdf)
 <use Imagenes/N5.pdf>
-Package pdftex.def Info: Imagenes/N5.pdf  used on input line 30.
+Package pdftex.def Info: Imagenes/N5.pdf  used on input line 56.
 (pdftex.def)             Requested size: 367.93622pt x 128.93501pt.
-LaTeX Info: Redefining \. on input line 33.
-LaTeX Info: Redefining \% on input line 33.
- [24 <./Imagenes/N1.pdf> <./Imagenes/N4.pdf>]
-<Imagenes/N6.pdf, id=560, 533.12878pt x 184.19414pt>
+<Imagenes/N6.pdf, id=602, 533.12878pt x 184.19414pt>
 File: Imagenes/N6.pdf Graphic file (type pdf)
 <use Imagenes/N6.pdf>
-Package pdftex.def Info: Imagenes/N6.pdf  used on input line 37.
+Package pdftex.def Info: Imagenes/N6.pdf  used on input line 66.
 (pdftex.def)             Requested size: 373.18759pt x 128.93501pt.
-<Imagenes/N7.pdf, id=562, 540.63081pt x 184.19414pt>
+
+Underfull \vbox (badness 5696) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 69.
+LaTeX Info: Redefining \% on input line 69.
+ [29 <./Imagenes/N4.pdf> <./Imagenes/N5.pdf>]
+<Imagenes/N7.pdf, id=615, 540.63081pt x 184.19414pt>
 File: Imagenes/N7.pdf Graphic file (type pdf)
 <use Imagenes/N7.pdf>
-Package pdftex.def Info: Imagenes/N7.pdf  used on input line 45.
+Package pdftex.def Info: Imagenes/N7.pdf  used on input line 75.
 (pdftex.def)             Requested size: 378.43898pt x 128.93501pt.
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
+ [30 <./Imagenes/N6.pdf> <./Imagenes/N7.pdf>]
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
-
- []
-
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
-[25 <./Imagenes/N5.pdf> <./Imagenes/N6.pdf> <./Imagenes/N7.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
-
- []
-
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
-
- []
-
-LaTeX Info: Redefining \. on input line 85.
-LaTeX Info: Redefining \% on input line 85.
-[27])
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
- [28]
+[31]) (./marcoteorico/instancias.tex)
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
+ [32]
 Cap\'{\i }tulo 3.
 (./propuestas/intro.tex) (./propuestas/ILS.tex)
 (./propuestas/representacion.tex
@@ -1211,7 +1178,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
 
-[29
+[33
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 6--8
@@ -1228,7 +1195,7 @@ Underfull \vbox (badness 2990) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 40.
 LaTeX Info: Redefining \% on input line 40.
- [30]
+ [34]
 Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
@@ -1243,11 +1210,11 @@ LaTeX Info: Redefining \% on input line 64.
 
 Overfull \hbox (0.87914pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 3.2.  REPRESENTACI[]ON DE SOLUCIONES ACTIVAS BASADA EN LLAVES 
-ALEATORIAS \OT1/cmr/m/n/12 31
+ALEATORIAS \OT1/cmr/m/n/12 35
  []
 
-[31]
-<Imagenes/ganttnonactivepr.png, id=642, 462.528pt x 346.896pt>
+[35]
+<Imagenes/ganttnonactivepr.png, id=704, 462.528pt x 346.896pt>
 File: Imagenes/ganttnonactivepr.png Graphic file (type png)
 <use Imagenes/ganttnonactivepr.png>
 Package pdftex.def Info: Imagenes/ganttnonactivepr.png  used on input line 90.
@@ -1257,8 +1224,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 94.
 LaTeX Info: Redefining \% on input line 94.
- [32]
-<Imagenes/ganttactivepr.png, id=651, 462.528pt x 346.896pt>
+ [36]
+<Imagenes/ganttactivepr.png, id=714, 462.528pt x 346.896pt>
 File: Imagenes/ganttactivepr.png Graphic file (type png)
 <use Imagenes/ganttactivepr.png>
 Package pdftex.def Info: Imagenes/ganttactivepr.png  used on input line 97.
@@ -1270,19 +1237,19 @@ LaTeX Info: Redefining \% on input line 1.
 
 Overfull \hbox (0.87914pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 3.2.  REPRESENTACI[]ON DE SOLUCIONES ACTIVAS BASADA EN LLAVES 
-ALEATORIAS \OT1/cmr/m/n/12 33
+ALEATORIAS \OT1/cmr/m/n/12 37
  []
 
-[33 <./Imagenes/ganttnonactivepr.png> <./Imagenes/ganttactivepr.png>]
-<Imagenes/vec2.pdf, id=662, 150.44707pt x 134.9863pt>
+[37 <./Imagenes/ganttnonactivepr.png> <./Imagenes/ganttactivepr.png>]
+<Imagenes/vec2.pdf, id=725, 150.44707pt x 134.9863pt>
 File: Imagenes/vec2.pdf Graphic file (type pdf)
 <use Imagenes/vec2.pdf>
 Package pdftex.def Info: Imagenes/vec2.pdf  used on input line 7.
 (pdftex.def)             Requested size: 195.58115pt x 175.48215pt.
 LaTeX Info: Redefining \. on input line 21.
 LaTeX Info: Redefining \% on input line 21.
- [34 <./Imagenes/vec2.pdf>]
-<Imagenes/N8.pdf, id=695, 532.22134pt x 186.11934pt>
+ [38 <./Imagenes/vec2.pdf>]
+<Imagenes/N8.pdf, id=757, 532.22134pt x 186.11934pt>
 File: Imagenes/N8.pdf Graphic file (type pdf)
 <use Imagenes/N8.pdf>
 Package pdftex.def Info: Imagenes/N8.pdf  used on input line 29.
@@ -1294,159 +1261,164 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
-[35 <./Imagenes/N8.pdf>])
-LaTeX Info: Redefining \. on input line 81.
-LaTeX Info: Redefining \% on input line 81.
- [36]
+[39 <./Imagenes/N8.pdf>])
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
+ [40]
 Cap\'{\i }tulo 4.
-(./validacion/intro.tex) (./validacion/instancias.tex)
-(./validacion/resultados.tex [37
+(./validacion/intro.tex) (./validacion/resultados.tex
+Underfull \vbox (badness 1132) has occurred while \output is active []
+
+ [41
 
 ]
-<Imagenes/resn7ils1.png, id=727, 798.5835pt x 419.166pt>
+<Imagenes/resn7ils1.png, id=790, 798.5835pt x 419.166pt>
 File: Imagenes/resn7ils1.png Graphic file (type png)
 <use Imagenes/resn7ils1.png>
-Package pdftex.def Info: Imagenes/resn7ils1.png  used on input line 17.
+Package pdftex.def Info: Imagenes/resn7ils1.png  used on input line 23.
 (pdftex.def)             Requested size: 519.07314pt x 272.45467pt.
 
-Overfull \hbox (18.58914pt too wide) in paragraph at lines 17--18
+Overfull \hbox (18.58914pt too wide) in paragraph at lines 23--24
  [][] 
  []
 
-<Imagenes/resn7ils2.png, id=728, 798.5835pt x 419.166pt>
+<Imagenes/resn7ils2.png, id=791, 798.5835pt x 419.166pt>
 File: Imagenes/resn7ils2.png Graphic file (type png)
 <use Imagenes/resn7ils2.png>
-Package pdftex.def Info: Imagenes/resn7ils2.png  used on input line 24.
+Package pdftex.def Info: Imagenes/resn7ils2.png  used on input line 30.
 (pdftex.def)             Requested size: 519.07314pt x 272.45467pt.
 
-Overfull \hbox (18.58914pt too wide) in paragraph at lines 24--25
+Overfull \hbox (18.58914pt too wide) in paragraph at lines 30--31
  [][] 
  []
 
-LaTeX Info: Redefining \. on input line 29.
-LaTeX Info: Redefining \% on input line 29.
-[38 <./Imagenes/resn7ils1.png>]
-<Imagenes/fitnesscomp.png, id=743, 436.5108pt x 418.4433pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 35.
+LaTeX Info: Redefining \% on input line 35.
+ [42 <./Imagenes/resn7ils1.png>]
+<Imagenes/fitnesscomp.png, id=802, 436.5108pt x 418.4433pt>
 File: Imagenes/fitnesscomp.png Graphic file (type png)
 <use Imagenes/fitnesscomp.png>
-Package pdftex.def Info: Imagenes/fitnesscomp.png  used on input line 40.
+Package pdftex.def Info: Imagenes/fitnesscomp.png  used on input line 46.
 (pdftex.def)             Requested size: 349.2091pt x 334.7551pt.
 
 Underfull \vbox (badness 1642) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 43.
-LaTeX Info: Redefining \% on input line 43.
- [39 <./Imagenes/resn7ils2.png>]
-<Imagenes/n8vsn7.png, id=751, 443.7378pt x 415.5525pt>
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
+ [43 <./Imagenes/resn7ils2.png>]
+<Imagenes/n8vsn7.png, id=810, 443.7378pt x 415.5525pt>
 File: Imagenes/n8vsn7.png Graphic file (type png)
 <use Imagenes/n8vsn7.png>
-Package pdftex.def Info: Imagenes/n8vsn7.png  used on input line 51.
+Package pdftex.def Info: Imagenes/n8vsn7.png  used on input line 57.
 (pdftex.def)             Requested size: 310.61433pt x 290.88477pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 54.
-LaTeX Info: Redefining \% on input line 54.
- [40 <./Imagenes/fitnesscomp.png>]
-<Imagenes/n8vsn7err1.png, id=760, 798.5835pt x 419.8887pt>
+LaTeX Info: Redefining \. on input line 60.
+LaTeX Info: Redefining \% on input line 60.
+ [44 <./Imagenes/fitnesscomp.png>]
+<Imagenes/n8vsn7err1.png, id=819, 798.5835pt x 419.8887pt>
 File: Imagenes/n8vsn7err1.png Graphic file (type png)
 <use Imagenes/n8vsn7err1.png>
-Package pdftex.def Info: Imagenes/n8vsn7err1.png  used on input line 61.
+Package pdftex.def Info: Imagenes/n8vsn7err1.png  used on input line 67.
 (pdftex.def)             Requested size: 479.15381pt x 251.93517pt.
-<Imagenes/n8vsn7err2.png, id=761, 798.5835pt x 419.166pt>
+<Imagenes/n8vsn7err2.png, id=820, 798.5835pt x 419.166pt>
 File: Imagenes/n8vsn7err2.png Graphic file (type png)
 <use Imagenes/n8vsn7err2.png>
-Package pdftex.def Info: Imagenes/n8vsn7err2.png  used on input line 69.
+Package pdftex.def Info: Imagenes/n8vsn7err2.png  used on input line 75.
 (pdftex.def)             Requested size: 479.15381pt x 251.50154pt.
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
- [41 <./Imagenes/n8vsn7.png> <./Imagenes/n8vsn7err1.png>]
-<Imagenes/prn7n8comp.png, id=771, 443.0151pt x 411.2163pt>
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+ [45 <./Imagenes/n8vsn7.png> <./Imagenes/n8vsn7err1.png>]
+<Imagenes/prn7n8comp.png, id=830, 443.0151pt x 411.2163pt>
 File: Imagenes/prn7n8comp.png Graphic file (type png)
 <use Imagenes/prn7n8comp.png>
-Package pdftex.def Info: Imagenes/prn7n8comp.png  used on input line 79.
+Package pdftex.def Info: Imagenes/prn7n8comp.png  used on input line 85.
 (pdftex.def)             Requested size: 310.10846pt x 287.84944pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
- [42 <./Imagenes/n8vsn7err2.png>]
-<Imagenes/prvsn7vsn8err1.png, id=780, 798.5835pt x 419.8887pt>
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
+ [46 <./Imagenes/n8vsn7err2.png>]
+<Imagenes/prvsn7vsn8err1.png, id=838, 798.5835pt x 419.8887pt>
 File: Imagenes/prvsn7vsn8err1.png Graphic file (type png)
 <use Imagenes/prvsn7vsn8err1.png>
-Package pdftex.def Info: Imagenes/prvsn7vsn8err1.png  used on input line 88.
+Package pdftex.def Info: Imagenes/prvsn7vsn8err1.png  used on input line 94.
 (pdftex.def)             Requested size: 479.15381pt x 251.93517pt.
-<Imagenes/prvsn7vsn8err2.png, id=781, 798.5835pt x 419.166pt>
+<Imagenes/prvsn7vsn8err2.png, id=839, 798.5835pt x 419.166pt>
 File: Imagenes/prvsn7vsn8err2.png Graphic file (type png)
 <use Imagenes/prvsn7vsn8err2.png>
-Package pdftex.def Info: Imagenes/prvsn7vsn8err2.png  used on input line 96.
+Package pdftex.def Info: Imagenes/prvsn7vsn8err2.png  used on input line 102.
 (pdftex.def)             Requested size: 479.15381pt x 251.50154pt.
 
 Underfull \vbox (badness 4132) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 101.
-LaTeX Info: Redefining \% on input line 101.
- [43 <./Imagenes/prn7n8comp.png> <./Imagenes/prvsn7vsn8err1.png>]
-<Imagenes/compvec78.png, id=791, 851.3406pt x 423.5022pt>
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
+ [47 <./Imagenes/prn7n8comp.png> <./Imagenes/prvsn7vsn8err1.png>]
+<Imagenes/compvec78.png, id=849, 851.3406pt x 423.5022pt>
 File: Imagenes/compvec78.png Graphic file (type png)
 <use Imagenes/compvec78.png>
-Package pdftex.def Info: Imagenes/compvec78.png  used on input line 106.
+Package pdftex.def Info: Imagenes/compvec78.png  used on input line 112.
 (pdftex.def)             Requested size: 510.8083pt x 254.10327pt.
 
-Overfull \hbox (10.32431pt too wide) in paragraph at lines 106--107
+Overfull \hbox (10.32431pt too wide) in paragraph at lines 112--113
 [][] 
  []
 
-<Imagenes/bxpn7_1.png, id=792, 804.3651pt x 418.4433pt>
+<Imagenes/bxpn7_1.png, id=850, 804.3651pt x 418.4433pt>
 File: Imagenes/bxpn7_1.png Graphic file (type png)
 <use Imagenes/bxpn7_1.png>
-Package pdftex.def Info: Imagenes/bxpn7_1.png  used on input line 116.
+Package pdftex.def Info: Imagenes/bxpn7_1.png  used on input line 122.
 (pdftex.def)             Requested size: 482.62277pt x 251.06792pt.
-LaTeX Info: Redefining \. on input line 119.
-LaTeX Info: Redefining \% on input line 119.
-[44 <./Imagenes/prvsn7vsn8err2.png> <./Imagenes/compvec78.png>]
-<Imagenes/bxppr_1.png, id=801, 810.1467pt x 418.4433pt>
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
+[48 <./Imagenes/prvsn7vsn8err2.png> <./Imagenes/compvec78.png>]
+<Imagenes/bxppr_1.png, id=860, 810.1467pt x 418.4433pt>
 File: Imagenes/bxppr_1.png Graphic file (type png)
 <use Imagenes/bxppr_1.png>
-Package pdftex.def Info: Imagenes/bxppr_1.png  used on input line 124.
+Package pdftex.def Info: Imagenes/bxppr_1.png  used on input line 130.
 (pdftex.def)             Requested size: 486.09178pt x 251.06792pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 130.
-LaTeX Info: Redefining \% on input line 130.
- [45 <./Imagenes/bxpn7_1.png>]
-<Imagenes/bxpn7_2.png, id=808, 804.3651pt x 418.4433pt>
+LaTeX Info: Redefining \. on input line 136.
+LaTeX Info: Redefining \% on input line 136.
+ [49 <./Imagenes/bxpn7_1.png>]
+<Imagenes/bxpn7_2.png, id=867, 804.3651pt x 418.4433pt>
 File: Imagenes/bxpn7_2.png Graphic file (type png)
 <use Imagenes/bxpn7_2.png>
-Package pdftex.def Info: Imagenes/bxpn7_2.png  used on input line 135.
+Package pdftex.def Info: Imagenes/bxpn7_2.png  used on input line 141.
 (pdftex.def)             Requested size: 482.62277pt x 251.06792pt.
-<Imagenes/bxppr_2.png, id=809, 810.1467pt x 418.4433pt>
+<Imagenes/bxppr_2.png, id=868, 810.1467pt x 418.4433pt>
 File: Imagenes/bxppr_2.png Graphic file (type png)
 <use Imagenes/bxppr_2.png>
-Package pdftex.def Info: Imagenes/bxppr_2.png  used on input line 143.
+Package pdftex.def Info: Imagenes/bxppr_2.png  used on input line 149.
 (pdftex.def)             Requested size: 486.09178pt x 251.06792pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
- [46 <./Imagenes/bxppr_1.png> <./Imagenes/bxpn7_2.png>])
+LaTeX Info: Redefining \. on input line 155.
+LaTeX Info: Redefining \% on input line 155.
+ [50 <./Imagenes/bxppr_1.png> <./Imagenes/bxpn7_2.png>])
 LaTeX Info: Redefining \. on input line 90.
 LaTeX Info: Redefining \% on input line 90.
- [47 <./Imagenes/bxppr_2.png>]
+ [51 <./Imagenes/bxppr_2.png>]
 Cap\'{\i }tulo 5.
 \openout3 = `Tesis.mtc'.
 
 \openout3 = `Tesis.mtc'.
 
-(./Tesis.mtc5) (./Conclusiones/Conclusiones.tex [48
+(./Tesis.mtc5) (./Conclusiones/Conclusiones.tex [52
 
 ])
 LaTeX Info: Redefining \. on input line 94.
 LaTeX Info: Redefining \% on input line 94.
- [49]pdfTeX warning (ext4): destination with the same identifier (name{chapter.
+ [53]pdfTeX warning (ext4): destination with the same identifier (name{chapter.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1456,13 +1428,13 @@ Ap\'{e}ndice A.
 (./apendice/sotares.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50
+ [54
 
 ]
 Overfull \vbox (24.27492pt too high) has occurred while \output is active []
 
 
-[51] (./apendice/resn7ils.texpdfTeX warning (ext4): destination with the same i
+[55] (./apendice/resn7ils.texpdfTeX warning (ext4): destination with the same i
 dentifier (name{section.1.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1470,10 +1442,10 @@ l.1 \section{Resultados paraN7 con makespan}
                                             )
 LaTeX Info: Redefining \. on input line 96.
 LaTeX Info: Redefining \% on input line 96.
- [52]
+ [56]
 LaTeX Info: Redefining \. on input line 96.
 LaTeX Info: Redefining \% on input line 96.
- [53]
+ [57]
 (./apendice/resn7tuple.texpdfTeX warning (ext4): destination with the same iden
 tifier (name{section.1.2}) has been already used, duplicate ignored
 <to be read again> 
@@ -1482,10 +1454,10 @@ l.1 ...os para vecindad N7 con tupla como fitness}
                                                   )
 LaTeX Info: Redefining \. on input line 97.
 LaTeX Info: Redefining \% on input line 97.
- [54]
+ [58]
 LaTeX Info: Redefining \. on input line 97.
 LaTeX Info: Redefining \% on input line 97.
- [55]
+ [59]
 (./apendice/resn8tuple.texpdfTeX warning (ext4): destination with the same iden
 tifier (name{section.1.3}) has been already used, duplicate ignored
 <to be read again> 
@@ -1494,10 +1466,10 @@ l.1 ...ados para Extensión de vecindad con tupla}
                                                   )
 LaTeX Info: Redefining \. on input line 98.
 LaTeX Info: Redefining \% on input line 98.
- [56]
+ [60]
 LaTeX Info: Redefining \. on input line 98.
 LaTeX Info: Redefining \% on input line 98.
- [57]
+ [61]
 (./apendice/resprtuple.texpdfTeX warning (ext4): destination with the same iden
 tifier (name{section.1.4}) has been already used, duplicate ignored
 <to be read again> 
@@ -1506,19 +1478,19 @@ l.1 ...n{Resultados para Nueva vecindad con tupla}
                                                   )
 LaTeX Info: Redefining \. on input line 99.
 LaTeX Info: Redefining \% on input line 99.
- [58]
+ [62]
 LaTeX Info: Redefining \. on input line 99.
 LaTeX Info: Redefining \% on input line 99.
- [59] (./Tesis.bbl
-[60
+ [63] (./Tesis.bbl
+[64
 
 ]
-LaTeX Info: Redefining \. on input line 143.
-LaTeX Info: Redefining \% on input line 143.
- [61]
-LaTeX Info: Redefining \. on input line 226.
-LaTeX Info: Redefining \% on input line 226.
- [62])
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+ [65]
+LaTeX Info: Redefining \. on input line 235.
+LaTeX Info: Redefining \% on input line 235.
+ [66])
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the Tesis.maf file.
@@ -1547,26 +1519,26 @@ Package minitoc(hints) Warning: W0024
 
 LaTeX Info: Redefining \. on input line 104.
 LaTeX Info: Redefining \% on input line 104.
-[63] (./Tesis.aux (./Portada.aux)
+[67] (./Tesis.aux (./Portada.aux)
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./Otros/Resumen.aux)
 (./Otros/Agradecimientos.aux))
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
-(rerunfilecheck)             Checksum: A5B6E598F9BFA9A69F9B63CE4F966D50;7637.
+(rerunfilecheck)             Checksum: B23777A83541730F438B55110C63E4CF;7642.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 40 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18702 strings out of 478994
- 275407 string characters out of 5864751
- 649101 words of memory out of 5000000
- 35334 multiletter control sequences out of 15000+600000
- 420980 words of font info for 85 fonts, out of 8000000 for 9000
+ 18741 strings out of 478994
+ 276114 string characters out of 5864751
+ 650029 words of memory out of 5000000
+ 35354 multiletter control sequences out of 15000+600000
+ 421149 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,16n,77p,1205b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,16n,77p,1205b,770s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced bu
 t does not exist, replaced by a fixed one
 
@@ -1594,14 +1566,14 @@ onts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb></usr/share/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/typ
-e1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.
-pfb>
-Output written on Tesis.pdf (70 pages, 1814196 bytes).
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-dist/fonts/
+type1/public/amsfonts/latxfont/lasy10.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/urw/helveti
+c/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on Tesis.pdf (74 pages, 1834779 bytes).
 PDF statistics:
- 1020 PDF objects out of 1200 (max. 8388607)
- 847 compressed objects within 9 object streams
- 224 named destinations out of 1000 (max. 500000)
- 506 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1087 PDF objects out of 1200 (max. 8388607)
+ 905 compressed objects within 10 object streams
+ 241 named destinations out of 1000 (max. 500000)
+ 511 words of extra memory for PDF output out of 10000 (max. 10000000)
 

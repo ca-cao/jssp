@@ -41,13 +41,14 @@ Se dice que un algoritmo es $O(g(n))$ si el número de operaciones que requiere 
 %
 Por ejemplo, el algoritmo para sumar dos números de $n$ dígitos toma $O(n)$ operaciones (al considerar que nuestra operación básica es sumar dígitos).
 
-\subsection*{Clases \textbf{P} y \textbf{NP}}
+\subsection*{Clases \textbf{P}, \textbf{NP} }
+Un algoritmo para resolver algún problema puede tener como resultado cualquier cosa; por ejemplo un número si el problema es una suma, un polígono si buscamos una envolvente convexa, una función si resolvemos una ecuación diferencial o hasta una palabra como \texttt{sí} o \texttt{no} si buscamos saber si un número es primo.
+%
+Este último tipo de problema es un ejemplo de una clase importante llamada problemas de decisión. Estos problemas son de interés teórico en la teoría de la complejidad por tener una salida muy simple y porque una gran cantidad de otro tipo de problemas pueden formularse como problemas de decisión. 
+%
+Las clases de complejidad más analizadas están definidas para estos problemas de decisión.
 
-Dado un determinado problema, es importante plantearse cuál es la complejidad del mejor algoritmo que permite resolverlo.
-%
 %TODO: hablar de problemas de decisión
-La forma de la función $g$ de los algoritmos asociados es la base para clasificar los problemas de acuerdo a su complejidad.
-%
 Dos de las clases más analizadas son las siguientes:
 
 \begin{itemize} 
@@ -75,8 +76,12 @@ de los problemas~\cite{wigderson2006p}.
 %TODO: pasan a NP-hard, distinguir el JSP como NP-Completo, es decir, como problema de decisión, y el problema de optimización asociado, que es NP-hard.
 %Creo que lo mejor es crear una subseción {Clase NP-hard}
 
-Muchos problemas de optimización de gran interés pertenecen a la clase \textbf{NP} entre ellos el JSP que se aborda que se aborda en el presente trabajo y que en 
-particular es \textbf{NP-completo}. 
+
+\subsubsection*{Clase NP-hard}
+Las clases de complejidad antes mencionadas se definieron para problemas de decisión pero son útiles para clasificar otros tipos de problemas. En particular la clase \textbf{NP-hard} sirve para clasificar problemas de optimización como el JSP . \\
+Se dice que un problema de optimización pertenece a \textbf{NP-hard} si todos los problemas en \textbf{NP} pueden reducirse a él en tiempo polinomial. Para los problemas de optimización que pertenecen a esta clase no existe un algoritmo que encuentre la solución óptima en tiempo polinomial a menos que \textbf{P} = \textbf{NP}.  Es importante mencionar que el problema en cuestión no tiene por qué pertenecer a \textbf{NP}.
+
+Muchos problemas de optimización de gran interés pertenecen a la clase \textbf{NP-hard}, entre ellos el JSP. Cabe mencionar que al JSP se le puede asociar un problema de decisión que consiste en determinar si una solución dada es óptima o no siendo este problema \textbf{NP-completo}. 
 %
 Ante la dificultad para resolver estos problemas de manera eficiente surgieron técnicas conocidas como metaheurísticas que buscan facilitar encontrar soluciones aceptables aunque no óptimas.
 
