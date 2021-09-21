@@ -1,4 +1,5 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}ILS con vecindad N7}{\reset@font\mtcSfont 42}{section.4.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Función de fitness}{\reset@font\mtcSfont 43}{section.4.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Extensión a vecindad N7}{\reset@font\mtcSfont 44}{section.4.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Cambio de representación y vecindad}{\reset@font\mtcSfont 46}{section.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Organización de los resultados}{\reset@font\mtcSfont 46}{section.4.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Resultados para PN7Cmax}{\reset@font\mtcSfont 47}{section.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Resultados para distintas funciones de fitness}{\reset@font\mtcSfont 48}{section.4.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}PN7extTup}{\reset@font\mtcSfont 51}{section.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Cambio de representación y vecindad}{\reset@font\mtcSfont 53}{section.4.5}}

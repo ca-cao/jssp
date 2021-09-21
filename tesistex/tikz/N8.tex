@@ -23,17 +23,20 @@ A diagram describing the MESIF protocol: http://en.wikipedia.org/wiki/MESIF_prot
   \node (JPM)[left of=M] {};
   \node[main node] (E) [right of=M] {V};
   \node (aux) at ($(M)!0.5!(E)$) {};
+  %\node (lab) at ($(aux)$) {Tiempo inactivo en la máquina};
   \node[main node] (S) [right of=E] {};
   \node[main node] (JPS) [above left of=S]{};
   \node[main node] (F) [right of=S] {};
   \node[main node] (I) [right of=F] {};
   \node[main node] (JSI) [below right of=I] {};
 
+  \draw[|-|] (M)--(E);
+
   \path[every node/.style={font=\sffamily\small,
   		fill=white,inner sep=1pt}]
   	% Right-hand-side arrows rendered from top to bottom to
   	% aristas
-    (M) edge [-] node {} (E)
+    (M) edge [|-|] node {Tiempo inactivo} (E)
   	(M) edge[dashed,-] node {} (JPM)
     (E) edge [dashed,-] node {} (S)
   	(JPS) edge[-] node {} (S)
@@ -42,10 +45,10 @@ A diagram describing the MESIF protocol: http://en.wikipedia.org/wiki/MESIF_prot
     (I) edge [-] node{} (JSI)
     % flechas de movimimiento 
     (F) edge [bend left=60] node{} (aux);
+    (lab) edge node{labl} (aux);
     %(E) edge [bend left=30] node {} (S)
     %(S) edge [bend left=30] node{} (F)
     %(F) edge [bend left=30] node {} (I);
-
      \node[draw,rounded corners,fit= (S) (F) (I)] {};
   	% Left-hand-side arrows rendered from bottom to top to
   	% achieve proper rendering of labels over arrows.

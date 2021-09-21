@@ -41,12 +41,12 @@ Es importante resaltar que si no se planteara también una función de fitness q
 a una mejora \cite{blazewicz1996job}.
 %
 Los movimientos planteados se basan en observar que en alguna solución encontrada por una búsqueda local para cada máquina pueden existir periodos de tiempo en la 
-que está inactiva pero existe alguna operación en la ruta critica que podría comenzar a procesarse en este periodo y que se procesa después. 
+que está inactiva (huecos) pero existe alguna operación en la ruta critica que podría comenzar a procesarse en este periodo y que se procesa después. 
 %
 Ninguna de las vecindades previamente propuestas considera movimientos de las operaciones de la ruta crítica más allá del bloque crítico por lo que estos movimientos 
 representan un conjunto previamente no explorado de soluciones.
 
-Intuitivamente lo que se pretende es llenar un <<hueco>> en la planificación con una operación de un bloque crítico.
+Intuitivamente lo que se pretende es llenar un hueco en la planificación con una operación de un bloque crítico.
 
 \begin{figure}[H]
 \centering
@@ -54,5 +54,5 @@ Intuitivamente lo que se pretende es llenar un <<hueco>> en la planificación co
     \caption{Movimientos propuestos. El tiempo de inicio de \textbf{v} es mayor al de finalización de \textbf{u}}
 \end{figure}
 
-En general esta vecindad no exiende el número de vecinos visitados en una gran cantidad porque existen muchos de estos movimientos que hacen que la solución 
+En general esta vecindad no extiende el número de vecinos visitados en una gran cantidad porque existen muchos de estos movimientos que hacen que la solución 
 resultante sea infactible. 

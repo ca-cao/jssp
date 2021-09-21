@@ -10,28 +10,28 @@ import re
 
 regexps  = [
     # pr
-    ('.*pr.*','Representación propuesta'),
+    #('.*pr.*','RpKeTup'),
     # cmax
-    ('(?i).*[^i]cmax.*', r'$C_{max}$'),
+    #('(?i).*[^i]cmax.*', r'$C_{max}$'),
+    ('(?i).*[^i]cmax.*', 'Cmax'),
     # dist2
-    ('.*dist2',r'$Var(C_i)$'),
+    #('.*dist2',r'$Var(C_i)$'),
+    ('.*dist2','VarC'),
     # flowtime
-    ('.*flowtime',r'$\sum\,\,J_i$'),
+    #('.*flowtime',r'$\sum\,\,J_i$'),
+    ('.*flowtime','Flow'),
     # ftimes
-    ('.*ftimes',r'$(\{C_i\})$'),
+    #('.*ftimes',r'$(\{C_i\})$'),
+    ('.*ftimes','Tup'),
     # Icmax
-    ('.*[I]cmax',r'$I(C_i=C_{max})$'),
+    ('.*[I]cmax','Icmax'),
     # rcsize
-    ('.*rcsize','Número de rutas\n críticas'),
+    ('.*rcsize','Rc'),
     # totime2
-    ('.*totime2',r'$\sum\,C^2_i$'),
+    ('.*totime2','C2'),
     # tuple
     #('.*7tuple',r'$\left(\sum C^2_i,\sum\,\,J_i,Var(C_i)\right)$'),
-    ('.*7tuple','Vecindad N7'),
-    # tuple
-    ('.*8tuple','Extensión de vecindad'),
-    # tuple
-    ('.*tuple',r'$pr(C_{max},\sum C^2_i,Var(C_i))$')
+    ('.*tuple','C2/Flow/VarC')
 ]
 
 def lookup(s):
@@ -40,19 +40,34 @@ def lookup(s):
             return value
     return s
 
+def getname(s):
+    name =''
+    # representación
+    if 'pr' in s:
+        return "RpKeTup"
+    # vecindad
+    if 'n7' in s:
+        name = name+"PN7"
+    elif 'n8' in s:
+        name = name+"PN7ext"
+    return name +lookup(s)
 
 res = np.zeros((len(sys.argv)-1,80,50))
 names = []
-cl = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf','000000']
-np.random.shuffle(cl)
 for l,i in enumerate(sys.argv[1:]):
     if i[-1]!="/":
         i=i+"/"
-    names.append(lookup(i[:-1]))
+    #names.append(lookup(i[:-1]))
     #names.append(i[:-1])
+    names.append(getname(i[:-1]))
     for k,j in enumerate(sorted(os.listdir(i))):
         #print(i+j)
         res[l,k,:] = np.loadtxt(i+j)[:50]
+
+cl = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf','000000']
+if len(names)<=3:
+    cl = ['r','k','b']
+np.random.shuffle(cl)
 
 # ver cual gana mas
 #plt.title("Minimo")
@@ -89,13 +104,16 @@ for k in range(80):
                 heat[j,i]-=win
 
 # ordenarlos por comparaciones ganadas
-print( [names[i] for i in np.argsort(-1*wins)] )
+#for i in np.argsort(-1*wins):
+#    print("{} & {} \\\\ \\midrule".format(names[i],wins[i]))
+#print( [(names[i],wins[i]) for i in np.argsort(-1*wins)] )
 #xt=plt.plot(wins)
 #plt.xticks(np.arange(len(names)),labels=names)
 #plt.plot()
 #plt.title("Numero de comparaciones ganadas")
 #plt.show()
-
+#from matplotlib import rc,rcParams
+#rc('font', weight='bold')
 # heatmap
 fig, ax = plt.subplots()
 im = ax.imshow(heat,cmap="plasma")
@@ -123,7 +141,8 @@ for i in range(len(names)):
 fig.tight_layout()
 plt.show()
 
-
+# tipos de puntos
+markers =['o','s','D','v','P','p','<','>']
 
                     # Graficar en dos mitades dmu01-40 y dmu41-80 #
 instalabel = ["DMU"+str(i+1).zfill(2) for i in range(80)]
@@ -132,15 +151,18 @@ best = np.loadtxt("/home/cacao/cimat/proyectotec/bestres/dmu_best.txt")
 for st,end in [(0,40),(40,80)]:
     for i in range(len(names)):
         med = np.median(res[i],axis=1)/best-1
-        plt.plot(xx[st:end],med[st:end].flatten(),"o",markersize=5,color=cl[i],alpha =.8,label=names[i])
+        plt.plot(xx[st:end],med[st:end].flatten(),markers[i],markersize=5,color=cl[i],alpha =.8,label=names[i])
         plt.plot(xx[np.argwhere(med==0)],med[np.argwhere(med==0)],"*",markersize=9,color=cl[i])
     plt.xlim(st+.5,end+.5)
+    plt.ylim(-0.01,0.5)
     plt.xticks(xx[st:end],instalabel[st:end],rotation='vertical')
     locs,labs=plt.yticks(rotation='vertical')
-    plt.yticks(locs[1:],["{:.2f}".format(i) for i in locs[1:]])
+    #plt.yticks(np.linspace(0,.5,11)+.01,[str(i) for i in np.linspace(0,.5,11)])
+    locs = np.linspace(0,.5,6)
+    plt.yticks(locs,["{:1.2f}".format(i) for i in locs])
     plt.ylabel("Mediana del error relativo")
     #plt.ylabel(r'$\frac{x_{best}}{x_{EA}}$',rotation='horizontal')
     plt.grid(True)
-    plt.legend()
+    plt.legend(prop={'weight':'bold'})
     plt.show()
 

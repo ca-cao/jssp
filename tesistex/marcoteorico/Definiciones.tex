@@ -45,7 +45,47 @@ La relación entre estos conjuntos se ilustra en la figura \ref{fig:solspace}.
     \label{fig:solspace}
 \end{figure}
 
-Es importante mencionar que el conjunto de las planificaciones factibles puede ser de tamaño arbitrario porque para cualquier planificación factible podemos insertar intervalos de tiempo inactivo de duración arbitraria entre operaciones en cualquier máquina sin alterar el cumplimento de las restricciones. Esto también implica que no hay una planificación única que cumpla que cumpla con algún orden determinado de las operaciones en cada máquina. En la literatura en general, así como en este trabajo, solo se considera el conjunto de planificaciones semi-activas lo cual elimina estos problemas. 
+Es importante mencionar que el conjunto de las planificaciones factibles puede ser de tamaño arbitrario porque para cualquier planificación factible podemos insertar intervalos de tiempo inactivo de duración arbitraria entre operaciones en cualquier máquina sin alterar el cumplimento de las restricciones. Esto también implica que no hay una planificación única que cumpla con algún orden determinado de las operaciones en cada máquina. En la literatura en general, así como en este trabajo, solo se considera el conjunto de planificaciones semi-activas lo cual elimina estos problemas. 
+
+\subsubsection*{Ejemplo}
+Para mostrar las diferencias entre los tipos de planificaciones se presenta un instancia pequeña en la tabla \ref{tab:plantypes} y tres planificaciones para ella en la figura \ref{fig:plantypes}: una factible pero no semi-activa, una semi-activa pero no activa y una activa. Tanto la planificación factible como la semi-activa siguen el mismo orden de procesamiento de las operaciones, mientras que la activa se construyo de forma que se puede observar que hay operaciones que pueden comenzar a procesarse antes en las planificaciones no activas.
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}cccc@{}}
+Trabajo & \multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}}Secuencia de procesamiento \\ (máquina, tiempo)\end{tabular}} \\ \midrule
+ 0  &   0,4 & 	1,2 & 	2,1	\\ \midrule
+ 1  &   0,5 & 	1,3 & 	2,5	\\ \midrule
+ 2  &   0,4 & 	2,3 & 	1,5	\\ \midrule
+ 3  &   1,2 & 	0,3 & 	2,5	\\ \midrule
+ 4  &   1,5 & 	2,2 & 	0,1	\\ \midrule
+ 5  &   2,5 & 	0,4 & 	1,3	\\ \midrule
+ 6  &   2,3 & 	0,2 & 	1,1	\\ \hline
+\end{tabular}
+\caption{Instancia simple con 3 máquinas y 7 trabajos}
+\label{tab:plantypes}
+\end{table}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{.8\textwidth}
+        \centering
+        \includegraphics[scale = .45]{Imagenes/ganttfeas.png}
+        \caption{Planificación factible pero no activa. Pueden observarse tiempos de inactividad que no se deben a ninguna restricción}
+    \end{subfigure}
+    \begin{subfigure}{.8\textwidth}
+        \centering
+        \includegraphics[scale = .45]{Imagenes/ganttsemi.png}
+        \caption{Planificación semi-activa pero no activa. Solo hay tiempo de inactividad si se debe a las restricciones. Es posible reducir el tiempo de inicio de varias operaciones.}
+    \end{subfigure}
+    \begin{subfigure}{.8\textwidth}
+        \centering
+        \includegraphics[scale = .45]{Imagenes/ganttactive.png}
+        \caption{Planificación activa. No es posible reducir el tiempo de inicio de ninguna operación.} 
+    \end{subfigure}
+    \caption{Tres tipos de planificaciones para la instancia en \ref{tab:plantypes}}
+        \label{fig:plantypes}
+\end{figure}
+
 %
 Otra ventaja de centrarnos en las planificaciones semi-activas es que nos permite definir el concepto \textbf{ruta crítica}. 
 
@@ -77,8 +117,8 @@ El siguiente ejemplo sirve para mostrar los conceptos antes presentados en un ca
 Se muestra un ejemplo de una instancia con 3 máquinas y 2 trabajos en la tabla \ref{tab:inst}.
 \begin{table}[H]
 \centering
-\begin{tabular}{@{}llll@{}}
-Trabajo & \multicolumn{3}{l}{\begin{tabular}[c]{@{}l@{}}Secuencia de procesamiento \\ (máquina, tiempo)\end{tabular}} \\ \midrule
+\begin{tabular}{@{}cccc@{}}
+Trabajo & \multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}}Secuencia de procesamiento \\ (máquina, tiempo)\end{tabular}} \\ \midrule
 0       & 0, 75                              & 2, 54                               & 1, 59                             \\ \midrule
 1       & 0, 47                              & 2, 72                              & 1, 45   \\\hline                         
 \end{tabular}
@@ -86,15 +126,15 @@ Trabajo & \multicolumn{3}{l}{\begin{tabular}[c]{@{}l@{}}Secuencia de procesamien
 \label{tab:inst}
 \end{table}
 
-La siguiente es una posible planificación para la instancia de ejemplo, visualizada mediante un diagrama de gantt. En negro se marcan los trabajos que conforman la ruta crítica. 
+En la figura \ref{fig:gantt} se muestra una posible planificación para la instancia de ejemplo, visualizada mediante un diagrama de Gantt. En negro se marcan los trabajos que conforman la ruta crítica. 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=.7]{Imagenes/planejemplorc.png}
-    \caption{Diagrama de gantt de una planificación posible para la instancia mostrada en la tabla \ref{tab:inst}. Se marcan los trabajos que pertenecen a la ruta crítica con una línea}
+    \caption{Diagrama de Gantt de una planificación posible para la instancia mostrada en la tabla \ref{tab:inst}. Se marcan los trabajos que pertenecen a la ruta crítica con una línea}
 \label{fig:gantt}
 \end{figure}
 
-Si bien es conveniente visualizar una planificación mediante un diagrama de gantt como el mostrado anteriormente, resulta ventajoso representar computacionalmente 
+Si bien es conveniente visualizar una planificación mediante un diagrama de Gantt como el mostrado anteriormente, resulta ventajoso representar computacionalmente 
 estas planificaciones de otras formas. 
 %
 La representación de soluciones a un problema resulta ser una elección sumamente importante al momento de desarrollar, implementar y analizar los algoritmos que se 
@@ -133,8 +173,8 @@ La planificación mostrada en la figura \ref{fig:gantt} tendría la siguiente re
 \sigma_1 &= (O_{0,2}\,,\,O_{0,1})\\
 \sigma_2 &= (O_{0,1}\,,\,O_{1,1})
 \end{align*}
-A partir de estas permutaciones se construye el grafo antes descrito y se escogen las direcciones de las aristas disyuntivas como se muestra en la figura \ref{fig:dgraph}. En este caso se verifica que el grafo es acíclico como 
-\begin{figure}[H]
+A partir de estas permutaciones se construye el grafo antes descrito y se escogen las direcciones de las aristas disyuntivas como se muestra en la figura \ref{fig:dgraph}. En este caso se verifica que el grafo es acíclico. 
+\begin{figure}[h]
     \centering
     \begin{subfigure}{.8\textwidth}
         \centering
