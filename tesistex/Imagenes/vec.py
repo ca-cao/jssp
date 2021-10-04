@@ -43,6 +43,17 @@ for j,x in enumerate(space):
 
 print(mask)
 
+x = np.linspace(space[:,0].min(),space[:,0].max(),100)
+y = np.linspace(space[:,1].min(),space[:,1].max(),100)
+
+X,Y = np.meshgrid(x,y)
+
+# funcion manosa
+def f(x,y):
+    return (x-lopt[-1,0])**2+(y-lopt[-1,1])**2
+
+Z = f(X,Y)
+plt.contourf(X,Y,Z,levels=np.linspace(0,Z.max(),70))
 # muy ingenuo
 for k,x in enumerate(space):
     for i in lopt:
@@ -52,4 +63,5 @@ for k,x in enumerate(space):
 plt.plot(lopt[:,0],lopt[:,1])
 plt.plot(lopt[:,0],lopt[:,1],"o")
 plt.axis("off")
+
 plt.show()

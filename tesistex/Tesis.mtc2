@@ -2,12 +2,12 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Teoría de la complejidad}{\reset@font\mtcSfont 9}{section.2.2}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Metaheurísticas}{\reset@font\mtcSfont 11}{section.2.3}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Paisaje de búsqueda}{\reset@font\mtcSfont 12}{section.2.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.1}Representación}{\reset@font\mtcSSfont 13}{subsection.2.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.2}Vecindad}{\reset@font\mtcSSfont 15}{subsection.2.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.3}Funci\'on de aptitud o fitness}{\reset@font\mtcSSfont 16}{subsection.2.4.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Problema de planificación de producción tipo taller (JSP)}{\reset@font\mtcSfont 21}{section.2.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.1}Tipos de planificaciones}{\reset@font\mtcSSfont 22}{subsection.2.5.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.2}Representación de planificaciones}{\reset@font\mtcSSfont 25}{subsection.2.5.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.1}Representación}{\reset@font\mtcSSfont 12}{subsection.2.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.2}Vecindad}{\reset@font\mtcSSfont 14}{subsection.2.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.3}Funci\'on de aptitud o fitness}{\reset@font\mtcSSfont 15}{subsection.2.4.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Problema de planificación de producción tipo taller (JSP)}{\reset@font\mtcSfont 20}{section.2.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.1}Tipos de planificaciones}{\reset@font\mtcSSfont 21}{subsection.2.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.2}Representación de planificaciones}{\reset@font\mtcSSfont 24}{subsection.2.5.2}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Metaheurísticas aplicadas al JSP}{\reset@font\mtcSfont 26}{section.2.6}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.7}Paisaje de búsqueda del JSP}{\reset@font\mtcSfont 30}{section.2.7}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.8}Conjuntos de instancias de prueba}{\reset@font\mtcSfont 31}{section.2.8}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.7}Paisaje de búsqueda del JSP}{\reset@font\mtcSfont 29}{section.2.7}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.8}Conjuntos de instancias de prueba}{\reset@font\mtcSfont 30}{section.2.8}}
