@@ -2,7 +2,7 @@
 Como se explicó en los capítulos anteriores, las propuestas planteadas en este trabajo son de dos tipos: modificar el paisaje de búsqueda del problema y cambiar la metaheurística con la que se explora este paisaje.
 En el caso de la metaheurística la única modificación es usar la búsqueda local iterada (ILS). Para el caso del paisaje de búsqueda se presentan varias modificaciones a cada una de sus componentes: representación de soluciones, estructura de vecindad y función de fitness.
 
-Los resultados de aplicar las modificaciones a cada una de las componentes se muestran de modo que las modificaciones se van agregando para mejorar el desempeño del algoritmo. Primero se presenta el cambio en metaheurística seguido del cambio en la función de fitness posteriormente se considera la extensión de vecindad planteada y por último el cambio de representación junto con la nueva vecindad propuesta. El orden de presentación es el siguiente (se asignan acrónimos para facilitar la comparación):
+En primer lugar se presenta el cambio en metaheurística utilizando la representación basada en permutaciones y la vecindad N7, seguido del cambio en la función de fitness. Posteriormente se considera la extensión planteada a la vecindad N7 y por último la representación basada en llaves aleatorias junto con la nueva vecindad propuesta. Se asignan acrónimos a cada variante para facilitar la comparación. El orden de presentación es el siguiente:
 \begin{enumerate}
     \item \textbf{PN7Cmax} Representación basada en permutaciones, vecindad N7 y makespan como función de fitness.
     \item \textbf{PN7*} Representación basada en permutaciones, vecindad N7 y diversas funciones de fitness.
@@ -12,14 +12,15 @@ Los resultados de aplicar las modificaciones a cada una de las componentes se mu
 
 Cada una de las variaciones propuestas se ejecutó durante 5 minutos por 50 veces para cada instancia del conjunto \textbf{DMU01-80} con el fin de obtener un conjunto de resultados para comparar.
 
-Puesto que el objetivo de las modificaciones planteadas en este trabajo es plantear una alternativa a los métodos del estado del arte, se presenta la mediana del error relativo respecto al mejor resultado reportado en la literatura. El error relativo se calcula de la siguiente manera \[\text{error relativo}= \frac{\text{mejor makespan en la literatura}-\text{makespan de la solución encontrada}}{\text{\text{mejor makespan en la literatura}}}\]
-El mejor resultado reportado en la literatura para cada instancia se muestra en el apéndice \ref{tab:sota}.
+Puesto que el objetivo de las modificaciones planteadas en este trabajo es presentar una alternativa simple a los métodos del estado del arte pero sin perder calidad en las soluciones, se presenta la mediana del error relativo respecto al mejor resultado reportado en la literatura. El mejor resultado reportado en la literatura para cada instancia se muestra en el apéndice \ref{tab:sota}.
+El error relativo se calcula entonces de la siguiente manera: \[\text{error relativo}= \frac{\text{mejor makespan en la literatura}-\text{makespan de la solución encontrada}}{\text{\text{mejor makespan en la literatura}}}\]
 
 \section{Resultados para PN7Cmax}
-Estos resultados sirven como una base para determinar si las modificaciones posteriores resultan en mejoras apreciables puesto que el único cambio con los métodos más extendidos en la literatura es el uso de la búsqueda local iterada.
+Estos resultados sirven como una base para determinar si las modificaciones posteriores resultan en mejoras apreciables puesto que el único cambio con los métodos más exitosos actualmente.
 
 Se muestran los resultados de manera gráfica para facilitar su visualización. Los resultados detallados se encuentran en el apéndice \ref{app:resn7ils}. 
 
+En la figura \ref{fig:PN7Cmax} podemos observar que la mediana del error relativo para la segunda mitad de las instancias es considerablemente mayor que para la primera mitad, en la cual en varios casos incluso se llegó a igualar el mejor resultado conocido.  
 \begin{figure}[hbtp]
     \begin{subfigure}{\textwidth}
         \centering
@@ -37,24 +38,24 @@ Se muestran los resultados de manera gráfica para facilitar su visualización. 
     \label{fig:PN7Cmax}
 \end{figure}
 
-En la figura \ref{fig:PN7Cmax} podemos observar que la mediana del error relativo para la segunda mitad de las instancias es considerablemente mayor que para la primera mitad en varios casos incluso llegando a igualar el mejor resultado conocido.
+Podemos observar que incluso usando una metaheurística simple por un corto tiempo podemos obtener resultados de calidad. En la siguiente sección podremos observar que la función de fitness puede ayudarnos a tener incluso mejores resultados.
 
 \section{Resultados para distintas funciones de fitness}
-  La función de fitness se obtiene al construir la dupla formada por el makespan y alguna característica en ese orden. Para determinar cuál es la que obtiene mejores resultados las modificaciones se comparan a pares en cada instancia. Si se encuentra que la diferencia entre dos modificaciones es estadísticamente significativa, se le suma un punto a la ganadora y se le resta uno a la perdedora.
+  La función de fitness se obtiene al construir la dupla formada por el makespan y alguna característica en ese orden. Para determinar cuál es la que obtiene mejores resultados, las modificaciones se comparan a pares en cada instancia. Si se encuentra que la diferencia entre dos modificaciones es estadísticamente significativa, se le suma un punto a la ganadora y se le resta uno a la perdedora. De este modo cada variante de la función de fitness obtiene un puntaje que permite compararla con las demás.
 Para determinar si los conjuntos de resultados muestran diferencias estadísticamente significativas se utiliza la prueba de Wilcoxon con un nivel de significancia de $0.01$. 
 
-Los acrónimos asignados a cada una de las características propuestas para se muestran en la tabla \ref{tab:caracter}.
+Los acrónimos asignados a cada una de las variantes que resultan de tomar las características propuestas se muestran en la tabla \ref{tab:caracter}.
 \begin{table}[hbtp]
     \centering
 \begin{tabular}{@{}cc@{}}
 Característica                    & Acrónimo       \\ \hline \hline
-$\mathbf{C_{max}}$ (makespan)     & \textbf{Cmax}   \\\midrule
-$\mathbf{\sum C_i^2}$             & \textbf{C2}    \\\midrule
-$\mathbf{\sum J_i}$               & \textbf{Flow}  \\\midrule
-$\mathbf{\sum I(C_i=C_{max})}$    & \textbf{Icmax} \\\midrule
-\textbf{Número de rutas críticas} & \textbf{Rc}    \\\midrule
-$\mathbf{Var(C_i)}$               & \textbf{VarC}  \\\midrule
-$\mathbf{(\{C_i\})}$              & \textbf{Tup}    \\\midrule
+$\mathbf{C_{max}}$ (makespan)     & \textbf{PN7Cmax}   \\\midrule
+$\mathbf{\sum C_i^2}$             & \textbf{PN7C2}    \\\midrule
+$\mathbf{\sum J_i}$               & \textbf{PN7Flow}  \\\midrule
+$\mathbf{\sum I(C_i=C_{max})}$    & \textbf{PN7Icmax} \\\midrule
+\textbf{Número de rutas críticas} & \textbf{PN7Rc}    \\\midrule
+$\mathbf{Var(C_i)}$               & \textbf{PN7VarC}  \\\midrule
+$\mathbf{(\{C_i\})}$              & \textbf{PN7Tup}    \\\midrule
 \end{tabular}
     \caption{Acrónimos asignados a cada característica}
     \label{tab:caracter}
@@ -90,7 +91,7 @@ Variante & Puntaje \\ \midrule
     \label{tab:fcomp}
 \end{table}
 
-En la figura \ref{fig:PN7CmaxvsPN7Tup} se muestra una comparación de los resultados hallados para la mejor función de fitness \textbf{PN7Tup} contra el caso base que también fue el que obtuvo peores resultados \textbf{PN7Cmax}. Se pueden apreciar mejoras sustanciales con solo la adición de la función de fitness.
+Para mostrar de manera más concisa el efecto de la función de fitness en la calidad de las soluciones encontradas, en la figura \ref{fig:PN7CmaxvsPN7Tup} se muestra una comparación de los resultados hallados para la mejor función de fitness \textbf{PN7Tup} contra el caso base \textbf{PN7Cmax} que fue el que obtuvo peores resultados.
 \begin{figure}[hbtp]
     \begin{subfigure}{\textwidth}
         \centering
@@ -110,7 +111,8 @@ En la figura \ref{fig:PN7CmaxvsPN7Tup} se muestra una comparación de los result
 
 
 \section{Resultados para PN7extTup}
-Los resultados para la extensión que considera movimientos con espacios de inactividad de las máquinas se comparan con los mejores mostrados en la sección pasada \textbf{PN7Tup}. Se sigue el mismo procedimiento que en la sección anterior para hacer esta comparación. En la figura \ref{fig:n8vsn7} podemos ver que \textbf{PN7extTup} no representa una mejora drástica. Aunque el puntaje obtenido por esta modificación fue positivo, en la figura \ref{fig:errn8vsn7} podemos observar que la mejora no es consistente por lo que se puede concluir que la extensión de la vecindad planteada no repercute en beneficios importantes.
+Los resultados para la extensión a la vecindad N7 que considera movimientos que buscan aprovechar espacios de inactividad de las máquinas se comparan con los mejores mostrados en la sección pasada \textbf{PN7Tup}. Se sigue el mismo procedimiento que en la sección anterior para hacer esta comparación.
+En la figure \ref{fig:n8vsn7} podemos observar que \textbf{PN7extTup} sí consigue mejorar los resultados obtenidos hasta el momento en varios casos. Esto nos indica que los movimientos considerados pueden o no llevar a mejores soluciones.
 
 \begin{figure}[hbtp]
     \centering
@@ -119,7 +121,7 @@ Los resultados para la extensión que considera movimientos con espacios de inac
     \label{fig:n8vsn7}
 \end{figure}
 
-También se muestra de manera gráfica los resultados para todas las instancias junto con los mejores resultados de la sección anterior. Los resultados detallados para la extensión propuesta se encuentran en el apéndice \ref{app:resn8tuple}.
+Aunque el puntaje obtenido por esta modificación fue positivo, en la figura \ref{fig:errn8vsn7} podemos observar que la mejora no es consistente ya que en algunos casos resulta peor que \textbf{PN7Tup} y en casi todas las instancias no presenta una disminución sustancial del error relativo por lo que se puede concluir que la extensión de la vecindad planteada no consigue beneficios importantes. Los resultados detallados para la \textbf{PN7extTup} se encuentran en el apéndice \ref{app:resn8tuple}.
 
 \begin{figure}[hbtp]
     \begin{subfigure}{\textwidth}
@@ -139,7 +141,8 @@ También se muestra de manera gráfica los resultados para todas las instancias 
 \end{figure}
 
 \section{Cambio de representación y vecindad}
-El cambio de representación y vecindad se compara con las dos propuestas previas. Se sigue el mismo procedimiento mencionado para determinar si hay una diferencia significativa entre los resultados obtenidos. Los resultados se muestran en la figura \ref{fig:n7vsn8vspr}
+El cambio de representación y vecindad \textbf{RpKeTup} se compara con las dos propuestas previas: \textbf{PN7extTup} y \textbf{PN7Tup}. Se sigue el mismo procedimiento mencionado anteriormente para comparar y determinar si existe una diferencia significativa entre los resultados obtenidos. En la figura \ref{fig:n7vsn8vspr} y en la tabla \ref{tab:n7n8pr} podemos apreciar que \textbf{RpKeTup} presenta una ventaja aunque no muy grande. Los resultados detallados para \textbf{RpKeTup} se encuentran en el apéndice \ref{app:resprtuple}. 
+
 \begin{figure}[hbtp]
     \centering
     \includegraphics[scale=.7]{Imagenes/prn7n8comp.png}
@@ -156,13 +159,11 @@ Variante & Puntaje \\ \midrule
     \textbf{PN7extTup} & 30.0 \\ \midrule
     \textbf{PN7Tup} & -67.0 \\ \midrule
 \end{tabular}
-    \caption{Puntaje para cada una de las variantes de función de fitness propuesta}
+    \caption{Puntaje total para cada método.}
     \label{tab:n7n8pr}
 \end{table}
 
-
-También se muestra la mediana del error relativo alcanzado por los distintos métodos. Los resultados detallados para la extensión de vecindad se encuentran en el apéndice \ref{app:resprtuple}.
-
+En la figura \ref{fig:n7vsn8vsprerr} podemos observar que la ventaja que tiene \textbf{RpKeTup} está concentrada en la segunda mitad de las instancias. Como se mencionó anteriormente, en las instancias \textbf{DMU41-80} todos los trabajos tienen operaciones iniciales en un mismo subconjunto de máquinas, la nueva representación toma en cuenta soluciones activas con lo que consigue evitar parcialmente el cuello de botella que resulta en soluciones de muy mala calidad.
 \begin{figure}[hbtp]
     \begin{subfigure}{\textwidth}
         \centering
@@ -182,8 +183,7 @@ También se muestra la mediana del error relativo alcanzado por los distintos m�
     \label{fig:n7vsn8vsprerr}
 \end{figure}
 
-
-Para resaltar las diferencias entre \textbf{RpKeTup} y \textbf{PN7Tup} se tomó la instancia en la que se obtuvieron los resultados más dispares, en este caso fue la \textbf{DMU78} y se registró para cada óptimo local visitado su makespan así como el tamaño de su vecindad como se muestra en la figura \ref{fig:mattgraph}. Este procedimiento nos permite hacernos una idea de cómo se conectan las soluciones. Lo más deseable es que las soluciones de alta calidad tengan vecindades grandes y las de mala calidad tengan vecindades pequeñas. En la figura \ref{fig:mattgraph} podemos ver se tiene lo opuesto de lo deseado, es decir que el tamaño de la vecindad de una solución decrece junto con el makespan. Este efecto es más marcado para \textbf{RpKeTup} aunque cabe mencionar que en general el tamaño de sus vecindades es mucho más grande que el de las de \textbf{PN7Tup}. El patrón bandeado que se observa en la figura \ref{fig:mattgraph} para \textbf{PN7Tup} posiblemente se deba a la dependencia que tiene el tamaño de la vecindad de una solución con su número de rutas críticas ya que en \textbf{RpKeTup} esto no se observa.
+Para resaltar las diferencias entre \textbf{RpKeTup} y \textbf{PN7Tup} se tomó la instancia en la que se obtuvieron los resultados más dispares (\textbf{DMU78}) y se para cada óptimo local visitado se registró su makespan así como el tamaño de su vecindad como se muestra en la figura \ref{fig:mattgraph}. Este procedimiento nos permite hacernos una idea de cómo se conectan las soluciones en función de su makespan. Lo más deseable es que los óptimos locales de alta calidad tengan vecindades grandes y los de mala calidad tengan vecindades pequeñas, de modo que sea fácil llegar a una solución de buena calidad y difícil obtener una de mala calidad. En la figura \ref{fig:mattgraph} podemos ver se tiene lo opuesto de lo deseado, es decir que el tamaño de la vecindad de una solución decrece junto con el makespan. Este efecto es más marcado para \textbf{RpKeTup} aunque cabe mencionar que en general el tamaño de sus vecindades es mucho más grande que el de las de \textbf{PN7Tup}. El patrón bandeado que se observa en la figura \ref{fig:mattgraph} para \textbf{PN7Tup} posiblemente se deba a la dependencia que tiene el tamaño de la vecindad de una solución con su número de rutas críticas ya que en \textbf{RpKeTup} esto no se observa.
 
 \begin{figure}[hbtp]
     \includegraphics[scale=.6]{Imagenes/compvec78.png}
@@ -191,9 +191,9 @@ Para resaltar las diferencias entre \textbf{RpKeTup} y \textbf{PN7Tup} se tomó 
     \label{fig:mattgraph}
 \end{figure}
 
-Otro modo de visualizar las diferencias entre ambas representaciones también se presentan diagramas de caja para la diferencia relativa relativa del makespan de los óptimos locales con sus vecinos. Esto nos da una idea de cómo se relacionan las soluciones de acuerdo con su makespan. Si estos valores son muy cercanos entre sí esto nos da un indicio de la suavidad del paisaje de búsqueda.
+Otro modo de visualizar las diferencias entre ambas representaciones es al fijarnos en los alrededores de un óptimo local. Entre más parecido se el makespan de un óptimo local al de sus vecinos, más suave es el paisaje de búsqueda. Podemos visualizar esto mediante diagramas de caja para la diferencia relativa relativa del makespan de los óptimos locales con sus vecinos. 
 
-En las figuras \ref{fig:bxp1} y \ref{fig:bxp2} observamos que los vecinos de los óptimos locales para \textbf{RpKeTup} son más parecidos que los de \textbf{PN7Tup}, esto nos dice que el paisaje de búsqueda es más suave lo cual como se ha mencionado antes es ventajoso para las metaheurísticas de trayectoria.  
+En las figuras \ref{fig:bxp1} y \ref{fig:bxp2} observamos que los vecinos de los óptimos locales para \textbf{RpKeTup} son más parecidos que los de \textbf{PN7Tup}, esto nos indica que el paisaje de búsqueda es más suave para \textbf{RpKeTup} lo cual, como se ha mencionado antes, es ventajoso para las metaheurísticas de trayectoria.  
 
 Este efecto se debe a que la representación basada en permutaciones considera movimientos que pueden ser bastante disruptivos como atrasar toda una cadena de operaciones dejando huecos grandes en la planificación, mientras que en la nueva representación basada en llaves aleatorias el proceso de decodificación mediante el algoritmo de Giffler Thompson \ref{alg:GT} evita que se generen estos huecos lo que tiene como resultado un paisaje de búsqueda mucho más suave.
 \begin{figure}[hbtp]
