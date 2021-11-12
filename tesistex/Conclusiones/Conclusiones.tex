@@ -1,26 +1,77 @@
-El problema de planificación tipo taller (JSP) es un problema de optimización combinatoria el cual ha recibido mucha atención desde hace varias décadas por sus aplicaciones en ambientes de manufactura. Ya que este problema pertenece a la clase \textbf{NP-hard} no se conocen algoritmos eficientes para resolverlo de manera general, es por ello que durante los últimos años, se han desarrollado múltiples optimizadores para el JSP basados en métodos aproximados. Dichos optimizadores han incrementando progresivamente su complejidad, tanto en implementación como en mantenimiento.
+El problema de planificación tipo taller (JSP) es un problema de optimización combinatoria que ha recibido mucha atención desde hace varias décadas por sus aplicaciones 
+en ambientes de manufactura. 
+%
+Este problema pertenece a la clase \textbf{NP-hard}, por lo que no se conocen algoritmos eficientes para resolverlo de manera general.
+%
+Es por ello que durante los últimos años, se han desarrollado múltiples optimizadores para el JSP basados en métodos aproximados. 
+%
+Dichos optimizadores han incrementando progresivamente su complejidad en implementación y mantenimiento, así como los requerimientos
+de cómputo.
 
+En la actualidad, los optimizadores que ofrecen los mejores resultados son técnicas híbridas que combinan múltiples ideas de muy diferente índole 
+y requieren de grandes cantidades de recursos computacionales para su buen desempeño. 
 %
- En la actualidad, los optimizadores que ofrecen los mejores resultados son técnicas híbridas que combinan múltiples ideas de muy diferente índole y requieren de grandes cantidades de recursos computacionales para su buen desempeño. La mayoría de los optimizadores actuales plantean un modo de explorar un paisaje de búsqueda que consta de tres componentes: la representación que se le da a las soluciones, una estructura de vecindad que permite generar un conjunto de soluciones nuevas a partir de una conocida y una función de fitness que permite comparar las soluciones. Aunque se han usado diferentes tipos de representaciones, vecindades y funciones de fitness, gran parte de los esquemas actuales consideran aspectos comunes, y en particular, suelen usar la vecindad conocida como N7, una representación basada en permutaciones y el makespan como función de fitness. En cuanto a la forma de explorar el paisaje de búsqueda, actualmente los métodos más exitosos se basan en la metaheurística conocida como búsqueda tabú.
+En general el rendimiento de los optimizadores dependen del paisaje de búsqueda, es decir, de la representación que se le da a las soluciones, de la estructura de vecindad 
+y de la función de fitness. 
+%
+Aunque se han usado diferentes tipos de representaciones, vecindades y funciones de fitness, gran parte de los esquemas actuales consideran aspectos comunes, y en particular, 
+suelen usar la vecindad conocida como N7, una representación basada en permutaciones y el makespan como función de fitness. 
+%
+En cuanto a la forma de explorar el paisaje de búsqueda, actualmente los métodos más exitosos se basan en la metaheurística conocida como búsqueda tabú, pero incorporando 
+múltiples modificaciones.
+
+En esta tesis se propone un conjunto de modificaciones a cada una de las componentes del paisaje de búsqueda con el fin de analizar qué efecto tienen 
+los mismos sobre el rendimiento de una metaheurística de trayectoria simple. 
+%
+En concreto, con el fin de obtener soluciones de alta calidad en tiempos reducidos, se usa una metaheurística simple: la búsqueda local iterada.
+%
+Entre las propuestas cabe destacar una manera de extender la vecindad N7 con movimientos que buscan aprovechar tiempos inactivos en la planificación,
+nuevas funciones de fitness que permiten distinguir entre soluciones con el mismo makespan, una nueva representación basada en
+llaves aleatorias a cada operación junto con un algoritmo para construir una solución a partir de ellas, que genera soluciones activas, y
+una nueva estructura de vecindad asociada a esta última representación. 
+
+Los resultados muestran que, para las instancias más difíciles de la actualidad, la utilización de un paisaje de búsqueda adecuado permite reducir
+significativamente el error relativo, y en particular, se consiguió un optimizador que obtiene en menos de 5 minutos errores relativos no mayores a $0.21$.
+%
+Entre las modificaciones propuestas, la representación junto con la nueva estructura de vecindad, y las funciones de fitness fueron las que tuvieron mayor
+efecto en los resultados.
+%
+La nueva representación es particularmente útil para la segunda mitad de las instancias DMU, las cuales son consideradas actualmente como las más retadoras.
+%
+Por otro lado, la función de fitness también es bastante importante.
+%
+En particular, debido a la existencia de múltiples zonas planas cuando solo se usa el makespan como función de fitness, el optimizador se queda bloqueado 
+en óptimos de baja calidad. 
+%
+Sin embargo, al añadir características relevantes como lo son los tiempos de finalización de otras máquinas, surgen nuevas direcciones de mejora que permiten 
+dirigir la búsqueda hacia óptimos locales de mejor calidad. 
+%
+Se probaron varias formas de extender la función de fitness y en particular, la que obtuvo mejor rendimiento consiste en construir una tupla con los tiempos 
+ordenados de finalización de cada una de las máquinas y compararlas lexicográficamente para distinguir si una solución es mejor que otra. 
+%
+Esta función de fitness logró recudir la mediana del error relativo en todas las instancias y en varias de ellas se redujo aproximadamente a la mitad.
+%
+En lo que se refiere a la extensión de la vecindad N7 propuesta, no hay ventajas tan claras, siendo mejor en algunas instancias y signficativamente peor en otras, por 
+lo que se debe ver como una alternativa, en lugar de como una mejora.
+
+Además de presentar los resultados, se realizaron algunos estudios para analizar los efectos que tienen los cambios introducidos en el paisaje de búsqueda.
+%
+En primer lugar, la nueva estructura de vecindad asociada a la representación de llaves, tiene una conectividad más homogénea, mientras que sin usar la misma,
+las soluciones de menor makespan tienden a estar menos conectadas.
+%
+En segundo lugar, y probablemente más importante, la nueva vecindad muestra una mayor suavidad en el paisaje de búsqueda lo cual implica que las soluciones tienden 
+a agruparse con soluciones de calidad similar, lo que se sabe que es muy bueno para el rendimiento de las metaheurísticas.
 %
 
- En esta tesis se propone un conjunto de modificaciones a cada una de las componentes del paisaje de búsqueda con el fin de analizar qué efecto tienen los mismos sobre el rendimiento de una metaheurística de trayectoria simple. Para explorar los paisajes resultantes de las modificaciones se utiliza la búsqueda local iterada (ILS), con el fin de obtener soluciones de alta calidad en tiempos reducidos.
+Nótese que en esta tesis, el paisaje de búsqueda sólo se integró con la metaheurística búsqueda local iterada, lo que permitió generar buenas soluciones en 
+tiempos reducidos de solo 5 minutos.
 %
-Se propone una manera de extender la vecindad N7 con movimientos que buscan aprovechar tiempos inactivos en la planificación.
-Una nueva función de fitness que toma en cuenta más características de una solución es implementada de modo que se pueda distinguir entre soluciones con el mismo makespan.
-Se plantea una nueva representación basada en la asignación de llaves aleatorias a cada operación junto con un algoritmo para construir una solución a partir de ellas, esto permite solo considerar en un subconjunto de soluciones dentro del cual se sabe que existe al menos una solución óptima. Una nueva estructura de vecindad basada en el intercambio de llaves entre operaciones que compiten entre sí es diseñada para usarse específicamente con la nueva representación.
-
+Dadas las importantes mejoras obtenidas, se abre la puerta a incluir estos cambios con otras metaheurísticas de mayor complejidad y con metaheurísticas híbridas. 
 %
-Los resultados muestran que el cambio en la representación junto con la nueva estructura de vecindad tuvieron el mayor efecto positivo.Este cambio logra una disminución sustancial del error relativo en la segunda mitad de las instancias. En particular se observa que la búsqueda local iterada junto con estas modificaciones tiene un error relativo no mayor a $0.21$ con respecto a los resultados del estado del arte . En esta nueva estructura de vecindad el tamaño de la misma está mucho más relacionado con el makespan de la solución, esto sugiere que las mejores soluciones están poco conectadas haciéndolas más difíciles de obtener. Un aspecto positivo de la nueva estructura de vecindad es que a pesar de presentar esta clara correlación entre makespan y conectividad, el tamaño de la misma no fluctúa tanto como sucede con la vecindad N7 a demás de que es más grande por lo que los problemas derivados de esta correlación no son muy apreciables. Por último, la nueva vecindad muestra una mayor suavidad en el paisaje de búsqueda lo cual implica que las soluciones tienden a agruparse con soluciones de calidad similar, esta característica del paisaje de búsqueda puede aprovecharse en el futuro.
+Esto es un reto importante porque en su mayor parte, estas metaheurísticas incluyes pasos dependientes de la representación como cálculo aproximado de fitness, 
+prohibiciones de ciertos tipos de movimientos, etc. por lo que no es para nada trivial realizar la integración, aunque parece muy prometedor.
 %
-Por otro lado, la función de fitness también es bastante importante. En particular, debido a la existencia de múltiples zonas planas cuando solo se usa el makespan como función de fitness, el optimizador se queda bloqueado en óptimos de baja calidad. Sin embargo, al añadir características relevantes como lo son los tiempos de finalización de otras máquinas, surgen nuevas direcciones de mejora que permiten dirigir la búsqueda hacia óptimos locales de mejor calidad. Se probaron varias formas de extender la función de fitness y en particular, la que obtuvo mejor rendimiento consiste en construir una tupla con los tiempos ordenados de finalización de cada una de las máquinas y compararlas lexicográficamente para distinguir si una solución es mejor que otra. Esta función de fitness logró recudir la mediana del error relativo en todas las instancias y en varias de ellas se redujo aproximadamente a la mitad.
+Sería muy interesante plantear formas de aprovechar todo el desarrollo que se tiene para la representación basada en permutaciones y traducirlo a la representación 
+propuesta en este trabajo o hacer que ambas representaciones trabajen en conjunto. 
 %
- En lo que se refiere a la extensión de la vecindad, la propuesta hecha para extender la vecindad N7 no presenta ventajas importantes frente a la vecindad original, mostrando el mismo comportamiento en las instancias de prueba a pesar de plantearse como una posible manera de escapar de óptimos locales y de mantener soluciones más prometedoras. 
-
-Los resultados obtenidos muestran una clara diferencia en cuestión de dificultad entre las instancias \textbf{DMU01-40} y las \textbf{DMU41-80}. La búsqueda local iterada con la vecindad N7 y la función de fitness propuesta muestra un desempeño muy diferente en estas dos mitades. En la primera mitad se obtienen resultados con bajo error relativo e inclusive en varias ocasiones se alcanzan los resultados del estado del arte mientras que en la segunda mitad el error relativo es bastante más alto y crece con el tamaño de la instancia considerada. 
-%
-
-%Luego puedes hablar de cómo esto genera nuevas opciones.
-
-Nótese que en esta tesis, el paisaje de búsqueda sólo se integró con la metaheurística búsqueda local iterada, lo que permitió generar buenas soluciones en tiempos reducidos de solo 5 minutos. Dadas las importantes mejoras obtenidas, se abre la puerta a incluir estos cambios con otras metaheurísticas de mayor complejidad y con metaheurísticas híbridas. Esto es un reto importante porque en su mayor parte, estas metaheurísticas incluyes pasos dependientes de la representación como cálculo aproximado de fitness, prohibiciones de ciertos tipos de movimientos, etc. por lo que no es para nada trivial realizar la integración, aunque parece muy prometedor.Sería muy interesante plantear formas de aprovechar todo el desarrollo que se tiene para la representación basada en permutaciones y traducirlo a la representación propuesta en este trabajo o hacer que ambas representaciones trabajen en conjunto. 
- Por último, la construcción de la función de fitness parece ser una gran área de oportunidad para refinar la propuesta hecha en este trabajo ya que se observan mejoras importantes solo con su introducción. 
+Por último, la construcción de la función de fitness parece ser una gran área de oportunidad, y se podría incluir en metaheurísticas de mayor complejidad. 

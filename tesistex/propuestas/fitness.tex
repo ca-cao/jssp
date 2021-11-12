@@ -4,7 +4,7 @@ La función de fitness es el elemento del paisaje de búsqueda al que se han rep
 En general cuando se utilizan otros criterios de optimalidad el problema se convierte en uno de optimización 
 multi-objetivo~\cite{gong2019effective,sakawa2000fuzzy,ponnambalam2001multiobjective}.
 %
-En~\cite{uckun1993managing} se propuso optimizar el makespan pero tomando en en cuenta exclusivamente el tiempo inactivo en la planificación 
+En~\cite{uckun1993managing} se propuso optimizar el makespan pero tomando en cuenta exclusivamente el tiempo inactivo en la planificación 
 aunque los resultados no fueron muy alentadores.   
 
 La propuesta presentada en este trabajo consiste en construir un arreglo de características para cada planificación de modo que puedan 
@@ -35,8 +35,8 @@ Las características tomadas en cuenta fueron las siguientes ($J_i$ es el tiempo
 		para eliminar las rutas críticas, aunque eso no implique reducir el tiempo final de alguna máquina, y así lograr una mejora en el makespan. 
     \item $\mathbf{Var(C_i)}$ Varianza de los tiempos de finalización. Esta medida es parecida a la suma de tiempos de finalización al cuadrado pero en este caso se 
 		mide la distancia a la duración promedio por lo que no solo se centra en las máquinas que tardan más sino también en las que se tardan menos. Esto puede ayudar a 
-		que no se planifiquen operaciones en una solo subconjunto de máquinas mientras que las otras permanecen en espera.
-    \item $\mathbf{(\{C_i\})}$ Tupla de tiempos de finalización ordenados. Esta tupla engloba de cierto modo varias de las características previamente mencionadas pero i
+		que no se planifiquen operaciones en un solo subconjunto de máquinas mientras que las otras permanecen en espera.
+    \item $\mathbf{(\{C_i\})}$ Tupla de tiempos de finalización ordenados. Esta tupla engloba de cierto modo varias de las características previamente mencionadas pero
 		tiene la ventaja de requerir menos trabajo computacional para construir al solo ser necesario ordenar cantidades ya conocidas.
 \end{itemize}
 

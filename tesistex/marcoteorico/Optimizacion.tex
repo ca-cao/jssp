@@ -31,7 +31,7 @@ A continuación se presentan algunas de las agrupaciones más importantes.
 
 \subsection*{Optimización con restricciones}
 A la definición de un problema de optimización también pueden agregarse un conjunto de restricciones, definidas habitualmente como
-un conjunto de funciones que toman una solución como entrada una solución e indican si esta cumple o no con ellas, e incluso el grado
+un conjunto de funciones que toman una solución como entrada e indican si esta cumple o no con ellas, e incluso el grado
 de incumplimiento.
 %
 Se dice que una solución es factible si cumple con todas las restricciones e infactible en caso contrario.
@@ -53,7 +53,7 @@ de distancia a otra de referencia o bien añadiendo un operador que permita crea
 En la definición de problema de optimización dado anteriormente no se requiere que el conjunto de soluciones tenga alguna propiedad o alguna estructura 
 adicional. 
 %
-Por ejemplo el conjunto de soluciones puede ser un conjunto numerable ( e.g. los enteros ) o no numerable ( e.g. los números reales ). 
+Por ejemplo el conjunto de soluciones puede ser un conjunto numerable (e.g. los enteros) o no numerable (e.g. los números reales). 
 %
 Estos dos casos dividen a la optimización en dos ramas: optimización continua y optimización discreta. 
 %
@@ -130,7 +130,7 @@ El concepto de paisaje de búsqueda surgió en la biología para explicar los me
 %
 La idea básica es que los genes de algún organismo en particular le confieren ventajas o desventajas en su hábitat, i.e. puede estar más o menos adaptado. 
 %
-De esta manera puede pensarse en clasificar a todos los individuos de acuerdo a su grada de adaptación. 
+De esta manera puede pensarse en clasificar a todos los individuos de acuerdo a su grado de adaptación. 
 
 Conforme se introducen nuevas variaciones en el código genético ya sea por la reproducción o mutación, se pueden añadir a los nuevos individuos a la clasificación. 
 %
@@ -146,7 +146,7 @@ Los conceptos de genoma, adaptabilidad y reproducción y mutación tienen como a
 
 \subsection{Representación}
 
-En ocasiones, el problema de optimización en el que estemos interesados puede surgir directamente de un ámbito de las matemáticas;
+En ocasiones, el problema de optimización en el que estamos interesados puede surgir directamente de un ámbito de las matemáticas;
 %
 sin embargo, si estamos interesados en un problema de nuestro entorno físico es necesario idear una forma de traducirlo a un lenguaje matemático, 
 incluyendo la soluciones al mismo. 
@@ -169,7 +169,7 @@ Aunque son equivalentes, estas dos representaciones tienen propiedades diferente
 Con el ejemplo anterior también podemos ver que si queremos establecer algunos operadores que, por ejemplo, perturben la solución tendremos que definirlos de maneras 
 distintas en función de la representación que estemos considerando para asegurarnos que la perturbación tiene el efecto que deseamos.
 %
-También es importante notar que es posible que el número de soluciones factibles e infactibles cambian en función de la representación, por lo que dependiendo de
+También es importante notar que es posible que el número de soluciones factibles e infactibles cambien en función de la representación, por lo que dependiendo de
 la misma, se puede facilitar o dificultar la búsqueda.
 
 Formalmente una representación está formada por con conjunto de objetos (representaciones de soluciones) y un mapa que asocia elementos entre el conjunto de representaciones
@@ -217,7 +217,7 @@ transformarla en una que pertenezca a su vecindad, i.e. este operador selecciona
 \[M(x)=y\in N(x)\quad x\neq y\]
 
 En general se busca que una vecindad cumpla con ciertas características, entre las más importantes es que las soluciones formen una componente conexa, 
-que no tenga un tamaño excesivamente grande y que contenga las vecinos de una solución tenga una calidad no muy distinta a la de la solución inicial;
+que no tenga un tamaño excesivamente grande y que los vecinos de cada solución tengan una calidad no muy distinta a la misma;
 esta última característica le confiere <<suavidad>> y puede ser de ayuda para tener búsqueda más efectivas, ya que en caso contrario, evaluar una
 solución prácticamente no ofrece información sobre la calidad de la región en la que se está buscando.
 
@@ -241,7 +241,7 @@ si podemos generar a $y$ aplicando los operadores de cambio a $x$.
 
 Además, podemos asociar a cada solución en el espacio un valor de aptitud o fitness que mide la calidad de dicha solución. 
 %
-La adición de esta función de aptitud al espacio de búsqueda genera al paisaje de búsqueda. 
+La adición de esta función de aptitud al espacio de búsqueda genera el paisaje de búsqueda. 
 %
 Formalmente el paisaje de búsqueda $\mathcal{L}$ es entonces una tupla conformada por el espacio de búsqueda junto con una función objetivo que 
 guía la búsqueda $\mathcal{L}=(G,f)$.
@@ -278,9 +278,9 @@ La estructura del paisaje de búsqueda influye de manera determinante en el éxi
 Dependiendo de la <<forma>> del paisaje se favorecerá el uso de ciertas metaheurísticas. 
 %
 La <<forma>> del paisaje hace referencia a cómo cambia el valor de fitness para soluciones conectadas entre sí y para modelarlo de forma adecuada se usan diferentes
-tipos de mediciones. En la figura \ref{fig:landtypes} se muestran los diferentes tipos de paisajes de búsqueda.
+tipos de mediciones. En la figura \ref{fig:landtypes} se muestran diferentes tipos de paisajes de búsqueda.
 %
-Una medida ampliamente usada estima cómo cambia el valor de la función de fitness conforme nos acercamos a óptimos locales, mientras que otra se gran popularidad 
+Una medida ampliamente usada estima cómo cambia el valor de la función de fitness conforme nos acercamos a óptimos locales, mientras que otra de gran popularidad 
 estima qué tanto cambia el fitness entre soluciones vecinas\cite{skauffman}. 
 %
 La primera de estas medidas nos da una idea de qué tan grandes son los valles que rodean a un mínimo local si es que existen y la segunda nos da una ida de la 
@@ -288,7 +288,7 @@ rugosidad del paisaje.
 %
 En esta tesis no nos centramos en cómo cuantificar y analizar el paisaje de búsqueda, por lo que no se entra en más detalle.
 %
-El objetivo se centra en proponer modificaciones a los paisajes de búsqueda más usado para el JSP, con el fin de mejorar el rendimiento de metaheurísticas sencillas.
+El objetivo se centra en proponer modificaciones a los paisajes de búsqueda más usados para el JSP, con el fin de mejorar el rendimiento de metaheurísticas sencillas.
 
 % imagen
 \begin{figure}[]
@@ -312,8 +312,9 @@ El objetivo se centra en proponer modificaciones a los paisajes de búsqueda má
 \subsection*{Algunas metaheurísticas de relevancia}
 Las metaheurísticas sirven como una estrategia para explorar el paisaje de búsqueda. 
 %
-Una de las más sencillas e intuitivas es conocida como descenso/escalada estocástica y simplemente consiste en reemplazar la solución actual por algún vecino mejor 
-escogido al azar .%
+Una de las más sencillas e intuitivas es conocida como descenso/escalada estocástica (Algoritmo~\ref{alg:LS}) y simplemente consiste en reemplazar la solución actual por algún vecino mejor 
+escogido al azar.
+%
 Esta es una metaheurística de trayectoria y traza un camino entre las soluciones inicial y final.
 
 %
@@ -345,7 +346,7 @@ Esta es una metaheurística de trayectoria y traza un camino entre las solucione
 
 
 Otra metaheurística de trayectoria importante que se ha considerado en la mayor parte de métodos que han alcanzado las mejores soluciones conocidas para el JSP es
-la llamada búsqueda tabú \ref{alg:TS}. 
+la llamada búsqueda tabú (Algoritmo \ref{alg:TS}).
 %
 Esta metaheurística se basa en la búsqueda local pero puede aceptar vecinos que no mejoran la función de fitness con la intención de evitar atascarse en un óptimo 
 local de mala calidad. 
@@ -378,10 +379,10 @@ Es necesario definir el tamaño de la lista, el tipo de información que contend
 
 \smallskip
 Por último se presenta una metaheurística de trayectoria muy sencilla que intenta subsanar el problema de atascarse en óptimos locales de mala calidad de la búsqueda local,
-la búsqueda local iterada \ref{alg:ILS}.
+la búsqueda local iterada (Algoritmo~\ref{alg:ILS}).
 %
-La idea de esta metaheurística es obtener un mínimo local a partir de una solución inicial mediante búsqueda local, y aplicarle una perturbación seguida de búsqueda local para
-evitar el óptimo local.
+La idea de esta metaheurística es obtener un mínimo local a partir de una solución inicial mediante búsqueda local, y aplicarle iterativamente 
+una perturbación seguida de búsqueda local para evitar el óptimo local.
 %
 Este proceso se repite hasta que se cumpla algún criterio de paro. 
 %
@@ -391,9 +392,9 @@ Esta estrategia es conceptualmente muy simple aunque se debe definir la perturba
  \KwData{Problema de Optimización}
  \KwResult{Última solución aceptada $x^*$}
  Generar solución inicial $x$\;
- Inicializar mejor solución como $x^*\leftarrow x$
+ Inicializar mejor solución como $x^*\leftarrow x$\;
  \While{no criterio de paro}{
-     Obtener una solución $y$ a partir de $x$ mediante búsqueda local \ref{alg:LS}\;
+     Obtener una solución $y$ a partir de $x$ mediante búsqueda local (Algoritmo \ref{alg:LS})\;
      \eIf{$y$ es aceptada}{
      $x \leftarrow y$\;
      $x^* \leftarrow y$\;

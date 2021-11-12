@@ -12,7 +12,7 @@ a completar.
 
 Las secuencias y tiempos de procesamiento para cada trabajo deben de especificarse para definir el problema. 
 %
-Habitualmente se presentan en una tabla de $n$ renglones por $m$ columnas esto se conoce como una instancia del JSP. 
+Habitualmente se presentan en una tabla de $n$ renglones por $m$ columnas, conformando la misma una instancia del JSP. 
 %
 Para cada renglón, las columnas contienen, de forma ordenada, la máquina en que debe procesarse el trabajo en cada paso y el tiempo 
 que toma procesarlo. 
@@ -22,17 +22,17 @@ Por ejemplo en la tabla~\ref{tab:inst} se presenta una instancia del JSP con 3 m
 En esta instancia el trabajo 1 debe procesarse primero en la máquina 0 por 75 unidades de tiempo, luego en la máquina 2 por 54 unidades de tiempo y 
 por último en la máquina 1 por 59 unidades de tiempo.
 
-El problema a resolver consiste en hallar una planificación que sea óptima en algún sentido y respete los requisitos impuestos (orden y no concurrencia de diversas
+El problema a resolver consiste en hallar una planificación que minimice el makespan (o algún otro criterio) y respete los requisitos impuestos (orden y no concurrencia de diversas
 operaciones).
 %
-Así, una planificación consiste en asignar tiempos de inicio y fin a cada operación respetando el orden requerido para cada trabajo. 
+Una planificación consiste en asignar tiempos de inicio y fin a cada operación respetando el orden requerido para cada trabajo. 
 
 \subsection{Tipos de planificaciones}
 Independientemente de cómo se representen o como se construyan, las planificaciones pueden clasificarse en varios conjuntos. Dentro del conjunto de planificaciones factibles se pueden distinguir tres subconjuntos de interés para el presente trabajo~\cite{sprecher1995semi}:
 \begin{itemize}
-    \item \textbf{Planificaciones semi-activas} Son aquellas en las que el tiempo de inicio de cada operación no puede disminuirse sin modificar el orden especificado en la planificación. De modo más intuitivo son aquellas en las que una máquina solo deja de trabajar porque la dependencia de la operación a procesar no ha sido procesada o porque ya terminó todo lo que tenía asignado.
-    \item \textbf{Planificaciones activas} Son a su vez un subconjunto de las planificaciones activas y se definen como las planificaciones en las que no es posible disminuir el tiempo de inicio de ninguna operación sin aumentar el tiempo de inicio de otra. 
-    \item \textbf{Planificaciones óptimas} Es el conjunto conformado por las planificaciones con el menor makespan posible. Este conjunto contiene planificaciones activas~\cite{Ponsich2013} aunque puede o no contener otras planificaciones que solo son factibles.
+    \item \textbf{Planificaciones semi-activas.} Son aquellas en las que el tiempo de inicio de cada operación no puede disminuirse sin modificar el orden especificado en la planificación. De modo más intuitivo son aquellas en las que una máquina solo deja de trabajar porque la dependencia de la operación a procesar no ha sido procesada o porque ya terminó todo lo que tenía asignado.
+    \item \textbf{Planificaciones activas.} Son a su vez un subconjunto de las planificaciones semi-activas y se definen como las planificaciones en las que no es posible disminuir el tiempo de inicio de ninguna operación sin aumentar el tiempo de inicio de otra. 
+    \item \textbf{Planificaciones óptimas.} Es el conjunto conformado por las planificaciones con el menor makespan posible. Este conjunto contiene planificaciones activas~\cite{Ponsich2013} aunque puede o no contener otras planificaciones que solo son factibles.
 \end{itemize}
 
 La relación entre estos conjuntos se ilustra en la figura \ref{fig:solspace}. 
@@ -90,7 +90,7 @@ Trabajo & \multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}}Secuencia de procesamien
 Otra ventaja de centrarnos en las planificaciones semi-activas es que nos permite definir el concepto \textbf{ruta crítica}. 
 
 %
-Para una planificación semi-activa una \textbf{ruta crítica} es una secuencia ordenada de $k$ operaciones $(O_1,O_2,\dots,O_k)$ que cumple con las siguientes propiedades: el tiempo de inicio de la primera operación es cero y el de finalización de la última es igual al makespan de la planificación, el tiempo de inicio de la operación $i$ es igual al tiempo de finalización de la operación $i-1$ para $i>1$ y la operación $i-1$ es una dependencia de la operación $i$ para $i>1$.  
+Para una planificación semi-activa, una \textbf{ruta crítica} es una secuencia ordenada de $k$ operaciones $(O_1,O_2,\dots,O_k)$ que cumple con las siguientes propiedades: el tiempo de inicio de la primera operación es cero y el de finalización de la última es igual al makespan de la planificación, el tiempo de inicio de la operación $i$ es igual al tiempo de finalización de la operación $i-1$ para $i>1$ y la operación $i-1$ es una dependencia de la operación $i$ para $i>1$.  
 
 %
 La ruta crítica se compone a su vez de una serie de \textbf{bloques críticos} que consisten en las secuencias de operaciones de la ruta crítica que se ejecutan de forma 
@@ -98,7 +98,7 @@ adyacente en la misma máquina.
 %
 Es importante mencionar que una planificación semi-activa siempre tiene al menos una ruta crítica pero puede tener más de una a la vez.
 %
-Existen varias formas de determinar si una planificación es óptima, como se explicará más adelante, pero la más usada es el tiempo que toma terminar la última operación.
+Existen varias formas de determinar la calidad de una solución, como se explicará más adelante, pero la más usada es el tiempo que toma terminar la última operación.
 %
 A este tiempo se le conoce como \textbf{makespan}. 
 %
@@ -149,16 +149,18 @@ De manera general las representaciones para el JSP se pueden clasificar en\cite{
     \item \textbf{Representación indirecta}: Se almacena información con la que se puede construir una planificación mediante un proceso de decodificación.
 \end{itemize}
 
-En este trabajo se utilizaron dos: una basada en permutaciones (representación directa) y las reglas de prioridad (representación indirecta).
+En este trabajo se utilizaron dos: una basada en permutaciones (representación directa) y otra basada en reglas de prioridad (representación indirecta).
 
 \subsubsection*{Representación basada en permutaciones} 
-En este modelo se identifica para cada máquina el conjunto de operaciones que deben procesarse en ella. Entonces una planificación se representa como un conjunto de $m$ permutaciones $(\sigma_0,\sigma_1,\dots,\sigma_m)$, donde $\sigma_i$ es la permutación de las operaciones que debe procesar la máquina $i$. Es decir que se asigna el orden de procesamiento de las operaciones cada máquina.
+En este modelo se identifica para cada máquina el conjunto de operaciones que deben procesarse en ella. Entonces una planificación se representa como un conjunto de $m$ permutaciones $(\sigma_0,\sigma_1,\dots,\sigma_m)$, donde $\sigma_i$ es una permutación de las operaciones que debe procesar la máquina $i$, la cual establece el orden de procesamiento de las operaciones.
 %
 Esta representación no toma en cuenta el orden de procesamiento que deben cumplir las operaciones dentro de sus trabajos correspondientes por lo que no siempre representa planificaciones factibles.
 %
-Una forma de determinar si la permutación representa una planificación factible se construye un grafo dirigido $G=(V,A,E)$ en el que $V$ es un conjunto de nodos que representa las operaciones, las aristas $A$ representan la secuencia que deben seguir las operaciones dentro de un mismo trabajo y $E$ es otro conjunto de aristas que indica el orden de procesamiento en cada una de las máquinas. 
-
-Pueden agregarse dos nodos de control que sirven como el nodo inicial o fuente del que dependen todas las operaciones ($S$) y final que depende de todos las operaciones ($*$), las restricciones de precedencia para las operaciones dentro de cada trabajo se representan como aristas dirigidas fijas llamadas aristas conjuntivas y las operaciones que deben procesarse en una misma máquina se unen mediante aristas llamadas disyuntivas cuya dirección se determina siguiendo la permutación dada. 
+Una forma de determinar si la permutación representa una planificación factible consiste en construir un grafo dirigido $G=(V,A,E)$ y verificar si es acíclico.
+%
+En este grafo $V$ es un conjunto de nodos que representa las operaciones, las aristas $A$ representan la secuencia que deben seguir las operaciones dentro de un mismo trabajo y $E$ es otro conjunto de aristas que indica el orden de procesamiento en cada una de las máquinas. 
+%
+Se agregan además dos nodos de control que sirven como el nodo inicial o fuente del que dependen todas las operaciones ($S$) y final que depende de todos las operaciones ($*$), las restricciones de precedencia para las operaciones dentro de cada trabajo se representan como aristas dirigidas fijas llamadas aristas conjuntivas y las operaciones que deben procesarse en una misma máquina se unen mediante aristas llamadas disyuntivas cuya dirección se determina siguiendo la permutación dada. 
 %
 Para que una permutación represente una planificación factible su grafo asociado debe ser acíclico, puesto que la existencia de un ciclo en el grafo indica que hay una operación que está esperando a que se procese alguna otra operación que a su vez depende de que se procese la primera.
 %
@@ -170,7 +172,7 @@ Si se busca generar una planificación semi-activa, entonces el tiempo de inicio
 La planificación mostrada en la figura \ref{fig:gantt} tendría la siguiente representación como permutaciones:
 \begin{align*}
 \sigma_0 &= (O_{0,0}\,,\,O_{1,0})\\
-\sigma_1 &= (O_{0,2}\,,\,O_{0,1})\\
+\sigma_1 &= (O_{0,2}\,,\,O_{1,2})\\
 \sigma_2 &= (O_{0,1}\,,\,O_{1,1})
 \end{align*}
 A partir de estas permutaciones se construye el grafo antes descrito y se escogen las direcciones de las aristas disyuntivas como se muestra en la figura \ref{fig:dgraph}. En este caso se verifica que el grafo es acíclico. 

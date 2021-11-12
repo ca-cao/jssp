@@ -6,7 +6,7 @@ a través de la modificación del paisaje de búsqueda, se decidió utilizar la 
 Actualmente el paisaje de búsqueda de la mayor parte de los métodos del estado del arte consiste en la representación directa basada en permutaciones, la vecindad N7 y el makespan como función de fitness. Este paisaje de búsqueda se toma entonces como la base para proponer modificaciones a cada una de sus componentes.
 %
 Como se mostró anteriormente en el algoritmo~\ref{alg:ILS}, la búsqueda local iterada requiere que definamos una manera de perturbar una 
-solución dada así como definir un criterio de paro. 
+solución dada, así como definir un criterio de paro. 
 %
 La perturbación debe ser suficientemente grande como para permitirnos escapar de un óptimo local pero no tan grande como para eliminar toda 
 la estructura que se tiene hasta el momento.
@@ -18,11 +18,11 @@ que se esté usando).
 Este vecino es aceptado, independientemente de su nivel de calidad.
 %
 Así, esta definición es conveniente porque presenta una manera de aceptar cambios que no mejoran la solución pero que a su vez pueden estar 
-conectados a soluciones de mejor calidad que la mejor actual.
+conectados a soluciones de mejor calidad que la solución actual.
 %
 Nótese que esta perturbación puede parecer muy pequeña, ya que habitualmente se incorporan perturbaciones bastante más disruptivas.
 %
-Sin embargo, esta tesis está enfocada en obtener soluciones de calidad relativamente alta en tiempo muy cortos.
+Sin embargo, esta tesis está enfocada en obtener soluciones de calidad relativamente alta en tiempos muy cortos.
 %
 Algunos estudios iniciales con operadores más disruptivos no ofrecieron ventajas sobre la propuesta de moverse simplemente a un vecino,
 por lo que por simplicidad y eficiencia se decidió mantener esta decisión de diseño.

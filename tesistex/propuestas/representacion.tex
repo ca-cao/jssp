@@ -3,7 +3,7 @@ La representación más usada actualmente basada en permutaciones puede restring
 %
 También es importante mencionar que las soluciones no activas, pueden contener periodos de tiempo en el que alguna máquina ociosa mientras espera que termine de ser procesada la dependencia de la próxima operación, es decir que pueden verse huecos en el diagrama de Gantt que pueden ser aprovechables por otras operaciones. Esto puede generar soluciones de baja calidad que pueden ser difíciles de mejorar.\\
 %
-Otra ventaja importante es que,como se explicó anteriormente, se sabe que entre las soluciones activas, existen soluciones óptimas. Por ello, se han ideado propuestas algorítmicas que permiten generar soluciones activas. En estas propuestas, hay que establecer un modo de elegir entre diferentes operaciones, para lo que se suele usar algún criterio de selección fijo, conocido como regla de prioridad. Esta regla puede ser elegir a la operación más corta o a la que pertenezca al trabajo más largo o incluso puede elegirse una al azar.\\
+Otra ventaja importante es que, como se explicó anteriormente, se sabe que entre las soluciones activas, existen soluciones óptimas. Por ello, se han ideado propuestas algorítmicas que permiten generar soluciones activas. En estas propuestas, hay que establecer un modo de elegir entre diferentes operaciones, para lo que se suele usar algún criterio de selección fijo, conocido como regla de prioridad. Esta regla puede ser elegir a la operación más corta o a la que pertenezca al trabajo más largo o incluso puede elegirse una al azar.\\
 %
 Para decodificar la solución a partir de la regla de prioridad normalmente se utiliza el algoritmo de Giffler \& Thompson \cite{Giffler1960} con el cual se generan 
 soluciones activas. A continuación se presenta este algoritmo.
@@ -102,7 +102,7 @@ Este proceso continua de acuerdo al algoritmo \ref{alg:GT} hasta que todas las o
 
 \subsection{Construcción de soluciones activas a partir de no activas}
 
-Realizar una búsqueda a partir de soluciones activas tiene la ventajas de moverse entre soluciones con una calidad media
+Realizar una búsqueda a partir de soluciones activas tiene la ventaja de moverse entre soluciones con una calidad media
 superior.
 %
 Sin embargo, el proceso de generar las soluciones es costoso, por lo que tiene el inconveniente de analizar una menor
@@ -114,7 +114,6 @@ ventajoso.
 Con este fin, de diseñó una forma para movernos movernos entre soluciones de ambas representaciones, en concreto, para
 generar una solución activa y su representación basada en llaves, a partir de una solución previa representada por una permutación que no tiene que ser activa. 
 
-%TODO: cambiar y directamente hablar de las permutaciones tal y como se hizo en el capítulo 2.
 Para hallar la representación de alguna solución representada por una permutación se le asigna a cada operación una prioridad decreciente acuerdo a su posición de forma que se cumpla:
 \[k(O_i)>k(O_{i+1})\]
 \[\text{donde }O_i\text{ es la operación número $i$ en la representación basada en permutaciones}\]

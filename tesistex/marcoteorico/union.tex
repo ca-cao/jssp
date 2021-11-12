@@ -78,8 +78,8 @@ Esta vecindad puede verse como un refinamiento y extensión de la N4 por lo que 
 \end{itemize}
 
 Las vecindades antes presentadas se han centrado en operaciones que pertenecen a la ruta crítica, esto les confiere las siguientes ventajas: la vecindad resultante es 
-suficientemente pequeña como para ser explorada en su totalidad, para deducir el makespan de una planificación necesariamente deben hacerse cambios en la ruta crítica 
-y puede garantizarse que cualquier vecino representa una solución factible~\cite{balas1969machine}.
+suficientemente pequeña como para ser explorada en su totalidad, para reducir el makespan de una planificación necesariamente deben hacerse cambios en la ruta crítica 
+y en algunas de ellas puede garantizarse que cualquier vecino representa una solución factible~\cite{balas1969machine}.
 
 %%TODO: Este párrafo quizás sobra o hay que buscar otro sitio donde colocarlo
 %La literatura reciente se ha centrado en hacer los algoritmos existentes más eficientes dejando un poco de lado la parte de la representación o de la función de fitness. 
@@ -105,7 +105,7 @@ y
 Los costos asociados a cada uno de los tiempos de finalización de los trabajos pueden tomar muchas formas, por ejemplo pueden introducirse pesos para cada 
 trabajo o fijar tiempos de finalización esperado para cada trabajo y medir la desviación de ellos.
 %
-Dependiendo del problema en sí, puede ser que se le de más o menos valor a distintos aspectos de la planificación como el tiempo que están detenidas las máquinas, 
+Dependiendo del problema en sí, puede ser que se le dé más o menos valor a distintos aspectos de la planificación como el tiempo que están detenidas las máquinas, 
 o el tiempo que tarda un trabajo en particular. 
 %
 El makespan se ha usado ampliamente como criterio de optimalidad porque está muy relacionado con los costos económicos de la planificación~\cite{Rand1977}.
@@ -122,7 +122,7 @@ A la hora de analizar las características del paisaje de búsqueda ante diferen
 \textit{fácil-difícil-fácil}~\cite{mammen1997new}, es decir, que para valores muy pequeños o grandes de ciertos parámetros el problema es fácil, y existen ciertos valores
 intermedios, para los que el problema se hace difícil.
 
-Para el caso particular del JSP se han realizado estudios con instancias pequeñas en los que se puede construir explícitamente todo el paisaje, i. e. se puede evaluar y 
+Para el caso particular del JSP se han realizado estudios con instancias pequeñas en los que se puede construir explícitamente todo el paisaje, i.e. se puede evaluar y 
 construir la vecindad correspondiente a todas las soluciones. 
 %
 Con este paisaje construido pueden medirse cantidades de interés como la similitud entre óptimos locales o globales o el número de vecinos, entre otros, lo que da
@@ -146,7 +146,7 @@ Otro factor que afecta el proceso de búsqueda local es que en general se ha enc
 %
 Este último hecho puede ser tanto benéfico como perjudicial dependiendo si las soluciones altamente conectadas son de buena o mala calidad. 
 
-Estas características explican en parte por qué los métodos basados en búsqueda local como la búsqueda tabú \ref{alg:TS} combinados con métodos sofisticados de exploración 
+Estas características explican en parte por qué los métodos basados en búsqueda local, como la búsqueda tabú, combinados con métodos sofisticados de exploración 
 han tenido tan buenos resultados~\cite{watson2003problem}. 
 %
 Puede ser que las soluciones que estén más conectadas a otras sean de baja calidad y sea necesario evitar ser <<atraídos>> hacia ellas para llegar a soluciones de mejor calidad. 
